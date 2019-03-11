@@ -10,4 +10,9 @@ public class HomeController {
     public String login(){
         return "login.jsp";
     }
+    
+    @RequestMapping("/userProfile")
+    public String userProfile() {
+    	return "userProfile.jsp";
+    }
 }
