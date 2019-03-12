@@ -48,8 +48,7 @@ public class DBConn {
             boolean emailVerify = false;
             if(rs.getString("emailverify").equals("1"))    emailVerify = true;
             String phone_number = null;
-            if(rs.getString("phone_number") != null)    phone_number = phone_number=rs.getString("phone_number");
-
+            if(rs.getString("phone_number") != null)    phone_number = rs.getString("phone_number");
             return new UserInfo(Integer.parseInt(rs.getString("userid")), rs.getString("name"), rs.getString("lastname"),
                         emailVerify, phone_number, Integer.parseInt(rs.getString("userdegree")));
 
