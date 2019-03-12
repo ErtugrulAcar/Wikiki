@@ -1,5 +1,6 @@
+<%@ page import="com.aydin.demo.teambravowiki.model.UserInfo" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+         pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,10 +67,13 @@
                           
     <img id="jpg1"src="img/img-profile.jpg" class="img-responsive" alt=""/>
 </div>
+                    <%
+                        UserInfo userInfo = (UserInfo)session.getAttribute("userInfo");
+                        System.out.println(userInfo.getLastName());
+                    %>
                     <div class="content">
                         <h1>
-                            <!-- NAME IS HERE  -->
-                            NAME SURNAME
+                           <%= userInfo.getName() +" "+ userInfo.getLastName()%>
                         </h1>
                         <span class="lead">
                             <!-- AUTHORITY IS HERE  -->

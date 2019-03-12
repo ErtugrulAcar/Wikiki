@@ -22,7 +22,9 @@ public class UserResource {
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public UserInfo getUserInfo(@PathParam("userId") int userId){
-        return dbconn.getUserInfo(userId);
+        UserInfo userinfo =  dbconn.getUserInfo(userId);
+        System.out.println(userinfo.getLastName());
+        return userinfo;
     }
 
 }
