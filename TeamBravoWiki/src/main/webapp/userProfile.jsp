@@ -50,6 +50,21 @@
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
 
+        <!--NAVBAR-->
+        <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="#">WIKIKI</a>
+                  </div>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Page 1</a></li>
+                    <li><a href="#">Page 2</a></li>
+                    <li><a href="#">Page 3</a></li>
+                  </ul>
+                </div>
+              </nav>
+
 
     <div id="main-wrapper">
         <!-- Page Preloader -->
@@ -194,7 +209,7 @@
                                             <address>
                                                 <strong>Address</strong><br>
                                                 Emek Mahallesi, Biskek Cd. No:1, 06490<br />
-                                                Çankaya/Yenimahalle/Ankara
+                                                ï¿½ankaya/Yenimahalle/Ankara
 
                                             </address>
                                             <address>
