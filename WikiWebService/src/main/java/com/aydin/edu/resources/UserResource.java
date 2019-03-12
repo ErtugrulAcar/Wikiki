@@ -1,6 +1,7 @@
 package com.aydin.edu.resources;
 
 import com.aydin.edu.dbconnection.DBConn;
+import com.aydin.edu.model.UserInfo;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -15,6 +16,13 @@ public class UserResource {
     public String authentication(@HeaderParam("email") String email, @HeaderParam("password") String password){
         if(dbconn.authenticator(email, password)) return "Giris onaylandı";
         else return "Hatalı sifre veya parola";
+    }
+
+    @Path("/{userId}")
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public UserInfo getUserInfo(@PathParam("userId") int userId){
+        return dbconn.getUserInfo(userId);
     }
 
 }

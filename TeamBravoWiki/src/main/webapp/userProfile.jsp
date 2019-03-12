@@ -75,11 +75,7 @@
                             <!-- AUTHORITY IS HERE  -->
                             READER
                         </span>
-                        <div class="about-text">
-                            <p>
-                                <!-- AUTHORITY IS HERE  -->
-                            </p>
-                        </div>
+
                         <ul class="social-icon">
                             <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>

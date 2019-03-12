@@ -1,6 +1,9 @@
 package com.aydin.edu.dbconnection;
 
+import com.aydin.edu.model.UserInfo;
+
 import java.sql.*;
+import java.util.List;
 
 public class DBConn {
     private static String serverID;
@@ -30,9 +33,30 @@ public class DBConn {
                 return true;
             }
         }catch(Exception e){
-            System.out.println("Have a problem while authentication " + e.getLocalizedMessage());
+            System.out.println("Have a problem with authentication " + e.getLocalizedMessage());
         }
         return false;
+    }
+
+    public UserInfo getUserInfo(int userid){
+        try{
+            ps = con.prepareStatement("select * from wikidb.userinfo where userid = ?");
+            ps.setInt(1, userid);
+            rs = ps.executeQuery();
+            rs.next();
+
+            boolean emailVerify = false;
+            if(rs.getString("emailverify").equals("1"))    emailVerify = true;
+            String phone_number = null;
+            if(rs.getString("phone_number") != null)    phone_number = phone_number=rs.getString("phone_number");
+
+            return new UserInfo(Integer.parseInt(rs.getString("userid")), rs.getString("name"), rs.getString("lastname"),
+                        emailVerify, phone_number, Integer.parseInt(rs.getString("userdegree")));
+
+        }catch(SQLException e){
+            System.out.println("Have a problem while getting UserInfo " + e.getLocalizedMessage());
+        }
+        return null;
     }
 }
 
