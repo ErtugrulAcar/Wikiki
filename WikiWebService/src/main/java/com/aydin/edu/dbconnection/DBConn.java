@@ -1,10 +1,7 @@
 package com.aydin.edu.dbconnection;
 
-import com.aydin.edu.model.UserInfo;
-
 import java.sql.*;
-import java.util.List;
-
+import com.aydin.edu.model.UserInfo;
 public class DBConn {
     private static String serverID;
     private static String serverPassword;

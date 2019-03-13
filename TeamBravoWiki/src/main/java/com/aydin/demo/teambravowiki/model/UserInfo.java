@@ -6,19 +6,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class UserInfo {
     private int userId;
     private String name;
-    private String lastName;
-    private boolean verify;
-    private String phoneNumber;
+    private String lastname;
+    private boolean emailverify;
+    private String phone_number;
     private int userDegree;
 
     public UserInfo(){}
-
-    public UserInfo(int userId, String name, String lastName, boolean verify, String phoneNumber, int userDegree){
+    public UserInfo(int userId, String name, String lastname, boolean emailverify, String phone_number, int userDegree) {
         this.userId = userId;
         this.name = name;
-        this.lastName = lastName;
-        this.verify = verify;
-        this.phoneNumber = phoneNumber;
+        this.lastname = lastname;
+        this.emailverify = emailverify;
+        this.phone_number = phone_number;
         this.userDegree = userDegree;
     }
 
@@ -38,28 +37,28 @@ public class UserInfo {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
     public void setLastname(String lastname) {
-        this.lastName = lastname;
+        this.lastname = lastname;
     }
 
-    public boolean isVerify() {
-        return verify;
+    public boolean isEmailverify() {
+        return emailverify;
     }
 
-    public void setVerify(boolean verify) {
-        this.verify = verify;
+    public void setEmailverify(boolean emailverify) {
+        this.emailverify = emailverify;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     public int getUserDegree() {

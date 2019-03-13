@@ -18,13 +18,13 @@ public class UserResource {
         else return "Hatalı sifre veya parola";
     }
 
-    @Path("/{userId}")
     @GET
-    @Produces(MediaType.APPLICATION_XML)
+    @Path("/{userId}")
+    @Produces(MediaType.APPLICATION_JSON)
     public UserInfo getUserInfo(@PathParam("userId") int userId){
-        UserInfo userinfo =  dbconn.getUserInfo(userId);
-        System.out.println(userinfo.getLastName());
-        return userinfo;
+        return dbconn.getUserInfo(userId);   
     }
+
+
 
 }

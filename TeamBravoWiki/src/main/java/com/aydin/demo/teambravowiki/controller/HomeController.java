@@ -1,13 +1,11 @@
 package com.aydin.demo.teambravowiki.controller;
 
 
-import com.aydin.demo.teambravowiki.model.UserInfo;
-
 import com.aydin.demo.teambravowiki.webservice.client.UserProfileClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import com.aydin.demo.teambravowiki.model.UserInfo;
 import javax.servlet.http.HttpSession;
 
 

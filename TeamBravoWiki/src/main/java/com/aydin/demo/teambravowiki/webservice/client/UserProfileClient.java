@@ -1,10 +1,9 @@
 package com.aydin.demo.teambravowiki.webservice.client;
 
-import com.aydin.demo.teambravowiki.model.UserInfo;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
-
+import com.aydin.demo.teambravowiki.model.UserInfo;
 public class UserProfileClient {
 
     public UserInfo getUserInfo(int userId){
@@ -12,7 +11,7 @@ public class UserProfileClient {
             Client client = Client.create();
             WebResource webResource = client.resource("http://localhost:8084/WikiWebService/webapi/user").path(Integer.toString(userId));
             System.out.println(webResource);
-            ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
+            ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);
             if(response.getStatus() != 200){
                 throw new RuntimeException("Failed : HTTP error code " + response.getStatus());
             }
