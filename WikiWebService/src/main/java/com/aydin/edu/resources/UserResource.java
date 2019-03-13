@@ -20,7 +20,7 @@ public class UserResource {
 
     @GET
     @Path("/{userId}")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_XML)
     public UserInfo getUserInfo(@PathParam("userId") int userId){
         return dbconn.getUserInfo(userId);   
     }

@@ -83,12 +83,13 @@
     <img id="jpg1"src="img/img-profile.jpg" class="img-responsive" alt=""/>
 </div>
                     <%
-                        UserInfo userInfo = (UserInfo)session.getAttribute("userInfo");
-                        System.out.println(userInfo.getLastName());
+                        UserInfo userInfo = (UserInfo) session.getAttribute("userInfo");
+
                     %>
+
                     <div class="content">
                         <h1>
-                           <%= userInfo.getName() +" "+ userInfo.getLastName()%>
+                            <%= userInfo.getName() + " " + userInfo.getLastname()%>
                         </h1>
                         <span class="lead">
                             <!-- AUTHORITY IS HERE  -->

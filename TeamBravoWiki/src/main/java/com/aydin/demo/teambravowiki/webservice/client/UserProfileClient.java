@@ -11,7 +11,7 @@ public class UserProfileClient {
             Client client = Client.create();
             WebResource webResource = client.resource("http://localhost:8084/WikiWebService/webapi/user").path(Integer.toString(userId));
             System.out.println(webResource);
-            ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);
+            ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
             if(response.getStatus() != 200){
                 throw new RuntimeException("Failed : HTTP error code " + response.getStatus());
             }
