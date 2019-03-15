@@ -26,7 +26,8 @@
 
     <!-- Style CSS -->
     <link href="css/style.css" rel="stylesheet">
-
+    <script src="script/my_js.js"></script>
+    <link href="css/elements.css" rel="stylesheet">
     <style>
         #jpg1 {
             height: 200px;
@@ -99,6 +100,7 @@
                     <div class="content">
                         <h1>
                             <%= userInfo.getName() + " " + userInfo.getLastname()%>
+
                         </h1>
                         <span class="lead">
                             <!-- AUTHORITY IS HERE  -->
@@ -110,6 +112,12 @@
                             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li>
+                                <a>
+                                    <input type='image' src='img/editIcon.png' style="height:26px; width:26px;
+                            margin-bottom:-10px;padding-left:1px; padding-bottom:2px;" value='' onclick="div_show()" />
+                                </a>
+                            </li>
 
                         </ul>
                         <nav id="myScrollspy">
@@ -272,6 +280,25 @@
         </div>
         <!-- .columns-block -->
     </div>
+    <div id="abc">
+        <div id="popupContact">
+            <!-- Contact Us Form -->
+            <div class="form-style-2">
+                <div class="form-style-2-heading">Edit your information</div>
+                <form action="" method="post" name="form">
+                    <img id="close" src="img/closeIcon.png" onclick="div_hide()" style="height:24px;width:24px;">
+                    <label for="field1"><span>Facebook</span><input type="text" class="input-field" name="name" value="" /></label>
+                    <label for="field2"><span>Twitter</span><input type="text" class="input-field" name="field2" value="" /></label>
+                    <label for="field3"><span>Instagram</span><input type="text" class="input-field" name="field3" value="" /></label>
+                    <label for="field4"><span>LinkedIn</span><input type="text" class="input-field" name="field4" value="" /></label>
+
+
+
+                    <label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
+                </form>
+            </div>
+        </div>
+    </div>
     <!-- #main-wrapper -->
     <!-- jquery -->
     <script src="script/jquery-2.1.4.min.js"></script>
@@ -280,5 +307,6 @@
     <script src="script/bootstrap.min.js"></script>
     <script src="script/theia-sticky-sidebar.js"></script>
     <script src="script/scripts.js"></script>
+
 </body>
 </html>
