@@ -150,7 +150,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="expertise-item">
-                                            <h2>WELCOME <!-- NAME IS HERE  -->NAME SURNAME</h2>
+                                            <h2>WELCOME <%= userInfo.getName() + " " + userInfo.getLastname()%></h2>
                                             <p>
                                                 You can see about your personal information is here.
                                             </p>
