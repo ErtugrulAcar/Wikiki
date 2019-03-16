@@ -26,11 +26,10 @@ public class HomeController {
     public String authenticator(HttpServletRequest request){
         String userid = userProfileClient.authentication(request.getParameter("email"), request.getParameter("password"));
         if(!userid.equals("0")){
-            System.out.println("Welcome user");
             return "redirect:/userProfile" + userid;
         }
         System.out.println("Not a user");
-        return "login.jsp";
+        return "redirect:/login";
     }
 
     @RequestMapping("/userProfile{userId}")
