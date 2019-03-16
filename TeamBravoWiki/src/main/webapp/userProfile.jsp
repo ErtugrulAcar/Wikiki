@@ -1,6 +1,6 @@
 ﻿<%@ page import="com.aydin.demo.teambravowiki.model.UserInfo" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -280,7 +280,7 @@
         </div>
         <!-- .columns-block -->
     </div>
-    <div id="abc">
+    <div id="abc" onclick="div_hide()">
         <div id="popupContact">
             <!-- Contact Us Form -->
             <div class="form-style-2">
