@@ -280,7 +280,7 @@
         </div>
         <!-- .columns-block -->
     </div>
-    <div id="abc">
+    <div id="abc" onclick="div_hide()">
         <div id="popupContact">
             <!-- Contact Us Form -->
             <div class="form-style-2">
