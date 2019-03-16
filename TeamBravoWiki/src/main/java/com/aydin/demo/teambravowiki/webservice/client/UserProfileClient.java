@@ -9,7 +9,7 @@ public class UserProfileClient {
     public UserInfo getUserInfo(int userId){
         try{
             Client client = Client.create();
-            WebResource webResource = client.resource("http://localhost:8084/WikiWebService/webapi/user").path(Integer.toString(userId));
+            WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/user").path(Integer.toString(userId));
             System.out.println(webResource);
             ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
             if(response.getStatus() != 200){
