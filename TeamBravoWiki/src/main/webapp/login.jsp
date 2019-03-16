@@ -14,7 +14,7 @@
         <h2><img src="img/wiki2logo.jpg" class="w-50"></h2>
             <div class="nav border d-flex justify-content-center py-4 mt-1">
                 <div class = "d-block w-75">
-                    <form action="loggedIn">
+                    <form action="/authentication" method="post">
                         <span style="font-family: 'Comic Sans MS'; font-size: medium;">E-Mail</span>
                         <input type="text" name="email" style="width:100%;" class="my-2">
                         <span style="font-family: 'Comic Sans MS'; font-size: medium;">Password</span><br>
