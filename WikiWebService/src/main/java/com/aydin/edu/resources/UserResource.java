@@ -11,11 +11,10 @@ public class UserResource {
 
     DBConn dbconn = new DBConn("teambravo", "teambravo123");
     @Path("/authentication")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @POST
     public String authentication(@HeaderParam("email") String email, @HeaderParam("password") String password){
-        if(dbconn.authenticator(email, password)) return "Giris onaylandı";
-        else return "Hatalı sifre veya parola";
+        return dbconn.authenticator(email, password);
     }
 
     @GET

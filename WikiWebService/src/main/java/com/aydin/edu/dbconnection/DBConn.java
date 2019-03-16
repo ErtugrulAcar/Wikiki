@@ -20,19 +20,19 @@ public class DBConn {
             System.out.println("Have a problem while connecting DB Server :" + e.getLocalizedMessage());
         }
     }
-    public boolean authenticator(String email, String password){
+    public String authenticator(String email, String password){
         try{
             ps = con.prepareStatement("select userid from wikidb.userpassword where email=? and password=?");
             ps.setString(1, email);
             ps.setString(2, password);
             rs = ps.executeQuery();
             if(rs.next()){
-                return true;
+                return rs.getString("userid");
             }
         }catch(Exception e){
             System.out.println("Have a problem with authentication " + e.getLocalizedMessage());
         }
-        return false;
+        return "0";
     }
 
     public UserInfo getUserInfo(int userid){
