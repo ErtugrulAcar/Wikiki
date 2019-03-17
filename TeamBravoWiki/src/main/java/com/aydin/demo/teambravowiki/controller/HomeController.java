@@ -17,15 +17,25 @@ import javax.servlet.http.HttpSession;
 public class HomeController {
     private UserProfileClient userProfileClient = new UserProfileClient();
     private UserInfo userInfo;
-    @RequestMapping("/*")
-    public String login(){
-        return "login.jsp";
+    @RequestMapping("/login")
+    public String login(HttpServletRequest request){
+        HttpSession session = request.getSession();
+
+        if(session.getAttribute("userId") == null)
+            return "login.jsp";
+        String userId = session.getAttribute("userId").toString();
+        System.out.println(userId);
+        int intUserId = Integer.parseInt(userId);
+        return "userProfile"+intUserId;
     }
 
     @PostMapping("/authentication")
     public String authenticator(HttpServletRequest request){
         String userid = userProfileClient.authentication(request.getParameter("email"), request.getParameter("password"));
         if(!userid.equals("0")){
+            HttpSession session = request.getSession();
+            session.setAttribute("userId",userid );
+            System.out.println("userId"  + session.getAttribute("userId"));
             return "redirect:/userProfile" + userid;
         }
         System.out.println("Not a user");
