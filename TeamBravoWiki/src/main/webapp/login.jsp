@@ -11,7 +11,7 @@
 <body style="margin-top: 5%">
 <center>
     <div class="w-25">
-        <h2><img src="img/wiki2logo.jpg" class="w-50"></h2>
+        <h2><img src="img/wiki2logo.png" class="w-50"></h2>
             <div class="nav border d-flex justify-content-center py-4 mt-1">
                 <div class = "d-block w-75">
                     <form action="/authentication" method="post">

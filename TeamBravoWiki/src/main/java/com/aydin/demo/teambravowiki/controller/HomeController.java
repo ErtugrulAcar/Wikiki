@@ -20,13 +20,15 @@ public class HomeController {
     @RequestMapping("/login")
     public String login(HttpServletRequest request){
         HttpSession session = request.getSession();
+        if(session.getAttribute("userId") == null){
+            return "/login.jsp";
+        }
+        else{
+            String userId = session.getAttribute("userId").toString();
+            int intUserId = Integer.parseInt(userId);
+            return "userProfile" + intUserId;
+        }
 
-        if(session.getAttribute("userId") == null)
-            return "login.jsp";
-        String userId = session.getAttribute("userId").toString();
-        System.out.println(userId);
-        int intUserId = Integer.parseInt(userId);
-        return "userProfile"+intUserId;
     }
 
     @PostMapping("/authentication")
