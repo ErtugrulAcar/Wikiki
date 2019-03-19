@@ -2,6 +2,8 @@ package com.aydin.edu.dbconnection;
 
 import java.sql.*;
 import com.aydin.edu.model.UserInfo;
+import com.aydin.edu.model.UserPageContext;
+
 public class DBConn {
     private static String serverID;
     private static String serverPassword;
@@ -51,6 +53,19 @@ public class DBConn {
 
         }catch(SQLException e){
             System.out.println("Have a problem while getting UserInfo " + e.getLocalizedMessage());
+        }
+        return null;
+    }
+    public UserPageContext getUserPageContext(int userid){
+        try{
+            ps = con.prepareStatement("select * from wikidb.userpage where userid = ?");
+            ps.setInt(1, userid);
+            rs = ps.executeQuery();
+            rs.next();
+            return new UserPageContext(Integer.parseInt(rs.getString("pageid")), Integer.parseInt(rs.getString("userid")),
+                    rs.getString("userbio"), rs.getString("userinterest"));
+        }catch(SQLException e){
+            System.out.println("Have a problem while getting UserPageContext " + e.getLocalizedMessage());
         }
         return null;
     }

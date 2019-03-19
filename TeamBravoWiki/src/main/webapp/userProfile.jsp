@@ -1,4 +1,6 @@
 ﻿<%@ page import="com.aydin.demo.teambravowiki.model.UserInfo" %>
+<%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserProfileClient" %>
+<%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -93,8 +95,10 @@
                         <img id="jpg1" src="img/img-profile.jpg" class="img-responsive" alt="" />
                     </div>
                     <%
-                    UserInfo userInfo = (UserInfo) session.getAttribute("userInfo");
-
+                        UserInfo userInfo = (UserInfo) session.getAttribute("userInfo");
+                        UserProfileClient userProfileClient = new UserProfileClient();
+                        UserPageContext userPageContext = userProfileClient.getPageContext(2);
+                        System.out.println("url : " +   request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")));
                     %>
 
                     <div class="content">
@@ -152,7 +156,7 @@
                                         <div class="expertise-item">
                                             <h2>WELCOME <%= userInfo.getName() + " " + userInfo.getLastname()%></h2>
                                             <p>
-                                                You can see about your personal information is here.
+                                                <%=userPageContext.getUserbio()%>
                                             </p>
                                         </div>
                                     </div>
@@ -177,12 +181,10 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="content-item">
-                                            <h3>Books</h3>
+                                            <h3>Programming Languages</h3>
 
                                             <p>
-                                                Proactively extend market-driven e-tailers rather than enterprise-wide supply chains.
-                                                Collaboratively embrace 24/7 processes rather than adaptive users. Seamlessly monetize
-                                                alternative e-business.
+                                                <%=userPageContext.getUserinterest()%>
                                             </p>
                                         </div>
                                         <div class="content-item">
