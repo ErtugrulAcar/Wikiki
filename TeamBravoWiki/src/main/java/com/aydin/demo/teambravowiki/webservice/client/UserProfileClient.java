@@ -43,21 +43,5 @@ public class UserProfileClient {
         }
         return null;
     }
-    public UserPageContext getPageContext(int userid){
-        try{
-            Client client = Client.create();
-            WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/page").path(Integer.toString(userid));
-            System.out.println(webResource);
-            ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
-            if(response.getStatus() != 200){
-                throw new RuntimeException("Failed : HTTP error code " + response.getStatus());
-            }
-            client.destroy();
-            return response.getEntity(UserPageContext.class);
-        }catch(Exception e){
-            System.out.println("Have a problem with userpage context " + e.getLocalizedMessage());
-        }
-        return null;
-    }
 
 }

@@ -94,21 +94,18 @@
 
                         <img id="jpg1" src="img/img-profile.jpg" class="img-responsive" alt="" />
                     </div>
+
+                    <!-- Sayfanın içeriği burada session dan cekiliyor -->
                     <%
-                        UserInfo userInfo = (UserInfo) session.getAttribute("userInfo");
-                        UserProfileClient userProfileClient = new UserProfileClient();
-                        UserPageContext userPageContext = userProfileClient.getPageContext(2);
-                        System.out.println("url : " +   request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")));
+                        UserPageContext userPageContext = (UserPageContext) session.getAttribute("requestedUserProfile");
                     %>
 
                     <div class="content">
                         <h1>
-                            <%= userInfo.getName() + " " + userInfo.getLastname()%>
-
+                            <%=userPageContext.getUsername() + " " + userPageContext.getUserlastname()%>
                         </h1>
                         <span class="lead">
-                            <!-- AUTHORITY IS HERE  -->
-                            READER
+                           <%=userPageContext.getUserdegree().toUpperCase()%>
                         </span>
 
                         <ul class="social-icon">
@@ -126,9 +123,9 @@
                         </ul>
                         <nav id="myScrollspy">
                             <ul id="ulbackground" class="nav nav-pills nav-stacked">
-                                <li><a href="#section1">PROFILE</a></li>
-                                <li><a href="#section2">INTEREST</a></li>
-                                <li><a href="#section3">CONTACT</a></li>
+                                <li><a href="#section1">Kullanici Biyografisi</a></li>
+                                <li><a href="#section2">Ilgi Alanlari</a></li>
+                                <li><a href="#section3">Kullanici Bilgileri</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -145,7 +142,7 @@
 
                                     <div class="col-md-12">
                                         <div class="section-title">
-                                            <h2>PROFILE</h2>
+                                            <h2>Kullanici Biyografisi</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -154,10 +151,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="expertise-item">
-                                            <h2>WELCOME <%= userInfo.getName() + " " + userInfo.getLastname()%></h2>
-                                            <p>
-                                                <%=userPageContext.getUserbio()%>
-                                            </p>
+                                            <%=userPageContext.getUserbio()%>
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +166,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="section-title">
-                                            <h2>Interest</h2>
+                                            <h2>Ilgi Alanlari</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -181,30 +175,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="content-item">
-                                            <h3>Programming Languages</h3>
-
-                                            <p>
-                                                <%=userPageContext.getUserinterest()%>
-                                            </p>
-                                        </div>
-                                        <div class="content-item">
-                                            <h3>Sports</h3>
-
-                                            <p>
-                                                Assertively grow optimal methodologies after viral technologies. Appropriately develop
-                                                frictionless technology for adaptive functionalities. Competently iterate functionalized
-                                                networks for best-of-breed services.
-                                            </p>
-
-                                        </div>
-                                        <div class="content-item">
-                                            <h3>Art</h3>
-
-                                            <p>
-                                                Dramatically utilize superior infomediaries whereas functional core competencies.
-                                                Enthusiastically repurpose synergistic vortals for customer directed portals. Interactively
-                                                pursue sustainable leadership via.
-                                            </p>
+                                            <%=userPageContext.getUserinterest()%>
                                         </div>
                                     </div>
                                 </div>
@@ -220,34 +191,22 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="section-title">
-                                            <h2>Contact</h2>
+                                            <h2>Kullanici Bilgileri</h2>
                                         </div>
                                     </div>
                                 </div>
                                 <!--.row-->
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <address>
-                                            <strong>Address</strong><br>
-                                            Emek Mahallesi, Biskek Cd. No:1, 06490<br />
-                                            Cankaya/Yenimahalle/Ankara
-
-                                        </address>
-                                        <address>
-                                            <strong>Phone Number</strong><br>
-                                            (0312) 525 55 55
-                                        </address>
-
-                                        <address>
-                                            <strong>Mobile Number</strong><br>
-                                            (0532) 525 55 55
-                                        </address>
-
-
-                                        <address>
-                                            <strong>Email</strong><br>
-                                            <a href="mailto:#">ankara@info.com</a>
-                                        </address>
+                                        <h2>E-posta</h2>
+                                        <%=userPageContext.getEmail()%>
+                                        <h2>Telefon Numarasi</h2>
+                                        <%
+                                            if(userPageContext.getPhonenumber() == null){
+                                                userPageContext.setPhonenumber("-");
+                                            }
+                                        %>
+                                        <%=userPageContext.getPhonenumber()%>
                                     </div>
                                 </div>
                                 <!--.row-->

@@ -9,7 +9,7 @@ public class DBConn {
     private static String serverPassword;
     private static Connection con;
     private static PreparedStatement ps;
-    private static ResultSet rs, rs2;
+    private static ResultSet rs, rs2, rs3, rs4;
 
     public DBConn(String serverID,String serverPassword) {
         this.serverID = serverID;
@@ -58,12 +58,26 @@ public class DBConn {
     }
     public UserPageContext getUserPageContext(int userid){
         try{
-            ps = con.prepareStatement("select * from wikidb.userpage where userid = ?");
+            ps = con.prepareStatement("select * from wikidb.userinfo where userid = ?");
             ps.setInt(1, userid);
             rs = ps.executeQuery();
             rs.next();
-            return new UserPageContext(Integer.parseInt(rs.getString("pageid")), Integer.parseInt(rs.getString("userid")),
-                    rs.getString("userbio"), rs.getString("userinterest"));
+            ps = con.prepareStatement("select * from wikidb.userpassword where userid= ?");
+            ps.setInt(1, userid);
+            rs2 = ps.executeQuery();
+            rs2.next();
+            ps=con.prepareStatement("select * from wikidb.userpage where userid= ?");
+            ps.setInt(1, userid);
+            rs3 = ps.executeQuery();
+            rs3.next();
+            ps = con.prepareStatement("select degreename from wikidb.degreeinfo where degreeid in (select userdegree from wikidb.userinfo where userid = ?)");
+            ps.setInt(1, userid);
+            rs4 = ps.executeQuery();
+            rs4.next();
+            return new UserPageContext(Integer.parseInt(rs.getString("userid")), rs.getString("name"),
+                    rs.getString("lastname"), rs2.getString("email"),
+                    rs3.getString("userbio"), rs3.getString("userinterest"),
+                    rs4.getString("degreename"), rs.getString("phone_number"));
         }catch(SQLException e){
             System.out.println("Have a problem while getting UserPageContext " + e.getLocalizedMessage());
         }

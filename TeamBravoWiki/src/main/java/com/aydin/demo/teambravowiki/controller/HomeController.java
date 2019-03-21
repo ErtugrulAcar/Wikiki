@@ -1,6 +1,8 @@
 package com.aydin.demo.teambravowiki.controller;
 
 
+import com.aydin.demo.teambravowiki.model.UserPageContext;
+import com.aydin.demo.teambravowiki.webservice.client.UserPageClient;
 import com.aydin.demo.teambravowiki.webservice.client.UserProfileClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class HomeController {
     private UserProfileClient userProfileClient = new UserProfileClient();
+    private UserPageClient userPageClient = new UserPageClient();
     private UserInfo userInfo;
     @RequestMapping("/login")
     public String login(HttpServletRequest request){
@@ -26,7 +29,7 @@ public class HomeController {
         else{
             String userId = session.getAttribute("userId").toString();
             int intUserId = Integer.parseInt(userId);
-            return "userProfile" + intUserId;
+            return "/userProfile" + intUserId;
         }
 
     }
@@ -37,17 +40,14 @@ public class HomeController {
         if(!userid.equals("0")){
             HttpSession session = request.getSession();
             session.setAttribute("userId",userid );
-            System.out.println("userId"  + session.getAttribute("userId"));
-            return "redirect:/userProfile" + userid;
+            return "homepage.jsp";
         }
-        System.out.println("Not a user");
         return "redirect:/login";
     }
 
     @RequestMapping("/userProfile{userId}")
     public String userProfile(@PathVariable("userId") int userId, HttpSession session) {
-        userInfo = userProfileClient.getUserInfo(userId);
-        session.setAttribute("userInfo", userInfo);
+        session.setAttribute("requestedUserProfile", userPageClient.getPageContext(userId));
         return "userProfile.jsp";
     }
 }
