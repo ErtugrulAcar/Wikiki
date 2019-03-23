@@ -77,7 +77,8 @@ public class DBConn {
             return new UserPageContext(Integer.parseInt(rs.getString("userid")), rs.getString("name"),
                     rs.getString("lastname"), rs2.getString("email"),
                     rs3.getString("userbio"), rs3.getString("userinterest"),
-                    rs4.getString("degreename"), rs.getString("phone_number"));
+                    rs4.getString("degreename"), rs.getString("phone_number"), rs3.getString("facebook_link"), rs3.getString("twitter_link"),
+                    rs3.getString("instagram_link"), rs3.getString("linkedIn_link"));
         }catch(SQLException e){
             System.out.println("Have a problem while getting UserPageContext " + e.getLocalizedMessage());
         }

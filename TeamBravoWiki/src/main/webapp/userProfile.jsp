@@ -109,10 +109,10 @@
                         </span>
 
                         <ul class="social-icon">
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="<%=userPageContext.getFacebook_link()%>"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="<%=userPageContext.getTwitter_link()%>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="<%=userPageContext.getInstagram_link()%>"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="<%=userPageContext.getLinkedIn_link()%>"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                             <li>
                                 <a>
                                     <input type='image' src='img/editIcon.png' style="height:26px; width:26px;

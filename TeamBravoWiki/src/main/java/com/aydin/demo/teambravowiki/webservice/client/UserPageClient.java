@@ -9,7 +9,7 @@ public class UserPageClient {
     public UserPageContext getPageContext(int userid){
         try{
             Client client = Client.create();
-            WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/page").path(Integer.toString(userid));
+            WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/page/user").path(Integer.toString(userid));
             System.out.println(webResource);
             ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
             if(response.getStatus() != 200){
