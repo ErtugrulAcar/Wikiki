@@ -75,7 +75,7 @@
                   </div>
                   <ul class="nav navbar-nav">
                     <li class="active"><a href="homepage.html">Home</a></li>
-                    <li><a href="pagewiki.html">Page 1</a></li>
+                    <li><a href="wikiPage.jsp">Page 1</a></li>
                     <li><a href="#">Page 2</a></li>
                     <li><a href="#">Page 3</a></li>
                   </ul>
@@ -108,9 +108,9 @@
                                 <div class="row" style="">
                                     <div class="col-md-12" >
                                         <div class="section-title" style="float: left; margin-left: 7%;" >
-                                            <a href="pagewiki.html"><img src="img/anasayfaimg.png" alt="" style="border-radius: 20px; height:320px;"></a>                                   
+                                            <a href="wikiPage.jsp"><img src="img/anasayfaimg.png" alt="" style="border-radius: 20px; height:320px;"></a>
                                         </div>
-                                       <a href="pagewiki.html"><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a> 
+                                       <a href="wikiPage.jsp"><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
                                        <a href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>                                        
                                        <a href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
                                        <a href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>

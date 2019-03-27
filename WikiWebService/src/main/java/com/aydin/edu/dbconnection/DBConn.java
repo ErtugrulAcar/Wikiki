@@ -3,6 +3,9 @@ package com.aydin.edu.dbconnection;
 import java.sql.*;
 import com.aydin.edu.model.UserInfo;
 import com.aydin.edu.model.UserPageContext;
+import com.aydin.edu.model.WikiPageContent;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class DBConn {
     private static String serverID;
@@ -10,7 +13,7 @@ public class DBConn {
     private static Connection con;
     private static PreparedStatement ps;
     private static ResultSet rs, rs2, rs3, rs4;
-
+    private static JsonParser jsonParser;
     public DBConn(String serverID,String serverPassword) {
         this.serverID = serverID;
         this.serverPassword = serverPassword;
@@ -84,6 +87,24 @@ public class DBConn {
         }
         return null;
     }
+    public WikiPageContent getWikiPageContext(int wikipageid){
+        try{
+            ps = con.prepareStatement("select * from wikidb.wikipage where wiki_page_id = ?");
+            ps.setInt(1, wikipageid);
+            rs = ps.executeQuery();
+            rs.next();
+            jsonParser = new JsonParser();
+            /*return  new WikiPageContent(jsonParser.parse(rs.getString("wiki_page_header_content")).getAsJsonObject(),
+                    jsonParser.parse(rs.getString("wiki_page_content")).getAsJsonObject());
+            */
+            return new WikiPageContent(jsonParser.parse(rs.getString("wiki_page_header_content")).getAsJsonObject().toString(),
+                    jsonParser.parse(rs.getString("wiki_page_content")).getAsJsonObject().toString());
+        }catch(SQLException e){
+            System.out.println("Have a problem while getting WikiPageContext : " + e.getLocalizedMessage());
+        }
+        return null;
+    }
+
 }
 
 
