@@ -17,7 +17,6 @@ public class WikiPageClient {
             }
             client.destroy();
             return response.getEntity(WikiPageContent.class);
-
         }catch(Exception e){
             System.out.println("(WikiPageClient) Have a problem while getting WikiPageContent : " + e.getLocalizedMessage());
         }

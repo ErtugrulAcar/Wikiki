@@ -102,7 +102,8 @@
                                     <div class="col-md-12">
                                         <div class="section-title" >
                                             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                <%
+                                                <%  StringBuilder headerContent;
+                                                    StringBuilder pageContent;
                                                     for(int i=0;i<10;i++){
                                                         if(((JsonObject)session.getAttribute("headerContent")).get(i+":0") == null)   break;
                                                         for(int j=0;j<10;j++){
@@ -110,14 +111,18 @@
                                                 %>
                                                 <tr>
                                                     <%  int paddingLeft = 8;
-                                                        if(i==0) paddingLeft = 3;%>
+                                                        if(j==0) paddingLeft = 3;%>
                                                     <td width="70%" height="100" valign="" style="padding-left: <%=paddingLeft%>%;">
-                                                        <h2><%=((JsonObject)session.getAttribute("headerContent")).get(i+":"+j)%></h2>
                                                         <%
-                                                            String pageContent = ((JsonObject)session.getAttribute("pageContent")).get(i+":"+j).toString();
-                                                            if(((JsonObject)session.getAttribute("pageContent")).get(i+":"+j).toString().equals("\"\"")){
-                                                                pageContent = "";
-                                                            }
+                                                            headerContent = new StringBuilder(((JsonObject)session.getAttribute("headerContent")).get(i+":"+j).toString());
+                                                            headerContent.deleteCharAt(0);
+                                                            headerContent.deleteCharAt(headerContent.length()-1);
+                                                        %>
+                                                        <h2><%=headerContent%></h2>
+                                                        <%
+                                                            pageContent = new StringBuilder(((JsonObject)session.getAttribute("pageContent")).get(i+":"+j).toString());
+                                                            pageContent.deleteCharAt(0);
+                                                            pageContent.deleteCharAt(pageContent.length()-1);
                                                         %>
                                                         <p><%=pageContent%></p>
                                                     </td>
