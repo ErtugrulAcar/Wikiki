@@ -172,25 +172,34 @@
                 </div>
 
                                     <div class="content">
-                                       <H1>Name of Game</H1>
+                                       <h1>Name of Game</h1>
 
-                                       <span class="lead">
-                                           <!-- AUTHORITY IS HERE  -->
-                                            CONTENTS
-                                        </span>
+                                       <h2>Başlıklar</h2>
                 
-                                       <!-- <ul class="social-icon">
-                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                
-                                        </ul>-->
+
                                         <nav id="myScrollspy">
                                             <ul class="nav nav-pills nav-stacked" data-spy="" id="ulbackground" >
-                                                <li><a href="#section1">1.1 WELCOME NAME AND SURNAME</a></li>
-                                                <li><a href="#section2">2.1 BOOKS,SPORTS & ARTS</a></li>
-                                                <li><a href="#section3">3.1 RESOURCES</a></li>
+                                                <%
+                                                    String headerContentSt;
+                                                    for(int i=0;i<10;i++){
+                                                        if(((JsonObject)session.getAttribute("headerContent")).get(i+":0") == null)   break;
+                                                        for(int j=0;j<10;j++){
+                                                            if(((JsonObject)session.getAttribute("pageContent")).get(i+":"+j) == null)   break;
+                                                            headerContent = new StringBuilder(((JsonObject)session.getAttribute("headerContent")).get(i+":"+j).toString());
+                                                            headerContent.deleteCharAt(0);
+                                                            headerContent.deleteCharAt(headerContent.length()-1);
+                                                            if(i==0 && j==0){
+                                                                headerContentSt = new String(i + ". " + headerContent);
+                                                            }
+                                                            else{
+                                                                headerContentSt = new String(i + "." + j + " " + headerContent.toString());
+                                                            }
+                                                %>
+                                                <li><a href="#" style="font-size: 12px;"><%=headerContentSt%></a></li>
+                                                <%
+                                                        }
+                                                    }
+                                                %>
                                             </ul>
                                         </nav>
                                     </div>
