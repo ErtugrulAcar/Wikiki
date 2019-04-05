@@ -5,7 +5,41 @@ CSS settings for HTML div Exact Center
 #abc {
     width: 100%;
     height: 100%;
-    opacity: .97;
+    opacity: 0.9999;
+    top: 0;
+    left: 0;
+    display: none;
+    position: fixed;
+    background-color: #313131;
+    overflow: auto;
+}
+#abcBiography {
+    width: 100%;
+    height: 100%;
+    opacity: 0.9999;
+    top: 0;
+    left: 0;
+    display: none;
+    position: fixed;
+    background-color: #313131;
+    overflow: auto;
+}
+
+#abcInterest {
+    width: 100%;
+    height: 100%;
+    opacity: 0.9999;
+    top: 0;
+    left: 0;
+    display: none;
+    position: fixed;
+    background-color: #313131;
+    overflow: auto;
+}
+#abcUserInfo {
+    width: 100%;
+    height: 100%;
+    opacity: 0.9999;
     top: 0;
     left: 0;
     display: none;
@@ -21,8 +55,10 @@ cursor:pointer
 }
 div#popupContact {
     position: absolute;
-    left: 50%;
+    left: 45%;
     top: 17%;
+    height:65%;
+    width:35%;
     margin-left: -202px;
     font-family: 'Raleway',sans-serif;
     border: 2px solid gray;
@@ -31,13 +67,47 @@ div#popupContact {
     background-color: #fff;
     
 }
+div#popupContactBiography {
+    position: absolute;
+    left: 50%;
+    top: 14%;
+    margin-left: -202px;
+    font-family: 'Raleway',sans-serif;
+    border: 2px solid gray;
+    border-radius: 10px;
+    font-family: raleway;
+    background-color: #fff;
+}
+div#popupContactInterest {
+    position: absolute;
+    left: 50%;
+    top: 17%;
+    margin-left: -202px;
+    font-family: 'Raleway',sans-serif;
+    border: 2px solid gray;
+    border-radius: 10px;
+    font-family: raleway;
+    background-color: #fff;
+}
+div#popupContactUserInfo {
+    position: absolute;
+    left: 50%;
+    top: 22%;
+    margin-left: -202px;
+    font-family: 'Raleway',sans-serif;
+    border: 2px solid gray;
+    border-radius: 10px;
+    font-family: raleway;
+    background-color: #fff;
+}
+
 form {
-max-width:365px;
-min-width:250px;
-padding:10px 50px;
-border-radius:10px;
-font-family:raleway;
-background-color:#fff
+    max-width: 400px;
+    min-width: 250px;
+    padding: 10px 50px;
+    border-radius: 10px;
+    font-family: raleway;
+    background-color: #fff
 }
 
 hr {
@@ -61,7 +131,7 @@ border-radius:5px
 }
 
 button {
-width:10%;
+width:15%;
 height:45px;
 border-radius:3px;
 background-color:#cd853f;
@@ -71,9 +141,10 @@ font-size:18px;
 cursor:pointer
 }
 .form-style-2 {
-    max-width: 800px;
+    max-width: 1920px;
     padding: 20px 12px 10px 20px;
     font: 13px Arial, Helvetica, sans-serif;
+
 }
 
 .form-style-2-heading {
@@ -91,7 +162,7 @@ cursor:pointer
 }
 
     .form-style-2 label > span {
-        width: 100px;
+        width: 200px;
         font-weight: bold;
         float: left;
         padding-top: 8px;
@@ -106,9 +177,11 @@ cursor:pointer
     width: 40px;
     text-align: center;
 }
-
+#formwidth{
+    width:500px;
+}
 .form-style-2 input.input-field, .form-style-2 .select-field {
-    width: 62%;
+    width: 100%;
 }
 
 .form-style-2 input.input-field,
@@ -144,7 +217,7 @@ cursor:pointer
 .form-style-2 input[type=submit],
 .form-style-2 input[type=button] {
     border: none;
-    padding: 8px 15px 8px 15px;
+    padding: 10px 17px 10px 17px;
     background: #FF8500;
     color: #fff;
     box-shadow: 1px 1px 4px #DADADA;
@@ -153,6 +226,7 @@ cursor:pointer
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
+    margin-left:39%;
 }
 
     .form-style-2 input[type=submit]:hover,
@@ -160,3 +234,99 @@ cursor:pointer
         background: #EA7B00;
         color: #fff;
     }
+.form-style-Bio {
+    max-width: 1920px;
+    padding: 20px 12px 10px 20px;
+    font: 13px Arial, Helvetica, sans-serif;
+}
+
+.form-style-Bio-heading {
+    font-weight: bold;
+    font-style: italic;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+    font-size: 15px;
+    padding-bottom: 3px;
+}
+
+.form-style-Bio label {
+    display: block;
+    margin: 0px 0px 15px 0px;
+}
+
+    .form-style-Bio label > span {
+        width: 200px;
+        font-weight: bold;
+        float: left;
+        padding-top: 8px;
+        padding-right: 5px;
+    }
+
+.form-style-Bio span.required {
+    color: red;
+}
+
+.form-style-Bio .tel-number-field {
+    width: 40px;
+    text-align: center;
+}
+
+
+.form-style-Bio input.input-field, .form-style-2 .select-field {
+    width: 100%;
+}
+
+.form-style-Bio textarea.input-field,
+.form-style-Bio .tel-number-field,
+.form-style-Bio .textarea-field,
+.form-style-Bio .select-field {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+    height:200px;
+}
+
+    .form-style-Bio .input-field:focus,
+    .form-style-Bio .tel-number-field:focus,
+    .form-style-Bio .textarea-field:focus,
+    .form-style-Bio .select-field:focus {
+        border: 1px solid #FF8500;
+    }
+
+.form-style-Bio .textarea-field {
+    height: 100px;
+    width: 55%;
+}
+
+.form-style-Bio input[type=submit],
+.form-style-Bio input[type=button] {
+    border: none;
+    padding: 10px 17px 10px 17px;
+    background: #FF8500;
+    color: #fff;
+    box-shadow: 1px 1px 4px #DADADA;
+    -moz-box-shadow: 1px 1px 4px #DADADA;
+    -webkit-box-shadow: 1px 1px 4px #DADADA;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    margin-left: 37%;
+}
+
+    .form-style-Bio input[type=submit]:hover,
+    .form-style-Bio input[type=button]:hover {
+        background: #EA7B00;
+        color: #fff;
+    }
+textarea {
+    resize: none;
+}

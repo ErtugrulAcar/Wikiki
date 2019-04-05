@@ -39,11 +39,15 @@
         }
 
         .nav-pills > li.active > a {
-            background-color: #d1e2ff;
+            background-color: #5b5b5b;
         }
 
             .nav-pills > li.active > a:hover {
-                background-color: #d1e2ff;
+                background-color: #5b5b5b;
+            }
+
+            .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+                color: #FFC107;
             }
 
         .nav > li > a {
@@ -68,10 +72,18 @@
                 <a class="navbar-brand" href="#">WIKIKI</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Page 1</a></li>
-                <li><a href="#">Page 2</a></li>
-                <li><a href="#">Page 3</a></li>
+                <li class="active">
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -97,22 +109,31 @@
 
                     <!-- Sayfanın içeriği burada session dan cekiliyor -->
                     <%
-                        UserPageContext userPageContext = (UserPageContext) session.getAttribute("requestedUserProfile");
+                    UserPageContext userPageContext = (UserPageContext) session.getAttribute("requestedUserProfile");
                     %>
+
 
                     <div class="content">
                         <h1>
                             <%=userPageContext.getUsername() + " " + userPageContext.getUserlastname()%>
                         </h1>
                         <span class="lead">
-                           <%=userPageContext.getUserdegree().toUpperCase()%>
+                            <%=userPageContext.getUserdegree().toUpperCase()%>
                         </span>
 
                         <ul class="social-icon">
-                            <li><a href="<%=userPageContext.getFacebook_link()%>"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="<%=userPageContext.getTwitter_link()%>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="<%=userPageContext.getInstagram_link()%>"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="<%=userPageContext.getLinkedIn_link()%>"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li>
+                                <a href="<%=userPageContext.getFacebook_link()%>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            </li>
+                            <li>
+                                <a href="<%=userPageContext.getTwitter_link()%>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            </li>
+                            <li>
+                                <a href="<%=userPageContext.getInstagram_link()%>" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </li>
+                            <li>
+                                <a href="<%=userPageContext.getLinkedIn_link()%>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </li>
                             <li>
                                 <a>
                                     <input type='image' src='img/editIcon.png' style="height:26px; width:26px;
@@ -123,9 +144,15 @@
                         </ul>
                         <nav id="myScrollspy">
                             <ul id="ulbackground" class="nav nav-pills nav-stacked">
-                                <li><a href="#section1">Kullanici Biyografisi</a></li>
-                                <li><a href="#section2">Ilgi Alanlari</a></li>
-                                <li><a href="#section3">Kullanici Bilgileri</a></li>
+                                <li>
+                                    <a href="#section1">Kullanici Biyografisi</a>
+                                </li>
+                                <li>
+                                    <a href="#section2">Ilgi Alanlari</a>
+                                </li>
+                                <li>
+                                    <a href="#section3">Kullanici Bilgileri</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -135,14 +162,19 @@
             <!-- .left-col-block -->
             <div class="right-col-block blocks">
                 <div class="theiaStickySidebar">
-                    <section class="expertise-wrapper section-wrapper gray-bg">
-                        <div class="container-fluid">
-                            <div id="section1">
+                    <div id="section1">
+                        <section class="expertise-wrapper section-wrapper gray-bg">
+                            <div class="container-fluid">
+
                                 <div class="row">
 
                                     <div class="col-md-12">
                                         <div class="section-title">
-                                            <h2>Kullanici Biyografisi</h2>
+                                            <h2>
+                                                Kullanici Biyografisi
+                                                <input id="inputBio" type='image' src='img/editIcon.png' style="height:20px; width:28px;
+                            margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' onclick="div_showBiography()" />
+                                            </h2>
                                         </div>
                                     </div>
                                 </div>
@@ -156,17 +188,22 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                    </div>
 
                     </section>
                     <!-- .expertise-wrapper -->
-                    <section class="section-wrapper section-interest gray-bg">
-                        <div class="container-fluid">
-                            <div id="section2">
+                    <div id="section2">
+                        <section class="section-wrapper section-interest gray-bg">
+                            <div class="container-fluid">
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="section-title">
-                                            <h2>Ilgi Alanlari</h2>
+                                            <h2>
+                                                Ilgi Alanlari
+                                                <input type='image' src='img/editIcon.png' style="height:20px; width:28px;
+                            margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' onclick="div_showInterest()" />
+                                            </h2>
                                         </div>
                                     </div>
                                 </div>
@@ -182,16 +219,21 @@
                             </div>
                             <!-- .row -->
 
-                        </div>
+                    </div>
                     </section>
                     <!-- .section-publications -->
-                    <section class="section-contact section-wrapper gray-bg">
-                        <div class="container-fluid">
-                            <div id="section3">
+                    <div id="section3">
+                        <section class="section-contact section-wrapper gray-bg">
+                            <div class="container-fluid">
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="section-title">
-                                            <h2>Kullanici Bilgileri</h2>
+                                            <h2>
+                                                Kullanici Bilgileri
+                                                <input type='image' src='img/editIcon.png' style="height:20px; width:28px;
+                            margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' onclick="div_showUserInfo()" />
+                                            </h2>
                                         </div>
                                     </div>
                                 </div>
@@ -202,18 +244,22 @@
                                         <%=userPageContext.getEmail()%>
                                         <h2>Telefon Numarasi</h2>
                                         <%
-                                            if(userPageContext.getPhonenumber() == null){
-                                                userPageContext.setPhonenumber("-");
-                                            }
+                                        if(userPageContext.getPhonenumber() == null){
+                                        userPageContext.setPhonenumber("-");
+                                        }
                                         %>
                                         <%=userPageContext.getPhonenumber()%>
                                     </div>
                                 </div>
                                 <!--.row-->
-                                <br /><br /><br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
                             </div>
-                        </div>
-                        <!--.container-fluid-->
+                    </div>
+                    <!--.container-fluid-->
                     </section>
                     <!--.section-contact-->
 
@@ -241,20 +287,70 @@
         </div>
         <!-- .columns-block -->
     </div>
-    <div id="abc" onclick="div_hide()">
+    <div id="abc">
         <div id="popupContact">
             <!-- Contact Us Form -->
             <div class="form-style-2">
-                <div class="form-style-2-heading">Edit your information</div>
-                <form action="" method="post" name="form">
+                <div class="form-style-2-heading">Edit your social media</div>
+                <form id="formwidth" action="" method="post" name="form">
                     <img id="close" src="img/closeIcon.png" onclick="div_hide()" style="height:24px;width:24px;">
-                    <label for="field1"><span>Facebook</span><input type="text" class="input-field" name="name" value="" /></label>
-                    <label for="field2"><span>Twitter</span><input type="text" class="input-field" name="field2" value="" /></label>
-                    <label for="field3"><span>Instagram</span><input type="text" class="input-field" name="field3" value="" /></label>
-                    <label for="field4"><span>LinkedIn</span><input type="text" class="input-field" name="field4" value="" /></label>
+                    <label for="field1"><span>Facebook:</span><input type="text" class="input-field" name="name" value="" /></label>
+                    <label for="field2"><span>Twitter:</span><input type="text" class="input-field" name="field2" value="" /></label>
+                    <label for="field3"><span>Instagram:</span><input type="text" class="input-field" name="field3" value="" /></label>
+                    <label for="field4"><span>LinkedIn:</span><input type="text" class="input-field" name="field4" value="" /></label>
 
 
 
+                    <label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="abcBiography">
+        <div id="popupContactBiography">
+            <!-- Contact Us Form -->
+            <div class="form-style-Bio">
+                <div class="form-style-Bio-heading">Edit your biography</div>
+                <form action="" method="post" name="form">
+                    <img id="close" src="img/closeIcon.png" onclick="div_hideBiography()" style="height:24px;width:24px;">
+                    <label for="field1">
+                        <span>Edit your biography:</span>
+
+                        <textarea class="input-field" rows="14" cols="37"></textarea>
+                    </label>
+
+                    <label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="abcInterest">
+        <div id="popupContactInterest">
+            <!-- Contact Us Form -->
+            <div class="form-style-Bio">
+                <div class="form-style-Bio-heading">Edit your interest</div>
+                <form action="" method="post" name="form">
+                    <img id="close" src="img/closeIcon.png" onclick="div_hideInterest()" style="height:24px;width:24px;">
+                    <label for="field1">
+                        <span>Edit your interest:</span>
+
+                        <textarea class="input-field" rows="14" cols="37"></textarea>
+                    </label>
+
+                    <label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="abcUserInfo">
+        <div id="popupContactUserInfo">
+            <!-- Contact Us Form -->
+            <div class="form-style-2">
+                <div class="form-style-2-heading">Edit your user information</div>
+                <form action="" method="post" name="form">
+                    <img id="close" src="img/closeIcon.png" onclick="div_hideUserInfo()" style="height:24px;width:24px;">
+                    <label for="field1"><span>E-posta:</span><input type="text" class="input-field" name="name" value="" /></label>
+                    <label for="field1"><span>Telefon:</span><input type="text" class="input-field" name="name" value="" /></label>
                     <label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
                 </form>
             </div>
