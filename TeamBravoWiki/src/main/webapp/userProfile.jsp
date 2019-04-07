@@ -123,17 +123,38 @@
 
                         <ul class="social-icon">
                             <li>
+                                <% if(userPageContext.getFacebook_link() == null){%>
+                                <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <%} else { %>
+
                                 <a href="<%=userPageContext.getFacebook_link()%>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <%} %>
                             </li>
                             <li>
+                                <% if(userPageContext.getTwitter_link() == null){%>
+                                <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <%} else { %>
+
                                 <a href="<%=userPageContext.getTwitter_link()%>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <%} %>
                             </li>
                             <li>
+                                <% if(userPageContext.getInstagram_link() == null){%>
+                                <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <%} else { %>
+
                                 <a href="<%=userPageContext.getInstagram_link()%>" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <%} %>
                             </li>
                             <li>
+                                <% if(userPageContext.getLinkedIn_link() == null){%>
+                                <a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                <%} else { %>
+
                                 <a href="<%=userPageContext.getLinkedIn_link()%>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                <%} %>
                             </li>
+
                             <li>
                                 <a>
                                     <input type='image' src='img/editIcon.png' style="height:26px; width:26px;
@@ -188,9 +209,10 @@
                                     </div>
                                 </div>
                             </div>
+                        </section>
                     </div>
 
-                    </section>
+
                     <!-- .expertise-wrapper -->
                     <div id="section2">
                         <section class="section-wrapper section-interest gray-bg">
@@ -218,9 +240,9 @@
                                 </div>
                             </div>
                             <!-- .row -->
-
+                        </section>
                     </div>
-                    </section>
+
                     <!-- .section-publications -->
                     <div id="section3">
                         <section class="section-contact section-wrapper gray-bg">
@@ -250,7 +272,6 @@
                                         %>
                                         <%=userPageContext.getPhonenumber()%>
                                     </div>
-                                </div>
                                 <!--.row-->
                                 <br />
                                 <br />
@@ -258,9 +279,9 @@
                                 <br />
                                 <br />
                             </div>
+                        </section>
                     </div>
                     <!--.container-fluid-->
-                    </section>
                     <!--.section-contact-->
 
                     <footer class="footer">
@@ -294,10 +315,10 @@
                 <div class="form-style-2-heading">Edit your social media</div>
                 <form id="formwidth" action="" method="post" name="form">
                     <img id="close" src="img/closeIcon.png" onclick="div_hide()" style="height:24px;width:24px;">
-                    <label for="field1"><span>Facebook:</span><input type="text" class="input-field" name="name" value="" /></label>
-                    <label for="field2"><span>Twitter:</span><input type="text" class="input-field" name="field2" value="" /></label>
-                    <label for="field3"><span>Instagram:</span><input type="text" class="input-field" name="field3" value="" /></label>
-                    <label for="field4"><span>LinkedIn:</span><input type="text" class="input-field" name="field4" value="" /></label>
+                    <label for="field1"><span>Facebook:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getFacebook_link() == null){%>https://www.facebook.com<%} else { %><%=userPageContext.getFacebook_link()%><%}%>"/></label>
+                    <label for="field2"><span>Twitter:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getTwitter_link() == null){%>https://twitter.com<%} else { %><%=userPageContext.getTwitter_link()%><%}%>"/></label>
+                    <label for="field3"><span>Instagram:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getInstagram_link() == null){%>https://www.instagram.com<%} else { %><%=userPageContext.getInstagram_link()%><%}%>"/></label>
+                    <label for="field4"><span>LinkedIn:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getLinkedIn_link() == null){%>https://www.linkedin.com<%} else { %><%=userPageContext.getLinkedIn_link()%><%}%>"/></label>
 
 
 
@@ -316,7 +337,7 @@
                     <label for="field1">
                         <span>Edit your biography:</span>
 
-                        <textarea class="input-field" rows="14" cols="37"></textarea>
+                        <textarea class="input-field" rows="14" cols="37"><% if(userPageContext.getUserbio() == null){%><%} else { %><%=userPageContext.getUserbio()%><%}%></textarea>
                     </label>
 
                     <label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
@@ -334,7 +355,7 @@
                     <label for="field1">
                         <span>Edit your interest:</span>
 
-                        <textarea class="input-field" rows="14" cols="37"></textarea>
+                        <textarea class="input-field" rows="14" cols="37"><% if(userPageContext.getUserinterest() == null){%><%} else { %><%=userPageContext.getUserinterest()%><%}%></textarea>
                     </label>
 
                     <label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
@@ -349,8 +370,8 @@
                 <div class="form-style-2-heading">Edit your user information</div>
                 <form action="" method="post" name="form">
                     <img id="close" src="img/closeIcon.png" onclick="div_hideUserInfo()" style="height:24px;width:24px;">
-                    <label for="field1"><span>E-posta:</span><input type="text" class="input-field" name="name" value="" /></label>
-                    <label for="field1"><span>Telefon:</span><input type="text" class="input-field" name="name" value="" /></label>
+                    <label for="field1"><span>E-posta:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getEmail() == null){%><%} else { %><%=userPageContext.getEmail()%><%}%>"/></label>
+                    <label for="field1"><span>Telefon:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getPhonenumber() == null){%><%} else { %><%=userPageContext.getPhonenumber()%><%}%>"/></label>
                     <label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
                 </form>
             </div>
