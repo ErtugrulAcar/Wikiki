@@ -1,12 +1,10 @@
 package com.aydin.demo.teambravowiki.webservice.client;
 
-import com.aydin.demo.teambravowiki.model.UserPageContext;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.aydin.demo.teambravowiki.model.UserInfo;
 
-import javax.ws.rs.core.HttpHeaders;
 
 public class UserProfileClient {
 
