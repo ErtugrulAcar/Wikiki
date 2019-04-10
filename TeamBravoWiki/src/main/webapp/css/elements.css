@@ -5,46 +5,42 @@ CSS settings for HTML div Exact Center
 #abc {
     width: 100%;
     height: 100%;
-    opacity: 0.9999;
     top: 0;
     left: 0;
     display: none;
     position: fixed;
-    background-color: #313131;
+    background-color:rgba(0,0,0,0.5);
     overflow: auto;
 }
 #abcBiography {
     width: 100%;
     height: 100%;
-    opacity: 0.9999;
     top: 0;
     left: 0;
     display: none;
     position: fixed;
-    background-color: #313131;
+    background-color:rgba(0,0,0,0.5);
     overflow: auto;
 }
 
 #abcInterest {
     width: 100%;
     height: 100%;
-    opacity: 0.9999;
     top: 0;
     left: 0;
     display: none;
     position: fixed;
-    background-color: #313131;
+    background-color:rgba(0,0,0,0.5);
     overflow: auto;
 }
 #abcUserInfo {
     width: 100%;
     height: 100%;
-    opacity: 0.9999;
     top: 0;
     left: 0;
     display: none;
     position: fixed;
-    background-color: #313131;
+    background-color:rgba(0,0,0,0.5);
     overflow: auto;
 }
 img#close {
@@ -57,8 +53,8 @@ div#popupContact {
     position: absolute;
     left: 45%;
     top: 17%;
-    height:65%;
-    width:33%;
+    height:430px;
+    width:450px;
     margin-left: -202px;
     font-family: 'Raleway',sans-serif;
     border: 2px solid gray;

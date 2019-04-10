@@ -22,8 +22,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/bootstrap.min2.css">
+    <script src="script/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/script/bootstrap.min.js"></script>
 
     <!-- Style CSS -->
@@ -52,10 +52,6 @@
 
         .nav > li > a {
             width: 160px;
-        }
-
-        #headerfixed {
-            margin-left: 70px;
         }
 
         .mainwrapper {
@@ -100,11 +96,11 @@
         <div class="columns-block container">
             <div class="left-col-block blocks">
 
-                <header id="headerfixed" class="header theiaStickySidebar">
+                <header id="headerfixed" class="header theiaStickySidebar" style="text-align:center;">
                     <div class="profile-img">
 
 
-                        <img id="jpg1" src="img/img-profile.jpg" class="img-responsive" alt="" />
+                        <img id="jpg1" src="img/img-profile.jpg" class="img-responsive" alt="" style="margin-left:auto;margin-right:auto;" />
                     </div>
 
                     <!-- Sayfanın içeriği burada session dan cekiliyor -->
@@ -163,19 +159,6 @@
                             </li>
 
                         </ul>
-                        <nav id="myScrollspy">
-                            <ul id="ulbackground" class="nav nav-pills nav-stacked">
-                                <li>
-                                    <a href="#section1">Kullanici Biyografisi</a>
-                                </li>
-                                <li>
-                                    <a href="#section2">Ilgi Alanlari</a>
-                                </li>
-                                <li>
-                                    <a href="#section3">Kullanici Bilgileri</a>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </header>
                 <!-- .header-->
@@ -183,7 +166,7 @@
             <!-- .left-col-block -->
             <div class="right-col-block blocks">
                 <div class="theiaStickySidebar">
-                    <div id="section1">
+                    
                         <section class="expertise-wrapper section-wrapper gray-bg">
                             <div class="container-fluid">
 
@@ -210,11 +193,11 @@
                                 </div>
                             </div>
                         </section>
-                    </div>
+                    
 
 
                     <!-- .expertise-wrapper -->
-                    <div id="section2">
+                   
                         <section class="section-wrapper section-interest gray-bg">
                             <div class="container-fluid">
 
@@ -241,10 +224,10 @@
                             </div>
                             <!-- .row -->
                         </section>
-                    </div>
+                    
 
                     <!-- .section-publications -->
-                    <div id="section3">
+                   
                         <section class="section-contact section-wrapper gray-bg">
                             <div class="container-fluid">
 
@@ -279,8 +262,9 @@
                                 <br />
                                 <br />
                             </div>
+                            </div>
                         </section>
-                    </div>
+                   
                     <!--.container-fluid-->
                     <!--.section-contact-->
 
