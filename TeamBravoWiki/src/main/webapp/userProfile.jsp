@@ -6,6 +6,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="script/modernizr.custom.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>User Profile</title>
 
@@ -153,8 +159,10 @@
 
                             <li>
                                 <a>
-                                    <input type='image' src='img/editIcon.png' style="height:26px; width:26px;
-                            margin-bottom:-10px;padding-left:1px; padding-bottom:2px;" value='' onclick="div_show()" />
+                                   
+                                            <input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-1" style="height:20px; width:28px;
+                            margin-bottom:-6px;padding-left:4px; padding-bottom:2px;" value='' />
+													
                                 </a>
                             </li>
 
@@ -176,8 +184,10 @@
                                         <div class="section-title">
                                             <h2>
                                                 Kullanici Biyografisi
-                                                <input id="inputBio" type='image' src='img/editIcon.png' style="height:20px; width:28px;
-                            margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' onclick="div_showBiography()" />
+                                                
+                                            <input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-2" style="height:20px; width:28px;
+                            margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' />
+													
                                             </h2>
                                         </div>
                                     </div>
@@ -205,9 +215,9 @@
                                     <div class="col-md-12">
                                         <div class="section-title">
                                             <h2>
-                                                Ilgi Alanlari
-                                                <input type='image' src='img/editIcon.png' style="height:20px; width:28px;
-                            margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' onclick="div_showInterest()" />
+                                                Ilgi Alanlari<input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-3" style="height:20px; width:28px;
+                            margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' />
+												
                                             </h2>
                                         </div>
                                     </div>
@@ -236,9 +246,10 @@
                                         <div class="section-title">
                                             <h2>
                                                 Kullanici Bilgileri
-                                                <input type='image' src='img/editIcon.png' style="height:20px; width:28px;
-                            margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' onclick="div_showUserInfo()" />
-                                            </h2>
+                                                
+                                            <input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-4" style="height:20px; width:28px;
+                            margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' />
+													</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -292,13 +303,14 @@
         </div>
         <!-- .columns-block -->
     </div>
-    <div id="abc">
+    <div class="md-modal md-effect-1" id="modal-1">
+			<div class="md-content">
         <div id="popupContact">
             <!-- Contact Us Form -->
             <div class="form-style-2">
                 <div class="form-style-2-heading">Edit your social media</div>
                 <form id="formwidth" action="" method="post" name="form">
-                    <img id="close" src="img/closeIcon.png" onclick="div_hide()" style="height:24px;width:24px;">
+                    <img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">
                     <label for="field1"><span>Facebook:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getFacebook_link() == null){%>https://www.facebook.com<%} else { %><%=userPageContext.getFacebook_link()%><%}%>"/></label>
                     <label for="field2"><span>Twitter:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getTwitter_link() == null){%>https://twitter.com<%} else { %><%=userPageContext.getTwitter_link()%><%}%>"/></label>
                     <label for="field3"><span>Instagram:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getInstagram_link() == null){%>https://www.instagram.com<%} else { %><%=userPageContext.getInstagram_link()%><%}%>"/></label>
@@ -310,14 +322,15 @@
                 </form>
             </div>
         </div>
-    </div>
-    <div id="abcBiography">
+    </div></div>
+    <div class="md-modal md-effect-2" id="modal-2">
+			<div class="md-content">
         <div id="popupContactBiography">
             <!-- Contact Us Form -->
             <div class="form-style-Bio">
                 <div class="form-style-Bio-heading">Edit your biography</div>
                 <form action="" method="post" name="form">
-                    <img id="close" src="img/closeIcon.png" onclick="div_hideBiography()" style="height:24px;width:24px;">
+                    <img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">
                     <label for="field1">
                         <span>Edit your biography:</span>
 
@@ -327,15 +340,17 @@
                     <label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
                 </form>
             </div>
-        </div>
+        </div></div>
     </div>
-    <div id="abcInterest">
+    <div class="md-modal md-effect-3" id="modal-3">
+			<div class="md-content">
+   
         <div id="popupContactInterest">
             <!-- Contact Us Form -->
             <div class="form-style-Bio">
                 <div class="form-style-Bio-heading">Edit your interest</div>
                 <form action="" method="post" name="form">
-                    <img id="close" src="img/closeIcon.png" onclick="div_hideInterest()" style="height:24px;width:24px;">
+                    <img id="close" src="img/closeIcon.png"  class="md-close" style="height:24px;width:24px;">
                     <label for="field1">
                         <span>Edit your interest:</span>
 
@@ -345,22 +360,41 @@
                     <label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
                 </form>
             </div>
-        </div>
-    </div>
-    <div id="abcUserInfo">
-        <div id="popupContactUserInfo">
+        </div></div></div>
+    
+   
+     <div class="md-modal md-effect-4" id="modal-4">
+			<div class="md-content">
+				<div id="popupContactUserInfo">
             <!-- Contact Us Form -->
             <div class="form-style-2">
                 <div class="form-style-2-heading">Edit your user information</div>
                 <form action="" method="post" name="form">
-                    <img id="close" src="img/closeIcon.png" onclick="div_hideUserInfo()" style="height:24px;width:24px;">
-                    <label for="field1"><span>E-posta:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getEmail() == null){%><%} else { %><%=userPageContext.getEmail()%><%}%>"/></label>
-                    <label for="field1"><span>Telefon:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getPhonenumber() == null){%><%} else { %><%=userPageContext.getPhonenumber()%><%}%>"/></label>
-                    <label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
+                    <img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">
+                    <label for="field1"><span>E-posta:</span><input type="text" class="input-field" name="name" value="caneregin@hotmail.com"/></label>
+                    <label for="field1"><span>Telefon:</span><input type="text" class="input-field" name="name" value="-"/></label>
+                    <label><span></span><input type="submit" value="Submit" onclick="check_empty()" /></label>
                 </form>
             </div>
         </div>
-    </div>
+			</div>
+		</div>
+
+
+		<div class="md-overlay"></div><!-- the overlay element -->
+
+		<!-- classie.js by @desandro: https://github.com/desandro/classie -->
+		<script src="script/classie.js"></script>
+		<script src="script/modalEffects.js"></script>
+
+		<!-- for the blur effect -->
+		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+		<script>
+			// this is important for IEs
+			var polyfilter_scriptpath = '/script/';
+		</script>
+		<script src="script/cssParser.js"></script>
+		<script src="script/css-filters-polyfill.js"></script>
     <!-- #main-wrapper -->
     <!-- jquery -->
     <script src="script/jquery-2.1.4.min.js"></script>
