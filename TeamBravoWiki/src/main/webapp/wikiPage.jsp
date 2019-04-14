@@ -60,13 +60,10 @@
         <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
                   <div class="navbar-header">
-                    <a class="navbar-brand" href="homepage.jsp">WIKIKI</a>
+                    <a class="navbar-brand" href="homepage.jsp"><img src="img/wiki2logo.png" alt="" style="width: 90px;height: 33px;margin-top: -5px;"></a>
                   </div>
                   <ul class="nav navbar-nav">
                     <li class="active"><a href="homepage.html">Home</a></li>
-                    <li><a href="#">Page 1</a></li>
-                    <li><a href="#">Page 2</a></li>
-                    <li><a href="#">Page 3</a></li>
                   </ul>
                 </div>
               </nav>
@@ -84,7 +81,7 @@
         </div>
 
         <!--SOLDİV-->
-        <div style="width: 72%; height: 50px; text-align: center; margin: 0%;background-color: white;margin-left: 5%;"><h1 style="padding-top: 5px;">BAŞLIK</h1></div>
+        <div style="width: 72%; height: 50px; text-align: center; margin: 0%;background-color: white;margin-left: 5%;"><h1 style="padding-top: 5px; ">BAŞLIK</h1></div>
         <div class="columns-block container" style="margin-left: 5%; margin-top: 1%; width: 90%">
             <div style="width: 0;">
 
@@ -92,7 +89,7 @@
 
             
             <!-- .left-col-block -->
-            <div class="left-col-block blocks">
+            <div class="left-col-block blocks" style="">
                 <div class="theiaStickySidebar">
                     <section class="expertise-wrapper section-wrapper gray-bg">
                         <div class="container-fluid">
@@ -162,7 +159,7 @@
                 <!-- .right-col-block -->
 
                  <!--SagDİV-->
-                <div style="width: 20%; ">
+                <div style="width: 20%; padding-left: 50px; ">
                         <div class="left-col-block blocks" style="padding-left:12%;">
                                 <header class="header theiaStickySidebar">
                                     <div class="profile-img">
@@ -195,7 +192,7 @@
                                                                 headerContentSt = new String(i + "." + j + " " + headerContent.toString());
                                                             }
                                                 %>
-                                                <li><a href="#" style="font-size: 12px;"><%=headerContentSt%></a></li>
+                                                <li><a href="#" style="font-size: 16px;"><%=headerContentSt%></a></li>
                                                 <%
                                                         }
                                                     }

@@ -71,13 +71,11 @@
         <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
                   <div class="navbar-header">
-                    <a class="navbar-brand" href="homepage.html">WIKIKI</a>
+                    <a class="navbar-brand" href="homepage.html"><img src="img/wiki2logo.png" alt="" style="width: 90px;height: 33px;margin-top: -5px;"></a>
                   </div>
                   <ul class="nav navbar-nav">
                     <li class="active"><a href="homepage.html">Home</a></li>
-                    <li><a href="wikiPage.jsp">Page 1</a></li>
-                    <li><a href="#">Page 2</a></li>
-                    <li><a href="#">Page 3</a></li>
+                    <li><a href="wikiPage.jsp">wikiPage</a></li>
                   </ul>
                 </div>
               </nav>
@@ -110,6 +108,10 @@
                                         <div class="section-title" style="float: left; margin-left: 7%;" >
                                             <a href="wikiPage.jsp"><img src="img/anasayfaimg.png" alt="" style="border-radius: 20px; height:320px;"></a>
                                         </div>
+                                       <a href="wikiPage.jsp"><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
+                                       <a href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>                                        
+                                       <a href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
+                                       <a href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
                                        <a href="wikiPage.jsp"><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
                                        <a href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>                                        
                                        <a href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
@@ -241,43 +243,7 @@
                 <!-- .right-col-block -->
 
                  <!--SagDİV-->
-                <div style="width: 20%;">
-                        <div class="left-col-block blocks">
-                                <header class="header theiaStickySidebar" style="margin-left:15%;">
-                                    <div class="profile-img">
-                                        
-                                          
-                    <img id="jpg1"src="img/img-profile.jpg" class="img-responsive" alt=""/>
-                </div>
-                                   
-                                    <div class="content">
-                                        <H1>Name of Game</H1>
-                                        
-                                        <span class="lead">
-                                            <!-- AUTHORITY IS HERE  -->
-                                            CONTENTS
-                                        </span>
-                
-                                       <!-- <ul class="social-icon">
-                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                
-                                        </ul>-->
-                                        <nav id="myScrollspy">
-                                            <ul class="nav nav-pills nav-stacked" data-spy="" id="ulbackground" >
-                                                <li><a href="#section1">HOT NEWS</a></li>
-                                                <li><a href="#section2">GAMES</a></li>
-                                                <li><a href="#section3"></a></li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </header>
-                                <!-- .header-->
-                            </div>
-                </div>                    
-            </div>
+
             <!-- .columns-block -->
         </div>
         <!-- #main-wrapper -->

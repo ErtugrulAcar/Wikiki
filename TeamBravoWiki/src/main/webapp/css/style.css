@@ -20,7 +20,7 @@ body {
     line-height : 1.8em;
     color       : #3d3d50;
     font-weight : 300;
-    background  : url("../img/pattern-bg.png") fixed;
+    background  : url("../img/background1.jpg") fixed;
     }
 
 /* --------------------------------------
@@ -165,7 +165,7 @@ button:focus,
     flex-direction: row;
     margin: 60px auto;
     padding: 0;
-    box-shadow: 0 0 0 1px #FF8500;
+
 }
 
 .blocks {
@@ -177,8 +177,8 @@ button:focus,
     -webkit-flex: 1 0 0;
     flex: 1 0 0;
     position: relative;
-    background: rgba(140, 140, 140, .9);
-    border-right: 1px solid #FF8500;
+    background: rgba(140, 140, 140, .0);/*.0 transparent*/
+   /* border-right: 1px solid #FF8500;*/
 }
 
 .right-col-block {
@@ -235,7 +235,7 @@ button:focus,
  *-------------------*/
 .section-wrapper {
     padding: 50px;
-    border-bottom: 1px solid #FF8500;
+ /*   border-bottom: 1px solid #FF8500;*/
 }
 
 @media (max-width : 480px) {
