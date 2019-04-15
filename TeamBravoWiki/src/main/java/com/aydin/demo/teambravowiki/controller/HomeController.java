@@ -65,4 +65,8 @@ public class HomeController {
          return "wikiPage.jsp";
     }
 
+    @RequestMapping("/home")
+    public String HomePage(HttpServletRequest request) {
+    	return "homepage.jsp";
+    }
 }
