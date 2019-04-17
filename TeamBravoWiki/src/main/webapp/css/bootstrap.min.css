@@ -1356,7 +1356,7 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
-    background-color: #fff
+    background-color: rgb(246, 248, 250)
 }
 
 button, input, select, textarea {
@@ -1824,8 +1824,8 @@ pre {
 }
 
 .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
     margin-right: auto;
     margin-left: auto
 }
