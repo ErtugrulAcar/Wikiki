@@ -55,6 +55,7 @@ public class HomeController {
     @RequestMapping("/userProfile{userId}")
     public String userProfile(@PathVariable("userId") int userId, HttpSession session) {
         session.setAttribute("requestedUserProfile", userPageClient.getPageContext(userId));
+        session.setAttribute("ProfileId",userId);
         return "userProfile.jsp";
     }
     @RequestMapping("wikiPage{wikiPageId}")

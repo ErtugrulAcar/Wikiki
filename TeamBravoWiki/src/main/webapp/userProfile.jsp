@@ -66,6 +66,15 @@
     </style>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
+<% String compare1 = request.getSession().getAttribute("userId").toString(); %>
+<% String compare2 = request.getSession().getAttribute("ProfileId").toString(); %>
+ <% 
+
+       if(compare1.equals(compare2)){
+         
+       }
+
+   %>
 
     <!--NAVBAR-->
     <nav class="navbar navbar-inverse">
@@ -156,15 +165,22 @@
                                 <a href="<%=userPageContext.getLinkedIn_link()%>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                                 <%} %>
                             </li>
+ <% 
 
-                            <li>
-                                <a>
-                                   
-                                            <input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-1" style="height:20px; width:28px;
-                            margin-bottom:-6px;padding-left:4px; padding-bottom:2px;" value='' />
-													
-                                </a>
-                            </li>
+       if(compare1.equals(compare2)){
+    	   %>
+    	   <li>
+           
+           <a>
+              
+                       <input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-1" style="height:20px; width:28px;
+       margin-bottom:-6px;padding-left:4px; padding-bottom:2px;" value='' />
+								
+           </a>
+       </li>
+       
+<% }  %>
+                            
 
                         </ul>
                     </div>
@@ -184,10 +200,13 @@
                                         <div class="section-title">
                                             <h2>
                                                 Kullanici Biyografisi
-                                                
+ <% 
+
+       if(compare1.equals(compare2)){
+    	   %>
                                             <input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-2" style="height:20px; width:28px;
                             margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' />
-													
+										<%} %>			
                                             </h2>
                                         </div>
                                     </div>
@@ -215,9 +234,13 @@
                                     <div class="col-md-12">
                                         <div class="section-title">
                                             <h2>
+                                             <% 
+
+       if(compare1.equals(compare2)){
+    	   %>
                                                 Ilgi Alanlari<input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-3" style="height:20px; width:28px;
                             margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' />
-												
+												<%} %>
                                             </h2>
                                         </div>
                                     </div>
@@ -246,10 +269,13 @@
                                         <div class="section-title">
                                             <h2>
                                                 Kullanici Bilgileri
-                                                
+                                                 <% 
+
+       if(compare1.equals(compare2)){
+    	   %>
                                             <input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-4" style="height:20px; width:28px;
                             margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' />
-													</h2>
+												<%} %>	</h2>
                                         </div>
                                     </div>
                                 </div>
