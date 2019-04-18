@@ -52,19 +52,42 @@
         .nav > li > a {
         width:160px;
         }
+        .SignButton{
+        height:40px;
+        width:160px;
+        border-radius:5px;
+        background-color:#6f7277;
+        justify-content: right;
+   		margin-top: 10px;
+   		margin-bottom: 10px;
+   		margin-right:10px;	
+   		color:white;
+        }
+        .nav > li > button:hover {
+       
+        background-color:#a8adb5;
+        }
     </style>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
 
     <!--NAVBAR-->
-        <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
+        <nav class="navbar navbar-inverse shadow" style="height: 60px; background-color: #d4d5d6; border: none; border-bottom: grey 1px dotted groove; ">
+                <div class="container-fluid" >
                   <div class="navbar-header">
-                    <a class="navbar-brand" href="homepage.jsp"><img src="img/wiki2logo.png" alt="" style="width: 90px;height: 33px;margin-top: -5px;"></a>
+                    <a class="navbar-brand" href="homepage.html"><img src="img/wiki2logo.png" alt="" style="width: 90px;height: 33px;margin-top: -5px;"></a>
                   </div>
                   <ul class="nav navbar-nav">
-                    <li class="active"><a href="homepage.html">Home</a></li>
+                    <li class="active"><a href="homepage.html" style="height: 60px;">Home</a></li>
+                    <li><a href="wikiPage.jsp" style="height: 60px;">wikiPage</a></li>   
                   </ul>
+                  
+                  <ul class="nav navbar-nav navbar-right">
+               
+                  		<li><button class="SignButton">Kayit OL</button></li>
+                    	<li><button class="SignButton">Giris Yap</button></li>
+                	
+   				 </ul>
                 </div>
               </nav>
 

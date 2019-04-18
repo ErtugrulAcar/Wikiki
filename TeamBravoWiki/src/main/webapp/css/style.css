@@ -137,7 +137,7 @@ ul {
 .btn-default {
     color            : #2a54f5;
     background-color : transparent;
-    border           : 2px solid #FF8500;
+    border           : 2px solid #FFF;
     }
 
 .btn-default:hover,
@@ -178,7 +178,7 @@ button:focus,
     flex: 1 0 0;
     position: relative;
     background: rgba(140, 140, 140, .0);/*.0 transparent*/
-   /* border-right: 1px solid #FF8500;*/
+    border-right: 1px solid #FFF;
 }
 
 .right-col-block {
@@ -235,7 +235,7 @@ button:focus,
  *-------------------*/
 .section-wrapper {
     padding: 50px;
- /*   border-bottom: 1px solid #FF8500;*/
+    border-bottom: 1px solid #FFF;
 }
 
 @media (max-width : 480px) {
@@ -253,7 +253,7 @@ button:focus,
 
 .section-title h2 {
     margin-bottom : 5px;
-    color         : #bebece;
+    color:white;
     }
 
 /*-----------------------------
@@ -300,7 +300,7 @@ button:focus,
     .header {
         padding: 0;
         text-align: center;
-        border-bottom: 1px solid #FF8500;
+        border-bottom: 1px solid #FFF;
     }
 
     .header img {
@@ -344,11 +344,11 @@ button:focus,
         line-height: 33px;
         text-align: center;
         border-radius: 2px;
-        border: 2px solid #FF8500;
+        border: 2px solid #FFF;
     }
 
         .social-icon li a:hover {
-            border-color: #FF8500;
+            border-color: #FFF;
         }
 
 /*-------------------
@@ -439,11 +439,11 @@ button:focus,
     .portfolio-item .portfolio-info h3 {
         margin: 0;
         line-height: 1;
-        color: #FF8500;
+        color: #FFF;
     }
 
     .portfolio-item .portfolio-info small {
-        color: #FF8500;
+        color: #FFF;
     }
 
 .portfolio-item:hover .portfolio-info {

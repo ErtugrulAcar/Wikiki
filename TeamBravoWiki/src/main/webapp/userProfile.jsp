@@ -19,7 +19,7 @@
     <link href="img/favicon.png" rel=icon>
 
     <!-- web-fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+    <link href="css/fontcss.css" rel="stylesheet">
 
     <!-- font-awesome -->
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -37,13 +37,13 @@
     <script src="script/my_js.js"></script>
     <link href="css/elements.css" rel="stylesheet">
     <style>
-        #jpg1 {
+
+		#jpg1 {
             height: 200px;
             width: 200px;
             border-radius: 100%;
             background-color: red;
         }
-
         .nav-pills > li.active > a {
             background-color: #5b5b5b;
         }
@@ -53,7 +53,7 @@
             }
 
             .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
-                color: #FFC107;
+                background-color: #a8adb5;
             }
 
         .nav > li > a {
@@ -63,41 +63,60 @@
         .mainwrapper {
             margin-top: -10px;
         }
+        .SignButton{
+        height:40px;
+        width:160px;
+        border-radius:5px;
+        background-color:#6f7277;
+        justify-content: right;
+   		margin-top: 10px;
+   		margin-bottom: 10px;
+   		margin-right:10px;	
+        }
+        .nav > li > button:hover {
+       
+        background-color:#a8adb5;
+        }
+        #forBG{
+        background-color:#e2e2e2;
+        }
+        #forBG2{
+        background-color:#c1c1c1;
+        }
     </style>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
+<!-- Sayfanın içeriği burada session dan cekiliyor -->
+                    <%
+                    UserPageContext userPageContext = (UserPageContext) session.getAttribute("requestedUserProfile");
+                    %>
 <% String compare1 = request.getSession().getAttribute("userId").toString(); %>
 <% String compare2 = request.getSession().getAttribute("ProfileId").toString(); %>
- <% 
 
-       if(compare1.equals(compare2)){
-         
-       }
-
-   %>
 
     <!--NAVBAR-->
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">WIKIKI</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">Page 1</a>
-                </li>
-                <li>
-                    <a href="#">Page 2</a>
-                </li>
-                <li>
-                    <a href="#">Page 3</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+     <nav class="navbar navbar-inverse shadow" style="height: 60px; background-color: #d4d5d6; border: none; border-bottom: grey 1px dotted groove; ">
+                <div class="container-fluid" >
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="homepage.html"><img src="img/wiki2logo.png" alt="" style="width: 90px;height: 33px;margin-top: -5px;"></a>
+                  </div>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="homepage.html" style="height: 60px;">Home</a></li>
+                    <li><a href="wikiPage.jsp" style="height: 60px;">wikiPage</a></li>   
+                  </ul>
+                  
+                  <ul class="nav navbar-nav navbar-right">
+                  <%if(compare1==null){  %>
+                  		<li><button class="SignButton">Kayit OL</button></li>
+                    	<li><button class="SignButton">Giris Yap</button></li>
+                	  	
+                <%  }else{ %>
+                		<li><button class="SignButton">Welcome <%=userPageContext.getUsername()%></button></li>
+                    	<li><button class="SignButton">Cikis Yap</button></li>
+    					<%} %>
+   				 </ul>
+                </div>
+              </nav>
 
 
     <div id="main-wrapper" class="mainwrapper">
@@ -109,7 +128,7 @@
         </div>
 
         <div class="columns-block container">
-            <div class="left-col-block blocks">
+            <div class="left-col-block blocks" id="forBG">
 
                 <header id="headerfixed" class="header theiaStickySidebar" style="text-align:center;">
                     <div class="profile-img">
@@ -118,10 +137,7 @@
                         <img id="jpg1" src="img/img-profile.jpg" class="img-responsive" alt="" style="margin-left:auto;margin-right:auto;" />
                     </div>
 
-                    <!-- Sayfanın içeriği burada session dan cekiliyor -->
-                    <%
-                    UserPageContext userPageContext = (UserPageContext) session.getAttribute("requestedUserProfile");
-                    %>
+                    
 
 
                     <div class="content">
@@ -188,7 +204,7 @@
                 <!-- .header-->
             </div>
             <!-- .left-col-block -->
-            <div class="right-col-block blocks">
+            <div class="right-col-block blocks" id="forBG2">
                 <div class="theiaStickySidebar">
                     
                         <section class="expertise-wrapper section-wrapper gray-bg">

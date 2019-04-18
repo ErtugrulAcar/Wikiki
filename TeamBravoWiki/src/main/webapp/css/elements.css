@@ -189,7 +189,7 @@ cursor:pointer
     .form-style-2 .tel-number-field:focus,
     .form-style-2 .textarea-field:focus,
     .form-style-2 .select-field:focus {
-        border: 1px solid #FF8500;
+        border: 1px solid #6f7277;
     }
 
 .form-style-2 .textarea-field {
@@ -201,7 +201,7 @@ cursor:pointer
 .form-style-2 input[type=button] {
     border: none;
     padding: 10px 17px 10px 17px;
-    background: #FF8500;
+    background: #6f7277;
     color: #fff;
     box-shadow: 1px 1px 4px #DADADA;
     -moz-box-shadow: 1px 1px 4px #DADADA;
@@ -214,7 +214,7 @@ cursor:pointer
 
     .form-style-2 input[type=submit]:hover,
     .form-style-2 input[type=button]:hover {
-        background: #EA7B00;
+        background: #a8adb5;
         color: #fff;
     }
 .form-style-Bio {
@@ -282,7 +282,7 @@ cursor:pointer
     .form-style-Bio .tel-number-field:focus,
     .form-style-Bio .textarea-field:focus,
     .form-style-Bio .select-field:focus {
-        border: 1px solid #FF8500;
+        border: 1px solid #6f7277;
     }
 
 .form-style-Bio .textarea-field {
@@ -294,7 +294,7 @@ cursor:pointer
 .form-style-Bio input[type=button] {
     border: none;
     padding: 10px 17px 10px 17px;
-    background: #FF8500;
+    background: #6f7277;
     color: #fff;
     box-shadow: 1px 1px 4px #DADADA;
     -moz-box-shadow: 1px 1px 4px #DADADA;
@@ -307,7 +307,7 @@ cursor:pointer
 
     .form-style-Bio input[type=submit]:hover,
     .form-style-Bio input[type=button]:hover {
-        background: #EA7B00;
+        background: #a8adb5;
         color: #fff;
     }
 textarea {
