@@ -127,6 +127,7 @@
                                                     for(int i=0;i<10;i++){
                                                         if(((JsonObject)session.getAttribute("headerContent")).get(i+":0") == null)   break;
                                                         for(int j=0;j<10;j++){
+                                                            String id=i+":"+j;
                                                             if(((JsonObject)session.getAttribute("pageContent")).get(i+":"+j) == null)   break;
                                                 %>
                                                 <tr>
@@ -138,7 +139,7 @@
                                                             headerContent.deleteCharAt(0);
                                                             headerContent.deleteCharAt(headerContent.length()-1);
                                                         %>
-                                                        <h2><%=headerContent%></h2>
+                                                        <h2 id="<%=id%>"><%=headerContent%></h2id>
                                                         <%
                                                             pageContent = new StringBuilder(((JsonObject)session.getAttribute("pageContent")).get(i+":"+j).toString());
                                                             pageContent.deleteCharAt(0);
@@ -204,6 +205,7 @@
                                                     for(int i=0;i<10;i++){
                                                         if(((JsonObject)session.getAttribute("headerContent")).get(i+":0") == null)   break;
                                                         for(int j=0;j<10;j++){
+                                                            String idRef=i+":"+j;
                                                             if(((JsonObject)session.getAttribute("pageContent")).get(i+":"+j) == null)   break;
                                                             headerContent = new StringBuilder(((JsonObject)session.getAttribute("headerContent")).get(i+":"+j).toString());
                                                             headerContent.deleteCharAt(0);
@@ -215,7 +217,7 @@
                                                                 headerContentSt = new String(i + "." + j + " " + headerContent.toString());
                                                             }
                                                 %>
-                                                <li><a href="#" style="font-size: 16px;"><%=headerContentSt%></a></li>
+                                                <li><a href="#<%=idRef%>" style="font-size: 16px;"><%=headerContentSt%></a></li>
                                                 <%
                                                         }
                                                     }
