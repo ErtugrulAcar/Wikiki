@@ -183,7 +183,7 @@
                 <!-- .right-col-block -->
 
                  <!--SagDİV-->
-                <div style="width: 20%; padding-left: 50px; ">
+                <div style="width: 20%; padding-left: 50px; border: 1px solid black;">
                         <div class="left-col-block blocks" style="padding-left:12%;">
                                 <header class="header theiaStickySidebar">
                                     <div class="profile-img">
@@ -192,7 +192,7 @@
                     <img id="jpg1"src="img/img-profile.jpg" class="img-responsive" alt=""/>
                 </div>
 
-                                    <div class="content">
+                                    <div class="content" >
                                        <h1>Name of Game</h1>
 
                                        <h2>Başlıklar</h2>
