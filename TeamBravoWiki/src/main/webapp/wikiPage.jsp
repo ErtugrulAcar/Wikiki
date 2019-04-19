@@ -145,7 +145,7 @@
                                                             pageContent.deleteCharAt(0);
                                                             pageContent.deleteCharAt(pageContent.length()-1);
                                                         %>
-                                                        <p><%=pageContent%></p>
+                                                        <p style="color:black;"><%=pageContent%></p>
                                                     </td>
                                                 </tr>
                                                 <%
