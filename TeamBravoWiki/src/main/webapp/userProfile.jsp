@@ -106,14 +106,14 @@
                   </ul>
                   
                   <ul class="nav navbar-nav navbar-right">
-                  <%if(compare1==null){  %>
-                  		<li><button class="SignButton">Kayit OL</button></li>
-                    	<li><button class="SignButton">Giris Yap</button></li>
-                	  	
-                <%  }else{ %>
-                		<li><button class="SignButton">Welcome</button></li>
-                    	<li><button class="SignButton">Cikis Yap</button></li>
-    					<%} %>
+                  <%if(session.getAttribute("loginned") == null){  %>
+            		<li><button class="SignButton">Kayit OL</button></li>
+                	<li><button class="SignButton"><a href="/login">Giris Yap</a></button></li>
+            	  	
+            <%  }else{ %>
+            		<li><button class="SignButton">Welcome <%=request.getSession().getAttribute("userName")%></button></li>
+                	<li><button class="SignButton">Cikis Yap</button></li>
+					<%} %>
    				 </ul>
                 </div>
               </nav>

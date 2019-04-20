@@ -27,7 +27,7 @@ public class HomeController {
     @RequestMapping("/login")
     public String login(HttpServletRequest request){
         HttpSession session = request.getSession();
-        if(session.getAttribute("userId") == null){
+        if(session.getAttribute("userId") == null || session.getAttribute("userId").toString().equals("0")){
             return "/login.jsp";
         }
         else{
@@ -47,6 +47,7 @@ public class HomeController {
         if(!userid.equals("0")){
             HttpSession session = request.getSession();
             session.setAttribute("userId",userid );
+            session.setAttribute("loginned", true);
             return "redirect:/wikiPage1";
         }
         return "redirect:/login";
@@ -54,8 +55,15 @@ public class HomeController {
 
     @RequestMapping("/userProfile{userId}")
     public String userProfile(@PathVariable("userId") int userId, HttpSession session) {
-        session.setAttribute("requestedUserProfile", userPageClient.getPageContext(userId));
-        session.setAttribute("ProfileId",userId);
+    	if(session.getAttribute("loginned") != null) {
+	        session.setAttribute("ProfileId",userId);
+	        session.setAttribute("userName", userProfileClient.getUserInfo(Integer.parseInt(session.getAttribute("userId").toString())).getName());
+    	}
+    	else {
+    		session.setAttribute("ProfileId", -1);
+    		session.setAttribute("userId", 0);
+    	}
+    	session.setAttribute("requestedUserProfile", userPageClient.getPageContext(userId));
         return "userProfile.jsp";
     }
     @RequestMapping("wikiPage{wikiPageId}")
