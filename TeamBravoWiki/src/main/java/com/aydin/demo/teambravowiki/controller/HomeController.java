@@ -24,6 +24,10 @@ public class HomeController {
     private UserPageClient userPageClient = new UserPageClient();
     private WikiPageClient wikiPageClient = new WikiPageClient();
     private static JsonParser parser = new JsonParser();
+    @RequestMapping("/")
+    public String Default() {
+    	return "redirect:/home";
+    }
     @RequestMapping("/login")
     public String login(HttpServletRequest request){
         HttpSession session = request.getSession();
@@ -82,6 +86,6 @@ public class HomeController {
     }
     @RequestMapping("/home")
     public String HomePage(HttpServletRequest request) {
-    	return "homepage.jsp";
+    	return "homepage.html";
     }
 }
