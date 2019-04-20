@@ -30,6 +30,18 @@
     <link href="css/style.css" rel="stylesheet">
   
     <style>
+    .smallnames{
+            padding-top: 15px;
+            text-align: start;
+        }
+        .smallimg{
+            border-radius: 100px;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            float: left;
+
+        }
         #fotolar{
             position: relative;            
             width:200px;
@@ -43,15 +55,28 @@
             width: 200px;
             background-color: red;
         }
+        .nav > li > a:hover{
+  			 background-color: #c1d9ff;
+			}
         .nav-pills > li.active > a {
-            background-color: #d1e2ff;
+            background-color: #c1d9ff;
         }
             .nav-pills > li.active > a:hover {
-                background-color: #d1e2ff;
+                background-color: #c1d9ff;
             }
         .nav > li > a {
-        width:160px;
+        width:188px;
+        padding: 10px 0px;
+        margin-right: 0px;
         }
+        a:hover{
+        color: #0645ad;}
+        a {
+   			 color: #0645ad;
+		}
+		a:visited {
+    		color: #0b0080;
+		}
         .SignButton{
         height:40px;
         width:160px;
@@ -67,27 +92,27 @@
        
         background-color:#a8adb5;
         }
+        .shadow{
+            -webkit-box-shadow: 0 8px 6px -6px black;
+	        -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+        }
+        .imglogo {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                }
+              
     </style>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
 
     <!--NAVBAR-->
-        <nav class="navbar navbar-inverse shadow" style="height: 60px; background-color: #d4d5d6; border: none; border-bottom: grey 1px dotted groove; ">
-                <div class="container-fluid" >
-                  <div class="navbar-header">
-                    <a class="navbar-brand" href="homepage.html"><img src="img/wiki2logo.png" alt="" style="width: 90px;height: 33px;margin-top: -5px;"></a>
-                  </div>
+        <nav class="navbar navbar-inverse shadow" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
+                <div class="container-fluid" style="margin-left: 0px;" >
                   <ul class="nav navbar-nav">
-                    <li class="active"><a href="homepage.html" style="height: 60px;">Home</a></li>
-                    <li><a href="wikiPage.jsp" style="height: 60px;">wikiPage</a></li>   
+                    <li><a class="imglogo" href="homepage.html"><img src="img/wiki2logo.png" alt="" style="width: 90px;height: 33px;display: block;margin-left:300%;"></a></li>
                   </ul>
-                  
-                  <ul class="nav navbar-nav navbar-right">
-               
-                  		<li><button class="SignButton">Kayit OL</button></li>
-                    	<li><button class="SignButton">Giris Yap</button></li>
-                	
-   				 </ul>
                 </div>
               </nav>
 
@@ -104,7 +129,7 @@
         </div>
 
         <!--SOLDİV-->
-        <div style="width: 72%; height: 50px; text-align: center; margin: 0%;background-color: white;margin-left: 5%;"><h1 style="padding-top: 5px; ">BAŞLIK</h1></div>
+        <div style="width: 66%; height: 50px;background-color: #ddeaff;margin-left: 11%;"><h1 style="padding-top: 5px; ">ALBERT EINSTEIN</h1></div>
         <div class="columns-block container" style="margin-left: 5%; margin-top: 1%; width: 90%">
             <div style="width: 0;">
 
@@ -139,13 +164,13 @@
                                                             headerContent.deleteCharAt(0);
                                                             headerContent.deleteCharAt(headerContent.length()-1);
                                                         %>
-                                                        <h2 id="<%=id%>"><%=headerContent%></h2id>
+                                                        <h2 style="color:black;font-size:20px;font-weight:bold;"id="<%=id%>"><%=headerContent%></h2id>
                                                         <%
                                                             pageContent = new StringBuilder(((JsonObject)session.getAttribute("pageContent")).get(i+":"+j).toString());
                                                             pageContent.deleteCharAt(0);
                                                             pageContent.deleteCharAt(pageContent.length()-1);
                                                         %>
-                                                        <p style="color:black;"><%=pageContent%></p>
+                                                        <p style="color:black;font-size:15px;font-weight:normal;"><%=pageContent%></p>
                                                     </td>
                                                 </tr>
                                                 <%
@@ -183,17 +208,17 @@
                 <!-- .right-col-block -->
 
                  <!--SagDİV-->
-                <div style="width: 20%; padding-left: 50px; border: 1px solid black;">
-                        <div class="left-col-block blocks" style="padding-left:12%;">
+                <div style="width: 20%; border: 1px solid black;">
+                        <div class="left-col-block blocks">
                                 <header class="header theiaStickySidebar">
                                     <div class="profile-img">
                                         
                                           
-                    <img id="jpg1"src="img/img-profile.jpg" class="img-responsive" alt=""/>
+                    <img id="jpg1"src="img/einstein.jpg" class="img-responsive" alt=""/>
                 </div>
 
                                     <div class="content" >
-                                       <h1>Name of Game</h1>
+                                       <h1>Einstein</h1>
 
                                        <h2>Başlıklar</h2>
                 

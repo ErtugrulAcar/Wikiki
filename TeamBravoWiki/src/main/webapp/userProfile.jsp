@@ -111,7 +111,7 @@
                     	<li><button class="SignButton">Giris Yap</button></li>
                 	  	
                 <%  }else{ %>
-                		<li><button class="SignButton">Welcome <%=userPageContext.getUsername()%></button></li>
+                		<li><button class="SignButton">Welcome</button></li>
                     	<li><button class="SignButton">Cikis Yap</button></li>
     					<%} %>
    				 </ul>
@@ -249,12 +249,12 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="section-title">
-                                            <h2>
+                                            <h2>Ilgi Alanlari
                                              <% 
 
        if(compare1.equals(compare2)){
     	   %>
-                                                Ilgi Alanlari<input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-3" style="height:20px; width:28px;
+                                                <input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-3" style="height:20px; width:28px;
                             margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' />
 												<%} %>
                                             </h2>
