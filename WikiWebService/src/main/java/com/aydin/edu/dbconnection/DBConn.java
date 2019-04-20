@@ -1,10 +1,10 @@
 package com.aydin.edu.dbconnection;
 
+import java.io.*;
 import java.sql.*;
 import com.aydin.edu.model.UserInfo;
 import com.aydin.edu.model.UserPageContext;
 import com.aydin.edu.model.WikiPageContent;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 public class DBConn {
@@ -103,6 +103,33 @@ public class DBConn {
             System.out.println("Have a problem while getting WikiPageContext : " + e.getLocalizedMessage());
         }
         return null;
+    }
+    public void uploadImage(FileInputStream fis){
+        try{
+            ps = con.prepareStatement("insert into wikidb.image_table values (null, ?)");
+            ps.setBinaryStream(1, fis);
+            ps.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Have a problem while uploading Image(s), error message: " + e.getLocalizedMessage());
+        }
+    }
+    public void getImg(){
+        try{
+            ps = con.prepareStatement("select * from wikidb.image_table where image_id=1");
+            rs = ps.executeQuery();
+            rs.next();
+            //ByteArrayInputStream fis = (ByteArrayInputStream) rs.getBinaryStream("image");
+            InputStream inputStream = rs.getBinaryStream("image");
+            File file = new File("einstein.pdf");
+            FileOutputStream fos = new FileOutputStream(file);
+            byte [] buffer = new byte[1024];
+            while(inputStream.read() >0){
+                fos.write(buffer);
+            }
+            System.out.println(file.getAbsolutePath());
+        }catch(Exception e){
+            System.out.println("Have a problem while uploading Image(s), error message: " + e.getLocalizedMessage());
+        }
     }
 
 }
