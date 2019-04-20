@@ -112,7 +112,7 @@
             	  	
             <%  }else{ %>
             		<li><button class="SignButton">Welcome <%=request.getSession().getAttribute("userName")%></button></li>
-                	<li><button class="SignButton">Cikis Yap</button></li>
+                	<li><button class="SignButton"><a href="/logout">Cikis Yap</a></button></li>
 					<%} %>
    				 </ul>
                 </div>

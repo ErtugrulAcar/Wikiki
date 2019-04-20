@@ -73,7 +73,13 @@ public class HomeController {
          session.setAttribute("pageContent", parser.parse(wikiPageContent.getPageContent()).getAsJsonObject());
          return "wikiPage.jsp";
     }
-
+    @RequestMapping("/logout")
+    public String LogOut(HttpServletRequest request){
+    	HttpSession session = request.getSession();
+    	session.setAttribute("loginned", null);
+    	session.setAttribute("userId", 0);
+    	return "redirect:wikiPage1";
+    }
     @RequestMapping("/home")
     public String HomePage(HttpServletRequest request) {
     	return "homepage.jsp";
