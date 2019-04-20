@@ -110,7 +110,7 @@
 }
     </style>
 </head>
-<body data-spy="scroll" data-target="#myScrollspy" class="bodyclick">
+<body data-spy="scroll" data-target="#myScrollspy">
 <% String logincontrol = request.getSession().getAttribute("userId").toString(); %>
     <!--NAVBAR-->
         <nav class="navbar navbar-inverse shadow navbar-expand-sm" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
@@ -130,7 +130,11 @@
             		<img id="loginsmallimg" src="img/einstein.jpg" onclick="myFunction()"class="dropbtn1">
             	  	
             <%  }else{ %>
-            		<button>Giris yap</button>
+            		
+            		<button class="nologin">Sign in</button>
+            		
+            		
+            		
 					<%} %>
 					
 					
