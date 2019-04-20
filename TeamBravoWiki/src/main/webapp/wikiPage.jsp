@@ -28,7 +28,8 @@
 
     <!-- Style CSS -->
     <link href="css/style.css" rel="stylesheet">
-  
+   	<link href="css/dropdown.css" rel="stylesheet">
+   	<script src="script/dropdown.js"></script>
     <style>
     .smallnames{
             padding-top: 15px;
@@ -102,17 +103,59 @@
                 margin-left: auto;
                 margin-right: auto;
                 }
-              
+              .abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
     </style>
 </head>
-<body data-spy="scroll" data-target="#myScrollspy">
-
+<body data-spy="scroll" data-target="#myScrollspy" class="bodyclick">
+<% String logincontrol = request.getSession().getAttribute("userId").toString(); %>
     <!--NAVBAR-->
-        <nav class="navbar navbar-inverse shadow" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
-                <div class="container-fluid" style="margin-left: 0px;" >
-                  <ul class="nav navbar-nav">
-                    <li><a class="imglogo" href="homepage.html"><img src="img/wiki2logo.png" alt="" style="width: 90px;height: 33px;display: block;margin-left:300%;"></a></li>
+        <nav class="navbar navbar-inverse shadow navbar-expand-sm" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
+                <div class="navbar-collapse collapse" style="margin-left: 0px;" >
+                  <ul class="navbar-nav abs-center-x">
+                  <li class="nav-item">
+               <a class="nav-link" class="imglogo" href="homepage.html"><img src="img/wiki2logo.png" alt="" 
+               style="width: 90px;height: 32px;display: block;margin-top:14px;"></a></li>
+            
                   </ul>
+                  <ul class="nav navbar-nav navbar-right">
+				      <li>
+
+					<div class="dropdown">
+					
+					<%if(logincontrol != null){  %>
+            		<img id="loginsmallimg" src="img/einstein.jpg" onclick="myFunction()"class="dropbtn1">
+            	  	
+            <%  }else{ %>
+            		<button>Giris yap</button>
+					<%} %>
+					
+					
+					
+					
+
+  <div id="myDropdown" class="dropdown-content">
+    <div id="dropleft"><img id="imgDrop" src="img/einstein.jpg"></div>
+    <div id="dropright">
+    <ul class="ulDrop">
+    <li class="liName">Abe nabuyunz</li>
+    <li class="liMail">mailimesakinba@gmail.com</li>
+    <li class="LiAccount"><button type="button" class="DropBtn1">My Account</button></li>
+    </ul>
+    </div>
+    <div id="dropbottom">
+        <button type="button" class="LogoutBtn">Log Out</button>
+    
+    </div>
+  </div>
+</div>
+
+					</li>	
+      
+    </ul>
                 </div>
               </nav>
 
@@ -265,5 +308,6 @@
         <script src="script/bootstrap.min.js"></script>
         <script src="script/theia-sticky-sidebar.js"></script>
         <script src="script/scripts.js"></script>
+        
 </body>
 </html>

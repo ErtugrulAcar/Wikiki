@@ -1,0 +1,99 @@
+
+.dropdown-content {
+margin-top:5px;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  height:175px;
+  width:300px;
+  margin-left:-265px;
+  border-radius:10px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+#dropleft{
+	height:125px;
+	width:125px;
+	float:left;
+}
+#dropright{
+	height:125px;
+	width:175px;
+	float:left;
+}
+#dropbottom{
+	height:50px;
+	border-top: 1px solid #314152;
+	width:300px;
+	clear:left;
+	
+}
+#imgDrop{
+	height:80px;
+	width:80px;
+	margin:20px;
+	border-radius:80px;
+}
+.liName{
+	padding-top:12px;
+	font-weight:bold;
+	font-size:13px;
+}
+.liMail{
+	margin-top:-7px;
+	font-weight:Bold;
+	font-size:11px;
+}
+.liAccount{
+	font-weight:Bold;
+	font-size:10px;
+}
+.DropBtn1{
+	background-color:#314152;
+	font-weight:Bold;
+	height:28px;
+	width:74px;
+	font-size:10px;
+	color:white;
+	margin-top:1px;
+}
+.LogoutBtn{
+	background-color:#314152;
+	font-weight:Bold;
+	height:30px;
+	width:100px;
+	font-size:10px;
+	color:white;
+	margin-top:8px;
+	margin-left:100px;
+}
+.LogoutBtn:hover{
+    background: linear-gradient(top, #8e0700, #d21b00);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+}
+.DropBtn1:hover{
+    background: linear-gradient(top, #8e0700, #d21b00);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+}
+#loginsmallimg{
+	height:35px;
+	width:35px;
+	border-radius:35px;
+	margin-top:13px;
+	margin-right:66px;
+		}
+	
