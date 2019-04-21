@@ -1,6 +1,4 @@
-﻿<%@ page import="com.aydin.demo.teambravowiki.model.UserInfo" %>
-<%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserProfileClient" %>
-<%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
+﻿<%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -144,21 +142,25 @@
             		
 					<%} %>
 					
-					
-					
-					
+                        <%
+                            UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
+                            if(loggedUser == null){
+                                
+                            }
+                        ;%>
+
 
   <div id="myDropdown" class="dropdown-content">
     <div id="dropleft"><img id="imgDrop" src="img/einstein.jpg"></div>
     <div id="dropright">
     <ul class="ulDrop">
-    <li class="liName">Abe nabuyunz</li>
-    <li class="liMail">mailimesakinba@gmail.com</li>
-    <li class="LiAccount"><button type="button" class="DropBtn1">My Account</button></li>
+    <li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>
+    <li class="liMail"><%=loggedUser.getEmail()%></li>
+    <li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/userProfile<%=loggedUser.getUserid()%>'">My Profile</button></li>
     </ul>
     </div>
     <div id="dropbottom">
-        <button type="button" class="LogoutBtn">Log Out</button>
+        <button type="submit" class="LogoutBtn" onclick="location.href='/logout'">Log Out</button>
     
     </div>
   </div>
@@ -591,3 +593,4 @@
 
 </body>
 </html>
+

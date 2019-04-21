@@ -1,6 +1,7 @@
 package com.aydin.demo.teambravowiki.controller;
 
 
+import com.aydin.demo.teambravowiki.model.UserInfo;
 import com.aydin.demo.teambravowiki.model.UserPageContext;
 import com.aydin.demo.teambravowiki.model.WikiPageContent;
 import com.aydin.demo.teambravowiki.webservice.client.UserPageClient;
@@ -52,7 +53,9 @@ public class HomeController {
             HttpSession session = request.getSession();
             session.setAttribute("userId",userid );
             session.setAttribute("loginned", true);
-            return "redirect:/wikiPage1";
+            UserPageContext upc = userPageClient.getPageContext(Integer.parseInt(userid));
+            session.setAttribute("userDetails", userPageClient.getPageContext(Integer.parseInt(userid)));
+            return "redirect:/home";
         }
         return "redirect:/login";
     }
@@ -80,9 +83,10 @@ public class HomeController {
     @RequestMapping("/logout")
     public String LogOut(HttpServletRequest request){
     	HttpSession session = request.getSession();
-    	session.setAttribute("loginned", null);
-    	session.setAttribute("userId", 0);
-    	return "redirect:wikiPage1";
+    	session.invalidate();
+    	/*session.setAttribute("loginned", null);
+    	session.setAttribute("userId", 0);*/
+    	return "redirect:/login";
     }
     @RequestMapping("/home")
     public String HomePage(HttpServletRequest request) {
