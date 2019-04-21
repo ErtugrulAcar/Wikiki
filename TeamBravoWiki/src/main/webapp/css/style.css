@@ -13,7 +13,12 @@ Author: themehippo.com
 # Theme Color (link color) #82b541
 # Mid grey (sub header) #f4f4f4
 # -------------------------------------------------------------------*/
-
+#forBG{
+        background-color:#587b98;
+        }
+#forBG2{
+        background-color:#6d88b3;
+        }
 body {
     font-family : 'Hind', sans-serif;
     font-size   : 15px;
@@ -338,17 +343,18 @@ button:focus,
     .social-icon li a {
         display: block;
         font-size: 12px;
-        color: #333333;
+        color: #f4f4ff;
         width: 34px;
         height: 34px;
         line-height: 33px;
         text-align: center;
         border-radius: 2px;
-        border: 2px solid #FFF;
+        border: 2px solid #bcbcff;
     }
 
         .social-icon li a:hover {
             border-color: #FFF;
+            color:#FFF;
         }
 
 /*-------------------

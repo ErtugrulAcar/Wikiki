@@ -96,12 +96,7 @@
     left: 50%;
     transform: translateX(-50%);
 }
-        #forBG{
-        background-color:#e2e2e2;
-        }
-        #forBG2{
-        background-color:#c1c1c1;
-        }
+        
  
     </style>
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
@@ -131,26 +126,11 @@
 
 					<div class="dropdown">
 					
-					<%if(logincontrol != null){  %>
-            		<img id="loginsmallimg" src="img/einstein.jpg" onclick="myFunction()"class="dropbtn1">
-            	  	
-            <%  }else{ %>
-            		
-            		<button class="nologin">Sign in</button>
-            		
-            		
-            		
-					<%} %>
-					
-                        <%
+					<%
                             UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
-                            if(loggedUser == null){
-                                
-                            }
-                        ;%>
-
-
-  <div id="myDropdown" class="dropdown-content">
+                            if(loggedUser != null){ %>
+            		<img id="loginsmallimg" src="img/einstein.jpg" onclick="myFunction()" class="dropbtn1">
+            	  	<div id="myDropdown" class="dropdown-content">
     <div id="dropleft"><img id="imgDrop" src="img/einstein.jpg"></div>
     <div id="dropright">
     <ul class="ulDrop">
@@ -164,8 +144,13 @@
     
     </div>
   </div>
+            <%  }else{ %>
+            		
+            		<button class="nologin" onclick="location.href='/login'">Sign in</button>
+          		
+					<%} %>
+					
 </div>
-
 					</li>	
       
     </ul>
@@ -193,11 +178,18 @@
                     
                     
  						 <img src="img/anonym.jpg" alt="" class="preview preview--rounded" style="height:200px;width:200px;">
-  							<div class="middle1">
+  						<% 
+
+       if(compare1.equals(compare2)){
+    	   %>
+                                            <div class="middle1">
     				<input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-5" style="height:20px; width:28px;
                             margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' />
                     
   			</div>
+												<%} %>
+  						
+  							
 				</div>
 
 						
@@ -208,10 +200,10 @@
 
 
                     <div class="content">
-                        <h1>
+                        <h1 style="color:#e5e5ff;">
                             <%=userPageContext.getUsername() + " " + userPageContext.getUserlastname()%>
                         </h1>
-                        <span class="lead">
+                        <span class="lead" style="color:#ededff;">
                             <%=userPageContext.getUserdegree().toUpperCase()%>
                         </span>
 
@@ -281,7 +273,7 @@
 
                                     <div class="col-md-12">
                                         <div class="section-title">
-                                            <h2>
+                                            <h2 style="color:#e5e5ff;">
                                                 Kullanici Biyografisi
  <% 
 
@@ -298,7 +290,7 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="expertise-item">
+                                        <div class="expertise-item" style="color:#e2e2e2;">
                                             <%=userPageContext.getUserbio()%>
                                         </div>
                                     </div>
@@ -316,7 +308,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="section-title">
-                                            <h2>Ilgi Alanlari
+                                            <h2 style="color:#e5e5ff;">Ilgi Alanlari
                                              <% 
 
        if(compare1.equals(compare2)){
@@ -332,7 +324,7 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="content-item">
+                                        <div class="content-item" style="color:#e2e2e2;">
                                             <%=userPageContext.getUserinterest()%>
                                         </div>
                                     </div>
@@ -350,7 +342,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="section-title">
-                                            <h2>
+                                            <h2 style="color:#e5e5ff;">
                                                 Kullanici Bilgileri
                                                  <% 
 
@@ -364,10 +356,10 @@
                                 </div>
                                 <!--.row-->
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <h2>E-posta</h2>
+                                    <div class="col-md-12" style="color:#e2e2e2;">
+                                        <h2 style="color:#e5e5ff;">E-posta</h2>
                                         <%=userPageContext.getEmail()%>
-                                        <h2>Telefon Numarasi</h2>
+                                        <h2 style="color:#e5e5ff;">Telefon Numarasi</h2>
                                         <%
                                         if(userPageContext.getPhonenumber() == null){
                                         userPageContext.setPhonenumber("-");
@@ -393,7 +385,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="copytext">
+                                        <div class="copytext" style="color:#e2e2e2;">
                                             &copy;  2019 Group Bravo All Rights Reserved
                                             
                                         </div>
@@ -538,7 +530,7 @@
    
     <button type="button" style="border: none;
     padding: 10px 17px 10px 17px;
-    background: #6f7277;
+    background: #314152;
     color: #fff;
     box-shadow: 1px 1px 4px #DADADA;
     -moz-box-shadow: 1px 1px 4px #DADADA;
@@ -548,8 +540,7 @@
     -moz-border-radius: 3px;
     margin-left:36%;
     width:30%;
-    text-weight:bold;" id="previewBtn">Submit</button>
-    
+    text-weight:bold;" id="previewBtn">Submit</button>    
     
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 

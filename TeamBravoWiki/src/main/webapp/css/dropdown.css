@@ -90,11 +90,12 @@ margin-top:5px;
     box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
 }
 #loginsmallimg{
-	height:35px;
-	width:35px;
-	border-radius:35px;
-	margin-top:13px;
+	height:45px;
+	width:45px;
+	border-radius:45px;
+	margin-top:7px;
 	margin-right:66px;
+	cursor:pointer;
 		}
 .nologin{
 	height:35px;
@@ -106,6 +107,7 @@ margin-top:5px;
 	color:white;
 	border:2px solid #49617a;
 	font-size:13px;
+	cursor:pointer;
 }
 .nologin:hover{
     background: linear-gradient(top, #8e0700, #d21b00);

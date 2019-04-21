@@ -49,8 +49,8 @@ div#popupContact {
     border: 2px solid gray;
     border-radius: 10px;
     font-family: raleway;
-    background-color: #fff;
-    
+    background-color: #f4f4f4;
+    color:#314152;
 }
 div#popupContactBiography {
    position: absolute;
@@ -61,7 +61,8 @@ div#popupContactBiography {
     border: 2px solid gray;
     border-radius: 10px;
     font-family: raleway;
-    background-color: #fff;
+    background-color: #f4f4f4;
+    color:#314152;
 }
 div#popupContactInterest {
     position: absolute;
@@ -72,7 +73,8 @@ div#popupContactInterest {
     border: 2px solid gray;
     border-radius: 10px;
     font-family: raleway;
-    background-color: #fff;
+    background-color: #f4f4f4;
+    color:#314152;
 }
 div#popupContactUserInfo {
     position: absolute;
@@ -83,7 +85,8 @@ div#popupContactUserInfo {
     border: 2px solid gray;
     border-radius: 10px;
     font-family: raleway;
-    background-color: #fff;
+    background-color: #f4f4f4;
+    color:#314152;
 }
 div#popupProfilePhoto {
     position: absolute;
@@ -94,9 +97,10 @@ div#popupProfilePhoto {
     border: 2px solid gray;
     border-radius: 10px;
     font-family: raleway;
-    background-color: #fff;
+    background-color: #f4f4f4;
     height: 370px;
     width: 370px;
+    color:#314152;
 }
 
 
@@ -106,7 +110,7 @@ form {
     padding: 10px 50px;
     border-radius: 10px;
     font-family: raleway;
-    background-color: #fff
+    background-color: #f4f4f4;
 }
 
 hr {
@@ -120,9 +124,9 @@ text-decoration:none;
 width:100%;
 text-align:center;
 display:block;
-background-color:#FFBC00;
+background-color:#314152;
 color:#fff;
-border:1px solid #FFCB00;
+border:1px solid #314152;
 padding:10px 0;
 font-size:20px;
 cursor:pointer;
@@ -146,7 +150,7 @@ cursor:pointer
 .form-style-2-heading {
     font-weight: bold;
     font-style: italic;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #314152;
     margin-bottom: 20px;
     font-size: 15px;
     padding-bottom: 3px;
@@ -196,6 +200,7 @@ cursor:pointer
     -moz-border-radius: 3px;
     padding: 7px;
     outline: none;
+    background-color: #f4f4f4;
 }
 
     .form-style-2 .input-field:focus,
@@ -214,7 +219,7 @@ cursor:pointer
 .form-style-2 input[type=button] {
     border: none;
     padding: 10px 17px 10px 17px;
-    background: #6f7277;
+    background: #314152;
     color: #fff;
     box-shadow: 1px 1px 4px #DADADA;
     -moz-box-shadow: 1px 1px 4px #DADADA;
@@ -239,7 +244,7 @@ cursor:pointer
 .form-style-Bio-heading {
     font-weight: bold;
     font-style: italic;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #314152;
     margin-bottom: 20px;
     font-size: 15px;
     padding-bottom: 3px;
@@ -289,6 +294,7 @@ cursor:pointer
     padding: 7px;
     outline: none;
     height:200px;
+    background-color: #f4f4f4;
 }
 
     .form-style-Bio .input-field:focus,
@@ -307,7 +313,7 @@ cursor:pointer
 .form-style-Bio input[type=button] {
     border: none;
     padding: 10px 17px 10px 17px;
-    background: #6f7277;
+    background: #314152;
     color: #fff;
     box-shadow: 1px 1px 4px #DADADA;
     -moz-box-shadow: 1px 1px 4px #DADADA;
@@ -342,7 +348,7 @@ textarea {
 .form-style-pp-heading {
     font-weight: bold;
     font-style: italic;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #314152;
     margin-bottom: 20px;
     font-size: 15px;
     padding-bottom: 3px;
@@ -392,6 +398,7 @@ textarea {
     padding: 7px;
     outline: none;
     height:200px;
+    background-color: #f4f4f4;
 }
 
     .form-style-pp .input-field:focus,
@@ -410,7 +417,7 @@ textarea {
 .form-style-pp input[type=button] {
     border: none;
     padding: 10px 17px 10px 17px;
-    background: #6f7277;
+    background: #314152;
     color: #fff;
     box-shadow: 1px 1px 4px #DADADA;
     -moz-box-shadow: 1px 1px 4px #DADADA;

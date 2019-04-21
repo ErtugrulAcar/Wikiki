@@ -126,37 +126,31 @@
 
 					<div class="dropdown">
 					
-					<%if(logincontrol != null){  %>
-            		<img id="loginsmallimg" src="img/einstein.jpg" onclick="myFunction()"class="dropbtn1">
-            	  	
-            <%  }else{ %>
-            		
-            		<button class="nologin">Sign in</button>
-            		
-            		
-            		
-					<%} %>
-					
-					
-					
-					
-
-  <div id="myDropdown" class="dropdown-content">
+					<%
+                            UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
+                            if(loggedUser != null){ %>
+            		<img id="loginsmallimg" src="img/einstein.jpg" onclick="myFunction()" class="dropbtn1">
+            	  	<div id="myDropdown" class="dropdown-content">
     <div id="dropleft"><img id="imgDrop" src="img/einstein.jpg"></div>
     <div id="dropright">
     <ul class="ulDrop">
-    <li class="liName">Abe nabuyunz</li>
-    <li class="liMail">mailimesakinba@gmail.com</li>
-    <li class="LiAccount"><button type="button" class="DropBtn1">My Account</button></li>
+    <li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>
+    <li class="liMail"><%=loggedUser.getEmail()%></li>
+    <li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/userProfile<%=loggedUser.getUserid()%>'">My Profile</button></li>
     </ul>
     </div>
     <div id="dropbottom">
-        <button type="button" class="LogoutBtn">Log Out</button>
+        <button type="submit" class="LogoutBtn" onclick="location.href='/logout'">Log Out</button>
     
     </div>
   </div>
+            <%  }else{ %>
+            		
+            		<button class="nologin" onclick="location.href='/login'">Sign in</button>
+          		
+					<%} %>
+					
 </div>
-
 					</li>	
       
     </ul>
