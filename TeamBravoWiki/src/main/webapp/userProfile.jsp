@@ -527,7 +527,22 @@
         </div>
     </div>
 
+   <button type="button" id="uploadBtn" 
+   style="border: none;
+    padding: 10px 17px 10px 17px;
+    background: #314152;
+    color: #fff;
+    box-shadow: 1px 1px 4px #DADADA;
+    -moz-box-shadow: 1px 1px 4px #DADADA;
+    -webkit-box-shadow: 1px 1px 4px #DADADA;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+   margin-left:55px;
+    width:30%;
+    text-weight:bold;float:left"
    
+   >Upload</button>
     <button type="button" style="border: none;
     padding: 10px 17px 10px 17px;
     background: #314152;
@@ -538,9 +553,9 @@
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    margin-left:36%;
     width:30%;
-    text-weight:bold;" id="previewBtn">Submit</button>    
+    margin-left:10px;
+    text-weight:bold;float:left;" id="previewBtn">Edit</button>    
     
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 
