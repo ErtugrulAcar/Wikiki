@@ -36,6 +36,8 @@
     <link href="css/style.css" rel="stylesheet">
     <script src="script/my_js.js"></script>
     <link href="css/elements.css" rel="stylesheet">
+    <link href="css/dropdown.css" rel="stylesheet">
+   	<script src="script/dropdown.js"></script>
     <style>
 
 		#jpg1 {
@@ -44,25 +46,28 @@
             border-radius: 100%;
             background-color: red;
         }
+        .nav > li > a:hover{
+  			 background-color: #c1d9ff;
+			}
         .nav-pills > li.active > a {
-            background-color: #5b5b5b;
+            background-color: #c1d9ff;
         }
-
             .nav-pills > li.active > a:hover {
-                background-color: #5b5b5b;
+                background-color: #c1d9ff;
             }
-
-            .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
-                background-color: #a8adb5;
-            }
-
         .nav > li > a {
-            width: 160px;
+        width:188px;
+        padding: 10px 0px;
+        margin-right: 0px;
         }
-
-        .mainwrapper {
-            margin-top: -10px;
-        }
+        a:hover{
+        color: #0645ad;}
+        a {
+   			 color: #0645ad;
+		}
+		a:visited {
+    		color: #0b0080;
+		}
         .SignButton{
         height:40px;
         width:160px;
@@ -72,18 +77,38 @@
    		margin-top: 10px;
    		margin-bottom: 10px;
    		margin-right:10px;	
+   		color:white;
         }
         .nav > li > button:hover {
        
         background-color:#a8adb5;
         }
+        .shadow{
+            -webkit-box-shadow: 0 8px 6px -6px black;
+	        -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+        }
+        .imglogo {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                }
+              .abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
         #forBG{
         background-color:#e2e2e2;
         }
         #forBG2{
         background-color:#c1c1c1;
         }
+ 
     </style>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="css/ProfilePhotoCss.css">
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
 <!-- Sayfanın içeriği burada session dan cekiliyor -->
@@ -92,29 +117,56 @@
                     %>
 <% String compare1 = request.getSession().getAttribute("userId").toString(); %>
 <% String compare2 = request.getSession().getAttribute("ProfileId").toString(); %>
-
+<% String logincontrol = request.getSession().getAttribute("userId").toString(); %>
 
     <!--NAVBAR-->
-     <nav class="navbar navbar-inverse shadow" style="height: 60px; background-color: #d4d5d6; border: none; border-bottom: grey 1px dotted groove; ">
-                <div class="container-fluid" >
-                  <div class="navbar-header">
-                    <a class="navbar-brand" href="homepage.html"><img src="img/wiki2logo.png" alt="" style="width: 90px;height: 33px;margin-top: -5px;"></a>
-                  </div>
-                  <ul class="nav navbar-nav">
-                    <li class="active"><a href="homepage.html" style="height: 60px;">Home</a></li>
-                    <li><a href="wikiPage.jsp" style="height: 60px;">wikiPage</a></li>   
+     <nav class="navbar navbar-inverse shadow navbar-expand-sm" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
+                <div class="navbar-collapse collapse" style="margin-left: 0px;" >
+                  <ul class="navbar-nav abs-center-x">
+                  <li class="nav-item">
+               <a class="nav-link" class="imglogo" href="homepage.html"><img src="img/wiki2logo.png" alt="" 
+               style="width: 90px;height: 32px;display: block;margin-top:14px;"></a></li>
+            
                   </ul>
-                  
                   <ul class="nav navbar-nav navbar-right">
-                  <%if(session.getAttribute("loginned") == null){  %>
-            		<li><button class="SignButton">Kayit OL</button></li>
-                	<li><button class="SignButton"><a href="/login">Giris Yap</a></button></li>
+				      <li>
+
+					<div class="dropdown">
+					
+					<%if(logincontrol != null){  %>
+            		<img id="loginsmallimg" src="img/einstein.jpg" onclick="myFunction()"class="dropbtn1">
             	  	
             <%  }else{ %>
-            		<li><button class="SignButton">Welcome <%=request.getSession().getAttribute("userName")%></button></li>
-                	<li><button class="SignButton"><a href="/logout">Cikis Yap</a></button></li>
+            		
+            		<button class="nologin">Sign in</button>
+            		
+            		
+            		
 					<%} %>
-   				 </ul>
+					
+					
+					
+					
+
+  <div id="myDropdown" class="dropdown-content">
+    <div id="dropleft"><img id="imgDrop" src="img/einstein.jpg"></div>
+    <div id="dropright">
+    <ul class="ulDrop">
+    <li class="liName">Abe nabuyunz</li>
+    <li class="liMail">mailimesakinba@gmail.com</li>
+    <li class="LiAccount"><button type="button" class="DropBtn1">My Account</button></li>
+    </ul>
+    </div>
+    <div id="dropbottom">
+        <button type="button" class="LogoutBtn">Log Out</button>
+    
+    </div>
+  </div>
+</div>
+
+					</li>	
+      
+    </ul>
                 </div>
               </nav>
 
@@ -132,9 +184,22 @@
 
                 <header id="headerfixed" class="header theiaStickySidebar" style="text-align:center;">
                     <div class="profile-img">
+                    
+                    <div class="container1">
+                    
+                    <!-- PROFIL FOTOSU VAR MI KONTROLU EKLENECEK BURAYA -->
+                    
+                    
+ 						 <img src="img/anonym.jpg" alt="" class="preview preview--rounded" style="height:200px;width:200px;">
+  							<div class="middle1">
+    				<input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-5" style="height:20px; width:28px;
+                            margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' />
+                    
+  			</div>
+				</div>
 
-
-                        <img id="jpg1" src="img/img-profile.jpg" class="img-responsive" alt="" style="margin-left:auto;margin-right:auto;" />
+						
+                        
                     </div>
 
                     
@@ -328,6 +393,7 @@
                                     <div class="col-md-12">
                                         <div class="copytext">
                                             &copy;  2019 Group Bravo All Rights Reserved
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -420,6 +486,83 @@
             </div>
         </div>
 			</div>
+		</div>
+		
+		<div class="md-modal md-effect-5" id="modal-5">
+			<div class="md-content">
+				
+
+<div id="popupProfilePhoto">
+            <!-- Contact Us Form -->
+            <div class="form-style-pp">
+                <div class="form-style-pp-heading">Edit your Profile Photo</div>
+<img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">
+            <div class="profile">
+        <div class="photo">
+            <input type="file" accept="image/*">
+            <div class="photo__helper">
+                <div class="photo__frame photo__frame--circle">
+                    <canvas class="photo__canvas"></canvas>
+                    <div class="message is-empty">
+                        <p class="message--desktop">Drop your photo here or browse your computer.</p>
+                        <p class="message--mobile">Tap here to select your picture.</p>
+                    </div>
+                    <div class="message is-loading">
+                        <i class="fa fa-2x fa-spin fa-spinner"></i>
+                    </div>
+                    <div class="message is-dragover">
+                        <i class="fa fa-2x fa-cloud-upload"></i>
+                        <p>Drop your photo</p>
+                    </div>
+                    <div class="message is-wrong-file-type">
+                        <p>Only images allowed.</p>
+                        <p class="message--desktop">Drop your photo here or browse your computer.</p>
+                        <p class="message--mobile">Tap here to select your picture.</p>
+                    </div>
+                    <div class="message is-wrong-image-size">
+                        <p>Your photo must be larger than 350px.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo__options hide">
+                <div class="photo__zoom">
+                    <input type="range" class="zoom-handler">
+                </div><a href="javascript:;" class="remove"><i class="fa fa-trash"></i></a>
+            </div>
+        </div>
+    </div>
+
+   
+    <button type="button" style="border: none;
+    padding: 10px 17px 10px 17px;
+    background: #6f7277;
+    color: #fff;
+    box-shadow: 1px 1px 4px #DADADA;
+    -moz-box-shadow: 1px 1px 4px #DADADA;
+    -webkit-box-shadow: 1px 1px 4px #DADADA;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    margin-left:36%;
+    width:30%;
+    text-weight:bold;" id="previewBtn">Submit</button>
+    
+    
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+
+  
+
+    <script  src="script/ProfilePhotoScript.js"></script>
+
+
+
+
+
+
+			</div>
+		</div>
+</div>
 		</div>
 
 
