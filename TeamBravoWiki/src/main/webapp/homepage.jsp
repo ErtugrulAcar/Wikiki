@@ -235,35 +235,35 @@
                                 <div id="section2"style="border-bottom: #555555 dotted 1px;" >
                                     <div class="row" style="width: 87%; margin: auto" >
                                         <div style="width: 48%; float: left;">
-                                            <div class="shadow" style=" height: 75px; background-color: #6D88B3; border-radius: 20px; margin-top: 10px;">
+                                            <div class="shadow" style=" height: 75px; background-color: #314152; border-radius: 20px; margin-top: 10px;">
                                                 <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                                 </div>
-                                            <div class="shadow" style=" height: 75px; background-color: #EFF0F1;border-radius: 20px; margin-top: 10px;">
+                                            <div class="shadow" style=" height: 75px; background-color: #94B9D1;border-radius: 20px; margin-top: 10px;">
                                                 <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                             </div>
 
-                                            <div class="shadow" style=" height: 75px; background-color: #6D88B3; border-radius: 20px; margin-top: 10px;">
+                                            <div class="shadow" style=" height: 75px; background-color: #314152; border-radius: 20px; margin-top: 10px;">
                                                     <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                             </div>
-                                            <div class="shadow" style=" height: 75px; background-color: #EFF0F1;border-radius: 20px; margin-top: 10px;">
+                                            <div class="shadow" style=" height: 75px; background-color: #94B9D1;border-radius: 20px; margin-top: 10px;">
                                                     <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                             </div>  
                                                                 <img class="shadow" src="img/elitehibana.png" alt="" style="border-radius: 20px; margin-top: 10px; width: 99%;">
                                         </div>  
                                         <div class="shadow" style="width:48%; float: right;">
-                                                <div class="shadow" style=" height: 75px; background-color: #6D88B3; border-radius: 20px; margin-top: 10px;">
+                                                <div class="shadow" style=" height: 75px; background-color: #314152; border-radius: 20px; margin-top: 10px;">
                                                     <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                                 </div>
-                                                <div class="shadow" style=" height: 75px; background-color: #EFF0F1;border-radius: 20px; margin-top: 10px;">
+                                                <div class="shadow" style=" height: 75px; background-color: #94B9D1;border-radius: 20px; margin-top: 10px;">
                                                     <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                                     
                                                 </div>
                                                                         <img class="shadow" src="img/csgo.png" alt="" style="border-radius: 20px; margin-top: 10px; width: 99%;">
     
-                                                <div class="shadow" style=" height: 75px; background-color: #6D88B3;border-radius: 20px; margin-top: 10px;">
+                                                <div class="shadow" style=" height: 75px; background-color: #314152;border-radius: 20px; margin-top: 10px;">
                                                         <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                                 </div>
-                                                <div class="shadow" style=" height: 75px; background-color: #EFF0F1;border-radius: 20px; margin-top: 10px;">
+                                                <div class="shadow" style=" height: 75px; background-color: #94B9D1;border-radius: 20px; margin-top: 10px;">
                                                         <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                                 </div>    
                                             </div> 
