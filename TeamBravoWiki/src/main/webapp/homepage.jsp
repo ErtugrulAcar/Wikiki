@@ -1,4 +1,6 @@
-
+<%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,9 +75,26 @@
                 margin-left: auto;
                 margin-right: auto;
                 }
+        .SignButton{
+            height:40px;
+            width:160px;
+            border-radius:5px;
+            background-color:#6f7277;
+            justify-content: right;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-right:10px;
+            color:white;
+        }
     </style>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
+<%
+    UserPageContext userPageContext = (UserPageContext) session.getAttribute("requestedUserProfile");
+%>
+<% String compare1 = request.getSession().getAttribute("userId").toString(); %>
+<% String compare2 = request.getSession().getAttribute("ProfileId").toString(); %>
+<% String logincontrol = request.getSession().getAttribute("userId").toString(); %>
 
     <!--NAVBAR-->
         <nav class="navbar navbar-inverse shadow" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
@@ -85,7 +104,35 @@
                     <li><a href="wikiPage.jsp" style="height: 60px;">wikiPage</a></li>
                     <li><a class="imglogo" href="homepage.html"><img src="img/wiki2logo.png" alt="" style="width: 90px;height: 33px;display: block; margin-left: 200%"></a></li>
                   </ul>
+                    <div class="dropdown">
+
+                        <%
+                        UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
+                        if(loggedUser != null){ %>
+                        <img id="loginsmallimg" src="img/einstein.jpg" onclick="myFunction()" class="dropbtn1">
+                        <div id="myDropdown" class="dropdown-content">
+                            <div id="dropleft"><img id="imgDrop" src="img/einstein.jpg"></div>
+                            <div id="dropright">
+                                <ul class="ulDrop">
+                                    <li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>
+                                    <li class="liMail"><%=loggedUser.getEmail()%></li>
+                                    <li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/userProfile<%=loggedUser.getUserid()%>'">My Profile</button></li>
+                                </ul>
+                            </div>
+                            <div id="dropbottom">
+                                <button type="submit" class="LogoutBtn" onclick="location.href='/logout'">Log Out</button>
+
+                            </div>
+                        </div>
+                        <%  }else{ %>
+
+                        <button class="nologin" onclick="location.href='/login'">Sign in</button>
+
+                        <%} %>
+
+                    </div>
                 </div>
+
               </nav>
 
     <div id="main-wrapper">
