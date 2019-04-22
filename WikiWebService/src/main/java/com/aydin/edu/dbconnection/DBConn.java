@@ -104,6 +104,38 @@ public class DBConn {
         }
         return null;
     }
+    public void uploadUserImage(int id, String image){
+        try{
+            ps = con.prepareStatement("insert into wikidb.userImages values (?, ?)");
+            ps.setInt(1, id);
+            ps.setString(2, image);
+            ps.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Have a problem while uploading userImage userId/imageId : " + id + " error: " + e.getLocalizedMessage());
+        }
+    }
+    public void updateUserImage(int id, String image){
+        try{
+           ps = con.prepareStatement("update wikidb.userImages set image=? where id=?");
+           ps.setString(1, image);
+           ps.setInt(2, id);
+           ps.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Have a problem while updating userImage userid/imageId : " + id +" error : " + e.getLocalizedMessage());
+        }
+    }
+    public String getUserImage(int id){
+        try{
+           ps = con.prepareStatement("select * from wikidb.userImages where id=?");
+           ps.setInt(1, id);
+           rs = ps.executeQuery();
+           rs.next();
+           return rs.getString("image");
+        }catch(SQLException e){
+            System.out.println("Have a problem while getting userImage userId/imageId : " + id + " error: " + e.getLocalizedMessage());
+        }
+        return null;
+    }
 }
 
 
