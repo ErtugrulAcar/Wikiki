@@ -1,22 +1,22 @@
 package com.aydin.demo.teambravowiki.controller;
 
 
-import com.aydin.demo.teambravowiki.model.UserInfo;
 import com.aydin.demo.teambravowiki.model.UserPageContext;
 import com.aydin.demo.teambravowiki.model.WikiPageContent;
 import com.aydin.demo.teambravowiki.webservice.client.UserPageClient;
 import com.aydin.demo.teambravowiki.webservice.client.UserProfileClient;
 import com.aydin.demo.teambravowiki.webservice.client.WikiPageClient;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Base64;
 
 
 @Controller
@@ -91,5 +91,21 @@ public class HomeController {
     @RequestMapping("/home")
     public String HomePage(HttpServletRequest request) {
     	return "homepage.html";
+    }
+
+
+    @RequestMapping("/showImg")
+    public String showImg(HttpSession session){
+        try{
+            File img = new File("C:\\einstein.jpg");
+            FileInputStream fileInputStream = new FileInputStream(img);
+            byte [] bytes = new byte[(int)img.length()];
+            fileInputStream.read(bytes);
+            String encodedFile = Base64.getEncoder().encodeToString(bytes);
+            session.setAttribute("img", encodedFile);
+        }catch(Exception e){
+            System.out.println(e.getLocalizedMessage());
+        }
+        return "base64Img.jsp";
     }
 }
