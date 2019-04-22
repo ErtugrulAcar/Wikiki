@@ -90,7 +90,7 @@ public class HomeController {
     }
     @RequestMapping("/home")
     public String HomePage(HttpServletRequest request) {
-    	return "homepage.html";
+    	return "homepage.jsp";
     }
 
 
