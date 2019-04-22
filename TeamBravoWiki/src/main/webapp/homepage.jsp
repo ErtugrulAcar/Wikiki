@@ -101,10 +101,6 @@
     <!--NAVBAR-->
     <nav class="navbar navbar-inverse shadow navbar-expand-sm" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
         <div class="navbar-collapse collapse" style="margin-left: 0px;" >
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="homepage.jsp" style="height: 60px;">Home</a></li>
-                <li><a href="wikiPage.jsp" style="height: 60px;">wikiPage</a></li>
-            </ul>
             <ul class="navbar-nav abs-center-x">
                 <li class="nav-item">
                     <a class="nav-link" class="imglogo" href="homepage.jsp"><img src="img/wiki2logo.png" alt=""
