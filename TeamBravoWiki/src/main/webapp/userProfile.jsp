@@ -540,7 +540,8 @@
     -moz-border-radius: 3px;
    margin-left:55px;
     width:30%;
-    text-weight:bold;float:left"
+    
+    text-weight:bold;"
    
    >Upload</button>
     <button type="button" style="border: none;
@@ -555,7 +556,7 @@
     -moz-border-radius: 3px;
     width:30%;
     margin-left:10px;
-    text-weight:bold;float:left;" id="previewBtn">Edit</button>    
+    text-weight:bold;" id="previewBtn">Edit</button>    
     
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 

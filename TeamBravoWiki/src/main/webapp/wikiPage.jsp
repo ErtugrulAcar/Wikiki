@@ -1,4 +1,5 @@
 <%@ page import="com.google.gson.JsonObject" %>
+<%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
