@@ -117,7 +117,7 @@
                 <div class="navbar-collapse collapse" style="margin-left: 0px;" >
                   <ul class="navbar-nav abs-center-x">
                   <li class="nav-item">
-               <a class="nav-link" class="imglogo" href="homepage.html"><img src="img/wiki2logo.png" alt="" 
+               <a class="nav-link" class="imglogo" href="homepage.jsp"><img src="img/wiki2logo.png" alt=""
                style="width: 90px;height: 32px;display: block;margin-top:14px;"></a></li>
             
                   </ul>
@@ -125,7 +125,7 @@
 				      <li>
 
 					<div class="dropdown">
-					
+
 					<%
                             UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
                             if(loggedUser != null){ %>
@@ -141,17 +141,17 @@
     </div>
     <div id="dropbottom">
         <button type="submit" class="LogoutBtn" onclick="location.href='/logout'">Log Out</button>
-    
+
     </div>
   </div>
             <%  }else{ %>
-            		
+
             		<button class="nologin" onclick="location.href='/login'">Sign in</button>
-          		
+
 					<%} %>
-					
+
 </div>
-					</li>	
+					</li>
       
     </ul>
                 </div>
