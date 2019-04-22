@@ -89,13 +89,6 @@
     </style>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
-<%
-    UserPageContext userPageContext = (UserPageContext) session.getAttribute("requestedUserProfile");
-%>
-<% String compare1 = request.getSession().getAttribute("userId").toString(); %>
-<% String compare2 = request.getSession().getAttribute("ProfileId").toString(); %>
-<% String logincontrol = request.getSession().getAttribute("userId").toString(); %>
-
     <!--NAVBAR-->
         <nav class="navbar navbar-inverse shadow" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
                 <div class="container-fluid" style="margin-left: 0px;" >
