@@ -1,4 +1,5 @@
 ﻿<%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
+<%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserImageClient" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -175,9 +176,13 @@
                     <div class="container1">
                     
                     <!-- PROFIL FOTOSU VAR MI KONTROLU EKLENECEK BURAYA -->
-                    
-                    
- 						 <img src="img/anonym.jpg" alt="" class="preview preview--rounded" style="height:200px;width:200px;">
+
+                        <%
+                            String userImage = UserImageClient.getUserImage(userPageContext.getUserid());
+                            if(userImage == null)
+                                userImage = "img/anonym.jpg";
+                        %>
+ 						 <img src="data:image/png;base64, <%=userImage%>" alt="" class="preview preview--rounded" style="height:200px;width:200px;">
   						<% 
 
        if(compare1.equals(compare2)){

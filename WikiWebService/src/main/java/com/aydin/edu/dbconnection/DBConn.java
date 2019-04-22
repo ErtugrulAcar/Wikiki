@@ -1,7 +1,7 @@
 package com.aydin.edu.dbconnection;
 
-import java.io.*;
 import java.sql.*;
+
 import com.aydin.edu.model.UserInfo;
 import com.aydin.edu.model.UserPageContext;
 import com.aydin.edu.model.WikiPageContent;
@@ -130,7 +130,7 @@ public class DBConn {
            ps.setInt(1, id);
            rs = ps.executeQuery();
            rs.next();
-           return rs.getString("image");
+           return (rs.getString("image"));
         }catch(SQLException e){
             System.out.println("Have a problem while getting userImage userId/imageId : " + id + " error: " + e.getLocalizedMessage());
         }
