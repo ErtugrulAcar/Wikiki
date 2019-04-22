@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>User Profile</title>
+    <title>Home Page</title>
 
     <!-- favicon -->
     <link href="img/favicon.png" rel=icon>
@@ -23,12 +23,16 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrapmin340.css">
-    <script src="script/jquerymin331.js"></script>
+    <link rel="stylesheet" href="/bootstrap.min2.css">
+    <script src="script/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/script/bootstrap.min.js"></script>
 
     <!-- Style CSS -->
     <link href="css/style.css" rel="stylesheet">
+    <script src="script/my_js.js"></script>
+    <link href="css/elements.css" rel="stylesheet">
+    <link href="css/dropdown.css" rel="stylesheet">
+    <script src="script/dropdown.js"></script>
   
     <style>
         .smallnames{
@@ -71,10 +75,10 @@
 	        box-shadow: 0 8px 6px -6px black;
         }
         .imglogo {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                }
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
         .SignButton{
             height:40px;
             width:160px;
@@ -86,11 +90,63 @@
             margin-right:10px;
             color:white;
         }
+        .abs-center-x {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
     <!--NAVBAR-->
-        <nav class="navbar navbar-inverse shadow" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
+    <nav class="navbar navbar-inverse shadow navbar-expand-sm" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
+        <div class="navbar-collapse collapse" style="margin-left: 0px;" >
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="homepage.jsp" style="height: 60px;">Home</a></li>
+                <li><a href="wikiPage.jsp" style="height: 60px;">wikiPage</a></li>
+            </ul>
+            <ul class="navbar-nav abs-center-x">
+                <li class="nav-item">
+                    <a class="nav-link" class="imglogo" href="homepage.jsp"><img src="img/wiki2logo.png" alt=""
+                                                                                 style="width: 90px;height: 32px;display: block;margin-top:14px;"></a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+
+                    <div class="dropdown">
+
+                        <%
+                            UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
+                            if(loggedUser != null){ %>
+                        <img id="loginsmallimg" src="img/einstein.jpg" onclick="myFunction()" class="dropbtn1">
+                        <div id="myDropdown" class="dropdown-content">
+                            <div id="dropleft"><img id="imgDrop" src="img/einstein.jpg"></div>
+                            <div id="dropright">
+                                <ul class="ulDrop">
+                                    <li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>
+                                    <li class="liMail"><%=loggedUser.getEmail()%></li>
+                                    <li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/userProfile<%=loggedUser.getUserid()%>'">My Profile</button></li>
+                                </ul>
+                            </div>
+                            <div id="dropbottom">
+                                <button type="submit" class="LogoutBtn" onclick="location.href='/logout'">Log Out</button>
+
+                            </div>
+                        </div>
+                        <%  }else{ %>
+
+                        <button class="nologin" onclick="location.href='/login'">Sign in</button>
+
+                        <%} %>
+
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+       <!--<nav class="navbar navbar-inverse shadow" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
                 <div class="container-fluid" style="margin-left: 0px;" >
                   <ul class="nav navbar-nav">
                     <li class="active"><a href="homepage.html" style="height: 60px;">Home</a></li>
@@ -99,7 +155,7 @@
                   </ul>
                     <div class="dropdown">
 
-                        <%
+                        <%--
                         UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
                         if(loggedUser != null){ %>
                         <img id="loginsmallimg" src="img/einstein.jpg" onclick="myFunction()" class="dropbtn1">
@@ -126,7 +182,7 @@
                     </div>
                 </div>
 
-              </nav>
+              </nav>-->--%>
 
     <div id="main-wrapper">
         <!-- Page Preloader -->
@@ -179,41 +235,35 @@
                                 <div id="section2"style="border-bottom: #555555 dotted 1px;" >
                                     <div class="row" style="width: 87%; margin: auto" >
                                         <div style="width: 48%; float: left;">
-                                            <div class="shadow" style=" height: 75px; background-color: grey;border-radius: 20px; margin-top: 10px;">
+                                            <div class="shadow" style=" height: 75px; background-color: #314152; border-radius: 20px; margin-top: 10px;">
                                                 <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
-                                                
-
-                                            </div
-                                            >
-                                            <div class="shadow" style=" height: 75px; background-color: lightgrey;border-radius: 20px; margin-top: 10px;">
+                                                </div>
+                                            <div class="shadow" style=" height: 75px; background-color: #94B9D1;border-radius: 20px; margin-top: 10px;">
                                                 <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                             </div>
 
-                                            <div class="shadow" style=" height: 75px; background-color: grey;border-radius: 20px; margin-top: 10px;">
+                                            <div class="shadow" style=" height: 75px; background-color: #314152; border-radius: 20px; margin-top: 10px;">
                                                     <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                             </div>
-                                            <div class="shadow" style=" height: 75px; background-color: bisque;border-radius: 20px; margin-top: 10px;">
+                                            <div class="shadow" style=" height: 75px; background-color: #94B9D1;border-radius: 20px; margin-top: 10px;">
                                                     <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                             </div>  
-                                            <img class="shadow" src="img/elitehibana.png" alt="" style="border-radius: 20px; margin-top: 10px; width: 99%;">  
+                                                                <img class="shadow" src="img/elitehibana.png" alt="" style="border-radius: 20px; margin-top: 10px; width: 99%;">
                                         </div>  
                                         <div class="shadow" style="width:48%; float: right;">
-                                                <div class="shadow" style=" height: 75px; background-color: grey;border-radius: 20px; margin-top: 10px;">
+                                                <div class="shadow" style=" height: 75px; background-color: #314152; border-radius: 20px; margin-top: 10px;">
                                                     <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
-                                                    
-    
-                                                </div
-                                                >
-                                                <div class="shadow" style=" height: 75px; background-color: lightgrey;border-radius: 20px; margin-top: 10px;">
+                                                </div>
+                                                <div class="shadow" style=" height: 75px; background-color: #94B9D1;border-radius: 20px; margin-top: 10px;">
                                                     <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                                     
                                                 </div>
-                                                <img class="shadow" src="img/csgo.png" alt="" style="border-radius: 20px; margin-top: 10px; width: 99%;"> 
+                                                                        <img class="shadow" src="img/csgo.png" alt="" style="border-radius: 20px; margin-top: 10px; width: 99%;">
     
-                                                <div class="shadow" style=" height: 75px; background-color: bisque;border-radius: 20px; margin-top: 10px;">
+                                                <div class="shadow" style=" height: 75px; background-color: #314152;border-radius: 20px; margin-top: 10px;">
                                                         <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                                 </div>
-                                                <div class="shadow" style=" height: 75px; background-color: grey;border-radius: 20px; margin-top: 10px;">
+                                                <div class="shadow" style=" height: 75px; background-color: #94B9D1;border-radius: 20px; margin-top: 10px;">
                                                         <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                                 </div>    
                                             </div> 
