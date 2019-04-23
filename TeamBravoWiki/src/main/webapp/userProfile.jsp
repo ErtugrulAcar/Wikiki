@@ -178,11 +178,12 @@
                     <!-- PROFIL FOTOSU VAR MI KONTROLU EKLENECEK BURAYA -->
 
                         <%
-                            String userImage = UserImageClient.getUserImage(userPageContext.getUserid());
-                            if(userImage == null)
+                            String baseStr = "data:image/*;base64, ";
+                            String userImage = baseStr + UserImageClient.getUserImage(userPageContext.getUserid());
+                            if(userImage.equals(baseStr))
                                 userImage = "img/anonym.jpg";
                         %>
- 						 <img src="data:image/png;base64, <%=userImage%>" alt="" class="preview preview--rounded" style="height:200px;width:200px;">
+ 						 <img src="<%=userImage%>" alt="" class="preview preview--rounded" style="height:200px;width:200px;">
   						<% 
 
        if(compare1.equals(compare2)){

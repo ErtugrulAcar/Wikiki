@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{info}}
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data : function() {
+            return {
+                info : null
+            }
+        },
+        mounted :function() {
+            this.http.headers.common['Access-Control-Allow-Origin'] = '*';
+            axios
+                .get('http://104.248.129.101:8080/WikiWebService/webapi/image/user/2')
+                .then(response => (this.info = response))
+        }
+    });
+    window.onload = function (ev) {
+
+    }
+</script>
+</html>

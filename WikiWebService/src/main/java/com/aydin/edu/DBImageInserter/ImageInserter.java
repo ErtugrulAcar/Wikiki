@@ -10,14 +10,14 @@ public class ImageInserter {
     public static void main(String[] args) {
         DBConn dbconn = new DBConn("teambravo", "teambravo123");
         try{
-            File file = new File("C:\\eto.jpg");
+            File file = new File("C:\\eto.jpeg");
             FileInputStream fis = new FileInputStream(file);
             byte [] byte_array = new byte[(int)file.length()];
             fis.read(byte_array);
             String encodedImage = Base64.getEncoder().encodeToString(byte_array);
-            dbconn.uploadUserImage(1, encodedImage);
+            dbconn.updateUserImage(1, encodedImage);
         }catch(Exception e){
-            System.out.println("sleam");
+            System.out.println(e.getLocalizedMessage());
         }
 
     }

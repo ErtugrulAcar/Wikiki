@@ -11,6 +11,9 @@ public class UserImageClient {
         WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/image/user").path(Integer.toString(id));
         System.out.println(webResource);
         ClientResponse response = webResource.accept("text/plain").get(ClientResponse.class);
+        if(response.getStatus() == 204){
+            return "";
+        }
         if(response.getStatus() != 200){
             throw new RuntimeException("Failed : HTTP error code " + response.getStatus());
         }
