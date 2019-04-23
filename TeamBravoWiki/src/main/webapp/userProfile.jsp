@@ -129,10 +129,12 @@
 
 					<%
                             UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
-                            if(loggedUser != null){ %>
-            		<img id="loginsmallimg" src="img/einstein.jpg" onclick="myFunction()" class="dropbtn1">
+                            if(loggedUser != null){
+                    %>
+
+            		<img id="loginsmallimg" src="data:image/*;base64, <%=session.getAttribute("userImage")%>" onclick="myFunction()" class="dropbtn1">
             	  	<div id="myDropdown" class="dropdown-content">
-    <div id="dropleft"><img id="imgDrop" src="img/einstein.jpg"></div>
+    <div id="dropleft"><img id="imgDrop" src="data:image/*;base64, <%=session.getAttribute("userImage")%>"></div>
     <div id="dropright">
     <ul class="ulDrop">
     <li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>

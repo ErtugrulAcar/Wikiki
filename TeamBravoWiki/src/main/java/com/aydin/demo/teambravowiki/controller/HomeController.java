@@ -3,6 +3,7 @@ package com.aydin.demo.teambravowiki.controller;
 
 import com.aydin.demo.teambravowiki.model.UserPageContext;
 import com.aydin.demo.teambravowiki.model.WikiPageContent;
+import com.aydin.demo.teambravowiki.webservice.client.UserImageClient;
 import com.aydin.demo.teambravowiki.webservice.client.UserPageClient;
 import com.aydin.demo.teambravowiki.webservice.client.UserProfileClient;
 import com.aydin.demo.teambravowiki.webservice.client.WikiPageClient;
@@ -24,6 +25,7 @@ public class HomeController {
     private UserProfileClient userProfileClient = new UserProfileClient();
     private UserPageClient userPageClient = new UserPageClient();
     private WikiPageClient wikiPageClient = new WikiPageClient();
+    private UserImageClient userImageClient = new UserImageClient();
     private static JsonParser parser = new JsonParser();
     @RequestMapping("/")
     public String Default() {
@@ -55,6 +57,7 @@ public class HomeController {
             session.setAttribute("loginned", true);
             UserPageContext upc = userPageClient.getPageContext(Integer.parseInt(userid));
             session.setAttribute("userDetails", userPageClient.getPageContext(Integer.parseInt(userid)));
+            session.setAttribute("userImage", userImageClient.getUserImage(Integer.parseInt(userid)));
             return "redirect:/home";
         }
         return "redirect:/login";
