@@ -208,11 +208,11 @@
                                         <div class="section-title shadow" style="float: left; margin-left: 7%;" >
                                             <a href="wikiPage.jsp"><img src="img/anasayfaimg.png" alt="" style="border-radius: 20px; height:320px;"></a>
                                         </div>
-                                       <a  class="shadow"href="wikiPage.jsp"><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
+                                       <a  class="shadow"href="wikiPage1"><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
                                        <a  class="shadow"href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>                                        
                                        <a  class="shadow"href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
                                        <a  class="shadow"href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
-                                       <a  class="shadow"href="wikiPage.jsp"><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
+                                       <a  class="shadow"href="wikiPage1"><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
                                        <a  class="shadow"href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>                                        
                                        <a class="shadow" href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>
                                        <a class="shadow" href=""><img src="img/anasayfaclick.png" alt="" style="border-radius: 20px; width: 250px;height: 75px; margin-left:10px; margin-top: 5px; " ></a>

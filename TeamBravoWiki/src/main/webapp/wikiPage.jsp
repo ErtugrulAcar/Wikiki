@@ -146,9 +146,9 @@
     </div>
   </div>
             <%  }else{ %>
-            		
+
             		<button class="nologin" onclick="location.href='/login'">Sign in</button>
-          		
+
 					<%} %>
 					
 </div>

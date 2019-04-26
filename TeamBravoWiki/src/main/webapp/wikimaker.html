@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <!-- Include Quill stylesheet -->
+    <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+    <!-- Include the Quill library -->
+    <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Wiki Maker</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <!-- Create the editor container -->
+    <div id="vueComponent">
+        <div id="header">
+            <p>Header</p>
+        </div>
+        <div id="content">
+            <p>Hello World!</p>
+        </div>
+    </div>
+
+
+</body>
+<!-- Initialize Quill editor -->
+<script>
+    window.onload = function (ev) {
+        var header = new Quill('#header', {
+            modules: {
+                toolbar: '#toolbar'
+            },
+            theme: 'snow'
+        });
+        var content = new Quill('#content', {
+            modules: {
+                toolbar: '#toolbar'
+            },
+            theme: 'snow'
+        });
+    };
+    var vueComponent = new Vue({
+        el : "#vueComponent",
+        data : {
+           name : "eto"
+        },
+        mounted : function(){
+
+        },
+        methods : {
+           inner : function () {
+               var cn = document.getElementById("editor").childNodes[0].innerHTML;
+               console.log(cn);
+           }
+        }
+    });
+
+</script>
+</html>

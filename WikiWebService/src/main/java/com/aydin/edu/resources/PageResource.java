@@ -3,12 +3,14 @@ package com.aydin.edu.resources;
 import com.aydin.edu.dbconnection.DBConn;
 import com.aydin.edu.model.UserPageContext;
 import com.aydin.edu.model.WikiPageContent;
+import org.omg.CORBA.portable.ApplicationException;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
 
 @Path("/page")
 public class PageResource {
@@ -26,4 +28,13 @@ public class PageResource {
     public WikiPageContent getWikiPageContent(@PathParam("wikipageid") int wikipageid){
         return dbconn.getWikiPageContext(wikipageid);
     }
+
+    @GET
+    @Path("/getJSON")
+    @Produces(  MediaType.APPLICATION_JSON)
+    public UserPageContext getWikiPageContent(){
+        return dbconn.getUserPageContext(1);
+    }
+
+
 }

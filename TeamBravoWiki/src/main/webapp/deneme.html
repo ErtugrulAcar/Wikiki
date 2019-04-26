@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <!-- Include Quill stylesheet -->
+    <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+    <!-- Include the Quill library -->
+    <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+
+
+</head>
+<body>
+    <div id="editor">
+        <p id="parag">ERtugrul</p>
+
+    </div>
+    <div id="app">
+        <button @click="toStr">Click</button>
+    </div>
+</body>
+
+<script>
+
+    var app = new Vue({
+       el : "#app",
+       data : {
+           parag : document.getElementById("parag")
+       },
+        methods : {
+           toStr : function () {
+               console.log(this.parag.outerHTML);
+           }
+        }
+    });
+</script>
+</html>
