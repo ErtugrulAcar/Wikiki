@@ -713,10 +713,12 @@ $(function() {
 
 
     $('#previewBtn').on('click', function() {
-        $('.preview').show().attr('src',p.getAsDataURL());  
+        $('.preview').show().attr('src',p.getAsDataURL());
+        console.log(p.getAsDataURL());
+        //Submit basılınca kaydedilen base64 formatlı fotoraf:   p.getAsDataURL();
     });
   
-    $('#uploadBtn').on('click', function () {
+    /*$('#uploadBtn').on('click', function () {
         var formData,
             data = p.getData();
 
@@ -754,7 +756,7 @@ $(function() {
 //Sending already croppend (DataURL) to backend (Check security issues)
 //Backend should save the image file with the DataURL content
 
-/*$('#uploadBtn').on('click', function() {
+$('#uploadBtn').on('click', function() {
     var image = p.getAsDataURL();
 
     $.post("fakeserver/upload", { image: image });
