@@ -128,7 +128,6 @@
     </style>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
-<% String logincontrol = request.getSession().getAttribute("userId").toString(); %>
 <!--NAVBAR-->
 <nav class="navbar navbar-inverse shadow navbar-expand-sm"
      style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
