@@ -26,15 +26,7 @@ public class PageResource {
     @Path("/wiki/{wikipageid}")
     @Produces(MediaType.APPLICATION_XML)
     public WikiPageContent getWikiPageContent(@PathParam("wikipageid") int wikipageid){
-        return dbconn.getWikiPageContext(wikipageid);
+        return dbconn.getWikiPageContent(wikipageid);
     }
-
-    @GET
-    @Path("/getJSON")
-    @Produces(  MediaType.APPLICATION_JSON)
-    public UserPageContext getWikiPageContent(){
-        return dbconn.getUserPageContext(1);
-    }
-
 
 }

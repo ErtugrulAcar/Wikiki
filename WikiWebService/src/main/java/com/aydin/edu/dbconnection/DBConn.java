@@ -87,7 +87,7 @@ public class DBConn {
         }
         return null;
     }
-    public WikiPageContent getWikiPageContext(int wikipageid){
+    public WikiPageContent getWikiPageContent(int wikipageid){
         try{
             ps = con.prepareStatement("select * from wikidb.wikipage where wiki_page_id = ?");
             ps.setInt(1, wikipageid);
@@ -97,8 +97,10 @@ public class DBConn {
             /*return  new WikiPageContent(jsonParser.parse(rs.getString("wiki_page_header_content")).getAsJsonObject(),
                     jsonParser.parse(rs.getString("wiki_page_content")).getAsJsonObject());
             */
-            return new WikiPageContent(jsonParser.parse(rs.getString("wiki_page_header_content")).getAsJsonObject().toString(),
-                    jsonParser.parse(rs.getString("wiki_page_content")).getAsJsonObject().toString());
+            return new WikiPageContent(rs.getString("wiki_page_header"),
+                    jsonParser.parse(rs.getString("wiki_page_header_content")).getAsJsonObject().toString(),
+                    jsonParser.parse(rs.getString("wiki_page_content")).getAsJsonObject().toString(),
+                    rs.getString("wiki_page_image"));
         }catch(SQLException e){
             System.out.println("Have a problem while getting WikiPageContext : " + e.getLocalizedMessage());
         }
@@ -109,6 +111,7 @@ public class DBConn {
             ps = con.prepareStatement("insert into wikidb.userImages values (?, ?)");
             ps.setInt(1, id);
             ps.setString(2, image);
+            System.out.println(ps);
             ps.executeUpdate();
         }catch(SQLException e){
             System.out.println("Have a problem while uploading userImage userId/imageId : " + id + " error: " + e.getLocalizedMessage());
@@ -135,6 +138,16 @@ public class DBConn {
             System.out.println("Have a problem while getting userImage userId/imageId : " + id + " error: " + e.getLocalizedMessage());
         }
         return null;
+    }
+    public void uploadWikiImage(int id, String image){
+        try{
+            ps = con.prepareStatement("update wikidb.wikipage set wiki_page_image=? where wiki_page_id=?");
+            ps.setString(1, image);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Have a problem while uploading WikiImage : " + id + " error : " + e.getLocalizedMessage());
+        }
     }
 }
 

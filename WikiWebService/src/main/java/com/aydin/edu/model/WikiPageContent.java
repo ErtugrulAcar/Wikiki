@@ -1,19 +1,27 @@
 package com.aydin.edu.model;
-
-import com.google.gson.JsonObject;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class WikiPageContent {
+    private String header;
     private String headerContent;
     private String pageContent;
-
+    private String image;
     public WikiPageContent(){}
 
-    public WikiPageContent(String headerContent, String pageContent) {
+    public WikiPageContent(String header, String headerContent, String pageContent, String image) {
+        this.header = header;
         this.headerContent = headerContent;
         this.pageContent = pageContent;
+        this.image = image;
+    }
+
+    public String getHeader(){
+        return header;
+    }
+
+    public void setHeader(String header){
+        this.header = header;
     }
 
     public String getHeaderContent() {
@@ -30,5 +38,12 @@ public class WikiPageContent {
 
     public void setPageContent(String pageContent) {
         this.pageContent = pageContent;
+    }
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

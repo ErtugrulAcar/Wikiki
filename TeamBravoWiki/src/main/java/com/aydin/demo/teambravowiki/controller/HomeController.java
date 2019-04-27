@@ -79,8 +79,12 @@ public class HomeController {
     @RequestMapping("wikiPage{wikiPageId}")
     public String wikiPage(@PathVariable("wikiPageId")int wikiPageId, HttpSession session){
          WikiPageContent wikiPageContent =wikiPageClient.getWikiPageContent(wikiPageId);
+         System.out.println(wikiPageContent.getHeader());
+         System.out.println(wikiPageContent.getImage());
+         session.setAttribute("header", wikiPageContent.getHeader());
          session.setAttribute("headerContent", parser.parse(wikiPageContent.getHeaderContent()).getAsJsonObject());
          session.setAttribute("pageContent", parser.parse(wikiPageContent.getPageContent()).getAsJsonObject());
+         session.setAttribute("wikiImage", wikiPageContent.getImage());
          return "wikiPage.jsp";
     }
     @RequestMapping("/logout")

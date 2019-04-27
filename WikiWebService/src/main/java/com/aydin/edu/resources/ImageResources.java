@@ -2,6 +2,7 @@ package com.aydin.edu.resources;
 
 
 import com.aydin.edu.dbconnection.DBConn;
+import com.aydin.edu.model.UserImage;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -16,15 +17,18 @@ public class ImageResources {
         return dbconn.getUserImage(id);
     }
     @POST
-    @Path("user/upload/{id}")
-    @Consumes(MediaType.TEXT_PLAIN)
-    public void uploadUserImage(@PathParam("id")int id, String image){
-        dbconn.uploadUserImage(id, image);
+    @Path("user/upload")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void uploadUserImage(UserImage userImage){
+        System.out.println(userImage.getId());
+        dbconn.uploadUserImage(userImage.getId(), userImage.getImage());
     }
     @POST
-    @Path("user/update/{id}")
-    @Consumes(MediaType.TEXT_PLAIN)
-    public void updateUserImage(@PathParam("id")int id, String image){
-        dbconn.updateUserImage(id, image);
+    @Path("user/update")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updateUserImage(UserImage userImage){
+        dbconn.updateUserImage(userImage.getId(), userImage.getImage());
     }
+
+
 }
