@@ -130,11 +130,16 @@
 					<%
                             UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
                             if(loggedUser != null){
+                                String userImage = (String) session.getAttribute("userImage");
+                                if(userImage.equals("")){
+                                    userImage = "img/anonym.jpg";
+                                }
+
                     %>
 
-            		<img id="loginsmallimg" src="data:image/*;base64, <%=session.getAttribute("userImage")%>" onclick="myFunction()" class="dropbtn1">
+            		<img id="loginsmallimg" src="<%=userImage%>" onclick="myFunction()" class="dropbtn1">
             	  	<div id="myDropdown" class="dropdown-content">
-    <div id="dropleft"><img id="imgDrop" src="data:image/*;base64, <%=session.getAttribute("userImage")%>"></div>
+    <div id="dropleft"><img id="imgDrop" src="<%=userImage%>"></div>
     <div id="dropright">
     <ul class="ulDrop">
     <li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>
@@ -180,12 +185,13 @@
                     <!-- PROFIL FOTOSU VAR MI KONTROLU EKLENECEK BURAYA -->
 
                         <%
-                            String baseStr = "data:image/*;base64, ";
-                            String userImage =UserImageClient.getUserImage(userPageContext.getUserid());
-                            if(userImage.equals(baseStr))
-                                userImage = "img/anonym.jpg";
+                            //pageUserImage userImage den farklı -- bu hangi profil sayfası gösteriliyorsa o kişinin fotosunu alır
+                            String pageUserImage =UserImageClient.getUserImage(userPageContext.getUserid());
+                            if(pageUserImage.equals("")){
+                                pageUserImage= "img/anonym.jpg";
+                            }
                         %>
- 						 <img src="<%=userImage%>" alt="" class="preview preview--rounded" style="height:200px;width:200px;">
+ 						 <img src="<%=pageUserImage%>" alt="" class="preview preview--rounded" style="height:200px;width:200px;">
   						<% 
 
        if(compare1.equals(compare2)){
@@ -594,20 +600,32 @@
 var app = new Vue({
 	el : "#app",
 	data : {
-		id : <%=session.getAttribute("userId")%>	
+		id : <%=session.getAttribute("userId")%>,
+        ifUserImage : <%=!session.getAttribute("userImage").equals("")%>
 	},
 	methods : {
 		uploadImg : function(user_img){
-			axios({
-				url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/upload",
-				method : "post",
-				data : {
-					"id" : this.id,
-					"image" : user_img
-				}
-			}).then(response => (console.log(response)))
+			if(this.ifUserImage){
+                axios({
+                    url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/update",
+                    method : "post",
+                    data : {
+                        "id" : this.id,
+                        "image" : user_img
+                    }
+                }).then(response => (console.log(response)))
+            }else{
+                axios({
+                    url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/upload",
+                    method : "post",
+                    data : {
+                        "id" : this.id,
+                        "image" : user_img
+                    }
+                }).then(response => (console.log(response)))
+            }
 		}
-	}
+	},
 });
 
 </script>

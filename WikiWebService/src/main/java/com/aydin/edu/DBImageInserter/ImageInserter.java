@@ -14,7 +14,7 @@ public class ImageInserter {
             FileInputStream fis = new FileInputStream(file);
             byte [] byte_array = new byte[(int)file.length()];
             fis.read(byte_array);
-            String encodedImage = Base64.getEncoder().encodeToString(byte_array);
+            String encodedImage = "data:image/*;base64, " + Base64.getEncoder().encodeToString(byte_array);
             dbconn.uploadWikiImage(1, encodedImage);
         }catch(Exception e){
             System.out.println(e.getLocalizedMessage());

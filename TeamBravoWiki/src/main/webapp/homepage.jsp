@@ -116,14 +116,14 @@
                         <%
                             UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
                             if(loggedUser != null){
-                           	String baseStr = "data:image/*;base64, ";
-                               String userImage = baseStr + UserImageClient.getUserImage(loggedUser.getUserid());
-                               if(userImage.equals(baseStr))
-                                   userImage = "img/anonym.jpg";
+                                String userImage = (String) session.getAttribute("userImage");
+                                if(userImage.equals("")){
+                                    userImage = "img/anonym.jpg";
+                                }
                         	%>
                         <img id="loginsmallimg" src="<%=userImage %>" onclick="myFunction()" class="dropbtn1">
                         <div id="myDropdown" class="dropdown-content">
-                            <div id="dropleft"><img id="imgDrop" src="data:image/*;base64, <%=session.getAttribute("userImage")%>"></div>
+                            <div id="dropleft"><img id="imgDrop" src="<%=userImage%>"></div>
                             <div id="dropright">
                                 <ul class="ulDrop">
                                     <li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>
