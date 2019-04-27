@@ -1,5 +1,5 @@
-/**
- * Profile picture
+/** 
+* Profile picture
  * @author Daniel Salvagni <danielsalvagni@gmail.com>
  */
 
@@ -714,7 +714,7 @@ $(function() {
 
     $('#previewBtn').on('click', function() {
         $('.preview').show().attr('src',p.getAsDataURL());
-        console.log(p.getAsDataURL());
+        app.uploadImg(p.getAsDataURL());
         //Submit basılınca kaydedilen base64 formatlı fotoraf:   p.getAsDataURL();
     });
   

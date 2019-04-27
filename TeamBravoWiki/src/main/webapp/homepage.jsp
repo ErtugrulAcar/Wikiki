@@ -1,4 +1,5 @@
 <%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
+<%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserImageClient" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -114,8 +115,13 @@
 
                         <%
                             UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
-                            if(loggedUser != null){ %>
-                        <img id="loginsmallimg" src="data:image/*;base64, <%=session.getAttribute("userImage")%>" onclick="myFunction()" class="dropbtn1">
+                            if(loggedUser != null){
+                           	String baseStr = "data:image/*;base64, ";
+                               String userImage = baseStr + UserImageClient.getUserImage(loggedUser.getUserid());
+                               if(userImage.equals(baseStr))
+                                   userImage = "img/anonym.jpg";
+                        	%>
+                        <img id="loginsmallimg" src="<%=userImage %>" onclick="myFunction()" class="dropbtn1">
                         <div id="myDropdown" class="dropdown-content">
                             <div id="dropleft"><img id="imgDrop" src="data:image/*;base64, <%=session.getAttribute("userImage")%>"></div>
                             <div id="dropright">
