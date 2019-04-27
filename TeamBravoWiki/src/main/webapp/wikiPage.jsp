@@ -147,10 +147,14 @@
                     <%
                         UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
                         if (loggedUser != null) {
+                            String userImage = (String) session.getAttribute("userImage");
+                            if(userImage.equals("")){
+                                userImage = "img/anonym.jpg";
+                            }
                     %>
-                    <img id="loginsmallimg" src="img/einstein.jpg" onclick="myFunction()" class="dropbtn1">
+                    <img id="loginsmallimg" src="<%=userImage%>" onclick="myFunction()" class="dropbtn1">
                     <div id="myDropdown" class="dropdown-content">
-                        <div id="dropleft"><img id="imgDrop" src="img/einstein.jpg"></div>
+                        <div id="dropleft"><img id="imgDrop" src="<%=userImage%>"></div>
                         <div id="dropright">
                             <ul class="ulDrop">
                                 <li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%>
@@ -285,11 +289,11 @@
             <div class="left-col-block blocks">
                 <header class="header theiaStickySidebar">
                     <div class="profile-img">
-                        <img id="jpg1" src="data:image/*;base64, <%=session.getAttribute("wikiImage")%>" class="img-responsive" alt=""/>
+                        <img id="jpg1" src="<%=session.getAttribute("wikiImage")%>" class="img-responsive" alt="" style="display: block; margin-left: auto; margin-right: auto;"/>
                     </div>
 
                     <div class="content">
-                        <h1>Einstein</h1>
+                        <h1 style="text-align: center;"><%=session.getAttribute("header")%></h1>
                         <nav id="myScrollspy">
                             <ul class="nav nav-pills nav-stacked" data-spy="" id="ulbackground">
                                 <%
@@ -310,11 +314,11 @@
                                             } else {
                                                 headerContentSt = new String(i + "." + j + " " + headerContent.toString());
                                             }
-                                            headerPaddingLeft = 8;
-                                            if(j==0)    headerPaddingLeft = 3;
+                                            headerPaddingLeft = 20;
+                                            if(j==0)    headerPaddingLeft = 15;
                                 %>
-                                <li style="padding-left: <%=headerPaddingLeft%>%"><a href="#<%=idRef%>" style="font-size: 16px;"><%=headerContentSt%>
-                                </a></li>
+                                    <li style="padding-left: <%=headerPaddingLeft%>%;"><a href="#<%=idRef%>" style="font-size: 16px;"><%=headerContentSt%>
+                                    </a></li>
                                 <%
                                         }
                                     }
