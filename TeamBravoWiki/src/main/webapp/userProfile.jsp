@@ -181,7 +181,7 @@
 
                         <%
                             String baseStr = "data:image/*;base64, ";
-                            String userImage = baseStr + UserImageClient.getUserImage(userPageContext.getUserid());
+                            String userImage =UserImageClient.getUserImage(userPageContext.getUserid());
                             if(userImage.equals(baseStr))
                                 userImage = "img/anonym.jpg";
                         %>
@@ -552,15 +552,7 @@
     text-weight:bold;" id="previewBtn">Edit</button>    
     
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-
-  
-
-    <script  src="script/ProfilePhotoScript.js"></script>
-
-
-
-
-
+  <script  src="script/ProfilePhotoScript.js"></script>
 
 			</div>
 		</div>
@@ -593,4 +585,44 @@
 
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+
+
+var app = new Vue({
+	el : "#app",
+	data : {
+		id : <%=session.getAttribute("userId")%>	
+	},
+	methods : {
+		uploadImg : function(user_img){
+			axios({
+				url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/upload",
+				method : "post",
+				data : {
+					"id" : this.id,
+					"image" : user_img
+				}
+			}).then(response => (console.log(response)))
+		}
+	}
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
