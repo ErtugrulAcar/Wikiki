@@ -62,7 +62,15 @@ public class HomeController {
         }
         return "redirect:/login";
     }
-
+    @PostMapping("/register")
+    public String register(HttpServletRequest request) {
+    	
+    	return "redirect:/home";
+    }
+    @RequestMapping("/register")
+    public String registerPage() {
+    	return "register.jsp";
+    }
     @RequestMapping("/userProfile{userId}")
     public String userProfile(@PathVariable("userId") int userId, HttpSession session) {
     	if(session.getAttribute("loginned") != null) {
