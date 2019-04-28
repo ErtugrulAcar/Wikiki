@@ -103,8 +103,10 @@
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
 <script type="text/javascript">
 	function ClickFunction(){
-		var Source = document.getElementById("userImage").src;
-		var loginImage = document.getElementById("loginsmallimg").src = Source;
+		setTimeout(function(){
+			var Source = document.getElementById("userImage").src;
+			var loginImage = document.getElementById("loginsmallimg").src = Source;
+		}, 500);
 	}
 </script>
       <link rel="stylesheet" href="css/ProfilePhotoCss.css">
@@ -512,7 +514,7 @@
             <!-- Contact Us Form -->
             <div class="form-style-pp">
                 <div class="form-style-pp-heading">Edit your Profile Photo</div>
-<img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;" onclick="ClickFunction()">
+<img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">
             <div class="profile">
         <div class="photo">
             <input type="file" accept="image/*">
@@ -562,7 +564,7 @@
     width:30%;
   	 margin-left:36%;
     text-weight:bold;" 
-    id="previewBtn">Edit</button>    
+    id="previewBtn"  onclick="ClickFunction()">Edit</button>    
     
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
   <script  src="script/ProfilePhotoScript.js"></script>
