@@ -101,14 +101,6 @@
  
     </style>
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
-<script type="text/javascript">
-	function ClickFunction(){
-		setTimeout(function(){
-			var Source = document.getElementById("userImage").src;
-			var loginImage = document.getElementById("loginsmallimg").src = Source;
-		}, 500);
-	}
-</script>
       <link rel="stylesheet" href="css/ProfilePhotoCss.css">
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
@@ -610,7 +602,8 @@ var app = new Vue({
 	el : "#app",
 	data : {
 		id : <%=session.getAttribute("userId")%>,
-        ifUserImage : <%=!session.getAttribute("userImage").equals("")%>
+        ifUserImage : <%=!session.getAttribute("userImage").equals("")%>,
+        logInimgReferances : [document.getElementById("loginsmallimg"), document.getElementById("imgDrop")]
 	},
 	methods : {
 		uploadImg : function(user_img){
@@ -633,13 +626,17 @@ var app = new Vue({
                     }
                 }).then(response => (console.log(response)))
             }
-		}
+            this.changeImageReferances(user_img);
+		},
+        changeImageReferances : function (new_src) {
+            for(var i=0;i<this.logInimgReferances.length;i++){
+                this.logInimgReferances[i].src = new_src;
+            }
+        }
 	},
 });
 
 </script>
-
-
 
 
 
