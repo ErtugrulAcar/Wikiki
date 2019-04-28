@@ -101,7 +101,12 @@
  
     </style>
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
-
+<script type="text/javascript">
+	function ClickFunction(){
+		var Source = document.getElementById("userImage").src;
+		var loginImage = document.getElementById("loginsmallimg").src = Source;
+	}
+</script>
       <link rel="stylesheet" href="css/ProfilePhotoCss.css">
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
@@ -130,7 +135,8 @@
 					<%
                             UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
                             if(loggedUser != null){
-                                String userImage = (String) session.getAttribute("userImage");
+                            	String userImage =UserImageClient.getUserImage(Integer.parseInt(session.getAttribute("userId").toString()));
+                                //String userImage = (String) session.getAttribute("userImage");
                                 if(userImage.equals("")){
                                     userImage = "img/anonym.jpg";
                                 }
@@ -191,7 +197,7 @@
                                 pageUserImage= "img/anonym.jpg";
                             }
                         %>
- 						 <img src="<%=pageUserImage%>" alt="" class="preview preview--rounded" style="height:200px;width:200px;">
+ 						 <img id="userImage" src="<%=pageUserImage%>" alt="" class="preview preview--rounded" style="height:200px;width:200px;">
   						<% 
 
        if(compare1.equals(compare2)){
@@ -506,7 +512,7 @@
             <!-- Contact Us Form -->
             <div class="form-style-pp">
                 <div class="form-style-pp-heading">Edit your Profile Photo</div>
-<img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">
+<img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;" onclick="ClickFunction()">
             <div class="profile">
         <div class="photo">
             <input type="file" accept="image/*">
@@ -555,7 +561,8 @@
     -moz-border-radius: 3px;
     width:30%;
   	 margin-left:36%;
-    text-weight:bold;" id="previewBtn">Edit</button>    
+    text-weight:bold;" 
+    id="previewBtn">Edit</button>    
     
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
   <script  src="script/ProfilePhotoScript.js"></script>
