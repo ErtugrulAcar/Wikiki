@@ -104,7 +104,7 @@
         <div class="navbar-collapse collapse" style="margin-left: 0px;" >
             <ul class="navbar-nav abs-center-x">
                 <li class="nav-item">
-                    <a class="nav-link" class="imglogo" href="homepage.jsp"><img src="img/wiki2logo.png" alt=""
+                    <a class="nav-link" class="imglogo" href="/home"><img src="img/wiki2logo.png" alt=""
                                                                                  style="width: 90px;height: 32px;display: block;margin-top:14px;"></a></li>
 
             </ul>
@@ -116,7 +116,7 @@
                         <%
                             UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
                             if(loggedUser != null){
-                                String userImage = (String) session.getAttribute("userImage");
+                            	String userImage =UserImageClient.getUserImage(Integer.parseInt(session.getAttribute("userId").toString()));
                                 if(userImage.equals("")){
                                     userImage = "img/anonym.jpg";
                                 }
