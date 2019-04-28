@@ -28,7 +28,7 @@
 	  <img src = "img/error.png" style = "width:50%;">
 	</div>
 	<div class="text-center">
-	<a href="/homepage.jsp">Click Here For Homepage</a>
+	<a href="/home">Click Here For Homepage</a>
 	</div>
 </div>
 </body>
