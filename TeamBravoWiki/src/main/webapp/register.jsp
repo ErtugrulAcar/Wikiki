@@ -19,7 +19,7 @@
                     <form action="/register" method="post">
                     	<span style="font-family: 'Comic Sans MS'; font-size: medium;">Name</span>
                         <input type="text" name="name" style="width:100%;" class="my-2">
-                        <span style="font-family: 'Comic Sans MS'; font-size: medium;">Surname</span>
+                        <span style="font-family: 'Comic Sans MS'; font-size: medium;">Lastname</span>
                         <input type="text" name="surname" style="width:100%;" class="my-2">
                         <span style="font-family: 'Comic Sans MS'; font-size: medium;">Phone Number</span>
                         <input type="text" name="phone" style="width:100%;" class="my-2">

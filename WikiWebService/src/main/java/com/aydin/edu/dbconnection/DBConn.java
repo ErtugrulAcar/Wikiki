@@ -2,6 +2,7 @@ package com.aydin.edu.dbconnection;
 
 import java.sql.*;
 
+import com.aydin.edu.model.RegisterUser;
 import com.aydin.edu.model.UserInfo;
 import com.aydin.edu.model.UserPageContext;
 import com.aydin.edu.model.WikiPageContent;
@@ -148,6 +149,33 @@ public class DBConn {
         }catch(SQLException e){
             System.out.println("Have a problem while uploading WikiImage : " + id + " error : " + e.getLocalizedMessage());
         }
+    }
+
+    public String registerUser(RegisterUser register){
+        try{
+            ps = con.prepareStatement("insert into wikidb.userinfo values (null,?,?,true,?,1)");
+            ps.setString(1, register.getName());
+            ps.setString(2, register.getLastname());
+            ps.setString(3, register.getPhone_number());
+            ps.executeUpdate();
+
+            ps = con.prepareStatement("select * from wikidb.userinfo ORDER BY userid DESC LIMIT 1;");
+            rs = ps.executeQuery();
+            rs.next();
+            int userid = Integer.parseInt(rs.getString("userid"));
+            ps = con.prepareStatement("insert into wikidb.userpassword values (?,?,?)");
+            ps.setInt(1, userid);
+            ps.setString(2, register.getEmail());
+            ps.setString(3, register.getPassword());
+            ps.executeUpdate();
+            ps = con.prepareStatement("insert into wikidb.userpage values (?,null, null, null, null, null, null)");
+            ps.setInt(1, userid);
+            ps.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Have a problem while registering user : " + register.getName() + "error : " + e.getLocalizedMessage());
+            return "Error!";
+        }
+        return "Success";
     }
 }
 

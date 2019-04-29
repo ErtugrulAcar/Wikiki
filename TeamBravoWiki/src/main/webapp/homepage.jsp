@@ -139,7 +139,7 @@
                         <%  }else{ %>
 
                         <button class="nologin" onclick="location.href='/login'">Sign in</button>
-
+                        <button class="nologin" onclick="location.href='/register'">Register</button>
                         <%} %>
 
                     </div>
