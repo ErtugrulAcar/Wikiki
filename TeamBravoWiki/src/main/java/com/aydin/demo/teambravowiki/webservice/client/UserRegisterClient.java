@@ -9,7 +9,7 @@ import com.sun.jersey.api.client.WebResource;
 public class UserRegisterClient {
     public String registerUser(RegisterUser user){
         Client client = Client.create();
-        WebResource webResource = client.resource("http://localhost:8084/WikiWebService_war/webapi/user/register");
+        WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/user/register");
         System.out.println(webResource);
         ClientResponse response = webResource.type("application/xml").post(ClientResponse.class, user);
         if(response.getStatus() != 200){
