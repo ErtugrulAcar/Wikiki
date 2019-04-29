@@ -250,7 +250,7 @@
                                             <div class="shadow" style=" height: 75px; background-color: #94B9D1;border-radius: 20px; margin-top: 10px;">
                                                     <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                             </div>  
-                                                                <img class="shadow" src="img/elitehibana.png" alt="" style="border-radius: 20px; margin-top: 10px; width: 99%;">
+                                            <img class="shadow" src="img/elitehibana.png" alt="" style="border-radius: 20px; margin-top: 10px; width: 99%;">
                                         </div>  
                                         <div class="shadow" style="width:48%; float: right;">
                                                 <div class="shadow" style=" height: 75px; background-color: #314152; border-radius: 20px; margin-top: 10px;">
@@ -260,8 +260,7 @@
                                                     <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                                     
                                                 </div>
-                                                                        <img class="shadow" src="img/csgo.png" alt="" style="border-radius: 20px; margin-top: 10px; width: 99%;">
-    
+                                                    <img class="shadow" src="img/csgo.png" alt="" style="border-radius: 20px; margin-top: 10px; width: 99%;">
                                                 <div class="shadow" style=" height: 75px; background-color: #314152;border-radius: 20px; margin-top: 10px;">
                                                         <img  src="img/img-profile.jpg" class="smallimg" alt="" /><H1 class="smallnames">Name of Game</H1>
                                                 </div>
@@ -294,7 +293,7 @@
                                     <!-- .row -->
 
                                 </div>
-</section>
+                        </section>
                         <!-- .section-publications -->
                         <section class="section-contact section-wrapper gray-bg">
                             <div class="container-fluid">
@@ -317,7 +316,7 @@
                                    </div>
                                 </div>
                                 <!--.container-fluid-->
-</section>
+                        </section>
                         <!--.section-contact-->
 
                         <footer class="footer">
