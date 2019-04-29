@@ -70,6 +70,7 @@ public class UserPageContext {
     }
 
     public void setUserbio(String userbio) {
+        ifNull(userbio);
         this.userbio = userbio;
     }
 
@@ -78,6 +79,7 @@ public class UserPageContext {
     }
 
     public void setUserinterest(String userinterest) {
+        ifNull(userinterest);
         this.userinterest = userinterest;
     }
 
@@ -86,7 +88,7 @@ public class UserPageContext {
     }
 
     public void setUserdegree(String userdegree) {
-        this.userdegree = userdegree;
+        this.userdegree = userdegree.toUpperCase();
     }
 
     public String getPhonenumber() {
@@ -94,6 +96,7 @@ public class UserPageContext {
     }
 
     public void setPhonenumber(String phonenumber) {
+        ifNull(phonenumber);
         this.phonenumber = phonenumber;
     }
 
@@ -102,6 +105,7 @@ public class UserPageContext {
     }
 
     public void setFacebook_link(String facebook_link) {
+        ifNull(facebook_link);
         this.facebook_link = facebook_link;
     }
 
@@ -110,6 +114,7 @@ public class UserPageContext {
     }
 
     public void setTwitter_link(String twitter_link) {
+        ifNull(twitter_link);
         this.twitter_link = twitter_link;
     }
 
@@ -118,6 +123,7 @@ public class UserPageContext {
     }
 
     public void setInstagram_link(String instagram_link) {
+        ifNull(instagram_link);
         this.instagram_link = instagram_link;
     }
 
@@ -126,6 +132,12 @@ public class UserPageContext {
     }
 
     public void setLinkedIn_link(String linkedIn_link) {
+        ifNull(linkedIn_link);
         this.linkedIn_link = linkedIn_link;
+    }
+
+    public String ifNull(String value){
+        if(value == null)   return "-";
+        else return value;
     }
 }

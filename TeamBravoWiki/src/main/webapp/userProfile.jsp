@@ -1,10 +1,12 @@
 ﻿<%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserImageClient" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -88,27 +90,32 @@
 	        box-shadow: 0 8px 6px -6px black;
         }
         .imglogo {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                }
-              .abs-center-x {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	  	.abs-center-x {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		}
+		span
+		{
+			font-family: Arial !important;
+		}
     </style>
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
 <link rel="stylesheet" href="css/ProfilePhotoCss.css">
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
 <!-- Sayfanın içeriği burada session dan cekiliyor -->
-<%UserPageContext userPageContext = (UserPageContext) session.getAttribute("requestedUserProfile");%>
-<% String compare1 = request.getSession().getAttribute("userId").toString(); %>
-<% String compare2 = request.getSession().getAttribute("ProfileId").toString(); %>
-<% String logincontrol = request.getSession().getAttribute("userId").toString(); %>
-
-    <!--NAVBAR-->
+<%
+	UserPageContext userPageContext = (UserPageContext) session.getAttribute("requestedUserProfile");
+	String compare1 = request.getSession().getAttribute("userId").toString();
+ 	String compare2 = request.getSession().getAttribute("ProfileId").toString();
+	String logincontrol = request.getSession().getAttribute("userId").toString();
+%>
+ <!--NAVBAR-->
 	<nav class="navbar navbar-inverse shadow navbar-expand-sm" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
     	<div class="navbar-collapse collapse" style="margin-left: 0px;" >
         	<ul class="navbar-nav abs-center-x">
@@ -124,7 +131,6 @@
                         	UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
                             if(loggedUser != null){
                             	String userImage =UserImageClient.getUserImage(Integer.parseInt(session.getAttribute("userId").toString()));
-                                //String userImage = (String) session.getAttribute("userImage");
                                 if(userImage.equals("")){
                                     userImage = "img/anonym.jpg";
                                 }
@@ -170,7 +176,7 @@
                         		<%
                             		//pageUserImage userImage den farklı -- bu hangi profil sayfası gösteriliyorsa o kişinin fotosunu alır
                             		String pageUserImage =UserImageClient.getUserImage(userPageContext.getUserid());
-                          		  if(pageUserImage.equals("")){
+                            		if(pageUserImage.equals("")){
                           		      pageUserImage= "img/anonym.jpg";
                            		 }
                      		     %>
@@ -184,40 +190,24 @@
                    		</div>
                     	<div class="content">
                         	<h1 style="color:#e5e5ff;">
-                            	<%=userPageContext.getUsername() + " " + userPageContext.getUserlastname()%>
+                            	${requestedUserProfileObject.username} ${requestedUserProfileObject.userlastname}
                         	</h1>
                         	<span class="lead" style="color:#ededff;">
-                            	<%=userPageContext.getUserdegree().toUpperCase()%>
+								${requestedUserProfileObject.userdegree}
                         	</span>
 
-                        		<ul class="social-icon">
+                        		<ul class="social-icon" id="socialMedia">
                             		<li>
-                                		<% if(userPageContext.getFacebook_link() == null){%>
-                                		<a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                		<%} else { %>
-                               			<a href="<%=userPageContext.getFacebook_link()%>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                               			<%} %>
+                               			<a href="${requestedUserProfileObject.facebook_link}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                            			</li>
                             		<li>
-                                		<% if(userPageContext.getTwitter_link() == null){%>
-                                		<a href="https://twitter.com" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                		<%} else { %>
-                                		<a href="<%=userPageContext.getTwitter_link()%>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                		<%} %>
+                                		<a href="${requestedUserProfileObject.twitter_link}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                             		</li>
                             		<li>
-                                		<% if(userPageContext.getInstagram_link() == null){%>
-                                		<a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                		<%} else { %>
-                                		<a href="<%=userPageContext.getInstagram_link()%>" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                		<%} %>
+                                		<a href="${requestedUserProfileObject.instagram_link}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                             		</li>
                             		 <li>
-                                		<% if(userPageContext.getLinkedIn_link() == null){%>
-                                		<a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                		<%} else { %>
-                                		<a href="<%=userPageContext.getLinkedIn_link()%>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                		<%} %>
+                                		<a href="${requestedUserProfileObject.linkedIn_link}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                             		</li>
  										<%if(compare1.equals(compare2)){%>
     	   							<li>
@@ -251,8 +241,8 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="expertise-item" style="color:#e2e2e2;">
-                                            <%=userPageContext.getUserbio()%>
+                                        <div class="expertise-item" style="color:#e2e2e2;" id="userbio">
+                                            ${requestedUserProfileObject.userbio}
                                         </div>
                                     </div>
                                 </div>
@@ -277,8 +267,8 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="content-item" style="color:#e2e2e2;">
-                                            <%=userPageContext.getUserinterest()%>
+                                        <div class="content-item" style="color:#e2e2e2;" id="userInterests">
+                                            ${requestedUserProfileObject.userinterest}
                                         </div>
                                     </div>
                                 </div>
@@ -301,16 +291,11 @@
                                 </div>
                                 <!--.row-->
                                 <div class="row">
-                                    <div class="col-md-12" style="color:#e2e2e2;">
+                                    <div class="col-md-12" style="color:#e2e2e2;" id="emailPhone">
                                         <h2 style="color:#e5e5ff;">E-posta</h2>
-                                        <%=userPageContext.getEmail()%>
+										<div>${requestedUserProfileObject.email}</div>
                                         <h2 style="color:#e5e5ff;">Telefon Numarasi</h2>
-                                        <%
-                                        if(userPageContext.getPhonenumber() == null){
-                                        userPageContext.setPhonenumber("-");
-                                        }
-                                        %>
-                                        <%=userPageContext.getPhonenumber()%>
+										<div>${requestedUserProfileObject.phonenumber}</div>
                                     </div>
                                 <!--.row-->
                                 <br />
@@ -506,47 +491,108 @@
     	<script src="script/bootstrap.min.js"></script>
     	<script src="script/theia-sticky-sidebar.js"></script>
     	<script src="script/scripts.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 
 <script>
 var app = new Vue({
 	el : "#app",
 	data : {
 		id : <%=session.getAttribute("userId")%>,
-        ifUserImage : <%=!session.getAttribute("userImage").equals("")%>,
-        logInimgReferances : [document.getElementById("loginsmallimg"), document.getElementById("imgDrop")]
+		ifUserImage : <%=!session.getAttribute("userImage").equals("")%>,
+		logInimgReferances : [document.getElementById("loginsmallimg"), document.getElementById("imgDrop")]
 	},
 	methods : {
 		uploadImg : function(user_img){
 			if(this.ifUserImage){
-                axios({
-                    url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/update",
-                    method : "post",
-                    data : {
-                        "id" : this.id,
-                        "image" : user_img
-                    }
-                }).then(response => (console.log(response)))
-            }else{
-                axios({
-                    url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/upload",
-                    method : "post",
-                    data : {
-                        "id" : this.id,
-                        "image" : user_img
-                    }
-                }).then(response => (console.log(response)))
-            }
-            this.changeImageReferances(user_img);
+				axios({
+					url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/update",
+					method : "post",
+					data : {
+						"id" : this.id,
+						"image" : user_img
+					}
+				}).then(response => (console.log(response)))
+			}else{
+				axios({
+					url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/upload",
+					method : "post",
+					data : {
+						"id" : this.id,
+						"image" : user_img
+					}
+				}).then(response => (console.log(response)))
+			}
+			this.changeImageReferances(user_img);
 		},
-        changeImageReferances : function (new_src) {
-            for(var i=0;i<this.logInimgReferances.length;i++){
-                this.logInimgReferances[i].src = new_src;
-            }
-        }
+		changeImageReferances : function (new_src) {
+			for(var i=0;i<this.logInimgReferances.length;i++){
+				this.logInimgReferances[i].src = new_src;
+			}
+		}
 	},
 });
+
+var userInfos = new Vue({
+	el : "#userInfos",
+	data : {
+		socialMediaLinks : document.getElementById("socialMedia").getElementsByTagName("a"),
+		userbio : document.getElementById("userbio"),
+		userInterests : document.getElementById("userInterests"),
+		emailPhone : document.getElementById("emailPhone").getElementsByTagName("div")
+
+	},
+	methods : {
+		setSocialMedia : function (facebook, twitter, instagram, linkedin) {
+			axios({
+				url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/update",
+				method : "post",
+				data : {
+					"facebook" : facebook,
+					"twitter" : twitter,
+					"instagram" : instagram,
+					"linkedin" : linkedin
+				}
+			}).then(response => (console.log(response)))
+			this.socialMediaLinks[0].href = facebook;
+			this.socialMediaLinks[1].href = twitter;
+			this.socialMediaLinks[2].href = instagram;
+			this.socialMediaLinks[3].href = linkedin;
+		},
+		setUserBio : function (textVal) {
+			axios({
+				url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/update",
+				method : "post",
+				data : {
+					"text" : textVal
+				}
+			}).then(response => (console.log(response)))
+			this.userbio.innerText = textVal;
+		},
+		setInterests : function (textVal) {
+			axios({
+				url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/update",
+				method : "post",
+				data : {
+					"text" : textVal
+				}
+			}).then(response => (console.log(response)))
+			this.userInterests.innerText = textVal;
+		},
+		setEmailPhone : function (email, phone) {
+			axios({
+				url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/update",
+				method : "post",
+				data : {
+					"email" : email,
+					"phone" : phone
+				}
+			}).then(response => (console.log(response)))
+			this.emailPhone[0].innerText = email;
+			this.emailPhone[1].innerText = phone;
+		}
+	}
+});
+
 </script>
 
 	

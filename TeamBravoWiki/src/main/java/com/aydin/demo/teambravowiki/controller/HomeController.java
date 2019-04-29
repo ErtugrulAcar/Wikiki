@@ -9,9 +9,11 @@ import com.aydin.demo.teambravowiki.webservice.client.UserProfileClient;
 import com.aydin.demo.teambravowiki.webservice.client.WikiPageClient;
 import com.google.gson.JsonParser;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -71,9 +73,13 @@ public class HomeController {
     public String registerPage() {
     	return "register.jsp";
     }
+
+
     @RequestMapping("/userProfile{userId}")
-    public String userProfile(@PathVariable("userId") int userId, HttpSession session) {
-    	if(session.getAttribute("loginned") != null) {
+    public ModelAndView userProfile(@PathVariable("userId") int userId, HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView("userProfile.jsp");
+        modelAndView.addObject("requestedUserProfileObject", userPageClient.getPageContext(userId));
+        if(session.getAttribute("loginned") != null) {
 	        session.setAttribute("ProfileId",userId);
 	        session.setAttribute("userName", userProfileClient.getUserInfo(Integer.parseInt(session.getAttribute("userId").toString())).getName());
     	}
@@ -82,7 +88,7 @@ public class HomeController {
     		session.setAttribute("userId", 0);
     	}
     	session.setAttribute("requestedUserProfile", userPageClient.getPageContext(userId));
-        return "userProfile.jsp";
+        return modelAndView;
     }
     @RequestMapping("wikiPage{wikiPageId}")
     public String wikiPage(@PathVariable("wikiPageId")int wikiPageId, HttpSession session){
