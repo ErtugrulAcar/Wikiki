@@ -29,9 +29,9 @@ public class UserResource {
     @Path("/register")
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.TEXT_PLAIN)
-    public String registerUser(RegisterUser register){
+    public String registerUser(RegisterUser registerUser){
         System.out.println("REgisterdasınız");
-        return dbconn.registerUser(register);
+        return dbconn.registerUser(registerUser);
     }
 
 

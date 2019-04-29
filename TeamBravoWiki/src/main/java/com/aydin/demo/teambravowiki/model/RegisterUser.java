@@ -1,5 +1,8 @@
 package com.aydin.demo.teambravowiki.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class RegisterUser {
 
         private String name;
