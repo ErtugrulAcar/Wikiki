@@ -2,10 +2,7 @@ package com.aydin.edu.dbconnection;
 
 import java.sql.*;
 
-import com.aydin.edu.model.RegisterUser;
-import com.aydin.edu.model.UserInfo;
-import com.aydin.edu.model.UserPageContext;
-import com.aydin.edu.model.WikiPageContent;
+import com.aydin.edu.model.*;
 import com.google.gson.JsonParser;
 
 public class DBConn {
@@ -172,11 +169,91 @@ public class DBConn {
             ps.setInt(1, userid);
             ps.executeUpdate();
         }catch(SQLException e){
-            System.out.println("Have a problem while registering user : " + register.getName() + "error : " + e.getLocalizedMessage());
+            System.out.println("Have a problem while registering user : " + register.getName() + " error : " + e.getLocalizedMessage());
             return "Error!";
         }
         return "Success";
     }
+    public boolean checkEmail(String email){
+        try{
+            ps = con.prepareStatement("select email from wikidb.userpassword where email = ?;");
+            ps.setString(1, email);
+            System.out.println(ps);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+        }catch(SQLException e){
+            System.out.println("Have a  problem while checking the e mail " + email + " error : "+ e.getLocalizedMessage());
+        }
+        return false;
+    }
+
+    public String updateLinks(int userid , UserLinks userLinks){
+        try{
+            ps = con.prepareStatement("update wikidb.userpage set facebook_link = ?, twitter_link = ?, " +
+                    "instagram_link = ?, linkedIn_link = ? where userid=?;");
+            ps.setString(1, userLinks.getFacebook());
+            ps.setString(2, userLinks.getTwitter());
+            ps.setString(3, userLinks.getInstagram());
+            ps.setString(4, userLinks.getLinkedIn());
+            ps.setInt(5, userid);
+            ps.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Have a problem while updating userLinks user : " + userid + " error : " + e.getLocalizedMessage());
+            return "Error!";
+        }
+        return "Success";
+    }
+
+
+    public String updateBio(int userid, UserBio userBio){
+        try{
+            ps = con.prepareStatement("update wikidb.userpage set userbio = ? where userid=?;");
+            ps.setString(1, userBio.getUserBio());
+            ps.setInt(2, userid);
+            ps.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Have a problem while Updating Biograpy user: "+ userid + " error : "+ e.getLocalizedMessage());
+            return "Error!";
+        }
+        return "Success";
+    }
+    public String updateInterest(int userid, UserInterest userInterest){
+        try{
+            ps = con.prepareStatement("update wikidb.userpage set userinterest=? where userid=?;");
+            ps.setString(1, userInterest.getUserInterest());
+            ps.setInt(2, userid);
+            ps.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Have a problem while Updating Interest user: "+ userid + " error : "+ e.getLocalizedMessage());
+            return "Error!";
+        }
+        return "Success";
+    }
+    public String updateEmailandPhone(int userid, UserEmailPhone userEmailPhone){
+        try{
+            ps = con.prepareStatement("update wikidb.userinfo set phone_number=? where userid=?;");
+            ps.setString(1, userEmailPhone.getUserPhone());
+            ps.setInt(2, userid);
+            ps.executeUpdate();
+            if(!checkEmail(userEmailPhone.getUserEmail())){
+                ps = con.prepareStatement("update wikidb.userpassword set email=? where userid=?;");
+                ps.setString(1, userEmailPhone.getUserEmail());
+                ps.setInt(2, userid);
+                ps.executeUpdate();
+            }
+            else{
+                return("Error!");
+            }
+        }catch(SQLException e){
+            System.out.println("Have a problem while Updating Email - Phone user: "+ userid + " error : "+ e.getLocalizedMessage());
+            return "Error!";
+        }
+        return "Success";
+    }
+
+
 }
 
 
