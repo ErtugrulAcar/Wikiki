@@ -345,7 +345,7 @@
                     					<label for="field2"><span>Twitter:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getTwitter_link() == null){%>https://twitter.com<%} else { %><%=userPageContext.getTwitter_link()%><%}%>"/></label>
                     					<label for="field3"><span>Instagram:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getInstagram_link() == null){%>https://www.instagram.com<%} else { %><%=userPageContext.getInstagram_link()%><%}%>"/></label>
                     					<label for="field4"><span>LinkedIn:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getLinkedIn_link() == null){%>https://www.linkedin.com<%} else { %><%=userPageContext.getLinkedIn_link()%><%}%>"/></label>
-                    					<label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
+										<label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
                						</form>
             				</div>
         				</div>
@@ -535,6 +535,7 @@ var app = new Vue({
 var userInfos = new Vue({
 	el : "#userInfos",
 	data : {
+		id : <%=session.getAttribute("userId")%>,
 		socialMediaLinks : document.getElementById("socialMedia").getElementsByTagName("a"),
 		userbio : document.getElementById("userbio"),
 		userInterests : document.getElementById("userInterests"),
@@ -544,13 +545,13 @@ var userInfos = new Vue({
 	methods : {
 		setSocialMedia : function (facebook, twitter, instagram, linkedin) {
 			axios({
-				url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/update",
-				method : "post",
+				url : "http://104.248.129.101:8080/WikiWebService/webapi/user/updateLinks/" + this.id,
+				method : "put",
 				data : {
 					"facebook" : facebook,
 					"twitter" : twitter,
 					"instagram" : instagram,
-					"linkedin" : linkedin
+					"linkedIn" : linkedin
 				}
 			}).then(response => (console.log(response)))
 			this.socialMediaLinks[0].href = facebook;
@@ -560,31 +561,31 @@ var userInfos = new Vue({
 		},
 		setUserBio : function (textVal) {
 			axios({
-				url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/update",
-				method : "post",
+				url : "http://104.248.129.101:8080/WikiWebService/webapi/user/updateBio/" + this.id,
+				method : "put",
 				data : {
-					"text" : textVal
+					"userBio" : textVal
 				}
 			}).then(response => (console.log(response)))
 			this.userbio.innerText = textVal;
 		},
 		setInterests : function (textVal) {
 			axios({
-				url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/update",
-				method : "post",
+				url : "http://104.248.129.101:8080/WikiWebService/webapi/user/updateInterest/" + this.id,
+				method : "put",
 				data : {
-					"text" : textVal
+					"userInterest" : textVal
 				}
 			}).then(response => (console.log(response)))
 			this.userInterests.innerText = textVal;
 		},
 		setEmailPhone : function (email, phone) {
 			axios({
-				url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/update",
-				method : "post",
+				url : "http://104.248.129.101:8080/WikiWebService/webapi/user/updateEmailPhone/" + this.id,
+				method : "put",
 				data : {
-					"email" : email,
-					"phone" : phone
+					"userEmail" : email,
+					"userPhone" : phone
 				}
 			}).then(response => (console.log(response)))
 			this.emailPhone[0].innerText = email;
@@ -592,7 +593,6 @@ var userInfos = new Vue({
 		}
 	}
 });
-
 </script>
 
 	
