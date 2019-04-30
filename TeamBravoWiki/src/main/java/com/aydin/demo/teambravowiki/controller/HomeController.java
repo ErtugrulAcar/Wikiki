@@ -1,11 +1,13 @@
 package com.aydin.demo.teambravowiki.controller;
 
 
+import com.aydin.demo.teambravowiki.model.RegisterUser;
 import com.aydin.demo.teambravowiki.model.UserPageContext;
 import com.aydin.demo.teambravowiki.model.WikiPageContent;
 import com.aydin.demo.teambravowiki.webservice.client.UserImageClient;
 import com.aydin.demo.teambravowiki.webservice.client.UserPageClient;
 import com.aydin.demo.teambravowiki.webservice.client.UserProfileClient;
+import com.aydin.demo.teambravowiki.webservice.client.UserRegisterClient;
 import com.aydin.demo.teambravowiki.webservice.client.WikiPageClient;
 import com.google.gson.JsonParser;
 import org.springframework.stereotype.Controller;
@@ -66,8 +68,20 @@ public class HomeController {
     }
     @PostMapping("/register")
     public String register(HttpServletRequest request) {
-    	
-    	return "redirect:/home";
+    	String name = request.getParameter("name");
+    	String surname = request.getParameter("surname");
+    	String phone = request.getParameter("phone");
+    	String email = request.getParameter("email");
+    	String password = request.getParameter("password");
+    	RegisterUser user = new RegisterUser(name,surname,phone,email,password);
+    	UserRegisterClient register = new UserRegisterClient();
+    	String x = register.registerUser(user);
+    	if(x.equals("Success")) {
+    		return "redirect:/home";
+    	}else {
+    		request.setAttribute("error", "error");
+    		return "redirect:/register";
+    	}
     }
     @RequestMapping("/register")
     public String registerPage() {

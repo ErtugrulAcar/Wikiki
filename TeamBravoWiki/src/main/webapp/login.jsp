@@ -9,26 +9,42 @@
 <style>
 </style>
 <body style="margin-top: 5%">
-<center>
-    <div class="w-25">
-        <h2><img src="img/wiki2logo.png" class="w-50"></h2>
-            <div class="nav border d-flex justify-content-center py-4 mt-1">
-                <div class = "d-block w-75">
-                    <form action="/authentication" method="post">
-                        <span style="font-family: 'Comic Sans MS'; font-size: medium;">E-Mail</span>
-                        <input type="text" name="email" style="width:100%;" class="my-2">
-                        <span style="font-family: 'Comic Sans MS'; font-size: medium;">Password</span><br>
-                        <input type="password" name="password" style="width:100%;" class="my-2">
-                        <br>
-                        <input type="submit" value="Login" class="my-2 btn btn-secondary">
-                    </form>
+		<center>
+		    <div class="w-25">
+		        <h2><img src="img/wiki2logo.png" class="w-50"></h2>
+		            <div class="nav border d-flex justify-content-center py-4 mt-1">
+		                <div class = "d-block w-75">
+		                    <form action="/authentication" method="post">
+		                        <span style="font-family: 'Comic Sans MS'; font-size: medium;">E-Mail</span>
+		                        <input type="text" name="email" style="width:100%;" class="my-2" autofocus>
+		                        <span style="font-family: 'Comic Sans MS'; font-size: medium;">Password</span><br>
+		                        <input type="password" name="password" style="width:100%;" class="my-2">
+		                        <br>
+		                        <input type="submit" value="Login" class="my-2 btn btn-secondary mt-4" style="width:100px;">
+		                    </form>
+		                     <a href="/register"><button class="my-2 btn btn-secondary" style="width:100px;">Register</button></a>
+		                </div>
+		                <div class = "d-block mb-3">
+		                        <a href="/home" style = "color:black;"><br>To Continue without sign in...</a>
+		                </div>
+		            </div>
+		    </div>
+		</center>
+		<footer class="footer">
+            <div class="copyright-section">
+                <div class="container-fluid fixed-bottom text-center mb-2">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="copytext">
+                                &copy; GROUP BRAVO. All rights reserved | Design By: GROUP BRAVO MEMBERS
+                            </div>
+                        </div>
+                    </div>
+                    <!--.row-->
                 </div>
-                <div class = "d-block mb-3">
-                        <a href="homepage.jsp"><br>To Continue without sign in...</a>
-                </div>
+                <!-- .container-fluid -->
             </div>
-    </div>
-</center>
-
+            <!-- .copyright-section -->
+      </footer>
 </body>
 </html>
