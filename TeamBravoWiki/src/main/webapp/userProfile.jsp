@@ -36,7 +36,6 @@
     <!-- Style CSS -->
     <link href="css/style.css" rel="stylesheet">
     <script src="script/my_js.js"></script>
-    <script src="script/FormSubmit.js"></script>
     <link href="css/elements.css" rel="stylesheet">
     <link href="css/dropdown.css" rel="stylesheet">
    	<script src="script/dropdown.js"></script>
@@ -350,11 +349,11 @@
                     					<!--  <img id="close2" src="img/closeIcon.png"  class="md-close" style="height:24px;width:24px;">
                     					<img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">
                     					-->
-                    					<label for="field1"><span>Facebook:</span><input type="text" id="facebookVal" class="input-field" name="name" value="<% if(userPageContext.getFacebook_link() == null){%>https://www.facebook.com<%} else { %><%=userPageContext.getFacebook_link()%><%}%>"/></label>
-                    					<label for="field2"><span>Twitter:</span><input type="text"  id="twitterVal"class="input-field" name="name" value="<% if(userPageContext.getTwitter_link() == null){%>https://twitter.com<%} else { %><%=userPageContext.getTwitter_link()%><%}%>"/></label>
-                    					<label for="field3"><span>Instagram:</span><input type="text"id="instagramVal"class="input-field" name="name" value="<% if(userPageContext.getInstagram_link() == null){%>https://www.instagram.com<%} else { %><%=userPageContext.getInstagram_link()%><%}%>"/></label>
-                    					<label for="field4"><span>LinkedIn:</span><input type="text" id="linkedinVal"class="input-field" name="name" value="<% if(userPageContext.getLinkedIn_link() == null){%>https://www.linkedin.com<%} else { %><%=userPageContext.getLinkedIn_link()%><%}%>"/></label>
-										<label><input type="button" onclick="GetSocVal();" class="md-close" id="clos" value="Submit" /></label>
+                    					<label for="field1"><span>Facebook:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getFacebook_link() == null){%>https://www.facebook.com<%} else { %><%=userPageContext.getFacebook_link()%><%}%>"/></label>
+                    					<label for="field2"><span>Twitter:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getTwitter_link() == null){%>https://twitter.com<%} else { %><%=userPageContext.getTwitter_link()%><%}%>"/></label>
+                    					<label for="field3"><span>Instagram:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getInstagram_link() == null){%>https://www.instagram.com<%} else { %><%=userPageContext.getInstagram_link()%><%}%>"/></label>
+                    					<label for="field4"><span>LinkedIn:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getLinkedIn_link() == null){%>https://www.linkedin.com<%} else { %><%=userPageContext.getLinkedIn_link()%><%}%>"/></label>
+										<label><input type="button" class="md-close" id="clos" value="Submit" /></label>
 										
                						</form>
             				</div>
@@ -367,13 +366,13 @@
             			<!-- Contact Us Form -->
             				<div class="form-style-Bio">
                 				<div class="form-style-Bio-heading">Edit your biography</div>
-                					<form id="BioForm" action="FormSubmit.js" method="post" name="form">
+                					<form action="" method="post" name="form">
                     					<!--  <img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">-->
                     					<label for="field1">
                         					<span>Edit your biography:</span>
-											<textarea id="BioEditing" class="input-field" rows="14" cols="37">${requestedUserProfileObject.userbio}</textarea>
+											<textarea class="input-field" rows="14" cols="37"><% if(userPageContext.getUserbio() == null){%><%} else { %><%=userPageContext.getUserbio()%><%}%></textarea>
                     					</label>
-                    					<label><input type="button" onclick="GetBioVal();" class="md-close" id="clos" value="Submit" /></label>
+                    					<label><input type="button" class="md-close" id="clos" value="Submit" /></label>
                 					</form>
             				</div>
         				</div>
@@ -390,9 +389,9 @@
                     					<label for="field1">
                     						<span>Edit your interest:
                     						</span>
-                        				<textarea id="IntEditing" class="input-field" rows="14" cols="37">${requestedUserProfileObject.userinterest}</textarea>
+                        				<textarea class="input-field" rows="14" cols="37"><% if(userPageContext.getUserinterest() == null){%><%} else { %><%=userPageContext.getUserinterest()%><%}%></textarea>
                     					</label>
-                    					<label><input type="button" onclick="GetIntVal();" class="md-close" value="Submit" /></label>
+                    					<label><input type="button" class="md-close" id="clos" value="Submit" /></label>
                 					</form>
             				</div>
         				</div>
@@ -404,12 +403,12 @@
            				<!-- Contact Us Form -->
             				<div class="form-style-2">
                 				<div class="form-style-2-heading">Edit your user information</div>
-                				<form action="" method="post" name="form">
+                					<form action="" method="post" name="form">
                     					<!--  <img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">-->
-                    					<label for="field1"><span>E-posta:</span><input type="text" id="EpostaEditing" class="input-field" name="name" value="${requestedUserProfileObject.email}"/></label>
-                    					<label for="field1"><span>Telefon:</span><input type="text" id="TelEditing" class="input-field" name="name" value="${requestedUserProfileObject.phonenumber}"/></label>
-                    					<label><input type="button" onclick="GetUserVal();" class="md-close" id="clos" value="Submit" /></label>
-                				</form>
+                    					<label for="field1"><span>E-posta:</span><input type="text" class="input-field" name="name" value="caneregin@hotmail.com"/></label>
+                    					<label for="field1"><span>Telefon:</span><input type="text" class="input-field" name="name" value="-"/></label>
+                    					<label><input type="button" class="md-close" id="clos" value="Submit" /></label>
+                					</form>
             				</div>
         				</div>
 					</div>
