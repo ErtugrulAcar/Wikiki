@@ -100,7 +100,6 @@ public class HomeController {
     	else {
     		session.setAttribute("ProfileId", -1);
     		session.setAttribute("userId", 0);
-    		session.setAttribute("userImage", "");
     	}
     	session.setAttribute("requestedUserProfile", userPageClient.getPageContext(userId));
         return modelAndView;
