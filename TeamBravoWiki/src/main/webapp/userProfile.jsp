@@ -147,7 +147,7 @@
     					<div id="dropright">
     						<ul class="ulDrop">
     							<li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>
-    							<li class="liMail"><%=loggedUser.getEmail()%></li>
+    							<li class="liMail" id="navbarEmail"><%=loggedUser.getEmail()%></li>
     							<li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/userProfile<%=loggedUser.getUserid()%>'">My Profile</button></li>
     						</ul>
    						</div>
@@ -550,7 +550,8 @@ var userInfos = new Vue({
 		socialMediaLinks : document.getElementById("socialMedia").getElementsByTagName("a"),
 		userbio : document.getElementById("userbio"),
 		userInterests : document.getElementById("userInterests"),
-		emailPhone : document.getElementById("emailPhone").getElementsByTagName("div")
+		emailPhone : document.getElementById("emailPhone").getElementsByTagName("div"),
+		navbarEmail : document.getElementById("navbarEmail")
 
 	},
 	methods : {
@@ -564,11 +565,8 @@ var userInfos = new Vue({
 					"instagram" : instagram,
 					"linkedIn" : linkedin
 				}
-			}).then(response => (console.log(response)))
-			this.socialMediaLinks[0].href = facebook;
-			this.socialMediaLinks[1].href = twitter;
-			this.socialMediaLinks[2].href = instagram;
-			this.socialMediaLinks[3].href = linkedin;
+			}).then(response => (this.makeSocialMediaUpdate(response, facebook, twitter, instagram, linkedin)))
+
 		},
 		setUserBio : function (textVal) {
 			axios({
@@ -577,8 +575,8 @@ var userInfos = new Vue({
 				data : {
 					"userBio" : textVal
 				}
-			}).then(response => (console.log(response)))
-			this.userbio.innerText = textVal;
+			}).then(response => (this.userbio.innerText = textVal))
+
 		},
 		setInterests : function (textVal) {
 			axios({
@@ -587,8 +585,8 @@ var userInfos = new Vue({
 				data : {
 					"userInterest" : textVal
 				}
-			}).then(response => (console.log(response)))
-			this.userInterests.innerText = textVal;
+			}).then(response => (this.userInterests.innerText = textVal))
+
 		},
 		setEmailPhone : function (email, phone) {
 			axios({
@@ -598,9 +596,26 @@ var userInfos = new Vue({
 					"userEmail" : email,
 					"userPhone" : phone
 				}
-			}).then(response => (console.log(response)))
-			this.emailPhone[0].innerText = email;
+			}).then(response => (this.makeEmailPhoneUpdate(response, email)))
 			this.emailPhone[1].innerText = phone;
+		},
+		makeSocialMediaUpdate : function(response, facebook, twitter, instagram, linkedin){
+			if(response.data == "Success"){
+				this.socialMediaLinks[0].href = facebook;
+				this.socialMediaLinks[1].href = twitter;
+				this.socialMediaLinks[2].href = instagram;
+				this.socialMediaLinks[3].href = linkedin;
+			}
+		},
+		makeEmailPhoneUpdate : function (response, email) {
+			if(response.data == "Same Email"){
+				this.emailPhone[1].innerText = phone;
+			}
+			if(response.data == "Success"){
+				console.log(response.data);
+				this.navbarEmail.innerText = email;
+				this.emailPhone[0].innerText = email;
+			}
 		}
 	}
 });

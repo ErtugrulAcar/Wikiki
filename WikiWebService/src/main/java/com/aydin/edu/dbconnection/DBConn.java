@@ -178,7 +178,6 @@ public class DBConn {
         try{
             ps = con.prepareStatement("select email from wikidb.userpassword where email = ?;");
             ps.setString(1, email);
-            System.out.println(ps);
             rs = ps.executeQuery();
             if(rs.next()){
                 return true;
@@ -242,9 +241,10 @@ public class DBConn {
                 ps.setString(1, userEmailPhone.getUserEmail());
                 ps.setInt(2, userid);
                 ps.executeUpdate();
+
             }
             else{
-                return("Error!");
+                return("Same Email");
             }
         }catch(SQLException e){
             System.out.println("Have a problem while Updating Email - Phone user: "+ userid + " error : "+ e.getLocalizedMessage());
