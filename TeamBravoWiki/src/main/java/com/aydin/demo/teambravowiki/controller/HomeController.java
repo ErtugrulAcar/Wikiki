@@ -60,7 +60,6 @@ public class HomeController {
             session.setAttribute("userId",userid );
             session.setAttribute("loginned", true);
             UserPageContext upc = userPageClient.getPageContext(Integer.parseInt(userid));
-            session.setAttribute("userImage", userImageClient.getUserImage(Integer.parseInt(userid)));
             session.setAttribute("userDetails", userPageClient.getPageContext(Integer.parseInt(userid)));
             session.setAttribute("userImage", userImageClient.getUserImage(Integer.parseInt(userid)));
             return "redirect:/home";
