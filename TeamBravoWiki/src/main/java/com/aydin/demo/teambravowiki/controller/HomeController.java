@@ -91,6 +91,7 @@ public class HomeController {
         modelAndView.addObject("requestedUserProfileObject", userPageClient.getPageContext(userId));
     	if(session.getAttribute("userId") == null){
     		session.setAttribute("userId", 0);
+    		session.setAttribute("userImage", "");
     	}
     	session.setAttribute("requestedUserProfile", userPageClient.getPageContext(userId));
         return modelAndView;
