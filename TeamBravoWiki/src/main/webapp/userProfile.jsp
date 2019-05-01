@@ -112,14 +112,9 @@
 <!-- Sayfanın içeriği burada session dan cekiliyor -->
 <%
 	UserPageContext userPageContext = (UserPageContext) session.getAttribute("requestedUserProfile");
-	boolean editable = false;
-	int compare1 = userPageContext.getUserid(); // Görüntülemek istenen profil
-	int compare2 = Integer.parseInt(session.getAttribute("userId").toString()); // User - Eğer User giriş yapmamışsa 0 değerini alıyo
-	if(compare2 != 0){
-		if(compare1 == compare2){
-			editable = true;
-		}
-	}
+	String compare1 = request.getSession().getAttribute("userId").toString();
+ 	String compare2 = request.getSession().getAttribute("ProfileId").toString();
+	String logincontrol = request.getSession().getAttribute("userId").toString();
 %>
  <!--NAVBAR-->
 	<nav class="navbar navbar-inverse shadow navbar-expand-sm" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
@@ -188,7 +183,7 @@
                            		 }
                      		     %>
  						 		<img id="userImage" src="<%=pageUserImage%>" alt="" class="preview preview--rounded" style="height:200px;width:200px;">
-  									<%if(editable){%>
+  									<%if(compare1.equals(compare2)){%>
                                     	<div class="middle1">
     										<input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-5" style="height:20px; width:28px;margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' />              
   										</div>
@@ -216,7 +211,7 @@
                             		 <li>
                                 		<a href="${requestedUserProfileObject.linkedIn_link}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                             		</li>
- 										<%if(editable){%>
+ 										<%if(compare1.equals(compare2)){%>
     	   							<li>
            								 <a><input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-1" style="height:20px; width:28px;margin-bottom:-6px;padding-left:4px; padding-bottom:2px;" value='' /></a>
        								</li>
@@ -237,7 +232,7 @@
                                         <div class="section-title">
                                             <h2 style="color:#e5e5ff;">
                                                 Kullanici Biyografisi
- 												<%if(editable){%>
+ 												<%if(compare1.equals(compare2)){%>
                                             	<input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-2" style="height:20px; width:28px;margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' />
 												<%} %>			
                                             </h2>
@@ -263,7 +258,7 @@
                                         <div class="section-title">
                                             <h2 style="color:#e5e5ff;">
                                             	Ilgi Alanlari
-                                             	<% if(editable){%>
+                                             	<% if(compare1.equals(compare2)){%>
                                                 <input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-3" style="height:20px; width:28px;margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' />
 												<%} %>
                                             </h2>
@@ -290,7 +285,7 @@
                                         <div class="section-title">
                                             <h2 style="color:#e5e5ff;">
                                                 Kullanici Bilgileri
-                                                <%if(editable){%>
+                                                <%if(compare1.equals(compare2)){%>
                                             	<input type='image' src='img/editIcon.png' class="md-trigger" data-modal="modal-4" style="height:20px; width:28px;margin-bottom:-4px;padding-left:10px; padding-bottom:2px;" value='' />
 												<%} %>	</h2>
                                         </div>
