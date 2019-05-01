@@ -40,6 +40,12 @@ right:0px;
 top:0px;
 cursor:pointer
 }
+img#close2 {
+position:absolute;
+right:20px;
+top:0px;
+cursor:pointer
+}
 div#popupContact {
      position: absolute;
     left: 50%;

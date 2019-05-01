@@ -54,7 +54,7 @@
         .nav-pills > li.active > a {
             background-color: #c1d9ff;
         }
-            .nav-pills > li.active > a:hover {
+        .nav-pills > li.active > a:hover {
                 background-color: #c1d9ff;
             }
         .nav > li > a {
@@ -151,6 +151,7 @@
   					</div>
            				 <%  }else{ %>
 						<button class="nologin" onclick="location.href='/login'">Sign in</button>
+                        <button class="nologin" onclick="location.href='/register'"style="	margin-right:66px;">Register</button>
 						 <%} %>
 					</div>
 				</li>
@@ -340,12 +341,15 @@
             				<div class="form-style-2">
                 				<div class="form-style-2-heading">Edit your social media</div>
                 					<form id="formwidth" action="" method="post" name="form">
+                    					<!--  <img id="close2" src="img/closeIcon.png"  class="md-close" style="height:24px;width:24px;">
                     					<img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">
+                    					-->
                     					<label for="field1"><span>Facebook:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getFacebook_link() == null){%>https://www.facebook.com<%} else { %><%=userPageContext.getFacebook_link()%><%}%>"/></label>
                     					<label for="field2"><span>Twitter:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getTwitter_link() == null){%>https://twitter.com<%} else { %><%=userPageContext.getTwitter_link()%><%}%>"/></label>
                     					<label for="field3"><span>Instagram:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getInstagram_link() == null){%>https://www.instagram.com<%} else { %><%=userPageContext.getInstagram_link()%><%}%>"/></label>
                     					<label for="field4"><span>LinkedIn:</span><input type="text" class="input-field" name="name" value="<% if(userPageContext.getLinkedIn_link() == null){%>https://www.linkedin.com<%} else { %><%=userPageContext.getLinkedIn_link()%><%}%>"/></label>
-										<label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
+										<label><input type="button" class="md-close" id="clos" value="Submit" /></label>
+										
                						</form>
             				</div>
         				</div>
@@ -358,12 +362,12 @@
             				<div class="form-style-Bio">
                 				<div class="form-style-Bio-heading">Edit your biography</div>
                 					<form action="" method="post" name="form">
-                    					<img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">
+                    					<!--  <img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">-->
                     					<label for="field1">
                         					<span>Edit your biography:</span>
 											<textarea class="input-field" rows="14" cols="37"><% if(userPageContext.getUserbio() == null){%><%} else { %><%=userPageContext.getUserbio()%><%}%></textarea>
                     					</label>
-                    					<label><span></span><input type="submit" value="Submit" class="md-close" onclick="check_empty()" /></label>
+                    					<label><input type="button" class="md-close" id="clos" value="Submit" /></label>
                 					</form>
             				</div>
         				</div>
@@ -376,13 +380,13 @@
             				<div class="form-style-Bio">
                 				<div class="form-style-Bio-heading">Edit your interest</div>
                 					<form action="" method="post" name="form">
-                    					<img id="close" src="img/closeIcon.png"  class="md-close" style="height:24px;width:24px;">
+                    					<!--  <img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">-->
                     					<label for="field1">
                     						<span>Edit your interest:
                     						</span>
                         				<textarea class="input-field" rows="14" cols="37"><% if(userPageContext.getUserinterest() == null){%><%} else { %><%=userPageContext.getUserinterest()%><%}%></textarea>
                     					</label>
-                    					<label><span> </span><input type="submit" value="Submit" onclick="check_empty()" /></label>
+                    					<label><input type="button" class="md-close" id="clos" value="Submit" /></label>
                 					</form>
             				</div>
         				</div>
@@ -395,10 +399,10 @@
             				<div class="form-style-2">
                 				<div class="form-style-2-heading">Edit your user information</div>
                 					<form action="" method="post" name="form">
-                    					<img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">
+                    					<!--  <img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">-->
                     					<label for="field1"><span>E-posta:</span><input type="text" class="input-field" name="name" value="caneregin@hotmail.com"/></label>
                     					<label for="field1"><span>Telefon:</span><input type="text" class="input-field" name="name" value="-"/></label>
-                    					<label><span></span><input type="submit" value="Submit" onclick="check_empty()" /></label>
+                    					<label><input type="button" class="md-close" id="clos" value="Submit" /></label>
                 					</form>
             				</div>
         				</div>
@@ -410,11 +414,12 @@
             			<!-- Contact Us Form -->
             				<div class="form-style-pp">
                 				<div class="form-style-pp-heading">Edit your Profile Photo</div>
-								<img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">
+								<!--  <img id="close" src="img/closeIcon.png" class="md-close" style="height:24px;width:24px;">-->
             					<div class="profile">
        					 			<div class="photo">
           					  			<input type="file" accept="image/*">
           					  			<div class="photo__helper">
+          					  			<img id="userImage" src="<%=pageUserImage%>" style="height:160px;width:160px;border-radius:160px;position:absolute;">
          					     			  <div class="photo__frame photo__frame--circle">
          					       			    <canvas class="photo__canvas"></canvas>
          					       			    <div class="message is-empty">
@@ -459,7 +464,7 @@
 										    width:30%;
 										  	 margin-left:36%;
 										    text-weight:bold;" 
-										    id="previewBtn"  onclick="ClickFunction()">Edit</button>    
+										    id="previewBtn" class="md-close" onclick="ClickFunction()">Edit</button>    
 										    
   
 

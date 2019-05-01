@@ -327,7 +327,7 @@
 .photo--error--file-type img,
 .photo--error--image-size img,
 .photo--loading img {
-  display: none;
+  
 }
 /**
 * States
@@ -368,7 +368,7 @@
   display: inline-block;
 }
 .photo--empty .photo__frame:hover {
-  background: #d6d6d6;
+  
 }
 .photo--empty .photo__frame:hover .message {
   color: #fff;

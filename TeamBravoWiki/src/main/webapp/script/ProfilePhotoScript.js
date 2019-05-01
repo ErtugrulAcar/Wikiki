@@ -717,7 +717,7 @@ $(function() {
         app.uploadImg(p.getAsDataURL());
         //Submit basılınca kaydedilen base64 formatlı fotoraf:   p.getAsDataURL();
     });
-  
+    
     /*$('#uploadBtn').on('click', function () {
         var formData,
             data = p.getData();
