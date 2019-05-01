@@ -46,7 +46,6 @@ public class HomeController {
             int intUserId = Integer.parseInt(userId);
             return "/userProfile" + intUserId;
         }
-
     }
     @PostMapping("/home")
     public String home(){
@@ -58,10 +57,8 @@ public class HomeController {
         if(!userid.equals("0")){
             HttpSession session = request.getSession();
             session.setAttribute("userId",userid );
-            session.setAttribute("loginned", true);
             UserPageContext upc = userPageClient.getPageContext(Integer.parseInt(userid));
             session.setAttribute("userDetails", userPageClient.getPageContext(Integer.parseInt(userid)));
-            session.setAttribute("userImage", userImageClient.getUserImage(Integer.parseInt(userid)));
             return "redirect:/home";
         }
         return "redirect:/login";
@@ -87,18 +84,11 @@ public class HomeController {
     public String registerPage() {
     	return "register.jsp";
     }
-
-
     @RequestMapping("/userProfile{userId}")
     public ModelAndView userProfile(@PathVariable("userId") int userId, HttpSession session) {
         ModelAndView modelAndView = new ModelAndView("userProfile.jsp");
         modelAndView.addObject("requestedUserProfileObject", userPageClient.getPageContext(userId));
-        if(session.getAttribute("loginned") != null) {
-	        session.setAttribute("ProfileId",userId);
-	        session.setAttribute("userName", userProfileClient.getUserInfo(Integer.parseInt(session.getAttribute("userId").toString())).getName());
-    	}
-    	else {
-    		session.setAttribute("ProfileId", -1);
+    	if(session.getAttribute("userId") == null){
     		session.setAttribute("userId", 0);
     	}
     	session.setAttribute("requestedUserProfile", userPageClient.getPageContext(userId));
@@ -117,8 +107,6 @@ public class HomeController {
     public String LogOut(HttpServletRequest request){
     	HttpSession session = request.getSession();
     	session.invalidate();
-    	/*session.setAttribute("loginned", null);
-    	session.setAttribute("userId", 0);*/
     	return "redirect:/login";
     }
     @RequestMapping("/home")
