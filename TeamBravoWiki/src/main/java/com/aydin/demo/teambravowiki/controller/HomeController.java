@@ -58,6 +58,7 @@ public class HomeController {
             HttpSession session = request.getSession();
             session.setAttribute("userId",userid );
             UserPageContext upc = userPageClient.getPageContext(Integer.parseInt(userid));
+            session.setAttribute("userImage", userImageClient.getUserImage(Integer.parseInt(userid)));
             session.setAttribute("userDetails", userPageClient.getPageContext(Integer.parseInt(userid)));
             return "redirect:/home";
         }
