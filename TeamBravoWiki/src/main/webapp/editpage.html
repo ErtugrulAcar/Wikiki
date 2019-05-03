@@ -1,0 +1,372 @@
+<%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
+<%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserImageClient" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<script src="script/modernizr.custom.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>User Profile</title>
+    
+    <!-- favicon -->
+    <link href="img/favicon.png" rel=icon>
+
+    <!-- web-fonts -->
+    <link href="css/fontcss.css" rel="stylesheet">
+
+    <!-- font-awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bootstrap.min2.css">
+    <script src="script/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/script/bootstrap.min.js"></script>
+
+    <!-- Style CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <script src="script/my_js.js"></script>
+    <script src="script/FormSubmit.js"></script>
+    <link href="css/elements.css" rel="stylesheet">
+    <link href="css/dropdown.css" rel="stylesheet">
+   	<script src="script/dropdown.js"></script>
+   	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+  	<script  src="script/ProfilePhotoScript.js"></script>
+    <style>
+		#jpg1 {
+            height: 200px;
+            width: 200px;
+            border-radius: 100%;
+            background-color: red;
+        }
+        .nav > li > a:hover{
+  			 background-color: #c1d9ff;
+			}
+        .nav-pills > li.active > a {
+            background-color: #c1d9ff;
+        }
+        .nav-pills > li.active > a:hover {
+                background-color: #c1d9ff;
+            }
+        .nav > li > a {
+        width:188px;
+        padding: 10px 0px;
+        margin-right: 0px;
+        }
+        a:hover{
+        color: #0645ad;}
+        a {
+   			 color: #0645ad;
+		}
+		a:visited {
+    		color: #0b0080;
+		}
+        .SignButton{
+        height:40px;
+        width:160px;
+        border-radius:5px;
+        background-color:#6f7277;
+        justify-content: right;
+   		margin-top: 10px;
+   		margin-bottom: 10px;
+   		margin-right:10px;	
+   		color:white;
+        }
+        .nav > li > button:hover {
+        background-color:#a8adb5;
+        }
+        .shadow{
+            -webkit-box-shadow: 0 8px 6px -6px black;
+	        -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+        }
+        .imglogo {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	  	.abs-center-x {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		}
+		span
+		{
+			font-family: Arial !important;
+		}
+    </style>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+<link rel="stylesheet" href="css/ProfilePhotoCss.css">
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<!-- Sayfanın içeriği burada session dan cekiliyor -->
+<%
+	UserPageContext userPageContext = (UserPageContext) session.getAttribute("requestedUserProfile");
+	boolean editable = false;
+	int compare1 = userPageContext.getUserid(); // Görüntülemek istenen profil
+	int compare2 = Integer.parseInt(session.getAttribute("userId").toString()); // User - Eğer User giriş yapmamışsa 0 değerini alıyo
+	if(compare2 != 0){
+		if(compare1 == compare2){
+			editable = true;
+		}
+	}
+%>
+ <!--NAVBAR-->
+	<nav class="navbar navbar-inverse shadow navbar-expand-sm" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
+    	<div class="navbar-collapse collapse" style="margin-left: 0px;" >
+        	<ul class="navbar-nav abs-center-x">
+            	<li class="nav-item">
+                	<a class="nav-link" class="imglogo" href="/home"><img src="img/wiki2logo.png" alt=""style="width: 90px;height: 32px;display: block;margin-top:14px;"></a>
+                </li>
+           </ul>
+                  
+            <ul class="nav navbar-nav navbar-right">
+				<li>
+					<!--<div class="dropdown">
+						<%
+                        	UserPageContext loggedUser = (UserPageContext) session.getAttribute("userDetails");
+                            if(loggedUser != null){
+                            	String userImage =UserImageClient.getUserImage(Integer.parseInt(session.getAttribute("userId").toString()));
+                                if(userImage.equals("")){
+                                    userImage = "img/anonym.jpg";
+                                }
+						%>
+            		<img id="loginsmallimg" src="<%=userImage%>" onclick="myFunction()" class="dropbtn1">
+            	  	<div id="myDropdown" class="dropdown-content">
+    					<div id="dropleft"><img id="imgDrop" src="<%=userImage%>"></div>
+    					<div id="dropright">
+    						<ul class="ulDrop">
+    							<li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>
+    							<li class="liMail"><%=loggedUser.getEmail()%></li>
+    							<li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/userProfile<%=loggedUser.getUserid()%>'">My Profile</button></li>
+    						</ul>
+   						</div>
+    						<div id="dropbottom">
+        						<button type="submit" class="LogoutBtn" onclick="location.href='/logout'">Log Out</button>
+    						</div>
+  					</div>
+           				 <%  }else{ %>
+						<button class="nologin" onclick="location.href='/login'">Sign in</button>
+                        <button class="nologin" onclick="location.href='/register'"style="	margin-right:66px;">Register</button>
+						 <%} %>
+					</div>-->
+				</li>
+    		</ul>
+		</div>
+	</nav>
+			<!--MAIN-->
+
+			<div style="width: 80%;height:800px; margin:auto; border: 1px black solid;">
+				<div style="width: 50%;height:800px; float: left; border: 1px black solid;">
+					<div style="width: 80%;height:800px; margin: auto; border: 1px black solid;">
+						
+						<a href="#" class="btn btn-primary">Baslik Onayla</a>
+						<a href="#" class="btn btn-primary">Paragraf Onayla</a>
+						
+								
+
+						<div style="width: auto; margin:auto; border: 1px black solid; position: relative;">
+								
+								<textarea rows="1" cols="72" style="position: relative; margin-bottom: 5px; ">Konu Giriniz.</textarea>	
+								<textarea rows="5" cols="72" style="position: relative; margin-bottom: 5px; ">Paragraf Giriniz.</textarea>
+						</div>
+
+						
+					
+					</div>
+						
+					
+
+				</div>
+				<div style="width: 50%;height:800px;float: left; border: 1px black solid;">
+					
+					</div>
+
+			</div>
+			
+			
+			
+			<!--<div class="main" style="width: 40%;height:800px; margin:auto; border: 1px black solid;">
+					<div style="width: 80%; margin: auto; margin-top: 5%; float:left;">
+						<a href="#" class="btn btn-primary">Paragraf</a>
+						<a href="#" class="btn btn-primary">Baslik</a>
+						<form>
+								<div class="form-group">
+								  <label for="exampleFormControlFile1">Resim</label>
+								  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+								</div>
+							  </form>
+							
+							  <div style="float: left; position: relative; width: 300px;">
+									 								
+								</textarea>Paragraf : <textarea rows="8" cols="65" style="position: absolute; "></textarea>					
+							  </div>
+						
+					</div>
+				</div>
+				<div class="main" style="width: 40%;height:800px; float: right; border: 1px black solid;">
+
+					</div>
+
+				<div></div>-->
+
+	
+
+
+
+				<script>UPLOADCARE_PUBLIC_KEY = "demopublickey";</script>
+				<script src="uploadFile.js" charset="utf-8"></script>
+
+		<!-- classie.js by @desandro: https://github.com/desandro/classie -->
+		<script src="script/classie.js"></script>
+		<script src="script/modalEffects.js"></script>
+
+		<!-- for the blur effect -->
+		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+		<script>
+			// this is important for IEs
+			var polyfilter_scriptpath = '/script/';
+		</script>
+		<script src="script/cssParser.js"></script>
+		<script src="script/css-filters-polyfill.js"></script>
+    	<!-- #main-wrapper -->
+    	<!-- jquery -->
+    	<script src="script/jquery-2.1.4.min.js"></script>
+
+    	<!-- Bootstrap -->
+    	<script src="script/bootstrap.min.js"></script>
+    	<script src="script/theia-sticky-sidebar.js"></script>
+    	<script src="script/scripts.js"></script>
+
+
+<script>
+	$('input[name="files"]').fileuploader({
+    // Options will go here
+});
+
+var app = new Vue({
+	el : "#app",
+	data : {
+		id : <%=session.getAttribute("userId")%>,
+		ifUserImage : <%=!session.getAttribute("userImage").equals("")%>,
+		logInimgReferances : [document.getElementById("loginsmallimg"), document.getElementById("imgDrop")]
+	},
+	methods : {
+		uploadImg : function(user_img){
+			if(this.ifUserImage){
+				axios({
+					url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/update",
+					method : "post",
+					data : {
+						"id" : this.id,
+						"image" : user_img
+					}
+				}).then(response => (console.log(response)))
+			}else{
+				axios({
+					url : "http://104.248.129.101:8080/WikiWebService/webapi/image/user/upload",
+					method : "post",
+					data : {
+						"id" : this.id,
+						"image" : user_img
+					}
+				}).then(response => (console.log(response)))
+			}
+			this.changeImageReferances(user_img);
+		},
+		changeImageReferances : function (new_src) {
+			for(var i=0;i<this.logInimgReferances.length;i++){
+				this.logInimgReferances[i].src = new_src;
+			}
+		}
+	},
+});
+
+var userInfos = new Vue({
+	el : "#userInfos",
+	data : {
+		id : <%=session.getAttribute("userId")%>,
+		socialMediaLinks : document.getElementById("socialMedia").getElementsByTagName("a"),
+		userbio : document.getElementById("userbio"),
+		userInterests : document.getElementById("userInterests"),
+		emailPhone : document.getElementById("emailPhone").getElementsByTagName("div")
+
+	},
+	methods : {
+		setSocialMedia : function (facebook, twitter, instagram, linkedin) {
+			axios({
+				url : "http://104.248.129.101:8080/WikiWebService/webapi/user/updateLinks/" + this.id,
+				method : "put",
+				data : {
+					"facebook" : facebook,
+					"twitter" : twitter,
+					"instagram" : instagram,
+					"linkedIn" : linkedin
+				}
+			}).then(response => (console.log(response)))
+			this.socialMediaLinks[0].href = facebook;
+			this.socialMediaLinks[1].href = twitter;
+			this.socialMediaLinks[2].href = instagram;
+			this.socialMediaLinks[3].href = linkedin;
+		},
+		setUserBio : function (textVal) {
+			axios({
+				url : "http://104.248.129.101:8080/WikiWebService/webapi/user/updateBio/" + this.id,
+				method : "put",
+				data : {
+					"userBio" : textVal
+				}
+			}).then(response => (console.log(response)))
+			this.userbio.innerText = textVal;
+		},
+		setInterests : function (textVal) {
+			axios({
+				url : "http://104.248.129.101:8080/WikiWebService/webapi/user/updateInterest/" + this.id,
+				method : "put",
+				data : {
+					"userInterest" : textVal
+				}
+			}).then(response => (console.log(response)))
+			this.userInterests.innerText = textVal;
+		},
+		setEmailPhone : function (email, phone) {
+			axios({
+				url : "http://104.248.129.101:8080/WikiWebService/webapi/user/updateEmailPhone/" + this.id,
+				method : "put",
+				data : {
+					"userEmail" : email,
+					"userPhone" : phone
+				}
+			}).then(response => (console.log(response)))
+			this.emailPhone[0].innerText = email;
+			this.emailPhone[1].innerText = phone;
+		}
+	}
+});
+</script>
+
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
