@@ -1,0 +1,45 @@
+.nav > li > a:hover{
+    background-color: #c1d9ff;
+}
+.nav-pills > li.active > a {
+    background-color: #c1d9ff;
+}
+.nav-pills > li.active > a:hover {
+    background-color: #c1d9ff;
+}
+.nav > li > a {
+    width:188px;
+    padding: 10px 0px;
+    margin-right: 0px;
+}
+a:hover{
+    color: #0645ad;
+}
+a {
+    color: #0645ad;
+}
+a:visited {
+    color: #0b0080;
+}
+.nav > li > button:hover {
+    background-color:#a8adb5;
+}
+.shadow{
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+}
+.imglogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+span
+{
+    font-family: Arial !important;
+}

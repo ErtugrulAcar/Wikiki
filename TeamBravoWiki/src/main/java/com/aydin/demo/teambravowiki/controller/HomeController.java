@@ -131,4 +131,9 @@ public class HomeController {
         }
         return "base64Img.jsp";
     }
+    @RequestMapping("/createWiki")
+    public ModelAndView createWikiPage(ModelAndView modelAndView){
+        modelAndView.setViewName("createWiki.jsp");
+        return modelAndView;
+    }
 }
