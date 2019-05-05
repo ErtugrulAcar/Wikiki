@@ -19,3 +19,37 @@ function GetUserVal(){
 	var TelVal = document.getElementById('TelEditing').value;
 	userInfos.setEmailPhone(EpostaVal,TelVal);
 	}
+function getReader(){
+	document.getElementById("yetki1").src = "img/yesiltik.png";
+	document.getElementById("yetki2").src = "img/kirmizicarpi.png";
+	document.getElementById("yetki3").src = "img/kirmizicarpi.png";
+	document.getElementById("yetki4").src = "img/kirmizicarpi.png";
+	document.getElementById("yetki5").src = "img/kirmizicarpi.png";
+}
+function getSuggestor(){
+	document.getElementById("yetki1").src = "img/yesiltik.png";
+	document.getElementById("yetki2").src = "img/yesiltik.png";
+	document.getElementById("yetki3").src = "img/kirmizicarpi.png";
+	document.getElementById("yetki4").src = "img/kirmizicarpi.png";
+	document.getElementById("yetki5").src = "img/kirmizicarpi.png";
+}function getHalfmoderator(){
+	document.getElementById("yetki1").src = "img/yesiltik.png";
+	document.getElementById("yetki2").src = "img/yesiltik.png";
+	document.getElementById("yetki3").src = "img/yesiltik.png";
+	document.getElementById("yetki4").src = "img/kirmizicarpi.png";
+	document.getElementById("yetki5").src = "img/kirmizicarpi.png";
+}
+function getModerator(){
+	document.getElementById("yetki1").src = "img/yesiltik.png";
+	document.getElementById("yetki2").src = "img/yesiltik.png";
+	document.getElementById("yetki3").src = "img/yesiltik.png";
+	document.getElementById("yetki4").src = "img/yesiltik.png";
+	document.getElementById("yetki5").src = "img/kirmizicarpi.png";
+}
+function getAdmin(){
+	document.getElementById("yetki1").src = "img/yesiltik.png";
+	document.getElementById("yetki2").src = "img/yesiltik.png";
+	document.getElementById("yetki3").src = "img/yesiltik.png";
+	document.getElementById("yetki4").src = "img/yesiltik.png";
+	document.getElementById("yetki5").src = "img/yesiltik.png";
+}

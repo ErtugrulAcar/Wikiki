@@ -269,9 +269,7 @@
             /**
              * Call the onRemove callback
              */
-            if (typeof self.options.onRemove === 'function') {
-                self.options.onRemove(self.model);
-            }
+            
         }
 
         /**

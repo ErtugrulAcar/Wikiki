@@ -121,7 +121,8 @@
 		}
 	}
 %>
- <!--NAVBAR-->
+
+	<!-- #################################### NAVBAR START #################################### -->
 	<nav class="navbar navbar-inverse shadow navbar-expand-sm" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
     	<div class="navbar-collapse collapse" style="margin-left: 0px;" >
         	<ul class="navbar-nav abs-center-x">
@@ -164,7 +165,9 @@
     		</ul>
 		</div>
 	</nav>
+	<!-- ############################################# NAVBAR END ############################################# -->
 	
+	<!-- ############################################# ANA DIV START ############################################# -->
     	<div id="main-wrapper" class="mainwrapper">
         	<!-- Page Preloader -->
         		<div id="preloader">
@@ -173,10 +176,11 @@
            			</div>
         		</div>
         	<div class="columns-block container">
+    <!-- ############################################# LEFT DIV START ############################################# -->
             	<div class="left-col-block blocks" id="forBG">
-                	<header id="headerfixed" class="header theiaStickySidebar" style="text-align:center;">
-                    	<div class="profile-img">
-							<div class="container1">
+                	<header id="headerfixed" class="header theiaStickySidebar">
+                    	<div class="profile-img"  style="text-align:center;">
+							<div class="container1"  style="text-align:center;">
                     
                    				 <!-- PROFIL FOTOSU VAR MI KONTROLU EKLENECEK BURAYA -->
                     
@@ -195,7 +199,7 @@
 									<%} %>
 							</div>
                    		</div>
-                    	<div class="content">
+                    	<div class="content"  style="text-align:center;">
                         	<h1 style="color:#e5e5ff;">
                             	${requestedUserProfileObject.username} ${requestedUserProfileObject.userlastname}
                         	</h1>
@@ -224,10 +228,25 @@
 										<% }  %>
                       			 </ul>
                     	</div>
+                    	
+                    	<div id="yetkiler" style="text-align:center;">
+                    		<hr style="margin-left:auto;margin-right:auto;height:1px;width:80%;background-color:#ccc;">
+                    		<button id="yetkibtn1" onclick="getReader();" class="yetkibutton">Okuyucu</button><button id="yetkibtn2" onclick="getSuggestor();" class="yetkibutton">Önerici</button><button id="yetkibtn3" onclick="getHalfmoderator();" class="yetkibutton">Mod</button><button id="yetkibtn4" onclick="getModerator();" class="yetkibutton">Süper Y.</button><button id="yetkibtn5" onclick="getAdmin();"class="yetkibutton">Yönetici</button>
+                    	</div>
+                    	<ul id="yetkiul">
+                    			<li><img id="yetki1" class="yetkiimg" src="">OKUR</li>
+                    			<li><img id="yetki2" class="yetkiimg" src="">DUZENLEME ICIN IZIN</li>
+                    			<li><img id="yetki3" class="yetkiimg" src="">DUZENLEYEBILIR</li>
+                    			<li><img id="yetki4" class="yetkiimg" src="">DUZENLEMEYI KABUL EDER</li>
+                    			<li><img id="yetki5" class="yetkiimg" src="">HER YETKI ACIKTIR</li>
+                    		</ul>
                 </header>
                 <!-- .header-->
             </div>
             <!-- .left-col-block -->
+            <!-- ############################################# LEFT DIV END ############################################# -->
+            
+            <!-- ############################################# RIGHT DIV START ############################################# -->
             <div class="right-col-block blocks" id="forBG2">
                 <div class="theiaStickySidebar">
                         <section class="expertise-wrapper section-wrapper gray-bg">
@@ -337,9 +356,11 @@
                 <!-- Sticky -->
             </div>
             <!-- .right-col-block -->
+            <!-- ############################################# RIGHT DIV END ############################################# -->
         </div>
         <!-- .columns-block -->
     </div>
+    <!-- ############################################# ANA DIV END ############################################# -->
     			<div class="md-modal md-effect-1" id="modal-1">
 					<div class="md-content">
         				<div id="popupContact">
@@ -488,10 +509,7 @@
 
 		<!-- for the blur effect -->
 		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
-		<script>
-			// this is important for IEs
-			var polyfilter_scriptpath = '/script/';
-		</script>
+		<script>var polyfilter_scriptpath = '/script/';</script>
 		<script src="script/cssParser.js"></script>
 		<script src="script/css-filters-polyfill.js"></script>
     	<!-- #main-wrapper -->
@@ -619,20 +637,51 @@ var userInfos = new Vue({
 		}
 	}
 });
+        	var yetkim = "${requestedUserProfileObject.userdegree}";
+        	var yetkim1 = "READER";
+        	var yetkim2 = "SUGGESTOR";
+        	var yetkim3 = "HALFMODERATOR";
+        	var yetkim4 = "MODERATOR";
+        	var yetkim5 = "ADM?N";
+        	switch(yetkim){
+        	case yetkim1:
+        		console.log("READERIM");
+        		$(document).ready(function () {
+        				document.getElementById("yetkibtn1").click();
+        				document.getElementById("yetkibtn1").style.border = '1px solid white';
+        			});
+        		break;
+        	case yetkim2:
+        		console.log("SUGGESTORUM");
+        		$(document).ready(function () {
+     			   document.getElementById("yetkibtn2").click();
+     			   document.getElementById("yetkibtn2").style.border = '1px solid white';
+     			});
+        		break;
+        	case yetkim3:
+        		console.log("HALFMODERATORUM");
+        		$(document).ready(function () {
+     			   document.getElementById("yetkibtn3").click();
+     			   document.getElementById("yetkibtn3").style.border = '1px solid white';
+     			});
+        		break;
+        	case yetkim4:
+        		console.log("MODERATORUM");
+        		$(document).ready(function () {
+     			   document.getElementById("yetkibtn4").click();
+     			   document.getElementById("yetkibtn4").style.border = '1px solid white';
+     			});
+        		break;
+        	case yetkim5:
+        		console.log("ADMINIM");
+        		$(document).ready(function () {
+     			   document.getElementById("yetkibtn5").click();
+     			   document.getElementById("yetkibtn5").style.border = '1px solid white';
+     			});
+        		break;
+        	}
 </script>
 
 	
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
