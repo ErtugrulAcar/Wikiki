@@ -4,6 +4,7 @@
 	<!-- #################################### Dependencies START #################################### -->
 	<!-- Style CSS -->
 	<link href="css/style.css" rel="stylesheet">
+	<link href="css/createWiki.css" rel="stylesheet">
 	<link href="css/uploadFile.css" rel="stylesheet">
 	<script src="script/dropdown.js"></script>
 	<!-- favicon -->
@@ -24,15 +25,18 @@
 	<meta charset="UTF-8"/>
     <title>Edit / Create Wiki Page</title>
 </head>
+<style>
+</style>
 <body>
 <!-- #################################### NAVBAR START #################################### -->
 <%@ include file="static/navbar.jsp"%>
 <!-- #################################### NAVBAR END #################################### -->
 
-<!-- #################################### Create Wiki Text Box START #################################### -->
-<div style="width: 80%;height:800px; margin:auto; border: 1px black solid;">
-	<div style="width: 50%;height:800px; float: left; border: 1px black solid;">
-		<div style="width: 80%;height:800px; margin: auto;">
+<div id="diş-div">
+<div  id="wrapper-div">
+	<div style="">
+		<!-- #################################### Create Wiki Text Box START #################################### -->
+		<div id="button-div">
 			<a href="#" class="btn btn-primary">Baslik Onayla</a>
 			<a href="#" class="btn btn-primary">Paragraf Onayla</a>
 			
@@ -43,25 +47,29 @@
 				</div>			  
 			</form>
 
-			<div style="width: auto; margin:auto;  position: relative;">
+			<div id="textbox-div" style="">
 				<input id="titleBox" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Konu giriniz." unselectable="on">
 				<textarea  id="subject" rows="28" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Paragraf giriniz.">
 
 				</textarea>
 			</div>
+
 		</div>
+		<!-- #################################### Create Wiki Text Box END #################################### -->
+
 	</div>
-</div>
-<!-- #################################### Create Wiki Text Box END #################################### -->
 
-<!-- #################################### Create Wiki Önizleme START #################################### -->
-<div id = "edit" style="width: 50%;height:800px;float: left; border: 1px black solid;">
+
+
 
 </div>
-<!-- #################################### Create Wiki Önizleme END #################################### -->
+	<!-- #################################### Create Wiki Önizleme START #################################### -->
+	<div id = "edit" >
 
+	</div>
+	<!-- #################################### Create Wiki Önizleme END #################################### -->
+</div>
 
-	
 
 
 </body>
