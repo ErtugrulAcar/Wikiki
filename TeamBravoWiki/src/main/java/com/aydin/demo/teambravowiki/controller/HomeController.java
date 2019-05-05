@@ -2,7 +2,7 @@ package com.aydin.demo.teambravowiki.controller;
 
 
 import com.aydin.demo.teambravowiki.model.RegisterUser;
-import com.aydin.demo.teambravowiki.model.UserPageContext;
+import com.aydin.demo.teambravowiki.model.UserInfo;
 import com.aydin.demo.teambravowiki.model.WikiPageContent;
 import com.aydin.demo.teambravowiki.webservice.client.UserImageClient;
 import com.aydin.demo.teambravowiki.webservice.client.UserPageClient;
@@ -11,7 +11,6 @@ import com.aydin.demo.teambravowiki.webservice.client.UserRegisterClient;
 import com.aydin.demo.teambravowiki.webservice.client.WikiPageClient;
 import com.google.gson.JsonParser;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,33 +30,38 @@ public class HomeController {
     private WikiPageClient wikiPageClient = new WikiPageClient();
     private UserImageClient userImageClient = new UserImageClient();
     private static JsonParser parser = new JsonParser();
+
     @RequestMapping("/")
     public String Default() {
     	return "redirect:/home";
     }
-    @RequestMapping("/login")
-    public String login(HttpServletRequest request){
-        HttpSession session = request.getSession();
-        if(session.getAttribute("userId") == null || session.getAttribute("userId").toString().equals("0")){
-            return "/login.jsp";
-        }
-        else{
-            String userId = session.getAttribute("userId").toString();
-            int intUserId = Integer.parseInt(userId);
-            return "/userProfile" + intUserId;
-        }
-    }
-    @PostMapping("/home")
-    public String home(){
+
+    @RequestMapping("/home")
+    public String HomePage() {
         return "homepage.jsp";
     }
+
+    @RequestMapping("/login")
+    public String login(HttpSession session){
+        if(session.getAttribute("userId") ==null || session.getAttribute("userId").toString().equals("0")){
+            return "login.jsp";
+        }
+        else{
+            return "redirect:/userProfile" + session.getAttribute("userId");
+        }
+    }
+    @RequestMapping("/register")
+    public String registerPage() {
+        return "register.jsp";
+    }
+
     @PostMapping("/authentication")
-    public String authenticator(HttpServletRequest request){
+    public String authenticator(HttpServletRequest request, HttpSession session){
         String userid = userProfileClient.authentication(request.getParameter("email"), request.getParameter("password"));
         if(!userid.equals("0")){
-            HttpSession session = request.getSession();
+            UserInfo userInfo = userProfileClient.getUserInfo(Integer.parseInt(userid));
+            session.setAttribute("userInfo", userInfo);
             session.setAttribute("userId",userid );
-            UserPageContext upc = userPageClient.getPageContext(Integer.parseInt(userid));
             session.setAttribute("userImage", userImageClient.getUserImage(Integer.parseInt(userid)));
             session.setAttribute("userDetails", userPageClient.getPageContext(Integer.parseInt(userid)));
             return "redirect:/home";
@@ -81,10 +85,7 @@ public class HomeController {
     		return "redirect:/register";
     	}
     }
-    @RequestMapping("/register")
-    public String registerPage() {
-    	return "register.jsp";
-    }
+
     @RequestMapping("/userProfile{userId}")
     public ModelAndView userProfile(@PathVariable("userId") int userId, HttpSession session) {
         ModelAndView modelAndView = new ModelAndView("userProfile.jsp");
@@ -111,29 +112,19 @@ public class HomeController {
     	session.invalidate();
     	return "redirect:/login";
     }
-    @RequestMapping("/home")
-    public String HomePage(HttpServletRequest request) {
-    	return "homepage.jsp";
-    }
 
 
-    @RequestMapping("/showImg")
-    public String showImg(HttpSession session){
-        try{
-            File img = new File("C:\\einstein.jpg");
-            FileInputStream fileInputStream = new FileInputStream(img);
-            byte [] bytes = new byte[(int)img.length()];
-            fileInputStream.read(bytes);
-            String encodedFile = Base64.getEncoder().encodeToString(bytes);
-            session.setAttribute("img", encodedFile);
-        }catch(Exception e){
-            System.out.println(e.getLocalizedMessage());
-        }
-        return "base64Img.jsp";
-    }
     @RequestMapping("/createWiki")
-    public ModelAndView createWikiPage(ModelAndView modelAndView){
-        modelAndView.setViewName("createWiki.jsp");
+    public ModelAndView createWikiPage(ModelAndView modelAndView, HttpSession session){
+        if(session.getAttribute("userInfo") != null){
+            if(((UserInfo)session.getAttribute("userInfo")).getUserDegree() >= 3){
+                modelAndView.setViewName("createWiki.jsp");
+            }else{
+                modelAndView.setViewName("redirect:/home");
+            }
+            return modelAndView;
+        }
+        modelAndView.setViewName("redirect:/home");
         return modelAndView;
     }
 }
