@@ -2,6 +2,9 @@
 <html>
 <head>
 	<!-- #################################### Dependencies START #################################### -->
+	<!-- Style CSS -->
+	<link href="css/style.css" rel="stylesheet">
+	<script src="script/dropdown.js"></script>
 	<!-- favicon -->
 	<link href="img/favicon.png" rel=icon>
 	<!-- createWiki CSS -->
