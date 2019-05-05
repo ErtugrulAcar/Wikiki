@@ -4,6 +4,7 @@
 	<!-- #################################### Dependencies START #################################### -->
 	<!-- Style CSS -->
 	<link href="css/style.css" rel="stylesheet">
+	<link href="css/uploadFile.css" rel="stylesheet">
 	<script src="script/dropdown.js"></script>
 	<!-- favicon -->
 	<link href="img/favicon.png" rel=icon>
@@ -34,9 +35,17 @@
 		<div style="width: 80%;height:800px; margin: auto;">
 			<a href="#" class="btn btn-primary">Baslik Onayla</a>
 			<a href="#" class="btn btn-primary">Paragraf Onayla</a>
+			
+			<form method="post" action="#" id="#">
+				<div class="form-group files">
+				  <label>Resim ekle </label>
+				  <input type="file" class="form-control" multiple="">
+				</div>			  
+			</form>
+
 			<div style="width: auto; margin:auto;  position: relative;">
 				<input id="titleBox" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Konu giriniz." unselectable="on">
-				<textarea  id="subject" rows="35" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Paragraf giriniz.">
+				<textarea  id="subject" rows="28" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Paragraf giriniz.">
 
 				</textarea>
 			</div>
