@@ -1,5 +1,8 @@
 ﻿<%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserImageClient" %>
+<%@ page import="com.aydin.demo.teambravowiki.model.UserInfo" %>
+<%@ page import="sun.plugin.util.UserProfile" %>
+<%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserProfileClient" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -229,17 +232,21 @@
                       			 </ul>
                     	</div>
                     	
-                    	<div id="yetkiler" style="text-align:center;">
-                    		<hr style="margin-left:auto;margin-right:auto;height:1px;width:80%;background-color:#ccc;">
-                    		<button id="yetkibtn1" onclick="getReader();" class="yetkibutton">Okuyucu</button><button id="yetkibtn2" onclick="getSuggestor();" class="yetkibutton">Önerici</button><button id="yetkibtn3" onclick="getHalfmoderator();" class="yetkibutton">Mod</button><button id="yetkibtn4" onclick="getModerator();" class="yetkibutton">Süper Y.</button><button id="yetkibtn5" onclick="getAdmin();"class="yetkibutton">Yönetici</button>
-                    	</div>
-                    	<ul id="yetkiul">
-                    			<li><img id="yetki1" class="yetkiimg" src="">OKUR</li>
-                    			<li><img id="yetki2" class="yetkiimg" src="">DUZENLEME ICIN IZIN</li>
-                    			<li><img id="yetki3" class="yetkiimg" src="">DUZENLEYEBILIR</li>
-                    			<li><img id="yetki4" class="yetkiimg" src="">DUZENLEMEYI KABUL EDER</li>
-                    			<li><img id="yetki5" class="yetkiimg" src="">HER YETKI ACIKTIR</li>
-                    		</ul>
+                    	<div id="ranks">
+							<div style="text-align:center;">
+								<hr style="margin-left:auto;margin-right:auto;height:1px;width:80%;background-color:#ccc;">
+								<button @click="changeRank(1)" class="rankbutton">Okuyucu</button><button @click="changeRank(2)" class="rankbutton">Önerici</button><button @click="changeRank(3)" class="rankbutton">Y. Mod</button><button @click="changeRank(4)" class="rankbutton">Mod</button><button @click="changeRank(5)" class="rankbutton">Yönetici</button>
+
+							</div>
+							<ul id="rankUl">
+								<li><img class="rankImg" :src="firstLi">OKUR</li>
+								<li><img class="rankImg" :src="secondLi">DUZENLEME ICIN IZIN</li>
+								<li><img class="rankImg" :src="thirdLi">DUZENLEYEBILIR</li>
+								<li><img class="rankImg" :src="forthLi">DUZENLEMEYI KABUL EDER</li>
+								<li><img class="rankImg" :src="fifthLi">HER YETKI ACIKTIR</li>
+							</ul>
+						</div>
+
                 </header>
                 <!-- .header-->
             </div>
@@ -498,7 +505,7 @@
 							</div>
 						</div>
 					</div>
-							</div>
+				</div>
 
 
 		<div class="md-overlay"></div><!-- the overlay element -->
@@ -521,8 +528,73 @@
     	<script src="script/theia-sticky-sidebar.js"></script>
     	<script src="script/scripts.js"></script>
 
+<%
+	UserInfo userInfo = UserProfileClient.getUserInfo(userPageContext.getUserid());
 
+%>
 <script>
+var ranks = new Vue({
+	el : "#ranks",
+	data : {
+		rank : "<%=userInfo.getUserDegree()%>",
+		firstLi : "img/kirmizicarpi.png",
+		secondLi : "img/kirmizicarpi.png",
+		thirdLi : "img/kirmizicarpi.png",
+		forthLi : "img/kirmizicarpi.png",
+		fifthLi : "img/kirmizicarpi.png"
+	},
+	beforeMount : function(){
+		this.rank = parseInt(this.rank);
+		this.changeRank(this.rank);
+	},
+	mounted : function(){
+		document.getElementsByClassName("rankbutton").item(this.rank-1).style.border = "1px solid white";
+	},
+	methods : {
+		changeRank: function(num){
+			if(num > 4){
+				this.firstLi = "img/yesiltik.png";
+				this.secondLi = "img/yesiltik.png";
+				this.thirdLi = "img/yesiltik.png";
+				this.forthLi = "img/yesiltik.png";
+				this.fifthLi = "img/yesiltik.png";
+			}
+			else if(num > 3){
+				this.firstLi = "img/yesiltik.png";
+				this.secondLi = "img/yesiltik.png";
+				this.thirdLi = "img/yesiltik.png";
+				this.forthLi = "img/yesiltik.png";
+				this.fifthLi = "img/kirmizicarpi.png";
+
+			}
+			else if(num > 2){
+				this.firstLi = "img/yesiltik.png";
+				this.secondLi = "img/yesiltik.png";
+				this.thirdLi = "img/yesiltik.png";
+				this.forthLi = "img/kirmizicarpi.png";
+				this.fifthLi = "img/kirmizicarpi.png";
+
+			}
+			else if(num > 1){
+				this.firstLi = "img/yesiltik.png";
+				this.secondLi = "img/yesiltik.png";
+				this.thirdLi = "img/kirmizicarpi.png";
+				this.forthLi = "img/kirmizicarpi.png";
+				this.fifthLi = "img/kirmizicarpi.png";
+			}
+			else{
+				this.firstLi = "img/yesiltik.png";
+				this.secondLi = "img/kirmizicarpi.png";
+				this.thirdLi = "img/kirmizicarpi.png";
+				this.forthLi = "img/kirmizicarpi.png";
+				this.fifthLi = "img/kirmizicarpi.png";
+			}
+
+		}
+
+	}
+});
+
 var app = new Vue({
 	el : "#app",
 	data : {
@@ -637,49 +709,7 @@ var userInfos = new Vue({
 		}
 	}
 });
-        	var yetkim = "${requestedUserProfileObject.userdegree}";
-        	var yetkim1 = "READER";
-        	var yetkim2 = "SUGGESTOR";
-        	var yetkim3 = "HALFMODERATOR";
-        	var yetkim4 = "MODERATOR";
-        	var yetkim5 = "ADM?N";
-        	switch(yetkim){
-        	case yetkim1:
-        		console.log("READERIM");
-        		$(document).ready(function () {
-        				document.getElementById("yetkibtn1").click();
-        				document.getElementById("yetkibtn1").style.border = '1px solid white';
-        			});
-        		break;
-        	case yetkim2:
-        		console.log("SUGGESTORUM");
-        		$(document).ready(function () {
-     			   document.getElementById("yetkibtn2").click();
-     			   document.getElementById("yetkibtn2").style.border = '1px solid white';
-     			});
-        		break;
-        	case yetkim3:
-        		console.log("HALFMODERATORUM");
-        		$(document).ready(function () {
-     			   document.getElementById("yetkibtn3").click();
-     			   document.getElementById("yetkibtn3").style.border = '1px solid white';
-     			});
-        		break;
-        	case yetkim4:
-        		console.log("MODERATORUM");
-        		$(document).ready(function () {
-     			   document.getElementById("yetkibtn4").click();
-     			   document.getElementById("yetkibtn4").style.border = '1px solid white';
-     			});
-        		break;
-        	case yetkim5:
-        		console.log("ADMINIM");
-        		$(document).ready(function () {
-     			   document.getElementById("yetkibtn5").click();
-     			   document.getElementById("yetkibtn5").style.border = '1px solid white';
-     			});
-        		break;
-        	}
+
 </script>
 
 	

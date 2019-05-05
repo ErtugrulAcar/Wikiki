@@ -113,7 +113,7 @@ margin-top:5px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
     box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
 }
-.yetkibutton{
+.rankbutton{
 	height:30px;
 	width:50px;
 	margin-left:2px;
@@ -125,17 +125,17 @@ margin-top:5px;
 	font-size:8px;
 	text-align:center;
 }
-.yetkibutton:hover{
+.rankbutton:hover{
     background: linear-gradient(top, #8e0700, #d21b00);
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
     box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
 }
-.yetkiimg{
+.rankImg{
 	height:12px;
 	width:12px;
 	margin-right:4px;
 }
-#yetkiul{
+#rankUl{
 	font-size:12px;
 	color:#e4e4e4;
 	margin-left:46px;

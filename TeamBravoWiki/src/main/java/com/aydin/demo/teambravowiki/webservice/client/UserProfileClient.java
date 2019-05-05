@@ -8,7 +8,7 @@ import com.aydin.demo.teambravowiki.model.UserInfo;
 
 public class UserProfileClient {
 
-    public UserInfo getUserInfo(int userId){
+    public static UserInfo getUserInfo(int userId){
         try{
             Client client = Client.create();
             WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/user").path(Integer.toString(userId));
