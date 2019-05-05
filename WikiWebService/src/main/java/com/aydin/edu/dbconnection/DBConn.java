@@ -3,6 +3,7 @@ package com.aydin.edu.dbconnection;
 import java.sql.*;
 
 import com.aydin.edu.model.*;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 public class DBConn {
@@ -101,6 +102,23 @@ public class DBConn {
                     rs.getString("wiki_page_image"));
         }catch(SQLException e){
             System.out.println("Have a problem while getting WikiPageContext : " + e.getLocalizedMessage());
+        }
+        return null;
+    }
+    public WikiPageContentPreview getWikiPageContentPreview(int wikipageid){
+        try{
+            ps = con.prepareStatement("select * from wikidb.wikipage where wiki_page_id = ?");
+            ps.setInt(1, wikipageid);
+            rs = ps.executeQuery();
+            rs.next();
+            jsonParser = new JsonParser();
+            JsonObject wikiPageFirstContent = jsonParser.parse(rs.getString("wiki_page_content")).getAsJsonObject();
+
+            return new WikiPageContentPreview(rs.getString("wiki_page_header"),
+                                             wikiPageFirstContent.get("0:0").toString(),
+                                             rs.getString("wiki_page_image"));
+        }catch(SQLException e){
+            System.out.println("Have a problem while getting WikiPageContentPreview : " + e.getLocalizedMessage());
         }
         return null;
     }

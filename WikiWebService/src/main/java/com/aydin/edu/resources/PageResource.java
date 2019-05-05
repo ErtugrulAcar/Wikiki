@@ -3,7 +3,7 @@ package com.aydin.edu.resources;
 import com.aydin.edu.dbconnection.DBConn;
 import com.aydin.edu.model.UserPageContext;
 import com.aydin.edu.model.WikiPageContent;
-import org.omg.CORBA.portable.ApplicationException;
+import com.aydin.edu.model.WikiPageContentPreview;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -27,6 +27,12 @@ public class PageResource {
     @Produces(MediaType.APPLICATION_XML)
     public WikiPageContent getWikiPageContent(@PathParam("wikipageid") int wikipageid){
         return dbconn.getWikiPageContent(wikipageid);
+    }
+    @GET
+    @Path("/wiki/preview/{wikipageid}")
+    @Produces
+    public WikiPageContentPreview getWikiPageContentPreview(@PathParam("wikipageid")int wikipageid){
+        return dbconn.getWikiPageContentPreview(wikipageid);
     }
 
 }

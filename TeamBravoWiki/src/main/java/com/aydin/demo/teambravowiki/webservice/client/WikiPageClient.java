@@ -1,6 +1,7 @@
 package com.aydin.demo.teambravowiki.webservice.client;
 
 import com.aydin.demo.teambravowiki.model.WikiPageContent;
+import com.aydin.demo.teambravowiki.model.WikiPageContentPreview;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -22,5 +23,20 @@ public class WikiPageClient {
         }
         return null;
     }
-
+    public static WikiPageContentPreview getWikiPageContentPreview(int wikiPageId){
+        try{
+            Client client = Client.create();
+            WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/page/wiki/preview").path(Integer.toString(wikiPageId));
+            System.out.println(webResource);
+            ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
+            if(response.getStatus() != 200){
+                throw new RuntimeException("Failed : HTTP error code " + response.getStatus());
+            }
+            client.destroy();
+            return response.getEntity(WikiPageContentPreview.class);
+        }catch(Exception e){
+            System.out.println("(WikiPageClient) Have a problem while getting WikiPageContentPreview : " + e.getLocalizedMessage());
+        }
+        return null;
+    }
 }
