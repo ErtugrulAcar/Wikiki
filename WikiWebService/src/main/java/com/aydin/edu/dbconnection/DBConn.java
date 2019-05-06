@@ -1,6 +1,8 @@
 package com.aydin.edu.dbconnection;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.aydin.edu.model.*;
 import com.google.gson.JsonObject;
@@ -271,6 +273,29 @@ public class DBConn {
         return "Success";
     }
 
+    public List<Country> getAllCountries(){
+        try{
+            List<Country> countries = new ArrayList<Country>();
+            ps = con.prepareStatement("select * from berkay.countrydata");
+            rs = ps.executeQuery();
+            while(rs.next()){
+                countries.add(new Country(
+                        Integer.parseInt(rs.getString("id")),
+                        rs.getString("name"),
+                        rs.getString("capital"),
+                        rs.getString("code"),
+                        rs.getString("continent"),
+                        rs.getString("population"),
+                        rs.getString("area"),
+                        rs.getString("currency"),
+                        rs.getString("flag")));
+            }
+            return countries;
+        }catch(SQLException e){
+            System.out.println("Have a problem while getting all the countries error : " + e.getLocalizedMessage());
+        }
+        return null;
+    }
 
 }
 
