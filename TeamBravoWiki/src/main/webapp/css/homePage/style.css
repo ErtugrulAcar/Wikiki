@@ -1,4 +1,7 @@
 @charset "UTF-8";
+body{
+	min-width:900px;
+}
 .smallnames{
     padding-top: 15px;
     text-align: start;
@@ -111,8 +114,9 @@
 	padding: 1%;
 	font-size: 10.8pt;
 	float: left;
-	margin-left: 7%;
+	margin-left: 3.5%;
 	width:50%!important;
+	min-width: 575px;
 }
 .plink{
 	height: 40.9ch;
@@ -143,4 +147,32 @@
     background-color: rgb(148, 185, 209);
     border-radius: 20px;
     color: black !important;
+}
+.smallBottomLeft{
+	float : left;
+	width: 750px;
+    margin-top:1%;
+    background-color : rgb(49, 65, 82);
+    border-radius : 20px;
+}
+.smallBottomLeft2{
+	float : left;
+	width: 730px;
+    margin-top:1%;
+    background-color : rgb(148, 185, 209);
+    border-radius : 20px;
+}
+.smallBottomRight{
+	float : right;
+	width: 750px;
+    margin-top:1%;
+    background-color : rgb(49, 65, 82);
+    border-radius : 20px;
+}
+.smallBottomRight2{
+	float : right;
+	width: 730px;
+    margin-top:1%;
+    background-color : rgb(148, 185, 209);
+    border-radius : 20px;
 }
