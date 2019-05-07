@@ -18,13 +18,13 @@
 		<!-- page style start -->
 		<link href="css/homePage/style.css" rel="stylesheet">
 		<!-- page style end -->
-		<link href="css/style.css" rel="stylesheet">
-		<link href="css/elements.css" rel="stylesheet">
-		<link href="css/dropdown.css" rel="stylesheet">
 		<!-- font-awesome -->
 		<link href="css/font-awesome.min.css" rel="stylesheet">
 		<!-- web-fonts -->
 		<link href="css/fontcss.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/elements.css" rel="stylesheet">
+		<link href="css/dropdown.css" rel="stylesheet">
 	<!-- ###################### STYLE END ###########################-->
     <!-- ###################### FAVICON START ########################## -->
     	<link href="img/favicon.png" rel=icon>
@@ -66,11 +66,17 @@
 											<!-- ########################## TOP-LEFT COLUMN START ################################## -->	
 											<div id="firstDiv" class="section-title shadow">
 												<a href="/wikiPage1" class = "links" title="Click for Details">
+													<% 	String Image1 = WikiPageClient.getWikiPageContentPreview(1).getImage();
+														String Header1 = WikiPageClient.getWikiPageContentPreview(1).getHeader();
+														String PageContent = WikiPageClient.getWikiPageContentPreview(1).getFistPofPageContent();
+														PageContent = PageContent.substring(1,PageContent.length());
+														String Image2 = WikiPageClient.getWikiPageContentPreview(2).getImage();
+														String Header2 = WikiPageClient.getWikiPageContentPreview(2).getHeader();
+													%>
 													<p class = "plink">
-														<img class = "pImg" src="<%= WikiPageClient.getWikiPageContentPreview(1).getImage() %>" alt="<%= WikiPageClient.getWikiPageContentPreview(1).getHeader() %>" align="left">
-														<span class="header1 text-center"><%= WikiPageClient.getWikiPageContentPreview(1).getHeader() %></span><br>
-														<% System.out.println(WikiPageClient.getWikiPageContentPreview(1).getFistPofPageContent()); %>
-														<span class="content1"><%= WikiPageClient.getWikiPageContentPreview(1).getFistPofPageContent() %></span>
+														<img class = "pImg" src="<%= Image1 %>" alt="<%= Header1 %>" align="left">
+														<span class="header1 text-center"><%= Header1 %></span><br>
+														<span class="content1"><%= PageContent %></span>
 													</p>
 												</a>
 											</div>
@@ -79,8 +85,8 @@
 											<!-- FIRST START -->
 											<a href="wikiPage2">
 												<div class = "smallRight shadow">
-													<img  src="<%= WikiPageClient.getWikiPageContentPreview(2).getImage() %>" class="smallimg1 shadow" alt="" />
-													<span class="header2 shadow"><%= WikiPageClient.getWikiPageContentPreview(2).getHeader() %></span>
+													<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
+													<span class="header2 shadow"><%= Header2 %></span>
 													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
 												</div>
 											</a>
@@ -88,8 +94,8 @@
 											<!-- SECOND START -->
 											<a href="wikiPage2">
 												<div class = "smallRight2 shadow">						
-													<img  src="<%= WikiPageClient.getWikiPageContentPreview(2).getImage() %>" class="smallimg1 shadow" alt="" />
-													<span class="header3 shadow"><%= WikiPageClient.getWikiPageContentPreview(2).getHeader() %></span>
+													<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
+													<span class="header3 shadowWhite"><%= Header2 %></span>
 													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
 												</div>
 											</a>
@@ -97,8 +103,8 @@
 											<!-- THIRH START -->
 											<a href="wikiPage1">
 												<div class = "smallRight2 shadow">
-														<img  src="<%= WikiPageClient.getWikiPageContentPreview(1).getImage() %>" class="smallimg1 shadow" alt="" />
-														<span class="header3 shadow"><%= WikiPageClient.getWikiPageContentPreview(1).getHeader() %></span>
+														<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
+														<span class="header3 shadowWhite"><%= Header1 %></span>
 														<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
 												</div>
 											</a>
@@ -106,8 +112,8 @@
 											<!-- FOURTH START -->
 											<a href="wikiPage1">
 												<div class = "smallRight shadow">
-													<img  src="<%= WikiPageClient.getWikiPageContentPreview(1).getImage() %>" class="smallimg1 shadow" alt="" />
-													<span class="header2 shadow"><%= WikiPageClient.getWikiPageContentPreview(1).getHeader() %></span>
+													<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
+													<span class="header2 shadow"><%= Header1 %></span>
 													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
 												</div>
 											</a>
@@ -115,8 +121,8 @@
 											<!-- FIFTH START -->
 											<a href="wikiPage2">
 												<div class = "smallRight shadow">
-													<img  src="<%= WikiPageClient.getWikiPageContentPreview(2).getImage() %>" class="smallimg1 shadow" alt="" />
-													<span class="header2 shadow"><%= WikiPageClient.getWikiPageContentPreview(2).getHeader() %></span>
+													<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
+													<span class="header2 shadow"><%= Header2 %></span>
 													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
 													
 												</div>
@@ -125,8 +131,8 @@
 											<!-- SIXTH START -->
 											<a href="wikiPage2">
 												<div class = "smallRight2 shadow">
-													<img  src="<%= WikiPageClient.getWikiPageContentPreview(2).getImage() %>" class="smallimg1 shadow" alt="" />
-													<span class="header3 shadow"><%= WikiPageClient.getWikiPageContentPreview(2).getHeader() %></span>
+													<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
+													<span class="header3 shadowWhite"><%= Header2 %></span>
 													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
 												</div>
 											</a>
@@ -134,8 +140,8 @@
 											<!-- SEVENTH START -->
 											<a href="wikiPage1">
 												<div class = "smallRight2 shadow">
-													<img  src="<%= WikiPageClient.getWikiPageContentPreview(1).getImage() %>" class="smallimg1 shadow" alt="" />
-													<span class="header3 shadow"><%= WikiPageClient.getWikiPageContentPreview(1).getHeader() %></span>
+													<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
+													<span class="header3 shadowWhite"><%= Header1 %></span>
 													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
 												</div>
 											</a>
@@ -143,8 +149,8 @@
 											<!-- EIGHTIETH START -->
 											<a href="wikiPage1">
 												<div class = "smallRight shadow">
-													<img  src="<%= WikiPageClient.getWikiPageContentPreview(1).getImage() %>" class="smallimg1 shadow" alt="" />
-													<span class="header2 shadow"><%= WikiPageClient.getWikiPageContentPreview(1).getHeader() %></span>
+													<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
+													<span class="header2 shadow"><%= Header1 %></span>
 													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
 												</div>
 											</a>
@@ -162,88 +168,90 @@
 			            <div class="container-fluid">
 			                <div id="section2"style="border-bottom: #555555 dotted 1px;" >
 			                    <div class="row" style="width: 87%; margin: auto;" >
-			                        <div style="width: 48%; float: left;">
+			                        <div style="width: 100%; float: left;">
 			                        	<a href="wikiPage1">
-			                        	<!-- ########################## BOTTOM-LEFT START ################################## -->
-											<div class = "smallBottomLeft shadow">
-												<img  src="<%= WikiPageClient.getWikiPageContentPreview(1).getImage() %>" class="smallimg1 shadow" alt="" />
-												<span class="header2 shadow"><%= WikiPageClient.getWikiPageContentPreview(1).getHeader() %></span>
+										<!-- First Left -->
+										<div class = "smallBottomLeft shadow">
+											<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
+											<span class="header2 shadow"><%= Header1 %></span>
+										</div>
+										</a>
+										<!-- First Left End -->
+										<!-- First Right -->
+										<a href="wikiPage2">
+											<div class = "smallBottomRight2 shadow">
+												<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
+												<span class="header3 shadowWhite"><%= Header2 %></span>
 											</div>
 										</a>
+										<!-- First Right End -->
+										<!-- Second Left Start -->
 										<a href="wikiPage1">
 											<div class = "smallBottomLeft2 shadow">
-												<img  src="<%= WikiPageClient.getWikiPageContentPreview(1).getImage() %>" class="smallimg1 shadow" alt="" />
-												<span class="header3 shadow"><%= WikiPageClient.getWikiPageContentPreview(1).getHeader() %></span>
+												<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
+												<span class="header3 shadowWhite"><%= Header1 %></span>
 											</div>
 										</a>
+										<!-- Second Left End -->
+										<!-- Second Right Start -->
+										<a href="wikiPage2">
+											<div class = "smallBottomRight shadow">
+												<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
+												<span class="header2 shadow"><%= Header2 %></span>
+											</div>
+										</a>
+										<!-- Second	Right End -->
+										<!-- Third Left Start -->
 										<a href="wikiPage1">
 											<div class = "smallBottomLeft shadow">
-												<img  src="<%= WikiPageClient.getWikiPageContentPreview(1).getImage() %>" class="smallimg1 shadow" alt="" />
-												<span class="header2 shadow"><%= WikiPageClient.getWikiPageContentPreview(1).getHeader() %></span>
+												<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
+												<span class="header2 shadow"><%= Header1 %></span>
 											</div>
 										</a>
+										<!-- Third Left End -->
+										<!-- Third Right Start -->
+										<a href="wikiPage2">
+											<div class = "smallBottomRight2 shadow">
+												<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
+												<span class="header3 shadowWhite"><%= Header2 %></span>
+											</div>
+										</a>
+										<!-- Third Right End -->
+										<!-- Fourth Left Start -->
 										<a href="wikiPage1">
 											<div class = "smallBottomLeft2 shadow">
-												<img  src="<%= WikiPageClient.getWikiPageContentPreview(1).getImage() %>" class="smallimg1 shadow" alt="" />
-												<span class="header3 shadow"><%= WikiPageClient.getWikiPageContentPreview(1).getHeader() %></span>
+												<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
+												<span class="header3 shadowWhite"><%= Header1 %></span>
 											</div>
 										</a>
+										<!-- Fourth Left End -->
+										<!-- Fourth Right Start -->
+										<a href="wikiPage2">
+											<div class = "smallBottomRight shadow">
+												<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
+												<span class="header2 shadow"><%= Header2 %></span>
+											</div>
+										</a>
+										<!-- Fourth Right End -->
+										<!-- Fifth Left Start -->
 										<a href="wikiPage1">
 											<div class = "smallBottomLeft shadow">
-												<img  src="<%= WikiPageClient.getWikiPageContentPreview(1).getImage() %>" class="smallimg1 shadow" alt="" />
-												<span class="header2 shadow"><%= WikiPageClient.getWikiPageContentPreview(1).getHeader() %></span>
+												<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
+												<span class="header2 shadow"><%= Header1 %></span>
 											</div>
 										</a>
-										<a href="wikiPage1">
-											<div class = "smallBottomLeft2 shadow">
-												<img  src="<%= WikiPageClient.getWikiPageContentPreview(1).getImage() %>" class="smallimg1 shadow" alt="" />
-												<span class="header3 shadow"><%= WikiPageClient.getWikiPageContentPreview(1).getHeader() %></span>
+										<!-- Fifth Left End -->
+										<!-- Fifth Right Start -->
+										<a href="wikiPage2">
+											<div class = "smallBottomRight2 shadow">
+												<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
+												<span class="header3 shadowWhite"><%= Header2 %></span>
 											</div>
 										</a>
+										<!-- Fifth Right End -->
 			                       	</div>  
-			                        <!-- ########################## BOTTOM-LEFT END ################################## -->
-			                        <!-- ########################## BOTTOM-RIGH START ################################## -->	
-			                        <div class="" style="width:48%; float: right;">
-										<a href="wikiPage2">
-											<div class = "smallBottomRight2 shadow">
-												<img  src="<%= WikiPageClient.getWikiPageContentPreview(2).getImage() %>" class="smallimg1 shadow" alt="" />
-												<span class="header3 shadow"><%= WikiPageClient.getWikiPageContentPreview(2).getHeader() %></span>
-											</div>
-										</a>
-										<a href="wikiPage2">
-											<div class = "smallBottomRight shadow">
-												<img  src="<%= WikiPageClient.getWikiPageContentPreview(2).getImage() %>" class="smallimg1 shadow" alt="" />
-												<span class="header2 shadow"><%= WikiPageClient.getWikiPageContentPreview(2).getHeader() %></span>
-											</div>
-										</a>
-										<a href="wikiPage2">
-											<div class = "smallBottomRight2 shadow">
-												<img  src="<%= WikiPageClient.getWikiPageContentPreview(2).getImage() %>" class="smallimg1 shadow" alt="" />
-												<span class="header3 shadow"><%= WikiPageClient.getWikiPageContentPreview(2).getHeader() %></span>
-											</div>
-										</a>
-										<a href="wikiPage2">
-											<div class = "smallBottomRight shadow">
-												<img  src="<%= WikiPageClient.getWikiPageContentPreview(2).getImage() %>" class="smallimg1 shadow" alt="" />
-												<span class="header2 shadow"><%= WikiPageClient.getWikiPageContentPreview(2).getHeader() %></span>
-											</div>
-										</a>
-										<a href="wikiPage2">
-											<div class = "smallBottomRight2 shadow">
-												<img  src="<%= WikiPageClient.getWikiPageContentPreview(2).getImage() %>" class="smallimg1 shadow" alt="" />
-												<span class="header3 shadow"><%= WikiPageClient.getWikiPageContentPreview(2).getHeader() %></span>
-											</div>
-										</a>
-										<a href="wikiPage2">
-											<div class = "smallBottomRight shadow">
-												<img  src="<%= WikiPageClient.getWikiPageContentPreview(2).getImage	() %>" class="smallimg1 shadow" alt="" />
-												<span class="header2 shadow"><%= WikiPageClient.getWikiPageContentPreview(2).getHeader() %></span>
-											</div>
-										</a>  
-			                        </div> 
-			                        <!-- ########################## BOTTOM-RIGHT END ################################## -->
-			                    </div>
-			                    <!-- ########################## BOTTOM END ################################## -->
+			                        <!-- ########################## BOTTOM END ################################## -->
+
 			                    <!-- .row -->
 			                      <div class="row">
 			                        <div class="col-md-12">

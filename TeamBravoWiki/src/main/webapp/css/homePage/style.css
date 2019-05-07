@@ -1,6 +1,7 @@
 @charset "UTF-8";
 body{
 	min-width:900px;
+    line-height: 1.8em!important;
 }
 .smallnames{
     padding-top: 15px;
@@ -47,6 +48,11 @@ body{
     -webkit-box-shadow: 0 8px 6px -6px black;
 	-moz-box-shadow: 0 8px 6px -6px black;
 	box-shadow: 0 8px 6px -6px black;
+}
+.shadowWhite{
+    -webkit-box-shadow: 0 8px 6px -6px white;
+	-moz-box-shadow: 0 8px 6px -6px white;
+	box-shadow: 0 8px 6px -6px white;
 }
 .shodowImg{
 	border-radius: 20px;
@@ -150,29 +156,32 @@ body{
 }
 .smallBottomLeft{
 	float : left;
-	width: 750px;
+	width: 46.5%;
     margin-top:1%;
     background-color : rgb(49, 65, 82);
     border-radius : 20px;
 }
 .smallBottomLeft2{
-	float : left;
-	width: 730px;
+    float : left;
+    width: 52.5%;
     margin-top:1%;
     background-color : rgb(148, 185, 209);
     border-radius : 20px;
 }
 .smallBottomRight{
-	float : right;
-	width: 750px;
+    float : left;
+    width: 46.5%;
     margin-top:1%;
+    margin-left:1%;
     background-color : rgb(49, 65, 82);
     border-radius : 20px;
 }
 .smallBottomRight2{
-	float : right;
-	width: 730px;
+    float : left;
+    width: 52.5%;
     margin-top:1%;
+    margin-left:1%;
     background-color : rgb(148, 185, 209);
     border-radius : 20px;
 }
+
