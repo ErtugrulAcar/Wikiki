@@ -1,9 +1,8 @@
 ﻿<%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserImageClient" %>
 <%@ page import="com.aydin.demo.teambravowiki.model.UserInfo" %>
-<%@ page import="sun.plugin.util.UserProfile" %>
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserProfileClient" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
