@@ -3,14 +3,13 @@ package com.aydin.edu.resources;
 import com.aydin.edu.dbconnection.DBConn;
 import com.aydin.edu.model.*;
 
-import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("/user")
 public class UserResource {
 
-    DBConn dbconn = new DBConn("teambravo", "teambravo123");
+    DBConn dbconn = DBConn.getInstance();
     @Path("/authentication")
     @Produces(MediaType.APPLICATION_JSON)
     @POST

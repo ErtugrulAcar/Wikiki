@@ -8,14 +8,14 @@ import java.util.Base64;
 
 public class ImageInserter {
     public static void main(String[] args) {
-        DBConn dbconn = new DBConn("teambravo", "teambravo123");
+        DBConn dbconn = DBConn.getInstance();
         try{
-            File file = new File("C:\\einstein.jpg");
+            File file = new File("C:\\alanturing.jpg");
             FileInputStream fis = new FileInputStream(file);
             byte [] byte_array = new byte[(int)file.length()];
             fis.read(byte_array);
             String encodedImage = "data:image/*;base64, " + Base64.getEncoder().encodeToString(byte_array);
-            dbconn.uploadWikiImage(1, encodedImage);
+            dbconn.uploadWikiImage(2, encodedImage);
         }catch(Exception e){
             System.out.println(e.getLocalizedMessage());
         }

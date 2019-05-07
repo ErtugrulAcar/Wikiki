@@ -23,16 +23,25 @@ public class StringFormatter {
         for(int i=points.size()-1; i>=0;i--){
             st = st.substring(0, points.get(i)) + "\\" + st.substring(points.get(i), st.length());
         }
-        System.out.println(st);
-        return null;
+        return st;
     }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        String st = input.nextLine();
-        formatSt(st);
-        for(int i=0;i<15;i++){
+        String st;
+        System.out.print("Please enter number of paragraphs: ");
+        String numSt = input.nextLine();
+        int nums = Integer.parseInt(numSt);
+        String parags[] = new String[nums];
+        for(int i=0;i<nums;i++){
             st = input.nextLine();
-            formatSt(st);
+            parags[i] = formatSt(st);
+            System.out.println("###################################");
         }
+        String value="";
+        for(int i=0;i<parags.length;i++){
+            if(i==parags.length-1) value = value + parags[i];
+            else value = value+parags[i]+"<br>";
+        }
+        System.out.println(value);
     }
 }

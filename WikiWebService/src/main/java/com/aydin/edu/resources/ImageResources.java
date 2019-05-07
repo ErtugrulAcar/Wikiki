@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/image")
 public class ImageResources {
-    DBConn dbconn = new DBConn("teambravo", "teambravo123");
+    DBConn dbconn = DBConn.getInstance();
     @GET
     @Path("user/{id}")
     @Produces(MediaType.TEXT_PLAIN)

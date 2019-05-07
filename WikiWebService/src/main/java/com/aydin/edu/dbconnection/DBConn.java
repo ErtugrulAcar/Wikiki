@@ -15,7 +15,8 @@ public class DBConn {
     private static PreparedStatement ps;
     private static ResultSet rs, rs2, rs3, rs4;
     private static JsonParser jsonParser;
-    public DBConn(String serverID,String serverPassword) {
+    private static DBConn dbConn;
+    private DBConn(String serverID,String serverPassword) {
         this.serverID = serverID;
         this.serverPassword = serverPassword;
         try {
@@ -25,6 +26,12 @@ public class DBConn {
         }catch(Exception e) {
             System.out.println("Have a problem while connecting DB Server :" + e.getLocalizedMessage());
         }
+    }
+    public static DBConn getInstance(){
+        if(dbConn == null){
+            dbConn = new DBConn("teambravo", "teambravo123");
+        }
+        return dbConn;
     }
     public String authenticator(String email, String password){
         try{
@@ -273,29 +280,7 @@ public class DBConn {
         return "Success";
     }
 
-    public List<Country> getAllCountries(){
-        try{
-            List<Country> countries = new ArrayList<Country>();
-            ps = con.prepareStatement("select * from berkay.countrydata");
-            rs = ps.executeQuery();
-            while(rs.next()){
-                countries.add(new Country(
-                        Integer.parseInt(rs.getString("id")),
-                        rs.getString("name"),
-                        rs.getString("capital"),
-                        rs.getString("code"),
-                        rs.getString("continent"),
-                        rs.getString("population"),
-                        rs.getString("area"),
-                        rs.getString("currency"),
-                        rs.getString("flag")));
-            }
-            return countries;
-        }catch(SQLException e){
-            System.out.println("Have a problem while getting all the countries error : " + e.getLocalizedMessage());
-        }
-        return null;
-    }
+
 
 }
 

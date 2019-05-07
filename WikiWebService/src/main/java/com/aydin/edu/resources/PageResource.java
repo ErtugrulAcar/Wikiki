@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/page")
 public class PageResource {
-    DBConn dbconn = new DBConn("teambravo", "teambravo123");
+    DBConn dbconn = DBConn.getInstance();
 
     @GET
     @Path("/user/{userid}")
