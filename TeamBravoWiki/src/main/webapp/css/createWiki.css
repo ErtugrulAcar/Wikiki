@@ -1,7 +1,7 @@
 body { overflow-x: hidden !important; }
 
 #wrapper-div{
-    width: 45%;
+    width: 40%;
     height:800px;
     float: left;
     border: 1px black solid;
@@ -17,7 +17,7 @@ body { overflow-x: hidden !important; }
     position: relative;
 }
 #edit{
-    width: 45%;
+    width: 50%;
     height:800px;
     float: left;
     border: 1px black solid;
