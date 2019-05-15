@@ -17,7 +17,7 @@ body { overflow-x: hidden !important; }
     margin:auto;
     position: relative;
 }
-#edit{
+#previewBox{
     width: 50%;
     height:800px;
     float: left;

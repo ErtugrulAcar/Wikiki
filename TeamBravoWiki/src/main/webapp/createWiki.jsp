@@ -1,6 +1,5 @@
-<%@ page import="com.google.gson.JsonObject" %>
-<%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserImageClient" %>
+
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -22,6 +21,8 @@
 	<script src="script/jquery.min.js"></script>
 	<!-- VueJS -->
 	<script src="script/vueJS/vue.js"></script>
+	<!-- VueJS Source of The Page-->
+	<script src="script/createWiki/createWikiVueJS.js"></script>
 	<!-- Navbar -->
 	<link rel="stylesheet" type="text/css" href="css/dropdown.css">
 	<!-- #################################### Dependencies END #################################### -->
@@ -168,8 +169,9 @@
 
 <div id="diÅ-div">
 <div  id="wrapper-div">
-	<div style="">
-		<!-- #################################### Create Wiki Text Box START #################################### -->
+	<!-- #################################### Create Wiki Text Box START #################################### -->
+	<div id="textBox">
+		{{name}}
 		<div id="button-div">
 			<button type="button" style="width:48%"  onclick="getAnaBaslikBtn();" class="nologin">Anabaşlık Onayla</button>
 			<button type="button" style="width:48%"  onclick="getParagBtn();" class="nologin">Paragraf Başlığı Onayla</button>
@@ -190,15 +192,14 @@
 			</div>
 
 		</div>
-		<!-- #################################### Create Wiki Text Box END #################################### -->
-
 	</div>
+	<!-- #################################### Create Wiki Text Box END #################################### -->
+
 
 </div>
 	<!-- #################################### Create Wiki Ãnizleme START #################################### -->
-	<div id = "edit" >
-		<%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
-		<%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserImageClient" %>
+	<div id = "previewBox">
+		{{name}}
 		<nav class="navbar navbar-inverse shadow navbar-expand-sm" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
 		    <div class="navbar-collapse collapse" style="margin-left: 0px;" >
 		        <ul class="navbar-nav abs-center-x">
@@ -303,6 +304,7 @@
 		                        <!-- .copyright-section -->
 		                    </footer>
 		                    <!-- .footer -->
+						</section>
 		            </div>
 		            <!-- Sticky -->
 		        </div>
@@ -333,13 +335,7 @@
 		    <!-- .columns-block -->
 		</div>
 <!-- #main-wrapper -->
-<!-- jquery -->
-<script src="script/jquery-2.1.4.min.js"></script>
 
-<!-- Bootstrap -->
-<script src="script/bootstrap.min.js"></script>
-<script src="script/theia-sticky-sidebar.js"></script>
-<script src="script/scripts.js"></script>
 	</div>
 	<!-- #################################### Create Wiki Ãnizleme END #################################### -->
 </div>

@@ -127,11 +127,11 @@ public class HomeController {
         modelAndView.setViewName("redirect:/permissionDenied");
         return modelAndView;
     }
-    @RequestMapping("/eventPage")
+    @RequestMapping("/case")
     public ModelAndView eventPage(ModelAndView modelAndView, HttpSession session){
         if(session.getAttribute("userInfo") != null){
             if(((UserInfo)session.getAttribute("userInfo")).getUserDegree() >= 3){
-                modelAndView.setViewName("EventPage.jsp");
+                modelAndView.setViewName("casePage.jsp");
             }else{
                 modelAndView.setViewName("redirect:/permissionDenied");
             }

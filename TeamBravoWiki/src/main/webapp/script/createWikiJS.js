@@ -8,6 +8,7 @@ function getParagBtn(){
 		var KonuPrg = document.getElementById("titleBaslik").value;
 		var KonuAltPrg = document.getElementById("subject").value;
 	    var creatediv = document.createElement('div');
+	    creatediv.style.border = "1px solid transparent";
 	    var editbtn = document.createElement('img');
 	    editbtn.classList.add('imgedit');
 	    editbtn.setAttribute('src','img/editIcon.png');
@@ -35,23 +36,24 @@ function getParagBtn(){
 		document.getElementById("titleBaslik").value="";
 
 		closebutton.onclick = function () {
-			document.getElementById("subject").value="";
+			/*document.getElementById("subject").value="";
 			document.getElementById("titleBaslik").value="";
-			document.getElementById("td1").removeChild(creatediv);
+			document.getElementById("td1").removeChild(creatediv);*/
+			this.parentNode.parentNode.removeChild(this.parentNodegetParagBtn);
 			
-		}
+		};
 		AltPrgInput.onmouseover = function () {
-			  creatediv.style.border = "1px black dotted";
-		}
+			  creatediv.style.border = "2px blue dotted";
+		};
 		AltPrgInput.onmouseout = function () {
-			  creatediv.style.border = "";
-		}
+			  creatediv.style.border = "2px solid transparent";
+		};
 		PrgInput.onmouseover = function () {
-		  creatediv.style.border = "1px black dotted";
-		}
+		  creatediv.style.border = "2px blue dotted";
+		};
 		PrgInput.onmouseout = function () {
-			  creatediv.style.border = "";
-		}
+			  creatediv.style.border = "2px solid transparent";
+		};
 		editbtn.onclick = function () {
 				document.getElementById("titleBaslik").value=KonuPrg;
 				document.getElementById("subject").value=KonuAltPrg;
