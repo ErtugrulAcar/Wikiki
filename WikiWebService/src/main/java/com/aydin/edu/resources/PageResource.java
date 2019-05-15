@@ -5,10 +5,7 @@ import com.aydin.edu.model.UserPageContext;
 import com.aydin.edu.model.WikiPageContent;
 import com.aydin.edu.model.WikiPageContentPreview;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 
@@ -30,9 +27,15 @@ public class PageResource {
     }
     @GET
     @Path("/wiki/preview/{wikipageid}")
-    @Produces
+    @Produces(MediaType.APPLICATION_XML)
     public WikiPageContentPreview getWikiPageContentPreview(@PathParam("wikipageid")int wikipageid){
         return dbconn.getWikiPageContentPreview(wikipageid);
     }
 
+    @POST
+    @Path("/unittest/Permutation")
+    @Produces(MediaType.APPLICATION_JSON)
+    public UserPageContext unittestDeneme(){
+        return dbconn.getUserPageContext(1);
+    }
 }

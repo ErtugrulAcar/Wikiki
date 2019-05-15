@@ -145,18 +145,19 @@
     </div>
 
     <!--SOLDİV-->
-    <div style="width: 66%; height: 50px;background-color: #ddeaff;margin-left: 11%;">
-        <h1 style="padding-top: 5px; text-align: center"><%=session.getAttribute("header")%></h1></div>
+    <div style="height: 50px;background-color: #ddeaff;">
+        <h1 style="padding-top: 5px; text-align: center"><%=session.getAttribute("header")%></h1>
+    </div>
     <div class="columns-block container" style="margin-left: 5%; margin-top: 1%; width: 90%">
         <div style="width: 0;">
 
-        </div>
+    </div>
 
 
         <!-- .left-col-block -->
         <div class="left-col-block blocks" style="">
             <div class="theiaStickySidebar">
-                <section class="expertise-wrapper section-wrapper gray-bg">
+                <section class="expertise-wrapper section-wrapper gray-bg" style="border: 4px dotted gray">
                     <div class="container-fluid">
                         <div id="section1">
                             <!-- .row -->
@@ -233,7 +234,7 @@
         <!-- Header Content -->
         <div style="width: 20%;">
             <div class="left-col-block blocks">
-                <header class="header theiaStickySidebar">
+                <header class="header theiaStickySidebar" style="border: 4px dotted gray">
                     <div class="profile-img">
                         <img id="jpg1" src="<%=session.getAttribute("wikiImage")%>" class="img-responsive" alt="" style="display: block; margin-left: auto; margin-right: auto;"/>
                     </div>

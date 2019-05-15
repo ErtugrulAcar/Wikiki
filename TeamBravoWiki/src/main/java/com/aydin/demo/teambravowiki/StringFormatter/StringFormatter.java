@@ -44,4 +44,4 @@ public class StringFormatter {
         }
         System.out.println(value);
     }
-}
+    }

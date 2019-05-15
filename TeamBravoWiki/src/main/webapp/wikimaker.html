@@ -16,17 +16,16 @@
 <body>
 
    <div id="app">
-       {{name}}
+       ilsamfjoısfajnjnsafjknfsalkm
    </div>
 
 </body>
 <!-- Initialize Quill editor -->
 <script>
-    var app = new Vue({
-       el :"#app",
-       data : {
-           name :"Eto baskan"
-       }
-    });
+    window.onload = function (ev) {
+        document.getElementById("app").addEventListener("mouseover", function (evt) {
+            this.style.border = "1px solid black";
+        })
+    }
 </script>
 </html>
