@@ -120,11 +120,28 @@ public class HomeController {
             if(((UserInfo)session.getAttribute("userInfo")).getUserDegree() >= 3){
                 modelAndView.setViewName("createWiki.jsp");
             }else{
-                modelAndView.setViewName("redirect:/home");
+                modelAndView.setViewName("redirect:/permissionDenied");
             }
             return modelAndView;
         }
-        modelAndView.setViewName("redirect:/home");
+        modelAndView.setViewName("redirect:/permissionDenied");
         return modelAndView;
+    }
+    @RequestMapping("/eventPage")
+    public ModelAndView eventPage(ModelAndView modelAndView, HttpSession session){
+        if(session.getAttribute("userInfo") != null){
+            if(((UserInfo)session.getAttribute("userInfo")).getUserDegree() >= 3){
+                modelAndView.setViewName("EventPage.jsp");
+            }else{
+                modelAndView.setViewName("redirect:/permissionDenied");
+            }
+            return modelAndView;
+        }
+        modelAndView.setViewName("redirect:/permissionDenied");
+        return modelAndView;
+    }
+    @RequestMapping("/permissionDenied")
+    public String Permission(){
+        return "/PermissionDenied.jsp";
     }
 }
