@@ -172,8 +172,9 @@
 		<!-- #################################### Create Wiki Text Box START #################################### -->
 		<div id="button-div">
 			<button type="button" style="width:48%"  onclick="getAnaBaslikBtn();" class="nologin">Anabaşlık Onayla</button>
-			<button type="button" style="width:48%"  onclick="getParagBtn();" class="nologin">Paragraf Onayla</button>
-			<button type="button" style="width:98%"  onclick="getAltParagBtn();" class="nologin">Alt Paragraf Onayla</button>
+			<button type="button" style="width:48%"  onclick="getParagBtn();" class="nologin">Paragraf Başlığı Onayla</button>
+			<button type="button" style="width:48%"  onclick="getAltParagBtn();" class="nologin">Alt Paragraf Onayla</button>
+			<button type="button" style="width:48%"  onclick="getResimBtn();" class="nologin">Resim Onayla</button>
 			
 			<form method="post" action="#" id="#">
 				<div class="form-group files">
@@ -183,9 +184,9 @@
 			</form>
 
 			<div id="textbox-div" style="">
-				<input id="titleBox" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Konu giriniz." unselectable="on" required>
-				<input id="titleBaslik" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Paragraf giriniz." unselectable="on" required>
-				<textarea  id="subject" rows="20" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Alt Paragraf giriniz." required></textarea>
+				<input id="titleBox" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Ana Başlık giriniz." unselectable="on" required>
+				<input id="titleBaslik" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Paragraf  giriniz." unselectable="on" required>
+				<textarea  id="subject" rows="16" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Alt Paragraf giriniz." required></textarea>
 			</div>
 
 		</div>
