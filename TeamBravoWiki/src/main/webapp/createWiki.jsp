@@ -150,6 +150,13 @@
             left: 50%;
             transform: translateX(-50%);
         }
+        .previewParagDiv{
+        max-width:100%;        }
+		#h2Id{color:black;font-size:15px;font-weight:bold;}
+		#pId{color:black;font-size:10px;font-weight:normal;max-width:100%;}
+		.imgclose{height:15px;width:15px;margin-left:86%;position:absolute;cursor: pointer;}
+		.imgedit{height:15px;width:15px;margin-left:79%;position:absolute;cursor: pointer;}
+		.imgedit2{height:15px;width:15px;margin-left:71%;position:absolute;cursor: pointer;}
     </style>
 </head>
 <style>
@@ -164,9 +171,9 @@
 	<div style="">
 		<!-- #################################### Create Wiki Text Box START #################################### -->
 		<div id="button-div">
-			<button type="button" style="width:48%"  onclick="getKonuBtn();" class="nologin">Konu Onayla</button>
-			<button type="button" style="width:48%"  onclick="getKonuBaslik();" class="nologin">Konu Basligini Onayla</button>
-			<button type="button" style="width:96%"  onclick="getParagBtn();" class="nologin">Paragraf Onayla</button>
+			<button type="button" style="width:48%"  onclick="getAnaBaslikBtn();" class="nologin">Anabaşlık Onayla</button>
+			<button type="button" style="width:48%"  onclick="getParagBtn();" class="nologin">Paragraf Onayla</button>
+			<button type="button" style="width:98%"  onclick="getAltParagBtn();" class="nologin">Alt Paragraf Onayla</button>
 			
 			<form method="post" action="#" id="#">
 				<div class="form-group files">
@@ -176,9 +183,9 @@
 			</form>
 
 			<div id="textbox-div" style="">
-				<input id="titleBox" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Konu giriniz." unselectable="on">
-				<input id="titleBaslik" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Konu Basligi giriniz." unselectable="on">
-				<textarea  id="subject" rows="20" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Paragraf giriniz."></textarea>
+				<input id="titleBox" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Konu giriniz." unselectable="on" required>
+				<input id="titleBaslik" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Paragraf giriniz." unselectable="on" required>
+				<textarea  id="subject" rows="20" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Alt Paragraf giriniz." required></textarea>
 			</div>
 
 		</div>
@@ -265,10 +272,9 @@
 		                                            <tr>
 		                                                <td width="70%" height="100" valign=""
 		                                                    style="padding-left:5px;">
-		                                                    <h2 style="color:black;font-size:20px;font-weight:bold;"
-		                                                        id="konuBasliklari1">Baslik</h2>
-		                                                        <p id="pg2" style="color:black;font-size:15px;font-weight:normal;">Paragraf
-		                                                        </p>
+		                                                   <div id="td1">
+		                                                   
+		                                                   </div>
 		                                                </td>
 		                                            </tr>
 		                                        </table>
