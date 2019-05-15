@@ -1,8 +1,7 @@
 package com.aydin.edu.dbconnection;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import com.aydin.edu.model.*;
 import com.google.gson.JsonObject;
@@ -281,7 +280,14 @@ public class DBConn {
     }
 
 
-
+    public void insertJSONData(JsonObject jsonObject){
+        try{
+            ps = con.prepareStatement("insert into jsonDB.eto values(null, ?);");
+            ps.setString(1, String.valueOf(jsonObject));
+        }catch(SQLException e){
+            System.out.println("Have a problem while inserting JSON data error: " + e.getLocalizedMessage());
+        }
+    }
 }
 
 
