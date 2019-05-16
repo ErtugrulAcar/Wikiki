@@ -151,13 +151,6 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        .previewParagDiv{
-        max-width:100%;        }
-		#h2Id{color:black;font-size:15px;font-weight:bold;}
-		#pId{color:black;font-size:10px;font-weight:normal;max-width:100%;}
-		.imgclose{height:15px;width:15px;margin-left:86%;position:absolute;cursor: pointer;}
-		.imgedit{height:15px;width:15px;margin-left:79%;position:absolute;cursor: pointer;}
-		.imgedit2{height:15px;width:15px;margin-left:71%;position:absolute;cursor: pointer;}
     </style>
 </head>
 <style>
@@ -171,12 +164,12 @@
 <div  id="wrapper-div">
 	<!-- #################################### Create Wiki Text Box START #################################### -->
 	<div id="textBox">
-		{{name}}
+		<!--  {{name}}-->
 		<div id="button-div">
-			<button type="button" style="width:48%"  onclick="getAnaBaslikBtn();" class="nologin">Anabaşlık Onayla</button>
-			<button type="button" style="width:48%"  onclick="getParagBtn();" class="nologin">Paragraf Başlığı Onayla</button>
-			<button type="button" style="width:48%"  onclick="getAltParagBtn();" class="nologin">Alt Paragraf Onayla</button>
-			<button type="button" style="width:48%"  onclick="getResimBtn();" class="nologin">Resim Onayla</button>
+			<button type="button" onclick="getAnaBaslikBtn();" class="nologin1">Anabaşlık Onayla</button>
+			<button type="button" onclick="getParagBtn();" class="nologin1">Paragraf Başlığı Onayla</button>
+			<button type="button" onclick="getAltParagBtn();" class="nologin1">Alt Paragraf Onayla</button>
+			<button type="button" onclick="getResimBtn();" class="nologin1">Resim Onayla</button>
 			
 			<form method="post" action="#" id="#">
 				<div class="form-group files">
@@ -199,12 +192,12 @@
 </div>
 	<!-- #################################### Create Wiki Ãnizleme START #################################### -->
 	<div id = "previewBox">
-		{{name}}
+		<!--  {{name}}-->
 		<nav class="navbar navbar-inverse shadow navbar-expand-sm" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
 		    <div class="navbar-collapse collapse" style="margin-left: 0px;" >
 		        <ul class="navbar-nav abs-center-x">
 		            <li class="nav-item">
-		                <a class="nav-link" class="imglogo" href="/home"><img src="img/wiki2logo.png" alt=""style="width: 90px;height: 32px;display: block;margin-top:14px;"></a>
+		                <a class="nav-link" class="imglogo"><img src="img/wiki2logo.png" alt=""style="width: 90px;height: 32px;display: block;margin-top:14px;"></a>
 		            </li>
 		        </ul>
 		
@@ -226,16 +219,16 @@
 									<ul class="ulDrop">
 										<li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>
 										<li class="liMail"><%=loggedUser.getEmail()%></li>
-										<li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/userProfile<%=loggedUser.getUserid()%>'">My Profile</button></li>
+										<li class="LiAccount"><button type="submit" class="DropBtn1">My Profile</button></li>
 									</ul>
 								</div>
 									<div id="dropbottom">
-										<button type="submit" class="LogoutBtn" onclick="location.href='/logout'">Log Out</button>
+										<button type="submit" class="LogoutBtn">Log Out</button>
 									</div>
 							</div>
 								 <%  }else{ %>
-								<button class="nologin" onclick="location.href='/login'">Sign in</button>
-								<button class="nologin" onclick="location.href='/register'"style="	margin-right:66px;">Register</button>
+								<button class="nologin">Sign in</button>
+								<button class="nologin"style="	margin-right:66px;">Register</button>
 								 <%} %>
 							</div>
 		            </li>

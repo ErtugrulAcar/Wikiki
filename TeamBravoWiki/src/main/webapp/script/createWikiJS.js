@@ -32,14 +32,17 @@ function getParagBtn(){
 		creatediv.appendChild(PrgInput);
 		creatediv.appendChild(AltPrgInput);
 		document.getElementById("td1").appendChild(creatediv);
-		document.getElementById("subject").value="";
-		document.getElementById("titleBaslik").value="";
-
-		closebutton.onclick = function () {
-			/*document.getElementById("subject").value="";
+		
+		function empty(){
+			document.getElementById("subject").value="";
 			document.getElementById("titleBaslik").value="";
-			document.getElementById("td1").removeChild(creatediv);*/
-			this.parentNode.parentNode.removeChild(this.parentNodegetParagBtn);
+		}
+		empty();
+		
+		closebutton.onclick = function () {
+			empty();
+			document.getElementById("td1").removeChild(creatediv);
+			//this.parentNode.parentNode.removeChild(this.parentNodegetParagBtn);
 			
 		};
 		AltPrgInput.onmouseover = function () {
@@ -65,7 +68,6 @@ function getParagBtn(){
 				PrgInput.innerHTML=KonuPrg;
 				AltPrgInput.innerHTML=KonuAltPrg;
 				creatediv.style.border = "";
-				document.getElementById("subject").value="";
-				document.getElementById("titleBaslik").value="";
+				empty();
 		}
 }
