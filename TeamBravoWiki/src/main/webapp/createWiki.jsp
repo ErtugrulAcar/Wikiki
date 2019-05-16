@@ -7,7 +7,6 @@
 	<!-- #################################### Dependencies START #################################### -->
 	<!-- Style CSS -->
 	<link href="css/style.css" rel="stylesheet">
-	<link href="css/createWiki.css" rel="stylesheet">
 	<link href="css/uploadFile.css" rel="stylesheet">
 	<script src="script/dropdown.js"></script>
 	<!-- favicon -->
@@ -315,8 +314,7 @@
 		                        <h1 id="underimg" style="text-align: center;">Konu</h1>
 		                        <nav id="myScrollspy">
 		                            <ul class="nav nav-pills nav-stacked" data-spy="" id="ulbackground">
-		                                    <li id="konuBasliklari" style="padding-left:5px"><a href="#" style="font-size: 16px;">Baslik
-		                                    </a></li>
+		                                    <li id="konuBasliklari" style="padding-left:5px"></li>
 		                            </ul>
 		                        </nav>
 		                    </div>

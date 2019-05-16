@@ -1,3 +1,36 @@
+body { overflow-x: hidden !important; }
+
+#wrapper-div{
+    margin-left: 5%;
+    width: 40%;
+    height:800px;
+    float: left;
+    border: 1px black solid;
+}
+#button-div{
+    width: 80%;
+    height:800px;
+    margin: auto;
+}
+#textbox-div{
+    width: auto;
+    margin:auto;
+    position: relative;
+}
+#previewBox{
+    width: 50%;
+    height:800px;
+    float: left;
+    border: 1px black solid;
+
+}
+#diş-div{
+    width: 100%;
+    margin: auto;
+    margin-left: 75px;
+
+
+}
 .nav > li > a:hover{
     background-color: #c1d9ff;
 }
@@ -56,6 +89,21 @@ span
 }
 .previewParagDiv{
         max-width:100%;     
+}
+.AltpreviewParagDiv{
+       margin-left:10px;    
+}
+.sagAltinP{
+	margin-left:8px;
+	cursor:pointer;
+	font-size:16px;
+	color:black;
+}
+.saginp{
+	cursor:pointer;
+	font-size:16px;
+	font-weight:bold;
+	color:black;
 }
 #h2Id{color:black;font-size:15px;font-weight:bold;}
 		#pId{color:black;font-size:10px;font-weight:normal;max-width:100%;}
