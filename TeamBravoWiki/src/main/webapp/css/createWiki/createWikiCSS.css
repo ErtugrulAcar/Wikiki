@@ -105,8 +105,8 @@ span
 	font-weight:bold;
 	color:black;
 }
-#h2Id{color:black;font-size:15px;font-weight:bold;}
-		#pId{color:black;font-size:10px;font-weight:normal;max-width:100%;}
-		.imgclose{height:15px;width:15px;margin-left:86%;position:absolute;cursor: pointer;}
-		.imgedit{height:15px;width:15px;margin-left:79%;position:absolute;cursor: pointer;}
-		.imgedit2{height:15px;width:15px;margin-left:71%;position:absolute;cursor: pointer;}
+.divH6{color:black;font-size:15px;font-weight:bold;}
+.divP{color:black;font-size:10px;font-weight:normal;max-width:100%;}
+.imgclose{height:15px;width:15px;margin-left:86%;position:absolute;cursor: pointer;}
+.imgedit{height:15px;width:15px;margin-left:79%;position:absolute;cursor: pointer;}
+.imgedit2{height:15px;width:15px;margin-left:71%;position:absolute;cursor: pointer;}

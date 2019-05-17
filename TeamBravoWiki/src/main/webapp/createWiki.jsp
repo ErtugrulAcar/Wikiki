@@ -163,10 +163,9 @@
 <div  id="wrapper-div">
 	<!-- #################################### Create Wiki Text Box START #################################### -->
 	<div id="textBox">
-		<!--  {{name}}-->
 		<div id="button-div">
-			<button type="button" onclick="getAnaBaslikBtn();" class="nologin1">Anabaşlık Onayla</button>
-			<button type="button" onclick="getParagBtn();" class="nologin1">Paragraf Başlığı Onayla</button>
+			<button type="button" @click="anaBaslikBtn" class="nologin1">Anabaşlık Onayla</button>
+			<button type="button" @click="getParagBtn" class="nologin1">Paragraf Başlığı Onayla</button>
 			<button type="button" onclick="getAltParagBtn();" class="nologin1">Alt Paragraf Onayla</button>
 			<button type="button" onclick="getResimBtn();" class="nologin1">Resim Onayla</button>
 			
@@ -178,9 +177,9 @@
 			</form>
 
 			<div id="textbox-div" style="">
-				<input id="titleBox" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Ana Başlık giriniz." unselectable="on" required>
-				<input id="titleBaslik" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Paragraf  giriniz." unselectable="on" required>
-				<textarea  id="subject" rows="16" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Alt Paragraf giriniz." required></textarea>
+				<input v-model="titleBox" id="titleBox" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Ana Başlık giriniz." unselectable="on" required>
+				<input v-model="titleBaslik" id="titleBaslik" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Paragraf  giriniz." unselectable="on" required>
+				<textarea  v-model="subject" id="subject" rows="16" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Alt Paragraf giriniz." required></textarea>
 			</div>
 
 		</div>
@@ -191,7 +190,6 @@
 </div>
 	<!-- #################################### Create Wiki Ãnizleme START #################################### -->
 	<div id = "previewBox">
-		<!--  {{name}}-->
 		<nav class="navbar navbar-inverse shadow navbar-expand-sm" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
 		    <div class="navbar-collapse collapse" style="margin-left: 0px;" >
 		        <ul class="navbar-nav abs-center-x">

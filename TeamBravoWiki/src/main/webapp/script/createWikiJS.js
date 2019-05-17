@@ -1,11 +1,6 @@
-function getAnaBaslikBtn(){
-	var konu = document.getElementById("titleBox").value;
-	document.getElementById("pg1").innerHTML = konu;
-	document.getElementById("underimg").innerHTML = konu;
-	document.getElementById("titleBox").value="";
-}
 
-function getParagBtn(){
+/*
+* function getParagBtn(){
 		var KonuPrg = document.getElementById("titleBaslik").value;
 		var KonuAltPrg = document.getElementById("subject").value;
 	    var creatediv = document.createElement('div');
@@ -21,14 +16,17 @@ function getParagBtn(){
 	    SagPrgInput.innerHTML=KonuPrg;
 	    SagPrgInput.classList.add('saginp');
 		var PrgInput = document.createElement('h2');
-		PrgInput.id='h2Id';
+		PrgInput.classList.add("divH2");
 		PrgInput.innerHTML=KonuPrg;
 		var closebutton=document.createElement('img');
 		closebutton.id='closebtnId';
 		closebutton.setAttribute('src','img/redclose.png');
 		closebutton.classList.add('imgclose');
+
+
+
 		var AltPrgInput = document.createElement('p');
-		AltPrgInput.id='pId';
+		AltPrgInput.classList.add("divP");
 		AltPrgInput.innerHTML=KonuAltPrg;
 		creatediv.appendChild(editbtn);
 		creatediv.appendChild(editbtn2);
@@ -37,19 +35,19 @@ function getParagBtn(){
 		creatediv.appendChild(AltPrgInput);
 		document.getElementById("td1").appendChild(creatediv);
 		document.getElementById("konuBasliklari").appendChild(SagPrgInput);
-		
+
 		function empty(){
 			document.getElementById("subject").value="";
 			document.getElementById("titleBaslik").value="";
 		}
 		empty();
-		
+
 		closebutton.onclick = function () {
 			empty();
 			document.getElementById("td1").removeChild(creatediv);
 			document.getElementById("konuBasliklari").removeChild(SagPrgInput);
 			//this.parentNode.parentNode.removeChild(this.parentNodegetParagBtn);
-			
+
 		};
 		AltPrgInput.onmouseover = function () {
 			  creatediv.style.border = "2px blue dotted";
@@ -77,6 +75,10 @@ function getParagBtn(){
 				empty();
 		}
 }
+*
+* */
+
+/*
 function getAltParagBtn(){
 	var KonuPrg = document.getElementById("titleBaslik").value;
 	var KonuAltPrg = document.getElementById("subject").value;
@@ -93,14 +95,14 @@ function getAltParagBtn(){
     AltSagPrgInput.innerHTML=KonuPrg;
     AltSagPrgInput.classList.add('sagAltinP');
 	var PrgInput = document.createElement('h2');
-	PrgInput.id='h2Id';
+	PrgInput.classList.add("divH2");
 	PrgInput.innerHTML=KonuPrg;
 	var closebutton=document.createElement('img');
 	closebutton.id='closebtnId';
 	closebutton.setAttribute('src','img/redclose.png');
 	closebutton.classList.add('imgclose');
 	var AltPrgInput = document.createElement('p');
-	AltPrgInput.id='pId';
+	AltPrgInput.classList.add("divP");
 	AltPrgInput.innerHTML=KonuAltPrg;
 	Altcreatediv.appendChild(editbtn);
 	Altcreatediv.appendChild(editbtn2);
@@ -149,3 +151,4 @@ function getAltParagBtn(){
 			empty();
 	}
 }
+*/
