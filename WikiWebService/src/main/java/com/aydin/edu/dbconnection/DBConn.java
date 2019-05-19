@@ -176,7 +176,7 @@ public class DBConn {
 
     public String registerUser(RegisterUser register){
         try{
-            ps = con.prepareStatement("insert into wikidb.userinfo values (null,?,?,true,?,1)");
+            ps = con.prepareStatement("insert into wikidb.userinfo values (null,?,?,true,?,1, 1)");
             ps.setString(1, register.getName());
             ps.setString(2, register.getLastname());
             ps.setString(3, register.getPhone_number());
@@ -280,12 +280,39 @@ public class DBConn {
     }
 
 
-    public void insertJSONData(JsonObject jsonObject){
+    public void addWikiPage(WikiPageRequest wikiPageRequest){
         try{
-            ps = con.prepareStatement("insert into jsonDB.eto values(null, ?);");
-            ps.setString(1, String.valueOf(jsonObject));
+            ps = con.prepareStatement("select userdegree, superrior from wikidb.userinfo where userid=?;");
+            ps.setInt(1, wikiPageRequest.getWiki_page_owner());
+            rs = ps.executeQuery();
+            rs.next();
+            int superrior = rs.getInt("superrior");
+            boolean verify = false;
+            if(rs.getInt("userdegree") > 3)
+                verify = true;
+            ps = con.prepareStatement("insert into wikidb.wikipage values (null, ?, ?, ?, ?, ?, ?);");
+            ps.setString(1, wikiPageRequest.getWiki_page_header());
+            ps.setString(2, wikiPageRequest.getWiki_page_header_content());
+            ps.setString(3, wikiPageRequest.getWiki_page_content());
+            ps.setString(4, wikiPageRequest.getWiki_page_image());
+            ps.setBoolean(5, verify);
+            ps.setInt(6, wikiPageRequest.getWiki_page_owner());
+            ps.executeUpdate();
+            if(!verify){
+                ps = con.prepareStatement("select wiki_page_id from wikidb.wikipage order by wiki_page_id desc limit 1;");
+                rs = ps.executeQuery();
+                rs.next();
+                int wikiPageId = rs.getInt("wiki_page_id");
+                ps = con.prepareStatement("insert into wikidb.wikiCase (id, explanation, date, case_owner, superrior, wikipage) values(null, ?, ?, ?, ?, ?);");
+                ps.setString(1, wikiPageRequest.getExplanation());
+                ps.setDate(2, new Date(System.currentTimeMillis()));
+                ps.setInt(3, wikiPageRequest.getWiki_page_owner());
+                ps.setInt(4, superrior);
+                ps.setInt(5, wikiPageId);
+                ps.executeUpdate();
+            }
         }catch(SQLException e){
-            System.out.println("Have a problem while inserting JSON data error: " + e.getLocalizedMessage());
+            System.out.println("Have a problem while adding new Wiki wikiName: " + wikiPageRequest.getWiki_page_header() +" error: " + e.getLocalizedMessage());
         }
     }
 }

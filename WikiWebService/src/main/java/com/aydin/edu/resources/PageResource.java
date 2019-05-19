@@ -4,6 +4,7 @@ import com.aydin.edu.dbconnection.DBConn;
 import com.aydin.edu.model.UserPageContext;
 import com.aydin.edu.model.WikiPageContent;
 import com.aydin.edu.model.WikiPageContentPreview;
+import com.aydin.edu.model.WikiPageRequest;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -33,9 +34,9 @@ public class PageResource {
     }
 
     @POST
-    @Path("/unittest/Permutation")
-    @Produces(MediaType.APPLICATION_JSON)
-    public UserPageContext unittestDeneme(){
-        return dbconn.getUserPageContext(1);
+    @Path("/wiki/add")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void addWikiPage(WikiPageRequest wikiPageRequest){
+        dbconn.addWikiPage(wikiPageRequest);
     }
 }

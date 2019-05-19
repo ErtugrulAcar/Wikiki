@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+
+</body>
+<script>
+
+    window.onload = function (ev) {
+        var wiki_page_header_content = {
+            "0:0" : "Hayati",
+            "0:1" : "Istanbuldaki Hayati",
+            "1:0" : "Evlilikleri",
+            "1:1" : "X kadinla olan evlilikleri"
+        };
+        var wiki_page_header_content_String = JSON.stringify(wiki_page_header_content);
+        var obj = {
+            "wiki_page_header" : "Albert Einstein",
+            "wiki_page_header_content" : wiki_page_header_content_String,
+            "wiki_page_content" : wiki_page_header_content_String,
+            "wiki_page_image" : "",
+            "wiki_page_owner" : 3
+        };
+
+        axios({
+            url : "http://localhost:8080/WikiWebService_war/webapi/page/wiki/add",
+            method : "post",
+            data :   obj
+        })
+    }
+</script>
+</html>
