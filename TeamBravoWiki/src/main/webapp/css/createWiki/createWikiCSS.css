@@ -41,8 +41,8 @@ body { overflow-x: hidden !important; }
     background-color: #c1d9ff;
 }
 .nav > li > a {
-    width:188px;
-    padding: 10px 0px;
+    width:94px;
+    padding: 4px 0px;
     margin-right: 0px;
 }
 a:hover{
@@ -112,6 +112,7 @@ span
 	cursor:pointer;
 	font-size:14px;
 	color:black;
+	font-size:13px;
 }
 .sagAltinP{
 	margin-left:8px;
@@ -124,10 +125,11 @@ span
 	font-size:16px;
 	font-weight:bold;
 	color:black;
+	font-size:15px;
 }
 .scrol1
 {
-  height:500px;
+  height:600px;
   width:100%; 
   background-color:#f4f4f4;
 }
@@ -136,6 +138,11 @@ span
   height:100%;
   overflow:auto;
   background-color:#f4f4f4;
+}
+#header1{
+	padding: 0px !important;
+    margin: 0;
+    position: relative;
 }
 .divH6{color:black;font-size:15px;font-weight:bold;}
 .divP{color:black;font-size:10px;font-weight:normal;max-width:100%;}

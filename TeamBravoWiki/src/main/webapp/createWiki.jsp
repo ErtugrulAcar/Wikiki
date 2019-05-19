@@ -98,11 +98,7 @@
             background-color: #c1d9ff;
         }
 
-        .nav > li > a {
-            width: 188px;
-            padding: 10px 0px;
-            margin-right: 0px;
-        }
+      
 
         a:hover {
             color: #0645ad;
@@ -307,21 +303,25 @@
 		        <!-- Header Content -->
 		        <div style="width: 20%;">
 		            <div class="left-col-block blocks">
-		                <header class="header theiaStickySidebar">
-		                    <div class="profile-img">
-		                        <img id="jpg1" src="img/einstein.jpg" class="img-responsive" alt="" style="height:80px;width:80px;display: block; margin-left: auto; margin-right: auto;"/>
-		                    </div>
-		
-		                    <div class="content">
-		                        <h1 id="underimg" style="text-align: center;">Konu</h1>
-		                        <nav id="myScrollspy">
-		                            <ul class="nav nav-pills nav-stacked" data-spy="" id="ulbackground">
-		                                    <li id="konuBasliklari" style="padding-left:5px"></li>
-		                            </ul>
-		                        </nav>
-		                    </div>
-		                </header>
+		            	<div class="scrol1">
+		        			<div class="scrol2">
+				                <header class="header theiaStickySidebar" id="header1">
+				                    <div class="profile-img">
+				                        <img id="jpg1" src="img/einstein.jpg" class="img-responsive" alt="" style="height:80px;width:80px;display: block; margin-left: auto; margin-right: auto;"/>
+				                    </div>
+				
+				                    <div class="content">
+				                        <h1 id="underimg" style="text-align: center;">Konu</h1>
+				                        <nav id="myScrollspy">
+				                            <ul class="nav nav-pills nav-stacked" data-spy="" id="ulbackground">
+				                                    <li id="konuBasliklari" style="padding-left:5px"></li>
+				                            </ul>
+				                        </nav>
+				                    </div>
+				                </header>
 		                <!-- .header-->
+		            		</div>
+		            	</div>
 		            </div>
 		        </div>
 		    </div>
