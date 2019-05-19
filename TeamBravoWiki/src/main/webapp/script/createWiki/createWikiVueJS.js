@@ -1,7 +1,7 @@
 var WikiMain = [];
 var WikiHeader = [];
-var countHeader = 0;
 var WikiContent = [];
+var countHeader = 0;
 var countContent = 0;
 
 window.onload = function (ev) {
@@ -14,6 +14,7 @@ window.onload = function (ev) {
         },
         methods : {
             anaBaslikBtn : function () {
+            	WikiMain.pop();
                 previewBox.pg1.innerText = this.titleBox;
                 previewBox.underImg.innerText = this.titleBox;
                 WikiMain.push(this.titleBox);
@@ -22,8 +23,6 @@ window.onload = function (ev) {
             createDivWithButton : function () {
                 var div = document.createElement("div");
                /* var closeButton = document.createElement("img");
-                
-                
                 closeButton.setAttribute("src", "img/yesiltik.png");
                 closeButton.classList.add("imgclose");
                 closeButton.addEventListener("click", function (ev1) {
@@ -76,7 +75,6 @@ window.onload = function (ev) {
                 countContent=0;
             },
             getAltParagBtn : function () {
-            	
             	var div = this.createDivWithButton();
             	div.classList.add("marginAlt");
                 var innerDiv = document.createElement("div");
@@ -94,15 +92,15 @@ window.onload = function (ev) {
                 innerDiv.appendChild(divP);
                 innerDiv.style.border = "2px solid transparent";
                 innerDiv.addEventListener("mouseover", function (ev1) {
-                    this.style.border = "2px red dotted";
-                    this.style.cursor = "pointer";
+                this.style.border = "2px red dotted";
+                this.style.cursor = "pointer";
                 });
                 innerDiv.addEventListener("mouseout", function (ev1) {
-                    this.style.border = "2px solid transparent";
+                this.style.border = "2px solid transparent";
                 });
                 innerDiv.addEventListener("click", function (ev1) {
-                    textBox.titleBaslik = this.getElementsByTagName("h6").item(0).innerText;
-                    textBox.subject = this.getElementsByTagName("p").item(0).innerText;
+                textBox.titleBaslik = this.getElementsByTagName("h6").item(0).innerText;
+                textBox.subject = this.getElementsByTagName("p").item(0).innerText;
                 });
                 div.appendChild(innerDiv);
                 document.getElementById("td1").appendChild(div);
