@@ -51,4 +51,6 @@ a:visited {
 table{
     border:1px dotted gray;
 }
-
+body{
+    line-height: 1.8em!important;
+}

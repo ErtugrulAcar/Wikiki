@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home Page</title>
+    <title>Case Page</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- ###################### SCRIPTS START ###########################-->
@@ -14,7 +14,7 @@
     <!-- ###################### SCRIPTS END ###########################-->
     <!-- ###################### STYLE START ###########################-->
     <!-- page style start -->
-    <link href="css/eventPage/style.css" rel="stylesheet">
+    <link href="css/casePage/style.css" rel="stylesheet">
     <!-- page style end -->
     <!-- font-awesome -->
     <link href="css/font-awesome.min.css" rel="stylesheet">
