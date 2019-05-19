@@ -14,11 +14,16 @@ window.onload = function (ev) {
         },
         methods : {
             anaBaslikBtn : function () {
+            	if(this.titleBox==""){
+            		alert("Lütfen Boş Bırakmayınız.");
+            	}
+            	else{
             	WikiMain.pop();
                 previewBox.pg1.innerText = this.titleBox;
                 previewBox.underImg.innerText = this.titleBox;
                 WikiMain.push(this.titleBox);
                 this.titleBox="";
+            	}
             },
             createDivWithButton : function () {
                 var div = document.createElement("div");
@@ -40,6 +45,10 @@ window.onload = function (ev) {
             	console.log(WikiContent);
             },
             getParagBtn : function () {
+            	if((this.titleBaslik || this.subject)==""){
+            		alert("Lütfen Boş Bırakmayınız.")
+            	}
+            	else{
                 var div = this.createDivWithButton();
                 var innerDiv = document.createElement("div");
                 divH6 = document.createElement("h6");
@@ -73,8 +82,13 @@ window.onload = function (ev) {
                 WikiHeader.push('"'+countHeader+':'+"1"+'"'+':'+'"'+divP.innerText+'"');
                 countHeader++;
                 countContent=0;
+            	}
             },
             getAltParagBtn : function () {
+            	if((this.titleBaslik || this.subject)==""){
+            		alert("Lütfen Boş Bırakmayınız.")
+            	}
+            	else{
             	var div = this.createDivWithButton();
             	div.classList.add("marginAlt");
                 var innerDiv = document.createElement("div");
@@ -108,6 +122,7 @@ window.onload = function (ev) {
                 WikiContent.push('"'+(countHeader-1)+':'+countContent+'"'+':'+'"'+divH6.innerText+'"');
                 WikiContent.push('"'+(countHeader-1)+':'+countContent+'"'+':'+'"'+divP.innerText+'"');
                 countContent++;
+            	}
             },
             clearTitleAndSubject : function () {
                 this.titleBaslik = "";
