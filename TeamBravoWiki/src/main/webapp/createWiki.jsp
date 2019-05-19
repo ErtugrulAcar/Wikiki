@@ -166,8 +166,9 @@
 		<div id="button-div">
 			<button type="button" @click="anaBaslikBtn" class="nologin1">Anabaşlık Onayla</button>
 			<button type="button" @click="getParagBtn" class="nologin1">Paragraf Başlığı Onayla</button>
-			<button type="button" onclick="getAltParagBtn();" class="nologin1">Alt Paragraf Onayla</button>
+			<button type="button" @click="getAltParagBtn" class="nologin1">Alt Paragraf Onayla</button>
 			<button type="button" onclick="getResimBtn();" class="nologin1">Resim Onayla</button>
+			<button type="button" @click="createPG" class="nologin2">CREATE PAGE</button>
 			
 			<form method="post" action="#" id="#">
 				<div class="form-group files">
@@ -179,7 +180,7 @@
 			<div id="textbox-div" style="">
 				<input v-model="titleBox" id="titleBox" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Ana Başlık giriniz." unselectable="on" required>
 				<input v-model="titleBaslik" id="titleBaslik" rows="1" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Paragraf  giriniz." unselectable="on" required>
-				<textarea  v-model="subject" id="subject" rows="16" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Alt Paragraf giriniz." required></textarea>
+				<textarea  v-model="subject" id="subject" rows="15" cols="72" style="position: relative; margin-bottom: 5px; width : 100%; resize:none;" placeholder = "Alt Paragraf giriniz." required></textarea>
 			</div>
 
 		</div>
@@ -251,53 +252,56 @@
 		        <div style="width: 0;">
 		        </div>
 		        <!-- .left-col-block -->
-		        <div class="left-col-block blocks" style="">
-		            <div class="theiaStickySidebar">
-		                <section class="expertise-wrapper section-wrapper gray-bg">
-		                    <div class="container-fluid">
-		                        <div id="section1">
-		                            <!-- .row -->
-		                            <div class="row" style="border-bottom: 1px dotted rgb(234, 234, 234)">
-		                                <div class="col-md-12">
-		                                    <div class="section-title">
-		                                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-		                                            <tr>
-		                                                <td width="70%" height="100" valign=""
-		                                                    style="padding-left:5px;">
-		                                                   <div id="td1">
-		                                                   
-		                                                   </div>
-		                                                </td>
-		                                            </tr>
-		                                        </table>
-		                                    </div>
-		                                </div>
-		                            </div>
-		                        </div>
-		                    </div>
-		                    <!--.section-contact-->
-		
-		                    <footer class="footer">
-		                        <div class="copyright-section">
-		                            <div class="container-fluid">
-		                                <div class="row">
-		                                    <div class="col-md-12">
-		                                        <div class="copytext">
-		                                            
-		                                        </div>
-		                                    </div>
-		                                </div>
-		                                <!--.row-->
-		                            </div>
-		                            <!-- .container-fluid -->
-		                        </div>
-		                        <!-- .copyright-section -->
-		                    </footer>
-		                    <!-- .footer -->
-						</section>
-		            </div>
-		            <!-- Sticky -->
-		        </div>
+		        <div class="scrol1">
+		       		<div class="scrol2">
+				        <div class="left-col-block blocks" style="">
+				            <div class="theiaStickySidebar">
+				                <section class="expertise-wrapper section-wrapper gray-bg">
+				                    <div class="container-fluid">
+				                        <div id="section1">
+				                            <!-- .row -->
+				                            <div class="row" style="border-bottom: 1px dotted rgb(234, 234, 234)">
+				                                <div class="col-md-12">
+				                                    <div class="section-title">
+				                                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+				                                            <tr>
+				                                                <td width="70%" height="100" valign=""
+				                                                    style="padding-left:5px;">
+				                                                   <div id="td1">
+				                                                   </div>
+				                                                </td>
+				                                            </tr>
+				                                        </table>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
+				                    </div>
+				                    <!--.section-contact-->
+				
+				                    <footer class="footer">
+				                        <div class="copyright-section">
+				                            <div class="container-fluid">
+				                                <div class="row">
+				                                    <div class="col-md-12">
+				                                        <div class="copytext">
+				                                            
+				                                        </div>
+				                                    </div>
+				                                </div>
+				                                <!--.row-->
+				                            </div>
+				                            <!-- .container-fluid -->
+				                        </div>
+				                        <!-- .copyright-section -->
+				                    </footer>
+				                    <!-- .footer -->
+								</section>
+				            </div>
+				            <!-- Sticky -->
+				        </div>
+		      		</div>
+		      	</div>
 		        <!-- .right-col-block -->
 		
 		        <!-- Header Content -->

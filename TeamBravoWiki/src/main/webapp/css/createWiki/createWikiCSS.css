@@ -87,11 +87,31 @@ span
 	font-size:13px;
 	cursor:pointer;
 }
+.nologin2{
+	height:35px;
+	width:97%;
+	border-radius:5px;
+	margin-top:13px;
+	background-color:#49617a;
+	color:white;
+	border:2px solid #49617a;
+	font-size:13px;
+	cursor:pointer;
+}
 .previewParagDiv{
         max-width:100%;     
 }
 .AltpreviewParagDiv{
        margin-left:10px;    
+}
+.marginAlt{
+	margin-left:10px;
+}
+.margininp{
+	margin-left:10px;
+	cursor:pointer;
+	font-size:14px;
+	color:black;
 }
 .sagAltinP{
 	margin-left:8px;
@@ -104,6 +124,18 @@ span
 	font-size:16px;
 	font-weight:bold;
 	color:black;
+}
+.scrol1
+{
+  height:500px;
+  width:100%; 
+  background-color:#f4f4f4;
+}
+.scrol2
+{
+  height:100%;
+  overflow:auto;
+  background-color:#f4f4f4;
 }
 .divH6{color:black;font-size:15px;font-weight:bold;}
 .divP{color:black;font-size:10px;font-weight:normal;max-width:100%;}
