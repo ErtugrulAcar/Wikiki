@@ -1,0 +1,113 @@
+@charset "UTF-8";
+body{
+    min-width:900px;
+    line-height: 1.8em!important;
+}
+.smallnames{
+    padding-top: 15px;
+    text-align: start;
+}
+.smallimg{
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    float: left;
+    vertical-align: middle;
+}
+.smallimg1{
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    vertical-align: middle;
+}
+#fotolar{
+    position: relative;
+    width:200px;
+    height: 200px;
+}
+#jpg1 {
+
+    display: inline-block;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    background-color: red;
+}
+.nav-pills > li.active > a {
+    background-color: #d1e2ff;
+}
+.nav-pills > li.active > a:hover {
+    background-color: #d1e2ff;
+}
+.nav > li > a {
+    width:160px;
+}
+.shadow{
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+}
+.shadowWhite{
+    -webkit-box-shadow: 0 8px 6px -6px white;
+    -moz-box-shadow: 0 8px 6px -6px white;
+    box-shadow: 0 8px 6px -6px white;
+}
+.shodowImg{
+    border-radius: 20px;
+    width: 250px;
+    height: 75px;
+    margin-left:10px;
+    margin-top: 5px;
+}
+.imglogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.SignButton{
+    height:40px;
+    width:160px;
+    border-radius:5px;
+    background-color:#6f7277;
+    justify-content: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right:10px;
+    color:white;
+}
+.abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.header1{
+    text-align : center;
+    font-size : 22pt;
+}
+.header2{
+    text-align : center;
+    font-size : 12pt;
+    color : white;
+}
+.header3{
+    text-align : center;
+    font-size : 12pt;
+    color : black;
+}
+footer{
+    text-align: center;
+}
+#link{
+    color : black !important;
+    text-decoration: none;
+    bottom : 0;
+    font-size: 25pt;
+}
+#link:hover{
+    text-decoration: none;
+}
+#error{
+    margin-bottom:10%;
+}
