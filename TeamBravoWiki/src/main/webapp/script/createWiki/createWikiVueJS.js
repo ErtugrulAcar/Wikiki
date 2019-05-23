@@ -1,6 +1,7 @@
 var WikiMain = [];
 var WikiHeader = [];
 var WikiContent = [];
+var WikiImage = [];
 var countHeader = 0;
 var countContent = 0;
 
@@ -43,6 +44,7 @@ window.onload = function (ev) {
             	console.log(WikiMain);
             	console.log(WikiHeader);
             	console.log(WikiContent);
+            	console.log(WikiImage);
             },
             getParagBtn : function () {
             	if((this.titleBaslik || this.subject)==""){
@@ -144,3 +146,18 @@ window.onload = function (ev) {
 
     });
 };
+function readURL(input) {
+	WikiImage.pop();
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#jpg1')
+                .attr('src', e.target.result);
+            WikiImage.push(e.target.result);
+               };
+
+        reader.readAsDataURL(input.files[0]);
+        
+    }
+}

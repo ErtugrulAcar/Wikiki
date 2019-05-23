@@ -160,16 +160,15 @@
 	<!-- #################################### Create Wiki Text Box START #################################### -->
 	<div id="textBox">
 		<div id="button-div">
-			<button type="button" @click="anaBaslikBtn" class="nologin1">Anabaşlık Onayla</button>
+			<button type="button" @click="anaBaslikBtn" class="nologin2">Anabaşlık Onayla</button>
 			<button type="button" @click="getParagBtn" class="nologin1">Paragraf Başlığı Onayla</button>
 			<button type="button" @click="getAltParagBtn" class="nologin1">Alt Paragraf Onayla</button>
-			<button type="button" onclick="getResimBtn();" class="nologin1">Resim Onayla</button>
-			<button type="button" @click="createPG" class="nologin2">CREATE PAGE</button>
+			<button type="button" @click="createPG" class="nologin2">SAYFAYI OLUSTUR!</button>
 			
 			<form method="post" action="#" id="#">
 				<div class="form-group files">
 				  <label>Resim ekle </label>
-				  <input type="file" class="form-control" multiple="">
+				  <input type="file" class="form-control" onchange="readURL(this);" style="padding-left:37%;cursor:pointer;" />
 				</div>			  
 			</form>
 
@@ -307,7 +306,7 @@
 		        			<div class="scrol2">
 				                <header class="header theiaStickySidebar" id="header1">
 				                    <div class="profile-img">
-				                        <img id="jpg1" src="img/einstein.jpg" class="img-responsive" alt="" style="height:80px;width:80px;display: block; margin-left: auto; margin-right: auto;"/>
+				                        <img id="jpg1" src="http://placehold.it/180" class="img-responsive" alt="" style="height:80px;width:80px;display: block; margin-left: auto; margin-right: auto;"/>
 				                    </div>
 				
 				                    <div class="content">
