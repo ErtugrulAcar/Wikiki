@@ -139,4 +139,6 @@ public class HomeController {
     public String Permission(){
         return "/PermissionDenied.jsp";
     }
+    @RequestMapping("/waiting")
+    public String PageWaiting(){ return "/PageApproval.jsp"; }
 }
