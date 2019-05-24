@@ -93,12 +93,16 @@ public class HomeController {
     @RequestMapping("wikiPage{wikiPageId}")
     public String wikiPage(@PathVariable("wikiPageId")int wikiPageId, HttpSession session){
          WikiPageContent wikiPageContent =wikiPageClient.getWikiPageContent(wikiPageId);
-         session.setAttribute("header", wikiPageContent.getHeader());
-         session.setAttribute("headerContent", parser.parse(wikiPageContent.getHeaderContent()).getAsJsonObject());
-         session.setAttribute("pageContent", parser.parse(wikiPageContent.getPageContent()).getAsJsonObject());
-         session.setAttribute("wikiImage", wikiPageContent.getImage());
-         return "wikiPage.jsp";
+         if(wikiPageContent.isVerify()){
+             session.setAttribute("header", wikiPageContent.getHeader());
+             session.setAttribute("headerContent", parser.parse(wikiPageContent.getHeaderContent()).getAsJsonObject());
+             session.setAttribute("pageContent", parser.parse(wikiPageContent.getPageContent()).getAsJsonObject());
+             session.setAttribute("wikiImage", wikiPageContent.getImage());
+             return "wikiPage.jsp";
+         }
+         return "redirect:/waiting";
     }
+    
     @RequestMapping("/logout")
     public String LogOut(HttpServletRequest request){
     	HttpSession session = request.getSession();

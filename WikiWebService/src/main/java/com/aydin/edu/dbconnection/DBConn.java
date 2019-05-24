@@ -109,7 +109,8 @@ public class DBConn {
             return new WikiPageContent(rs.getString("wiki_page_header"),
                     jsonParser.parse(rs.getString("wiki_page_header_content")).getAsJsonObject().toString(),
                     jsonParser.parse(rs.getString("wiki_page_content")).getAsJsonObject().toString(),
-                    rs.getString("wiki_page_image"));
+                    rs.getString("wiki_page_image"),
+                    rs.getBoolean("verify"));
         }catch(SQLException e){
             System.out.println("Have a problem while getting WikiPageContext : " + e.getLocalizedMessage());
         }
