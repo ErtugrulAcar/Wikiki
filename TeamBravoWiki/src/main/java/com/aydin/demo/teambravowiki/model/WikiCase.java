@@ -1,5 +1,8 @@
 package com.aydin.demo.teambravowiki.model;
 
+import com.aydin.demo.teambravowiki.webservice.client.UserProfileClient;
+import com.aydin.demo.teambravowiki.webservice.client.WikiPageClient;
+
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
@@ -12,6 +15,7 @@ public class WikiCase {
     private int superrior;
     private int wikiPage;
 
+
     public WikiCase(){}
     public WikiCase(int id, String explanation, Date date, int caseOwner, int superrior, int wikiPage) {
         this.id = id;
@@ -20,6 +24,19 @@ public class WikiCase {
         this.caseOwner = caseOwner;
         this.superrior = superrior;
         this.wikiPage = wikiPage;
+    }
+
+    public String getCaseOwnerName(){
+        UserInfo userInfo = UserProfileClient.getUserInfo(this.caseOwner);
+        return userInfo.getName() + " " + userInfo.getLastname();
+    }
+    public String getSuperriorName(){
+        UserInfo userInfo = UserProfileClient.getUserInfo(this.superrior);
+        return userInfo.getName() + " " + userInfo.getLastname();
+    }
+    public String  getWikiName(){
+        WikiPageContentPreview wikiPageContentPreview = WikiPageClient.getWikiPageContentPreview(this.wikiPage);
+        return wikiPageContentPreview.getHeader();
     }
 
     public int getId() {
@@ -69,4 +86,5 @@ public class WikiCase {
     public void setWikiPage(int wikiPage) {
         this.wikiPage = wikiPage;
     }
+
 }

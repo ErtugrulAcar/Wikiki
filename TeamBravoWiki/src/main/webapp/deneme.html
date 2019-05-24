@@ -18,17 +18,29 @@
             "1:0" : "Evlilikleri",
             "1:1" : "X kadinla olan evlilikleri"
         };
+        var wiki_page_content = {
+            "0:0" : "Einstein surada doğmustur..... ",
+            "0:1" : "Şu kadar zaman istanbulda yasamıstır .... ",
+            "1:0" : "5 kere evlenmiştir bunlar ......",
+            "1:1" : "X kadınla su zaman evlenmiştir. ....."
+        };
+
+
         var wiki_page_header_content_String = JSON.stringify(wiki_page_header_content);
+        var wiki_page_content_String = JSON.stringify(wiki_page_content);
+
+
+
         var obj = {
             "wiki_page_header" : "Albert Einstein",
             "wiki_page_header_content" : wiki_page_header_content_String,
-            "wiki_page_content" : wiki_page_header_content_String,
+            "wiki_page_content" : wiki_page_content_String,
             "wiki_page_image" : "",
             "wiki_page_owner" : 3
         };
 
         axios({
-            url : "http://localhost:8080/WikiWebService_war/webapi/page/wiki/add",
+            url : "http://104.248.129.101:8080/WikiWebService/webapi/page/wiki/add",
             method : "post",
             data :   obj
         })

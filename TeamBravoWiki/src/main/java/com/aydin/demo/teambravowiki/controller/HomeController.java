@@ -4,11 +4,7 @@ package com.aydin.demo.teambravowiki.controller;
 import com.aydin.demo.teambravowiki.model.RegisterUser;
 import com.aydin.demo.teambravowiki.model.UserInfo;
 import com.aydin.demo.teambravowiki.model.WikiPageContent;
-import com.aydin.demo.teambravowiki.webservice.client.UserImageClient;
-import com.aydin.demo.teambravowiki.webservice.client.UserPageClient;
-import com.aydin.demo.teambravowiki.webservice.client.UserProfileClient;
-import com.aydin.demo.teambravowiki.webservice.client.UserRegisterClient;
-import com.aydin.demo.teambravowiki.webservice.client.WikiPageClient;
+import com.aydin.demo.teambravowiki.webservice.client.*;
 import com.google.gson.JsonParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,9 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.Base64;
 
 
 @Controller
@@ -130,8 +123,10 @@ public class HomeController {
     @RequestMapping("/cases")
     public ModelAndView eventPage(ModelAndView modelAndView, HttpSession session){
         if(session.getAttribute("userInfo") != null){
+            int id = ((UserInfo) session.getAttribute("userInfo")).getUserId();
             if(((UserInfo)session.getAttribute("userInfo")).getUserDegree() >= 3){
                 modelAndView.setViewName("casePage.jsp");
+                modelAndView.addObject("cases", WikiCaseClient.getListOfCasesWithSuperriorId(id));
             }else{
                 modelAndView.setViewName("redirect:/permissionDenied");
             }

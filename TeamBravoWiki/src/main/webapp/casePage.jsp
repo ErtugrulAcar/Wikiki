@@ -1,4 +1,5 @@
-<%@ page import="com.aydin.demo.teambravowiki.webservice.client.WikiPageClient" %>
+<%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserProfileClient" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -37,6 +38,10 @@
     <script src="script/theia-sticky-sidebar.js"></script>
     <script src="script/scripts.js"></script>
     <!--#################### BOOTSTRAP END ############################ -->
+    <!--#################### Table Events START ############################ -->
+    <script src="script/casePage/TableEvents.js"></script>
+    <!--#################### Table Events END ############################ -->
+
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
 </body>
@@ -54,28 +59,27 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col" class = "text-center">Title</th>
-                <th scope="col" class = "text-center">Adding</th>
-                <th scope="col" class = "text-center">Date</th>
-                <th scope="col" class = "text-center">Preview</th>
-                <th scope="col" class = "text-center">Accept</th>
+                <th scope="col" class="text-center">Case Id</th>
+                <th scope="col" class = "text-center">Tarih</th>
+                <th scope="col" class = "text-center">Wiki Sahibi</th>
+                <th scope="col" class = "text-center">Yönetici</th>
+                <th scope="col" class = "text-center">Wiki</th>
             </tr>
             </thead>
             <tbody>
-            <%  int count = 1;
-                for (int i = 0;i<50;i++){%>
-            <tr>
-                <th scope="row"><%=count++%></th>
-                <td class = "text-center">Einstein</td>
-                <td class = "text-center">Enes</td>
-                <td class = "text-center">01.01.2019</td>
-                <td class = "text-center"><a href="#"><img src="img/goto.png" height="20px"></a></td>
-                <td class = "text-center"><a href="#"><img src="img/accept.png" height="20px"></a></td>
-            </tr>
-            <%}%>
+            <%int counter = 0;%>
+            <c:forEach var="wikiCase" items="${cases}">
+                <tr style="cursor: pointer" class="wikiCases" id="<%=counter++%>">
+                    <td class="text-center">${wikiCase.id}</td>
+                    <td class="text-center">${wikiCase.date}</td>
+                    <td class="text-center">${wikiCase.getCaseOwnerName()}</td>
+                    <td class="text-center">${wikiCase.getSuperriorName()}</td>
+                    <td class="text-center">${wikiCase.getWikiName()}</td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>
 </div>
+
 </html>
