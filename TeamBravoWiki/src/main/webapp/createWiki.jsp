@@ -56,6 +56,7 @@
     <link href="css/dropdown.css" rel="stylesheet">
     <script src="script/dropdown.js"></script>
     <script src="script/createWikiJS.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <style>
         .smallnames {
             padding-top: 15px;

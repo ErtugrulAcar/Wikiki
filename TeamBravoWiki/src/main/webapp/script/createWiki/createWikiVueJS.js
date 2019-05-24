@@ -1,9 +1,12 @@
-var WikiMain = [];
-var WikiHeader = [];
-var WikiContent = [];
-var WikiImage = [];
+var wiki_page_header;
+var wiki_page_header_content = {};
+var wiki_page_content = {};
+var wiki_page_image;
 var countHeader = 0;
 var countContent = 0;
+var doubledot = ":";
+var zero ="0";
+var one = "1";
 
 window.onload = function (ev) {
     var textBox = new Vue({
@@ -19,10 +22,9 @@ window.onload = function (ev) {
             		alert("Lütfen Boş Bırakmayınız.");
             	}
             	else{
-            	WikiMain.pop();
                 previewBox.pg1.innerText = this.titleBox;
                 previewBox.underImg.innerText = this.titleBox;
-                WikiMain.push(this.titleBox);
+                wiki_page_header = (this.titleBox);
                 this.titleBox="";
             	}
             },
@@ -41,10 +43,26 @@ window.onload = function (ev) {
                 return div;
             },
             createPG : function(){
-            	console.log(WikiMain);
-            	console.log(WikiHeader);
-            	console.log(WikiContent);
-            	console.log(WikiImage);
+            	
+            	var wiki_page_header_content_String = JSON.stringify(wiki_page_header_content);
+            	var wiki_page_content_String = JSON.stringify(wiki_page_content);
+            	var obj = {
+            			"wiki_page_header" : wiki_page_header,
+            			"wiki_page_header_content" : wiki_page_header_content_String,
+            			"wiki_page_content" : wiki_page_content_String,
+            			"wiki_page_image" : wiki_page_image,
+            			"wiki_page_owner" : 3
+            		};
+            	axios({
+            		url:"http://104.248.129.101:8080/WikiWebService/webapi/page/wiki/add",
+            		method:"post",
+            		data:obj
+            	})
+            	console.log(wiki_page_header);
+            	console.log(wiki_page_header_content_String);
+            	console.log(wiki_page_content_String);
+            	console.log(wiki_page_image);
+            	alert("Olusturma isteginiz basariyla gonderilmistir");
             },
             getParagBtn : function () {
             	if((this.titleBaslik || this.subject)==""){
@@ -80,8 +98,8 @@ window.onload = function (ev) {
                 div.appendChild(innerDiv);
                 document.getElementById("td1").appendChild(div);
                 document.getElementById("konuBasliklari").appendChild(rightPageHeader);
-                WikiHeader.push('"'+countHeader+':'+"0"+'"'+':'+'"'+divH6.innerText+'"');
-                WikiHeader.push('"'+countHeader+':'+"1"+'"'+':'+'"'+divP.innerText+'"');
+                wiki_page_header_content[countHeader+doubledot+zero] = divH6.innerText;
+                wiki_page_header_content[countHeader+doubledot+one] = divP.innerText;
                 countHeader++;
                 countContent=0;
             	}
@@ -121,8 +139,8 @@ window.onload = function (ev) {
                 div.appendChild(innerDiv);
                 document.getElementById("td1").appendChild(div);
                 document.getElementById("konuBasliklari").appendChild(rightHeaderSide);
-                WikiContent.push('"'+(countHeader-1)+':'+countContent+'"'+':'+'"'+divH6.innerText+'"');
-                WikiContent.push('"'+(countHeader-1)+':'+countContent+'"'+':'+'"'+divP.innerText+'"');
+                wiki_page_content[(countHeader-1)+doubledot+countContent] = divH6.innerText;
+                wiki_page_content[(countHeader-1)+doubledot+countContent] = divP.innerText;
                 countContent++;
             	}
             },
@@ -147,14 +165,13 @@ window.onload = function (ev) {
     });
 };
 function readURL(input) {
-	WikiImage.pop();
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
             $('#jpg1')
                 .attr('src', e.target.result);
-            WikiImage.push(e.target.result);
+            wiki_page_image = (e.target.result);
                };
 
         reader.readAsDataURL(input.files[0]);
