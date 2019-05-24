@@ -1,6 +1,8 @@
 package com.aydin.edu.dbconnection;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 import com.aydin.edu.model.*;
@@ -313,6 +315,37 @@ public class DBConn {
             }
         }catch(SQLException e){
             System.out.println("Have a problem while adding new Wiki wikiName: " + wikiPageRequest.getWiki_page_header() +" error: " + e.getLocalizedMessage());
+        }
+    }
+
+    public List<WikiCase> getWikiCasesWithSuperriorId(int id){
+        List<WikiCase> list = new ArrayList<>();
+        try{
+            ps = con.prepareStatement("select * from wikidb.wikiCase where superrior=? order by date");
+            ps.setInt(1, id);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                list.add(new WikiCase(
+                        rs.getInt("id"),
+                        rs.getString("explanation"),
+                        rs.getDate("date"),
+                        rs.getInt("case_owner"),
+                        rs.getInt("superrior"),
+                        rs.getInt("wikipage")));
+            }
+            return list;
+        }catch(SQLException e){
+            System.out.println("Have a problem while getting wiki cases with Superrior Id : " + id + " with error: " + e.getLocalizedMessage());
+        }
+        return null;
+    }
+    public void deleteWikiCase(int id){
+        try{
+            ps = con.prepareStatement("delete from wikidb.wikiCase where id=?");
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Have a problem while deleting wiki case with Id: " + id + " with  error: "+ e.getLocalizedMessage());
         }
     }
 }

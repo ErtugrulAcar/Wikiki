@@ -1,13 +1,11 @@
 package com.aydin.edu.resources;
 
 import com.aydin.edu.dbconnection.DBConn;
-import com.aydin.edu.model.UserPageContext;
-import com.aydin.edu.model.WikiPageContent;
-import com.aydin.edu.model.WikiPageContentPreview;
-import com.aydin.edu.model.WikiPageRequest;
+import com.aydin.edu.model.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 
 @Path("/page")
@@ -38,5 +36,18 @@ public class PageResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public void addWikiPage(WikiPageRequest wikiPageRequest){
         dbconn.addWikiPage(wikiPageRequest);
+    }
+
+    @GET
+    @Path("/wiki/case/{superriorId}")
+    @Produces(MediaType.APPLICATION_XML)
+    public List<WikiCase> getWikiCases(@PathParam("superriorId")int superriorId){
+        return dbconn.getWikiCasesWithSuperriorId(superriorId);
+    }
+
+    @DELETE
+    @Path("wiki/case/delete/{caseId}")
+    public void deleteWikiCase(@PathParam("caseId")int id){
+        dbconn.deleteWikiCase(id);
     }
 }
