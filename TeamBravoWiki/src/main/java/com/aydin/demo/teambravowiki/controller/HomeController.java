@@ -127,7 +127,7 @@ public class HomeController {
         modelAndView.setViewName("redirect:/permissionDenied");
         return modelAndView;
     }
-    @RequestMapping("/case")
+    @RequestMapping("/cases")
     public ModelAndView eventPage(ModelAndView modelAndView, HttpSession session){
         if(session.getAttribute("userInfo") != null){
             if(((UserInfo)session.getAttribute("userInfo")).getUserDegree() >= 3){
