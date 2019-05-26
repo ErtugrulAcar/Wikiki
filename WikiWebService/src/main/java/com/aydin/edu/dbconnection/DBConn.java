@@ -61,7 +61,7 @@ public class DBConn {
             String phone_number = null;
             if(rs.getString("phone_number") != null)    phone_number = rs.getString("phone_number");
             return new UserInfo(Integer.parseInt(rs.getString("userid")), rs.getString("name"), rs.getString("lastname"),
-                        emailVerify, phone_number, Integer.parseInt(rs.getString("userdegree")));
+                        emailVerify, phone_number, rs.getInt("userdegree"), rs.getInt("superrior"));
 
         }catch(SQLException e){
             System.out.println("Have a problem while getting UserInfo " + e.getLocalizedMessage());
@@ -110,7 +110,7 @@ public class DBConn {
                     jsonParser.parse(rs.getString("wiki_page_header_content")).getAsJsonObject().toString(),
                     jsonParser.parse(rs.getString("wiki_page_content")).getAsJsonObject().toString(),
                     rs.getString("wiki_page_image"),
-                    rs.getBoolean("verify"));
+                    rs.getBoolean("verify"), rs.getInt("wiki_page_owner"));
         }catch(SQLException e){
             System.out.println("Have a problem while getting WikiPageContext : " + e.getLocalizedMessage());
         }

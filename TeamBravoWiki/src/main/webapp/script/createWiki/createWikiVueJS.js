@@ -57,7 +57,7 @@ window.onload = function (ev) {
             		url:"http://104.248.129.101:8080/WikiWebService/webapi/page/wiki/add",
             		method:"post",
             		data:obj
-            	})
+            	});
             	console.log(wiki_page_header);
             	console.log(wiki_page_header_content_String);
             	console.log(wiki_page_content_String);

@@ -9,14 +9,16 @@ public class WikiPageContent {
     private String pageContent;
     private String image;
     private boolean verify;
+    private int wikiPageOwner;
     public WikiPageContent(){}
 
-    public WikiPageContent(String header, String headerContent, String pageContent, String image, boolean verify) {
+    public WikiPageContent(String header, String headerContent, String pageContent, String image, boolean verify, int wikiPageOwner) {
         this.header = header;
         this.headerContent = headerContent;
         this.pageContent = pageContent;
         this.image = image;
         this.verify = verify;
+        this.wikiPageOwner = wikiPageOwner;
     }
 
     public String getHeader() {
@@ -57,5 +59,13 @@ public class WikiPageContent {
 
     public void setVerify(boolean verify) {
         this.verify = verify;
+    }
+
+    public int getWikiPageOwner() {
+        return wikiPageOwner;
+    }
+
+    public void setWikiPageOwner(int wikiPageOwner) {
+        this.wikiPageOwner = wikiPageOwner;
     }
 }
