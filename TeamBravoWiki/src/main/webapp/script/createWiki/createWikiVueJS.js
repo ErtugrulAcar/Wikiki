@@ -3,10 +3,9 @@ var wiki_page_header_content = {};
 var wiki_page_content = {};
 var wiki_page_image;
 var countHeader = 0;
-var countContent = 0;
+var countContent = 1;
 var doubledot = ":";
-var zero ="0";
-var one = "1";
+var zeroString ="0";
 
 window.onload = function (ev) {
     var textBox = new Vue({
@@ -43,7 +42,6 @@ window.onload = function (ev) {
                 return div;
             },
             createPG : function(){
-            	
             	var wiki_page_header_content_String = JSON.stringify(wiki_page_header_content);
             	var wiki_page_content_String = JSON.stringify(wiki_page_content);
             	var obj = {
@@ -52,7 +50,7 @@ window.onload = function (ev) {
             			"wiki_page_content" : wiki_page_content_String,
             			"wiki_page_image" : wiki_page_image,
             			"wiki_page_owner" : 3
-            		};
+            		};	
             	axios({
             		url:"http://104.248.129.101:8080/WikiWebService/webapi/page/wiki/add",
             		method:"post",
@@ -98,8 +96,8 @@ window.onload = function (ev) {
                 div.appendChild(innerDiv);
                 document.getElementById("td1").appendChild(div);
                 document.getElementById("konuBasliklari").appendChild(rightPageHeader);
-                wiki_page_header_content[countHeader+doubledot+zero] = divH6.innerText;
-                wiki_page_header_content[countHeader+doubledot+one] = divP.innerText;
+                wiki_page_header_content[countHeader+doubledot+zeroString] = divH6.innerText;
+                wiki_page_content[countHeader+doubledot+zeroString] = divP.innerText;
                 countHeader++;
                 countContent=0;
             	}
@@ -109,6 +107,7 @@ window.onload = function (ev) {
             		alert("Lütfen Boş Bırakmayınız.")
             	}
             	else{
+            	countContent++;
             	var div = this.createDivWithButton();
             	div.classList.add("marginAlt");
                 var innerDiv = document.createElement("div");
@@ -139,9 +138,8 @@ window.onload = function (ev) {
                 div.appendChild(innerDiv);
                 document.getElementById("td1").appendChild(div);
                 document.getElementById("konuBasliklari").appendChild(rightHeaderSide);
-                wiki_page_content[(countHeader-1)+doubledot+countContent] = divH6.innerText;
+                wiki_page_header_content[(countHeader-1)+doubledot+countContent] = divH6.innerText;
                 wiki_page_content[(countHeader-1)+doubledot+countContent] = divP.innerText;
-                countContent++;
             	}
             },
             clearTitleAndSubject : function () {

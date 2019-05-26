@@ -1,5 +1,4 @@
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserImageClient" %>
-
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -162,8 +161,8 @@
 	<div id="textBox">
 		<div id="button-div">
 			<button type="button" @click="anaBaslikBtn" class="nologin2">Anabaşlık Onayla</button>
-			<button type="button" @click="getParagBtn" class="nologin1">Paragraf Başlığı Onayla</button>
-			<button type="button" @click="getAltParagBtn" class="nologin1">Alt Paragraf Onayla</button>
+			<button type="button" @click="getParagBtn" class="nologin1">Paragraf ve Konu Onayla</button>
+			<button type="button" @click="getAltParagBtn" class="nologin1">Alt Paragraf ve Konu Onayla</button>
 			<button type="button" @click="createPG" class="nologin2">SAYFAYI OLUSTUR!</button>
 			
 			<form method="post" action="#" id="#">
