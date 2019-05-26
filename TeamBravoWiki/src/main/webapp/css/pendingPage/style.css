@@ -1,0 +1,44 @@
+#approve{
+    background: rgb(244,244,244);
+    position:fixed;
+    bottom:75px;
+    left:5px;
+    padding: 10px 20px;
+    border:1px solid green;
+    border-radius: 10px;
+    color:green;
+    transition-duration: 0.5s;
+}
+#approve:hover{
+    border:1px solid black;
+    background:green;
+    color:white;
+    cursor: pointer;
+}
+#approve:active{
+    background: rgb(244,244,244);
+    border:1px solid green;
+    color:green;
+}
+#reject{
+    background: rgb(244,244,244);
+    position:fixed;
+    bottom:5px;
+    left:5px;
+    padding: 10px 20px;
+    border:1px solid red;
+    border-radius: 10px;
+    color:red;
+    transition-duration: 0.5s;
+}
+#reject:hover{
+    border:1px solid black;
+    background:red;
+    color:white;
+    cursor: pointer;
+}
+#reject:active{
+    background: rgb(244,244,244);
+    border:1px solid red;
+    color:red;
+}

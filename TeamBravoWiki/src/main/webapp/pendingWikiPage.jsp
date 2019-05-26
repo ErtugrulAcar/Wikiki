@@ -6,8 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ include file="wikiPage.jsp"%>
-
-<script>
-    var body = document.getElementsByTagName("body");
-
-</script>
+<link href="css/pendingPage/style.css" rel="stylesheet">
+<button id="approve" type="button"><img src="img/accept.png" width="40px"></button>
+<button id="reject" type="button"><img src="img/reject.png" width="40px"></button>
