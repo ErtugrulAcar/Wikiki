@@ -318,7 +318,22 @@ public class DBConn {
             System.out.println("Have a problem while adding new Wiki wikiName: " + wikiPageRequest.getWiki_page_header() +" error: " + e.getLocalizedMessage());
         }
     }
-
+    public WikiCase getAWikiCase(int id){
+        try{
+            ps = con.prepareStatement("select * from wikidb.wikiCase where id= ?");
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            rs.next();
+            return new WikiCase(rs.getInt("id"), rs.getString("explanation"),
+                    rs.getDate("date"),
+                    rs.getInt("case_owner"),
+                    rs.getInt("superrior"),
+                    rs.getInt("wikipage"));
+        }catch(SQLException e){
+            System.out.println("Have a problem while getting a specific wikiCase with caseId: "+ id + " error: "+ e.getLocalizedMessage());
+        }
+        return null;
+    }
     public List<WikiCase> getWikiCasesWithSuperriorId(int id){
         List<WikiCase> list = new ArrayList<>();
         try{
@@ -342,13 +357,32 @@ public class DBConn {
     }
     public void deleteWikiCase(int id){
         try{
-            ps = con.prepareStatement("delete from wikidb.wikiCase where id=?");
+            ps = con.prepareStatement("delete from wikidb.wikiCase where id=?;");
             ps.setInt(1, id);
             ps.executeUpdate();
         }catch(SQLException e){
             System.out.println("Have a problem while deleting wiki case with Id: " + id + " with  error: "+ e.getLocalizedMessage());
         }
     }
+    public void deleteWikiPage(int id){
+        try{
+            ps = con.prepareStatement("delete from wikidb.wikipage where id=?;");
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Have a problem while deleting wiki page with Id: " + id + " with  error: "+ e.getLocalizedMessage());
+        }
+    }
+    public void verifyAWikiPage(int id){
+        try{
+            ps = con.prepareStatement("update wikidb.wikipage set verify=true where wiki_page_id=?;");
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Have a problem while verifying wiki page with Id: " + id + " with  error: "+ e.getLocalizedMessage());
+        }
+    }
+
 }
 
 
