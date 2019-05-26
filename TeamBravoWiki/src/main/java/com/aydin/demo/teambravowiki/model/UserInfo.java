@@ -10,15 +10,17 @@ public class UserInfo {
     private boolean emailverify;
     private String phone_number;
     private int userDegree;
+    private int superrior;
 
     public UserInfo(){}
-    public UserInfo(int userId, String name, String lastname, boolean emailverify, String phone_number, int userDegree) {
+    public UserInfo(int userId, String name, String lastname, boolean emailverify, String phone_number, int userDegree, int superrior) {
         this.userId = userId;
         this.name = name;
         this.lastname = lastname;
         this.emailverify = emailverify;
         this.phone_number = phone_number;
         this.userDegree = userDegree;
+        this.superrior = superrior;
     }
 
     public int getUserId() {
@@ -67,5 +69,13 @@ public class UserInfo {
 
     public void setUserDegree(int userDegree) {
         this.userDegree = userDegree;
+    }
+
+    public int getSuperrior() {
+        return superrior;
+    }
+
+    public void setSuperrior(int superrior) {
+        this.superrior = superrior;
     }
 }

@@ -102,7 +102,7 @@ public class HomeController {
          }
          return "redirect:/waiting";
     }
-    
+
     @RequestMapping("/logout")
     public String LogOut(HttpServletRequest request){
     	HttpSession session = request.getSession();
@@ -139,6 +139,25 @@ public class HomeController {
         modelAndView.setViewName("redirect:/permissionDenied");
         return modelAndView;
     }
+    @RequestMapping("/pendingWikiPage{wikiPageId}")
+    public String pendingWikipage(@PathVariable("wikiPageId")int wikiPageId, HttpSession session){
+        if(session.getAttribute("userInfo") !=null){
+            UserInfo userInfo = (UserInfo) session.getAttribute("userInfo");
+            WikiPageContent wikiPageContent =wikiPageClient.getWikiPageContent(wikiPageId);
+            UserInfo wikiPageOwner = UserProfileClient.getUserInfo(wikiPageContent.getWikiPageOwner());
+            if(userInfo.getUserId() == wikiPageOwner.getSuperrior() || userInfo.getUserDegree() == 5){
+                session.setAttribute("header", wikiPageContent.getHeader());
+                session.setAttribute("headerContent", parser.parse(wikiPageContent.getHeaderContent()).getAsJsonObject());
+                session.setAttribute("pageContent", parser.parse(wikiPageContent.getPageContent()).getAsJsonObject());
+                session.setAttribute("wikiImage", wikiPageContent.getImage());
+                return "pendingWikiPage.jsp";
+            }
+        }
+        return "redirect:/permissionDenied";
+
+
+    }
+
     @RequestMapping("/permissionDenied")
     public String Permission(){
         return "/PermissionDenied.jsp";
