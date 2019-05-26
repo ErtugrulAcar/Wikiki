@@ -1,7 +1,7 @@
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserProfileClient" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +46,7 @@
 <body data-spy="scroll" data-target="#myScrollspy">
 </body>
 <!-- #################################### NAVBAR START ################################## -->
-<%@ include file="static/navbar.jsp"%>
+<%@ include file="static/navbar.jsp" %>
 <!-- #################################### NAVBAR END #################################### -->
 <div id="main-wrapper">
     <!-- Page Preloader -->
@@ -55,15 +55,15 @@
             <div class="status-mes"></div>
         </div>
     </div>
-    <div id = "tableDiv">
+    <div id="tableDiv">
         <table class="table table-striped">
             <thead>
             <tr>
                 <th scope="col" class="text-center">Case Id</th>
-                <th scope="col" class = "text-center">Tarih</th>
-                <th scope="col" class = "text-center">Wiki Sahibi</th>
-                <th scope="col" class = "text-center">Yönetici</th>
-                <th scope="col" class = "text-center">Wiki</th>
+                <th scope="col" class="text-center">Tarih</th>
+                <th scope="col" class="text-center">Wiki Sahibi</th>
+                <th scope="col" class="text-center">Yönetici</th>
+                <th scope="col" class="text-center">Wiki</th>
             </tr>
             </thead>
             <tbody>

@@ -49,8 +49,8 @@ window.onload = function (ev) {
             			"wiki_page_header_content" : wiki_page_header_content_String,
             			"wiki_page_content" : wiki_page_content_String,
             			"wiki_page_image" : wiki_page_image,
-            			"wiki_page_owner" : 3
-            		};	
+            			"wiki_page_owner" : window.userId
+            		};
             	axios({
             		url:"http://104.248.129.101:8080/WikiWebService/webapi/page/wiki/add",
             		method:"post",
@@ -71,7 +71,7 @@ window.onload = function (ev) {
                 var innerDiv = document.createElement("div");
                 divH6 = document.createElement("h6");
                 divH6.classList.add("divH6");
-                divH6.innerText = this.titleBaslik; 
+                divH6.innerText = this.titleBaslik;
                 divP = document.createElement("p");
                 divP.classList.add("divP");
                 divP.innerText = this.subject;

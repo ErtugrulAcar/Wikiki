@@ -3,9 +3,7 @@ package com.aydin.edu.resources;
 import com.aydin.edu.dbconnection.DBConn;
 import com.aydin.edu.model.WikiCase;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 
 @Path("/case")
 public class CaseResource {
@@ -23,6 +21,12 @@ public class CaseResource {
         WikiCase wikiCase = dbconn.getAWikiCase(caseId);
         dbconn.deleteWikiCase(caseId);
         dbconn.deleteWikiPage(wikiCase.getWikiPage());
+    }
+    @GET
+    @Path("/getCaseIdWithWikiPageId/{caseId}")
+    @Produces("text/plain")
+    public String getCaseIdWithWikiPageId(@PathParam("caseId")int caseId){
+        return Integer.toString(dbconn.getCaseIdWithWikiPageId(caseId));
     }
 
 }

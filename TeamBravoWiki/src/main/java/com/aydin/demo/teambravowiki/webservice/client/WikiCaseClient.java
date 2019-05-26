@@ -2,6 +2,7 @@ package com.aydin.demo.teambravowiki.webservice.client;
 
 import com.aydin.demo.teambravowiki.model.WikiCase;
 import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.WebResource;
 
@@ -37,7 +38,28 @@ public class WikiCaseClient {
         }
     }
 
-    public static void main(String[] args) {
-        deleteWikiCaseWithId(5);
+    public static void approveWikiCase(int wikiCaseId){
+        Client client = Client.create();
+        WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/page/case/approve").path(Integer.toString(wikiCaseId));
+        System.out.println(webResource);
+        webResource.post();
     }
+    public static void rejectCase(int wikiCaseId){
+        Client client = Client.create();
+        WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/page/case/reject").path(Integer.toString(wikiCaseId));
+        System.out.println(webResource);
+        webResource.post();
+    }
+    public static int getCaseIdWithWikiPageId(int wikiPageId){
+        Client client = Client.create();
+        WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/case/getCaseIdWithWikiPageId").path(Integer.toString(wikiPageId));
+        System.out.println(webResource);
+        ClientResponse response = webResource.accept("text/plain").get(ClientResponse.class);
+        if(response.getStatus() != 200){
+            throw new RuntimeException("Failed : HTTP error code " + response.getStatus());
+        }
+        client.destroy();
+        return Integer.parseInt(response.getEntity(String.class));
+    }
+
 }

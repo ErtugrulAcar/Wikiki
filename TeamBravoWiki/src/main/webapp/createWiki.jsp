@@ -1,4 +1,6 @@
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserImageClient" %>
+<%@ page import="com.aydin.demo.teambravowiki.model.UserInfo" %>
+<%@ page import="org.apache.catalina.User" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -332,7 +334,13 @@
 	<!-- #################################### Create Wiki Ãnizleme END #################################### -->
 </div>
 
+<script>
+	<%
+		UserInfo userInfo = (UserInfo)session.getAttribute("userInfo");
+	%>
+	var userId = parseInt("<%=userInfo.getUserId()%>");
 
+</script>
 
 </body>
 </html>

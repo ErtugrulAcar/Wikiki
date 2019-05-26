@@ -382,6 +382,19 @@ public class DBConn {
             System.out.println("Have a problem while verifying wiki page with Id: " + id + " with  error: "+ e.getLocalizedMessage());
         }
     }
+    public int getCaseIdWithWikiPageId(int wikiPageId){
+        try{
+            ps = con.prepareStatement("select id from wikidb.wikiCase where wikipage= ?;");
+            ps.setInt(1, wikiPageId);
+            rs = ps.executeQuery();
+            rs.next();
+            return rs.getInt("id");
+        }catch(SQLException e){
+            System.out.println("Have a problem while getting wiki page id with Case Id : " + wikiPageId + " error: " + e.getLocalizedMessage());
+        }
+        return 0;
+    }
+
 
 }
 

@@ -7,6 +7,7 @@ import com.aydin.demo.teambravowiki.model.WikiPageContent;
 import com.aydin.demo.teambravowiki.webservice.client.*;
 import com.google.gson.JsonParser;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -140,7 +141,7 @@ public class HomeController {
         return modelAndView;
     }
     @RequestMapping("/pendingWikiPage{wikiPageId}")
-    public String pendingWikipage(@PathVariable("wikiPageId")int wikiPageId, HttpSession session){
+    public String pendingWikipage(@PathVariable("wikiPageId")int wikiPageId, HttpSession session, HttpServletRequest request){
         if(session.getAttribute("userInfo") !=null){
             UserInfo userInfo = (UserInfo) session.getAttribute("userInfo");
             WikiPageContent wikiPageContent =wikiPageClient.getWikiPageContent(wikiPageId);
@@ -150,12 +151,25 @@ public class HomeController {
                 session.setAttribute("headerContent", parser.parse(wikiPageContent.getHeaderContent()).getAsJsonObject());
                 session.setAttribute("pageContent", parser.parse(wikiPageContent.getPageContent()).getAsJsonObject());
                 session.setAttribute("wikiImage", wikiPageContent.getImage());
+                request.setAttribute("caseId", WikiCaseClient.getCaseIdWithWikiPageId(wikiPageId));
                 return "pendingWikiPage.jsp";
             }
         }
         return "redirect:/permissionDenied";
 
 
+    }
+    @PostMapping("/approveCase{caseId}")
+    public ModelAndView approveCase(@PathVariable("caseId")int caseId, ModelAndView modelAndView){
+        WikiCaseClient.approveWikiCase(caseId);
+        modelAndView.setViewName("redirect:/cases");
+        return modelAndView;
+    }
+    @PostMapping("rejectCase{caseId}")
+    public ModelAndView rejectCase(@PathVariable("caseId")int caseId, ModelAndView modelAndView){
+        WikiCaseClient.rejectCase(caseId);
+        modelAndView.setViewName("redirect:/cases");
+        return modelAndView;
     }
 
     @RequestMapping("/permissionDenied")
