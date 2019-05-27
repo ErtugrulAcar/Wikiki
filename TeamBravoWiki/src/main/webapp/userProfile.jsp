@@ -245,6 +245,10 @@
 								<li><img class="rankImg" :src="fifthLi">HER YETKI ACIKTIR</li>
 							</ul>
 						</div>
+						<div style="text-align:center;">
+						<button class="nologinCase1">Case 1</button>
+						<button class="nologinCase2">Case 2</button>
+						</div>
 
                 </header>
                 <!-- .header-->
