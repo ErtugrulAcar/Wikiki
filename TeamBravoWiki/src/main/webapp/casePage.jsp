@@ -40,8 +40,8 @@
     <!--#################### BOOTSTRAP END ############################ -->
     <!--#################### Table Events START ############################ -->
     <script src="script/casePage/TableEvents.js"></script>
+    <script src="script/casePage/TableLinkScript.js"></script>
     <!--#################### Table Events END ############################ -->
-
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
 </body>
@@ -69,7 +69,7 @@
             <tbody>
             <%int counter = 0;%>
             <c:forEach var="wikiCase" items="${cases}">
-                <tr style="cursor: pointer" class="wikiCases" id="<%=counter++%>">
+                <tr onclick="DoNav('/pendingWikiPage${wikiCase.getWikiPage()}')" style="cursor: pointer" class="wikiCases" id="<%=counter++%>">
                     <td class="text-center">${wikiCase.id}</td>
                     <td class="text-center">${wikiCase.date}</td>
                     <td class="text-center">${wikiCase.getCaseOwnerName()}</td>

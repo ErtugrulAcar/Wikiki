@@ -1,0 +1,1 @@
+function DoNav(url){document.location.href = url;}
