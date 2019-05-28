@@ -169,7 +169,6 @@
 			        <section class="section-wrapper section-interest gray-bg">
 			            <div class="container-fluid">
 			                <div id="section2"style="border-bottom: #555555 dotted 1px;" >
-			                        <button type="submit" class="NewWiki" onclick="location.href='/createWiki'">Yeni Wiki Oluştur!</button>
 			                    <div class="row" style="width: 87%; margin: auto;" >
 			                        <div style="width: 100%; float: left;">
 			                        	<a href="wikiPage1">

@@ -216,8 +216,9 @@
 									<ul class="ulDrop">
 								<li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>
 								<li class="liMail"><%=loggedUser.getEmail()%></li>
-								<li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/userProfile<%=loggedUser.getUserid()%>'">My Profile</button></li>
-								<%if(userDegree>3){%><li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/cases'">Cases</button></li><%}else{}%>
+								<li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/userProfile<%=loggedUser.getUserid()%>'">Profilim</button></li>
+								<%if(userDegree>3){%><li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/cases'">Vakalar</button></li><%}else{}%>
+								<%if(userDegree>2){%><li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/createWiki'">Wiki Olustur!</button></li><%}else{}%>
 							</ul>
 								</div>
 									<div id="dropbottom">
