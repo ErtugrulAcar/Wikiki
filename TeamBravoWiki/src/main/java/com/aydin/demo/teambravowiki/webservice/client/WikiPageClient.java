@@ -1,10 +1,14 @@
 package com.aydin.demo.teambravowiki.webservice.client;
 
+import com.aydin.demo.teambravowiki.model.WikiCase;
 import com.aydin.demo.teambravowiki.model.WikiPageContent;
 import com.aydin.demo.teambravowiki.model.WikiPageContentPreview;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.WebResource;
+
+import java.util.List;
 
 public class WikiPageClient {
     public static WikiPageContent getWikiPageContent(int wikiPageId){
@@ -36,6 +40,22 @@ public class WikiPageClient {
             return response.getEntity(WikiPageContentPreview.class);
         }catch(Exception e){
             System.out.println("(WikiPageClient) Have a problem while getting WikiPageContentPreview : " + e.getLocalizedMessage());
+        }
+        return null;
+    }
+    public static List<WikiPageContentPreview> getAllWikiPageContentPreviews(){
+        try{
+            Client client = Client.create();
+            WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/page/wiki/preview/all");
+            System.out.println(webResource);
+            List<WikiPageContentPreview> list = webResource.accept("application/xml").get(new GenericType<List<WikiPageContentPreview>>(){});
+            client.destroy();
+            if(list.isEmpty()){
+                return null;
+            }
+            return list;
+        }catch(Exception e){
+            System.out.println("(WikiPageClient) Have a problem while getting all WikiPageContentPreviews : " + e.getLocalizedMessage());
         }
         return null;
     }

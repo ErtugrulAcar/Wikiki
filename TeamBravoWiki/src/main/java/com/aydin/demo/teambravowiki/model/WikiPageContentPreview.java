@@ -7,9 +7,11 @@ public class WikiPageContentPreview {
     private String header;
     private String fistPofPageContent;
     private String image;
+    private int id;
 
     public WikiPageContentPreview(){}
-    public WikiPageContentPreview(String header, String fistPofPageContent, String image) {
+    public WikiPageContentPreview(int id, String header, String fistPofPageContent, String image) {
+        this.id = id;
         this.header = header;
         this.fistPofPageContent = fistPofPageContent;
         this.image = image;
@@ -37,5 +39,13 @@ public class WikiPageContentPreview {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

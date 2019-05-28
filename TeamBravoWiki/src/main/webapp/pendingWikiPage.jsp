@@ -7,5 +7,9 @@
 --%>
 <%@ include file="wikiPage.jsp"%>
 <link href="css/pendingPage/style.css" rel="stylesheet">
-<button id="approve" type="submit" formaction="/approveCase<%=request.getAttribute("caseId")%>" formmethod="post"><img src="img/accept.png" width="40px"></button>
-<button id="reject" type="submit" formaction="/rejectCase<%=request.getAttribute("caseId")%>" formmethod="post"><img src="img/reject.png" width="40px"></button>
+<form method="post" action="/approveCase<%=request.getAttribute("caseId")%>">
+    <button id="approve" type="submit"><img src="img/accept.png" width="40px"></button>
+</form>
+<form method="post" action="/rejectCase<%=request.getAttribute("caseId")%>">
+    <button id="reject" type="submit"><img src="img/reject.png" width="40px"></button>
+</form>

@@ -40,13 +40,13 @@ public class WikiCaseClient {
 
     public static void approveWikiCase(int wikiCaseId){
         Client client = Client.create();
-        WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/page/case/approve").path(Integer.toString(wikiCaseId));
+        WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/case/approve").path(Integer.toString(wikiCaseId));
         System.out.println(webResource);
         webResource.post();
     }
     public static void rejectCase(int wikiCaseId){
         Client client = Client.create();
-        WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/page/case/reject").path(Integer.toString(wikiCaseId));
+        WebResource webResource = client.resource("http://104.248.129.101:8080/WikiWebService/webapi/case/reject").path(Integer.toString(wikiCaseId));
         System.out.println(webResource);
         webResource.post();
     }

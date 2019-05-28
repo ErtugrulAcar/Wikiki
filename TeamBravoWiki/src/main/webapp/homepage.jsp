@@ -1,8 +1,8 @@
-<%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.WikiPageClient" %>
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserImageClient" %>
-<%@ page import="com.aydin.demo.teambravowiki.model.UserInfo" %>
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserProfileClient" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.aydin.demo.teambravowiki.model.WikiPageContentPreview" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -67,95 +67,52 @@
 										<div class="col-md-12" >
 											<!-- ########################## TOP-LEFT COLUMN START ################################## -->	
 											<div id="firstDiv" class="section-title shadow">
-												<a href="/wikiPage1" class = "links" title="Click for Details">
-													<% 	String Image1 = WikiPageClient.getWikiPageContentPreview(1).getImage();
-														String Header1 = WikiPageClient.getWikiPageContentPreview(1).getHeader();
-														String PageContent = WikiPageClient.getWikiPageContentPreview(1).getFistPofPageContent();
-														PageContent = PageContent.substring(1,PageContent.length());
-														String Image2 = WikiPageClient.getWikiPageContentPreview(2).getImage();
-														String Header2 = WikiPageClient.getWikiPageContentPreview(2).getHeader();
-													%>
+												<%
+													List<WikiPageContentPreview> list = WikiPageClient.getAllWikiPageContentPreviews();
+												%>
+												<a href="/wikiPage<%=list.get(0).getId()%>" class = "links" title="Click for Details">
+
 													<p class = "plink">
-														<img class = "pImg" src="<%= Image1 %>" alt="<%= Header1 %>" align="left">
-														<span class="header1 text-center"><%= Header1 %></span><br>
-														<span class="content1"><%= PageContent %></span>
+														<img class = "pImg" src="<%= list.get(0).getImage() %>" alt="<%= list.get(0).getHeader() %>" align="left">
+														<span class="header1 text-center"><%= list.get(0).getHeader() %></span><br>
+														<span class="content1"><%= list.get(0).getFistPofPageContent() %></span>
 													</p>
 												</a>
 											</div>
 											<!-- ########################## TOP-LEFT COLUMN START ################################## -->
 											<!-- ########################## TOP-RIGHT COLUMN START ################################## -->
 											<!-- FIRST START -->
-											<a href="wikiPage2">
-												<div class = "smallRight shadow">
-													<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
-													<span class="header2 shadow"><%= Header2 %></span>
-													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
+											<%
+												int counter=1;
+												String divClass="";
+												String spanClass="";
+												for(int i=0;i<4;i++){
+													for(int j=0;j<2;j++){
+														if(i%2 ==0 && j%2 ==0){
+															divClass = "smallRight shadow";
+															spanClass = "header2 shadow";
+														}
+														else if(i%2 == 0 && j%2 !=0){
+															divClass = "smallRight2 shadow";
+															spanClass = "header3 shadowWhite";
+														}
+														else if (i%2 != 0 && j%2 == 0) {
+															divClass = "smallRight2 shadow";
+															spanClass = "header3 shadowWhite";
+														}else{
+															divClass = "smallRight shadow";
+															spanClass = "header2 shadow";
+														}
+											%>
+											<a href="wikiPage<%=list.get(counter).getId()%>">
+												<div class = "<%=divClass%>">
+													<img  src="<%= list.get(counter).getImage() %>" class="smallimg1 shadow" alt="<%=list.get(counter).getHeader()%>" />
+													<span class="<%=spanClass%>"><%=list.get(counter++).getHeader()%></span>
 												</div>
 											</a>
-											<!-- FIRST END -->
-											<!-- SECOND START -->
-											<a href="wikiPage2">
-												<div class = "smallRight2 shadow">						
-													<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
-													<span class="header3 shadowWhite"><%= Header2 %></span>
-													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
-												</div>
-											</a>
-											<!-- SECOND END -->
-											<!-- THIRH START -->
-											<a href="wikiPage1">
-												<div class = "smallRight2 shadow">
-														<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
-														<span class="header3 shadowWhite"><%= Header1 %></span>
-														<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
-												</div>
-											</a>
-											<!-- THIRD END -->
-											<!-- FOURTH START -->
-											<a href="wikiPage1">
-												<div class = "smallRight shadow">
-													<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
-													<span class="header2 shadow"><%= Header1 %></span>
-													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
-												</div>
-											</a>
-											<!-- FOURTH END -->
-											<!-- FIFTH START -->
-											<a href="wikiPage2">
-												<div class = "smallRight shadow">
-													<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
-													<span class="header2 shadow"><%= Header2 %></span>
-													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
-													
-												</div>
-											</a>
-											<!-- FIFTH END -->
-											<!-- SIXTH START -->
-											<a href="wikiPage2">
-												<div class = "smallRight2 shadow">
-													<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
-													<span class="header3 shadowWhite"><%= Header2 %></span>
-													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
-												</div>
-											</a>
-											<!-- SIXTH END -->
-											<!-- SEVENTH START -->
-											<a href="wikiPage1">
-												<div class = "smallRight2 shadow">
-													<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
-													<span class="header3 shadowWhite"><%= Header1 %></span>
-													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
-												</div>
-											</a>
-											<!-- SEVENTH END -->
-											<!-- EIGHTIETH START -->
-											<a href="wikiPage1">
-												<div class = "smallRight shadow">
-													<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
-													<span class="header2 shadow"><%= Header1 %></span>
-													<!-- <img class = "shodowImg" src="img/anasayfaclick.png" alt=""> -->
-												</div>
-											</a>
+											<%
+												}}
+											%>
 											<!-- EIGHTIETH END -->
 											<!-- ########################## TOP-LEFT COLUMN END ################################## -->
 										</div>
@@ -171,85 +128,38 @@
 			                <div id="section2"style="border-bottom: #555555 dotted 1px;" >
 			                    <div class="row" style="width: 87%; margin: auto;" >
 			                        <div style="width: 100%; float: left;">
-			                        	<a href="wikiPage1">
-										<!-- First Left -->
-										<div class = "smallBottomLeft shadow">
-											<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
-											<span class="header2 shadow"><%= Header1 %></span>
-										</div>
-										</a>
-										<!-- First Left End -->
-										<!-- First Right -->
-										<a href="wikiPage2">
-											<div class = "smallBottomRight2 shadow">
-												<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
-												<span class="header3 shadowWhite"><%= Header2 %></span>
+										<%
+											counter = 9;
+											for(int i=0;i<5;i++){
+												for(int j=0;j<2;j++){
+													if(i%2 ==0 && j%2 ==0){
+														divClass = "smallBottomLeft shadow";
+														spanClass = "header2 shadow";
+													}
+													else if(i%2 == 0 && j%2 !=0){
+														divClass = "smallBottomRight2 shadow";
+														spanClass = "header3 shadowWhite";
+													}
+													else if (i%2 != 0 && j%2 == 0) {
+														divClass = "smallBottomLeft2 shadow";
+														spanClass = "header3 shadowWhite";
+													}else{
+														divClass = "smallBottomRight shadow";
+														spanClass = "header2 shadow";
+													}
+										%>
+										<a href="wikiPage<%=list.get(counter).getId()%>">
+											<!-- First Left -->
+											<div class = "<%=divClass%>">
+												<img  src="<%= list.get(counter).getImage() %>" class="smallimg1 shadow" alt="<%=list.get(counter).getHeader()%>" />
+												<span class="<%=spanClass%>"><%= list.get(counter++).getHeader() %></span>
 											</div>
 										</a>
-										<!-- First Right End -->
-										<!-- Second Left Start -->
-										<a href="wikiPage1">
-											<div class = "smallBottomLeft2 shadow">
-												<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
-												<span class="header3 shadowWhite"><%= Header1 %></span>
-											</div>
-										</a>
-										<!-- Second Left End -->
-										<!-- Second Right Start -->
-										<a href="wikiPage2">
-											<div class = "smallBottomRight shadow">
-												<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
-												<span class="header2 shadow"><%= Header2 %></span>
-											</div>
-										</a>
-										<!-- Second	Right End -->
-										<!-- Third Left Start -->
-										<a href="wikiPage1">
-											<div class = "smallBottomLeft shadow">
-												<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
-												<span class="header2 shadow"><%= Header1 %></span>
-											</div>
-										</a>
-										<!-- Third Left End -->
-										<!-- Third Right Start -->
-										<a href="wikiPage2">
-											<div class = "smallBottomRight2 shadow">
-												<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
-												<span class="header3 shadowWhite"><%= Header2 %></span>
-											</div>
-										</a>
-										<!-- Third Right End -->
-										<!-- Fourth Left Start -->
-										<a href="wikiPage1">
-											<div class = "smallBottomLeft2 shadow">
-												<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
-												<span class="header3 shadowWhite"><%= Header1 %></span>
-											</div>
-										</a>
-										<!-- Fourth Left End -->
-										<!-- Fourth Right Start -->
-										<a href="wikiPage2">
-											<div class = "smallBottomRight shadow">
-												<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
-												<span class="header2 shadow"><%= Header2 %></span>
-											</div>
-										</a>
-										<!-- Fourth Right End -->
-										<!-- Fifth Left Start -->
-										<a href="wikiPage1">
-											<div class = "smallBottomLeft shadow">
-												<img  src="<%= Image1 %>" class="smallimg1 shadow" alt="" />
-												<span class="header2 shadow"><%= Header1 %></span>
-											</div>
-										</a>
-										<!-- Fifth Left End -->
-										<!-- Fifth Right Start -->
-										<a href="wikiPage2">
-											<div class = "smallBottomRight2 shadow">
-												<img  src="<%= Image2 %>" class="smallimg1 shadow" alt="" />
-												<span class="header3 shadowWhite"><%= Header2 %></span>
-											</div>
-										</a>
+										<%
+												}}
+										%>
+
+
 										<!-- Fifth Right End -->
 			                       	</div>  
 			                        <!-- ########################## BOTTOM END ################################## -->

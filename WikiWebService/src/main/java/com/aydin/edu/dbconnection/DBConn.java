@@ -125,11 +125,28 @@ public class DBConn {
             jsonParser = new JsonParser();
             JsonObject wikiPageFirstContent = jsonParser.parse(rs.getString("wiki_page_content")).getAsJsonObject();
 
-            return new WikiPageContentPreview(rs.getString("wiki_page_header"),
-                                             wikiPageFirstContent.get("0:0").toString(),
-                                             rs.getString("wiki_page_image"));
+            return new WikiPageContentPreview(   rs.getInt("wiki_page_id"),
+                                                 rs.getString("wiki_page_header"),
+                                                 wikiPageFirstContent.get("0:0").toString(),
+                                                 rs.getString("wiki_page_image"));
         }catch(SQLException e){
             System.out.println("Have a problem while getting WikiPageContentPreview : " + e.getLocalizedMessage());
+        }
+        return null;
+    }
+    public List<WikiPageContentPreview> getAllWikiPagesContentPreview(){
+        try{
+            ps = con.prepareStatement("select * from wikidb.wikipage where verify=true;");
+            rs = ps.executeQuery();
+            List<WikiPageContentPreview> list = new ArrayList<>();
+            while(rs.next()){
+                jsonParser = new JsonParser();
+                JsonObject wikiPageFirstContent = jsonParser.parse(rs.getString("wiki_page_content")).getAsJsonObject();
+                list.add(new WikiPageContentPreview(rs.getInt("wiki_page_id"), rs.getString("wiki_page_header"), wikiPageFirstContent.get("0:0").toString(), rs.getString("wiki_page_image")));
+            }
+            return list;
+        }catch(SQLException e){
+            System.out.println("Have a problem while getting all wikiPageContentPreviews error: " + e.getLocalizedMessage());
         }
         return null;
     }
@@ -366,7 +383,7 @@ public class DBConn {
     }
     public void deleteWikiPage(int id){
         try{
-            ps = con.prepareStatement("delete from wikidb.wikipage where id=?;");
+            ps = con.prepareStatement("delete from wikidb.wikipage where wiki_page_id=?;");
             ps.setInt(1, id);
             ps.executeUpdate();
         }catch(SQLException e){

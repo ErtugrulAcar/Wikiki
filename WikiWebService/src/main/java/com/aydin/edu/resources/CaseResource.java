@@ -18,6 +18,7 @@ public class CaseResource {
     @POST
     @Path("/reject/{caseId}")
     public void rejectCase(@PathParam("caseId")int caseId){
+        System.out.println("Rejecting a Case " + caseId);
         WikiCase wikiCase = dbconn.getAWikiCase(caseId);
         dbconn.deleteWikiCase(caseId);
         dbconn.deleteWikiPage(wikiCase.getWikiPage());

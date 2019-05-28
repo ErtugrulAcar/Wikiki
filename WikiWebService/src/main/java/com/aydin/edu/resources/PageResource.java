@@ -30,6 +30,11 @@ public class PageResource {
     public WikiPageContentPreview getWikiPageContentPreview(@PathParam("wikipageid")int wikipageid){
         return dbconn.getWikiPageContentPreview(wikipageid);
     }
+    @GET
+    @Path("wiki/preview/all")
+    public List<WikiPageContentPreview> getAllWikiPageContentPreviews(){
+        return dbconn.getAllWikiPagesContentPreview();
+    }
 
     @POST
     @Path("/wiki/add")
