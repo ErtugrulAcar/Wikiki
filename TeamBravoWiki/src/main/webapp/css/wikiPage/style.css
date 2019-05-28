@@ -1,0 +1,92 @@
+.smallnames {
+    padding-top: 15px;
+    text-align: start;
+}
+
+.smallimg {
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    float: left;
+
+}
+
+#fotolar {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+#jpg1 {
+
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    background-color: red;
+}
+
+.nav > li > a:hover {
+    background-color: #c1d9ff;
+}
+
+.nav-pills > li.active > a {
+    background-color: #c1d9ff;
+}
+
+.nav-pills > li.active > a:hover {
+    background-color: #c1d9ff;
+}
+
+.nav > li > a {
+    width: 188px;
+    padding: 10px 0px;
+    margin-right: 0px;
+}
+
+a:hover {
+    color: #0645ad;
+}
+
+a {
+    color: #0645ad;
+}
+
+a:visited {
+    color: #0b0080;
+}
+
+.SignButton {
+    height: 40px;
+    width: 160px;
+    border-radius: 5px;
+    background-color: #6f7277;
+    justify-content: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    color: white;
+}
+
+.nav > li > button:hover {
+
+    background-color: #a8adb5;
+}
+
+.shadow {
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.imglogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
