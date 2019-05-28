@@ -1,6 +1,8 @@
 <%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.WikiPageClient" %>
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserImageClient" %>
+<%@ page import="com.aydin.demo.teambravowiki.model.UserInfo" %>
+<%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserProfileClient" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -167,6 +169,7 @@
 			        <section class="section-wrapper section-interest gray-bg">
 			            <div class="container-fluid">
 			                <div id="section2"style="border-bottom: #555555 dotted 1px;" >
+			                        <button type="submit" class="NewWiki" onclick="location.href='/createWiki'">Yeni Wiki Oluştur!</button>
 			                    <div class="row" style="width: 87%; margin: auto;" >
 			                        <div style="width: 100%; float: left;">
 			                        	<a href="wikiPage1">

@@ -206,16 +206,19 @@
 										if(userImage.equals("")){
 											userImage = "img/anonym.jpg";
 										}
+										UserInfo userInfo = UserProfileClient.getUserInfo(loggedUser.getUserid());
+										int userDegree = userInfo.getUserDegree();
 								%>
 							<img id="loginsmallimg" src="<%=userImage%>" onclick="myFunction()" class="dropbtn1">
 							<div id="myDropdown" class="dropdown-content">
 								<div id="dropleft"><img id="imgDrop" src="<%=userImage%>"></div>
 								<div id="dropright">
 									<ul class="ulDrop">
-										<li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>
-										<li class="liMail"><%=loggedUser.getEmail()%></li>
-										<li class="LiAccount"><button type="submit" class="DropBtn1">My Profile</button></li>
-									</ul>
+								<li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>
+								<li class="liMail"><%=loggedUser.getEmail()%></li>
+								<li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/userProfile<%=loggedUser.getUserid()%>'">My Profile</button></li>
+								<%if(userDegree>3){%><li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/cases'">Cases</button></li><%}else{}%>
+							</ul>
 								</div>
 									<div id="dropbottom">
 										<button type="submit" class="LogoutBtn">Log Out</button>

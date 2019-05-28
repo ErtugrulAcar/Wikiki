@@ -1,5 +1,7 @@
 <%@ page import="com.aydin.demo.teambravowiki.model.UserPageContext" %>
 <%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserImageClient" %>
+<%@ page import="com.aydin.demo.teambravowiki.model.UserInfo" %>
+<%@ page import="com.aydin.demo.teambravowiki.webservice.client.UserProfileClient" %>
 <nav class="navbar navbar-inverse shadow navbar-expand-sm" style="height: 60px; background-color: #314152; border: none; border-bottom: grey 1px dotted groove; ">
     <div class="navbar-collapse collapse" style="margin-left: 0px;" >
         <ul class="navbar-nav abs-center-x">
@@ -18,7 +20,10 @@
 								if(userImage.equals("")){
 									userImage = "img/anonym.jpg";
 								}
-						%>
+							UserInfo userInfo = UserProfileClient.getUserInfo(loggedUser.getUserid());
+							int userDegree = userInfo.getUserDegree();
+							%>
+
 					<img id="loginsmallimg" src="<%=userImage%>" onclick="myFunction()" class="dropbtn1">
 					<div id="myDropdown" class="dropdown-content">
 						<div id="dropleft"><img id="imgDrop" src="<%=userImage%>"></div>
@@ -27,6 +32,7 @@
 								<li class="liName"><%=loggedUser.getUsername() + " " + loggedUser.getUserlastname()%></li>
 								<li class="liMail"><%=loggedUser.getEmail()%></li>
 								<li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/userProfile<%=loggedUser.getUserid()%>'">My Profile</button></li>
+								<%if(userDegree>3){%><li class="LiAccount"><button type="submit" class="DropBtn1" onclick="location.href='/cases'">Cases</button></li><%}else{}%>
 							</ul>
 						</div>
 							<div id="dropbottom">

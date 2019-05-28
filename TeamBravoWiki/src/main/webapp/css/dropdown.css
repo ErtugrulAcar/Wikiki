@@ -97,6 +97,23 @@ margin-top:5px;
 	margin-right:66px;
 	cursor:pointer;
 		}
+.NewWiki{
+	   height: 75px;
+    width: 100px;
+    border-radius: 5px;
+    margin-top: 13px;
+    background-color: #8d984b;
+    color: white;
+    border: 5px solid #49617a;
+    font-size: 13px;
+    cursor: pointer;
+    position: absolute;
+}
+.NewWiki:hover{
+    background: linear-gradient(top, #8e0700, #d21b00);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+}
 .nologin{
 	height:35px;
 	width:70px;
