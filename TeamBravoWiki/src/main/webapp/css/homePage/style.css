@@ -156,21 +156,21 @@ body{
 }
 .smallBottomLeft{
 	float : left;
-	width: 46.5%;
+	width: 48.8%;
     margin-top:1%;
     background-color : rgb(49, 65, 82);
     border-radius : 20px;
 }
 .smallBottomLeft2{
     float : left;
-    width: 52.5%;
+    width: 48.5%;
     margin-top:1%;
     background-color : rgb(148, 185, 209);
     border-radius : 20px;
 }
 .smallBottomRight{
     float : left;
-    width: 46.5%;
+    width: 48.5%;
     margin-top:1%;
     margin-left:1%;
     background-color : rgb(49, 65, 82);
@@ -178,10 +178,9 @@ body{
 }
 .smallBottomRight2{
     float : left;
-    width: 52.5%;
+    width: 48.5%;
     margin-top:1%;
     margin-left:1%;
     background-color : rgb(148, 185, 209);
     border-radius : 20px;
 }
-
