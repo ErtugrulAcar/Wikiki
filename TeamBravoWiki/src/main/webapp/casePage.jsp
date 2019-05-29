@@ -77,6 +77,13 @@
                     <td class="text-center">${wikiCase.getWikiName()}</td>
                 </tr>
             </c:forEach>
+            <%if(counter == 0){%>
+                <tr>
+                    <td colspan="5">
+                        You don't have any cases.
+                    </td>
+                </tr>
+            <%}%>
             </tbody>
         </table>
     </div>
